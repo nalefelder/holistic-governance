@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Health Care Solutions | True North Assurance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0b1928; --navy-mid: #122338; --gold: #b8975a; --gold-light: #d4b07a;
+      --cream: #f5f0e8; --white: #ffffff; --text-light: #8a9ab0; --border: rgba(184,151,90,0.2);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--cream); overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; background: rgba(11,25,40,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .logo span { color: var(--gold); }
+    nav ul { list-style: none; display: flex; gap: 2.5rem; }
+    nav ul a { text-decoration: none; color: var(--text-light); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.3s; }
+    nav ul a:hover, nav ul a.active { color: var(--gold); }
+    .nav-cta { padding: 0.6rem 1.6rem; border: 1px solid var(--gold); color: var(--gold) !important; border-radius: 2px; }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+
+    .page-hero { padding: 10rem 4rem 5rem; background: var(--navy-mid); position: relative; border-bottom: 1px solid var(--border); }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(184,151,90,0.06) 0%, transparent 70%); }
+    .breadcrumb { font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 1.5rem; }
+    .page-hero p { color: var(--text-light); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
+
+    section { padding: 5rem 4rem; }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+    .section-label::after { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
+    .section-intro { color: var(--text-light); font-size: 1rem; line-height: 1.8; max-width: 600px; margin-bottom: 3rem; }
+
+    /* SERVICES GRID */
+    .hc-services { background: var(--navy); }
+    .hc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .hc-card { background: var(--navy-mid); border: 1px solid var(--border); padding: 2.5rem 2rem; border-radius: 2px; transition: border-color 0.3s; }
+    .hc-card:hover { border-color: var(--gold); }
+    .hc-card svg { width: 36px; height: 36px; color: var(--gold); margin-bottom: 1.2rem; }
+    .hc-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--white); margin-bottom: 0.8rem; }
+    .hc-card p { color: var(--text-light); font-size: 0.88rem; line-height: 1.75; margin-bottom: 1rem; }
+    .hc-card ul { list-style: none; padding: 0; }
+    .hc-card ul li { color: var(--text-light); font-size: 0.85rem; line-height: 1.7; padding-left: 1rem; position: relative; }
+    .hc-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.7rem; top: 0.15rem; }
+
+    /* SPECIALTY */
+    .specialty { background: var(--navy-mid); }
+    .specialty-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .specialty-card { text-align: center; padding: 2.5rem 1.5rem; border: 1px solid var(--border); border-radius: 2px; }
+    .specialty-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); margin-bottom: 0.8rem; }
+    .specialty-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.7; }
+    .specialty-badge { display: inline-block; padding: 0.3rem 0.8rem; background: rgba(184,151,90,0.1); border: 1px solid var(--gold); color: var(--gold); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; margin-bottom: 1rem; }
+
+    /* CTA */
+    .cta-band { background: var(--gold); padding: 5rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .cta-band h2 { color: var(--navy); font-size: clamp(1.8rem, 3vw, 2.8rem); max-width: 520px; margin-bottom: 0; }
+    .btn-dark { display: inline-block; padding: 1rem 2.4rem; background: var(--navy); color: var(--cream); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; white-space: nowrap; }
+    .btn-dark:hover { background: var(--navy-mid); }
+
+    footer { background: #070f18; padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); }
+    .footer-logo span { color: var(--gold); }
+    footer p { font-size: 0.78rem; color: var(--text-light); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; } nav ul { display: none; }
+      .page-hero, section { padding: 6rem 1.5rem 3rem; }
+      .hc-grid, .specialty-grid { grid-template-columns: 1fr; }
+      .cta-band { flex-direction: column; text-align: center; padding: 3rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">True North <span>Assurance</span></a>
+  <ul>
+    <li><a href="index.html#solutions">Solutions</a></li>
+    <li><a href="healthcare.html" class="active">Health Care</a></li>
+    <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
+    <li><a href="mailto:hello@truenorthassurance.com" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> / Health Care Solutions</div>
+  <h1>Health Care Sector Specific Solutions</h1>
+  <p>Specialised governance, compliance, analytics and advisory services purpose-built for healthcare organisations — from aged care providers to digital health innovators.</p>
+</div>
+
+<!-- SERVICES -->
+<section class="hc-services">
+  <div class="section-label">Health Care Services</div>
+  <h2>Our Health Care Offerings</h2>
+  <p class="section-intro">From reporting dashboards to FHIR advisory, we provide comprehensive support across the full spectrum of health care governance and data needs.</p>
+  <div class="hc-grid">
+
+    <div class="hc-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      <h3>Reporting & Dashboards</h3>
+      <p>Custom-built dashboards for quality, risk, incidents, complaints, audits, consumer outcomes, and workforce trends.</p>
+      <ul>
+        <li>Power BI or Excel based builds depending on data maturity</li>
+        <li>Automated data inputs where possible</li>
+        <li>Drill down functionality for root causes and high-risk areas</li>
+        <li>Board ready reporting with traffic light indicators</li>
+        <li>Training to support interpreting and actioning insights</li>
+      </ul>
+    </div>
+
+    <div class="hc-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      <h3>Agency & Interim Support</h3>
+      <p>Flexible support for quality, safety & compliance when you need it most. Short and long-term contracts to support aged care providers with unforeseen vacancies.</p>
+      <ul>
+        <li>General & clinical management support</li>
+        <li>Coaching and mentoring for emerging leaders</li>
+        <li>Step-in support during transitions</li>
+      </ul>
+    </div>
+
+    <div class="hc-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      <h3>FHIR Advisory</h3>
+      <p>Advising on digital health interoperability standards and the integration of clinical systems.</p>
+      <ul>
+        <li>Clinical-Technical Translation</li>
+        <li>Interoperability & Standards Advisory</li>
+        <li>Clinical Governance & Data Integrity</li>
+        <li>Digital Product & Solution Design</li>
+      </ul>
+    </div>
+
+    <div class="hc-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+      <h3>Consultancy & Advisory</h3>
+      <p>Expert guidance across governance, risk, compliance, and digital health transformation.</p>
+      <ul>
+        <li>Interim Governance Leadership</li>
+        <li>Accreditation & Compliance Readiness</li>
+        <li>Clinical Governance Oversight</li>
+        <li>Clinical Incident Review & RCA</li>
+        <li>Consumer engagement and feedback systems</li>
+        <li>Project-Based Support</li>
+        <li>Technical & Digital Health Advisory</li>
+      </ul>
+    </div>
+
+    <div class="hc-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      <h3>Audits</h3>
+      <p>Ensure your organisation meets and exceeds its regulatory obligations with credible, independent audit support.</p>
+      <ul>
+        <li>Aged Care Quality Standards (ACQS)</li>
+        <li>National Safety and Quality Health Service Standards (NSQHS)</li>
+        <li>Clinical Governance and Risk Management frameworks</li>
+        <li>Work Health & Safety and Infection Prevention requirements</li>
+        <li>Quality Indicator Program</li>
+      </ul>
+    </div>
+
+    <div class="hc-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+      <h3>Validated Assessment Tool Training</h3>
+      <p>Building capability in your team through structured training on validated assessment tools and frameworks used in aged care and healthcare settings.</p>
+    </div>
+
+    <div class="hc-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+      <h3>Bespoke Education</h3>
+      <p>Tailored education and training programs designed around your team's needs, your regulatory context, and your organisational goals.</p>
+    </div>
+
+    <div class="hc-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      <h3>Continuous Improvement</h3>
+      <p>Supporting your organisation to embed a culture of continuous improvement — turning data insights into sustained quality outcomes.</p>
+    </div>
+
+    <div class="hc-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
+      <h3>Policy and Procedure</h3>
+      <p>Development, review and endorsement of policies and procedures aligned to current regulatory requirements and best practice standards.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPECIALTY AREAS -->
+<section class="specialty">
+  <div class="section-label">Specialty Areas</div>
+  <h2>Regulatory Frameworks We Work In</h2>
+  <p class="section-intro">Our team has deep expertise across the key standards and frameworks governing Australian health care.</p>
+  <div class="specialty-grid">
+    <div class="specialty-card">
+      <div class="specialty-badge">Aged Care</div>
+      <h4>Strengthened Quality Standards</h4>
+      <p>Aged Care Quality and Safety Commission — new strengthened standards for aged care providers.</p>
+    </div>
+    <div class="specialty-card">
+      <div class="specialty-badge">Quality Indicator</div>
+      <h4>Quality Indicator Program</h4>
+      <p>National Aged Care Mandatory Quality Indicator Program (QI Program) Manual 4.0.</p>
+    </div>
+    <div class="specialty-card">
+      <div class="specialty-badge">Interoperability</div>
+      <h4>FHIR Standards</h4>
+      <p>Fast Healthcare Interoperability Resources — the standard for health care data exchange published by HL7.</p>
+    </div>
+    <div class="specialty-card">
+      <div class="specialty-badge">Safety & Quality</div>
+      <h4>NSQHS Standards</h4>
+      <p>National Safety and Quality Health Service Standards Second edition — 2021.</p>
+    </div>
+    <div class="specialty-card">
+      <div class="specialty-badge">Clinical</div>
+      <h4>Clinical Care Standards</h4>
+      <p>Standards that describe the care people can expect to be offered for specific clinical conditions across Australia.</p>
+    </div>
+    <div class="specialty-card">
+      <div class="specialty-badge">Bespoke</div>
+      <h4>Other</h4>
+      <p>We work with you on a personalised approach to achieve your specific goals and regulatory requirements.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Ready to strengthen your health care governance?</h2>
+  <a href="mailto:hello@truenorthassurance.com" class="btn-dark">Enquire Now</a>
+</div>
+
+<footer>
+  <div class="footer-logo">True North <span>Assurance</span></div>
+  <p>© 2025 True North Assurance. All rights reserved.</p>
+  <p>hello@truenorthassurance.com</p>
+</footer>
+
+</body>
+</html>
