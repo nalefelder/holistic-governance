@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>News & Sector Updates | True North Assurance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0b1928; --navy-mid: #122338; --gold: #b8975a; --gold-light: #d4b07a;
+      --cream: #f5f0e8; --white: #ffffff; --text-light: #8a9ab0; --border: rgba(184,151,90,0.2);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--cream); overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; background: rgba(11,25,40,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .logo span { color: var(--gold); }
+    nav ul { list-style: none; display: flex; gap: 2.5rem; }
+    nav ul a { text-decoration: none; color: var(--text-light); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.3s; }
+    nav ul a:hover, nav ul a.active { color: var(--gold); }
+    .nav-cta { padding: 0.6rem 1.6rem; border: 1px solid var(--gold); color: var(--gold) !important; border-radius: 2px; }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+
+    .page-hero { padding: 10rem 4rem 5rem; background: var(--navy-mid); position: relative; border-bottom: 1px solid var(--border); }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(184,151,90,0.06) 0%, transparent 70%); }
+    .breadcrumb { font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 1.5rem; }
+    .page-hero p { color: var(--text-light); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
+
+    section { padding: 5rem 4rem; }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+    .section-label::after { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
+
+    /* FILTERS */
+    .news-section { background: var(--navy); }
+    .filter-bar { display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .filter-btn { padding: 0.5rem 1.2rem; border: 1px solid var(--border); background: transparent; color: var(--text-light); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: all 0.3s; font-family: 'DM Sans', sans-serif; }
+    .filter-btn:hover, .filter-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(184,151,90,0.08); }
+
+    /* FEATURED */
+    .featured-article { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--border); margin-bottom: 3rem; }
+    .featured-img { background: var(--navy-mid); min-height: 320px; display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--border); }
+    .featured-img svg { width: 80px; height: 80px; color: var(--gold); opacity: 0.2; }
+    .featured-body { padding: 3rem; }
+    .article-tag { display: inline-block; padding: 0.3rem 0.8rem; background: rgba(184,151,90,0.1); border: 1px solid var(--border); color: var(--gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; margin-bottom: 1.2rem; }
+    .featured-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--white); font-weight: 300; margin-bottom: 1rem; line-height: 1.2; }
+    .featured-body p { color: var(--text-light); font-size: 0.92rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .article-meta { font-size: 0.78rem; color: var(--text-light); margin-bottom: 1.5rem; }
+    .article-meta span { color: var(--gold); }
+    .read-more { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; transition: border-color 0.3s; }
+    .read-more:hover { border-color: var(--gold); }
+
+    /* ARTICLES GRID */
+    .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .article-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; transition: border-color 0.3s; }
+    .article-card:hover { border-color: var(--gold); }
+    .article-card-img { background: var(--navy); height: 180px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); }
+    .article-card-img svg { width: 48px; height: 48px; color: var(--gold); opacity: 0.2; }
+    .article-card-body { padding: 1.8rem; }
+    .article-card-body h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--white); font-weight: 400; margin-bottom: 0.8rem; line-height: 1.3; }
+    .article-card-body p { font-size: 0.85rem; color: var(--text-light); line-height: 1.75; margin-bottom: 1.2rem; }
+
+    /* SECTOR UPDATES */
+    .sector-updates { background: var(--navy-mid); }
+    .updates-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .update-item { padding: 2rem; border: 1px solid var(--border); border-radius: 2px; display: flex; gap: 1.5rem; align-items: flex-start; transition: border-color 0.3s; }
+    .update-item:hover { border-color: var(--gold); }
+    .update-date { flex-shrink: 0; text-align: center; width: 56px; }
+    .update-date .day { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--gold); font-weight: 300; line-height: 1; }
+    .update-date .month { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); }
+    .update-body h4 { font-size: 0.95rem; font-weight: 500; color: var(--white); margin-bottom: 0.5rem; }
+    .update-body p { font-size: 0.85rem; color: var(--text-light); line-height: 1.7; }
+    .update-tag { display: inline-block; margin-top: 0.8rem; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--border); padding: 0.2rem 0.6rem; border-radius: 2px; }
+
+    /* NEWSLETTER */
+    .newsletter { background: var(--navy); }
+    .newsletter-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+    .newsletter-inner h2 { margin-bottom: 1rem; }
+    .newsletter-inner p { color: var(--text-light); font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; }
+    .newsletter-form { display: flex; gap: 1rem; }
+    .newsletter-form input { flex: 1; padding: 0.9rem 1.2rem; background: var(--navy-mid); border: 1px solid var(--border); color: var(--cream); font-size: 0.9rem; border-radius: 2px; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.3s; }
+    .newsletter-form input:focus { border-color: var(--gold); }
+    .newsletter-form input::placeholder { color: var(--text-light); }
+    .btn-gold { padding: 0.9rem 2rem; background: var(--gold); color: var(--navy); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 2px; cursor: pointer; white-space: nowrap; font-family: 'DM Sans', sans-serif; transition: background 0.3s; }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    /* CTA */
+    .cta-band { background: var(--gold); padding: 5rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .cta-band h2 { color: var(--navy); font-size: clamp(1.8rem, 3vw, 2.8rem); max-width: 520px; margin-bottom: 0; }
+    .btn-dark { display: inline-block; padding: 1rem 2.4rem; background: var(--navy); color: var(--cream); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; white-space: nowrap; }
+    .btn-dark:hover { background: var(--navy-mid); }
+
+    footer { background: #070f18; padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); }
+    .footer-logo span { color: var(--gold); }
+    footer p { font-size: 0.78rem; color: var(--text-light); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; } nav ul { display: none; }
+      .page-hero, section { padding: 6rem 1.5rem 3rem; }
+      .featured-article, .articles-grid, .updates-grid { grid-template-columns: 1fr; }
+      .featured-img { border-right: none; border-bottom: 1px solid var(--border); }
+      .newsletter-form { flex-direction: column; }
+      .cta-band { flex-direction: column; text-align: center; padding: 3rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">True North <span>Assurance</span></a>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="healthcare.html">Health Care</a></li>
+    <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
+    <li><a href="news.html" class="active">News</a></li>
+    <li><a href="/cdn-cgi/l/email-protection#bad2dfd6d6d5facec8cfdfd4d5c8ced2dbc9c9cfc8dbd4d9df94d9d5d7" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> / News & Sector Updates</div>
+  <h1>News & Sector Updates</h1>
+  <p>Stay informed on the latest developments in data governance, healthcare regulation, and competitive intelligence. Insights from the True North Assurance team.</p>
+</div>
+
+<!-- NEWS -->
+<section class="news-section">
+  <div class="section-label">Latest Articles</div>
+  <h2>Insights & Updates</h2>
+
+  <div class="filter-bar" style="margin-top:2rem;">
+    <button class="filter-btn active">All</button>
+    <button class="filter-btn">Data Governance</button>
+    <button class="filter-btn">Health Care</button>
+    <button class="filter-btn">Competitor Analytics</button>
+    <button class="filter-btn">Compliance</button>
+    <button class="filter-btn">Industry News</button>
+  </div>
+
+  <!-- FEATURED -->
+  <div class="featured-article">
+    <div class="featured-img">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    </div>
+    <div class="featured-body">
+      <div class="article-tag">Featured — Data Governance</div>
+      <div class="article-meta">February 2025 · <span>True North Assurance</span></div>
+      <h3>Understanding the New Strengthened Aged Care Quality Standards</h3>
+      <p>The Aged Care Quality and Safety Commission has introduced strengthened quality standards that represent a significant shift in how aged care providers are assessed and held accountable. We break down what these changes mean for your organisation.</p>
+      <a href="#" class="read-more">Read Article →</a>
+    </div>
+  </div>
+
+  <!-- ARTICLES GRID -->
+  <div class="articles-grid">
+    <div class="article-card">
+      <div class="article-card-img">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>
+      </div>
+      <div class="article-card-body">
+        <div class="article-tag">Competitor Analytics</div>
+        <div class="article-meta" style="margin-bottom:0.8rem;">January 2025</div>
+        <h4>How AI is Reshaping Competitive Intelligence in 2025</h4>
+        <p>The way businesses monitor competitors is evolving rapidly. We explore how AI-powered tools are transforming competitive intelligence from reactive reporting to proactive strategy.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-card-img">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="article-card-body">
+        <div class="article-tag">Compliance</div>
+        <div class="article-meta" style="margin-bottom:0.8rem;">January 2025</div>
+        <h4>NSQHS Standards Second Edition: Key Changes for 2025</h4>
+        <p>A practical guide to understanding the updated National Safety and Quality Health Service Standards and what your organisation needs to do to maintain accreditation.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-card-img">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <div class="article-card-body">
+        <div class="article-tag">Health Care</div>
+        <div class="article-meta" style="margin-bottom:0.8rem;">December 2024</div>
+        <h4>FHIR Interoperability: What Healthcare Leaders Need to Know</h4>
+        <p>Fast Healthcare Interoperability Resources (FHIR) is becoming the backbone of digital health. We explain what it means for your organisation and how to prepare.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-card-img">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div class="article-card-body">
+        <div class="article-tag">Data Governance</div>
+        <div class="article-meta" style="margin-bottom:0.8rem;">December 2024</div>
+        <h4>Building a Data Governance Framework From Scratch</h4>
+        <p>Where do you start when your organisation has never had a formal data governance program? Our step-by-step guide to building foundations that actually work.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-card-img">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      </div>
+      <div class="article-card-body">
+        <div class="article-tag">Industry News</div>
+        <div class="article-meta" style="margin-bottom:0.8rem;">November 2024</div>
+        <h4>The Quality Indicator Program — Manual 4.0 Explained</h4>
+        <p>The National Aged Care Mandatory Quality Indicator Program Manual 4.0 introduces new indicators and reporting requirements. Here is what has changed.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
+    </div>
+    <div class="article-card">
+      <div class="article-card-img">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <div class="article-card-body">
+        <div class="article-tag">Data Governance</div>
+        <div class="article-meta" style="margin-bottom:0.8rem;">November 2024</div>
+        <h4>Why Data Quality Is the Foundation of Every AI Initiative</h4>
+        <p>Organisations rushing to adopt AI are discovering a hard truth — AI is only as good as the data behind it. We explore why data quality governance is more critical than ever.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTOR UPDATES -->
+<section class="sector-updates">
+  <div class="section-label">Regulatory & Sector</div>
+  <h2>Recent Sector Updates</h2>
+  <p style="color:var(--text-light);font-size:1rem;line-height:1.8;max-width:560px;margin-bottom:3rem;">Key regulatory and industry developments relevant to our clients across health care and data governance.</p>
+  <div class="updates-grid">
+    <div class="update-item">
+      <div class="update-date"><div class="day">18</div><div class="month">Feb</div></div>
+      <div class="update-body">
+        <h4>Aged Care Quality Standards — Strengthened Standards Now in Effect</h4>
+        <p>The new strengthened aged care quality standards commenced, introducing stronger accountability measures for providers across Australia.</p>
+        <div class="update-tag">Aged Care</div>
+      </div>
+    </div>
+    <div class="update-item">
+      <div class="update-date"><div class="day">12</div><div class="month">Feb</div></div>
+      <div class="update-body">
+        <h4>ACQS Commission Releases Updated Provider Guidance</h4>
+        <p>The Aged Care Quality and Safety Commission has published updated guidance for providers navigating the new standards framework.</p>
+        <div class="update-tag">Compliance</div>
+      </div>
+    </div>
+    <div class="update-item">
+      <div class="update-date"><div class="day">05</div><div class="month">Feb</div></div>
+      <div class="update-body">
+        <h4>Digital Health Agency Publishes FHIR Implementation Guide</h4>
+        <p>The Australian Digital Health Agency has released updated FHIR implementation guidance for healthcare providers and vendors.</p>
+        <div class="update-tag">Digital Health</div>
+      </div>
+    </div>
+    <div class="update-item">
+      <div class="update-date"><div class="day">28</div><div class="month">Jan</div></div>
+      <div class="update-body">
+        <h4>QI Program Manual 4.0 — New Indicators Active</h4>
+        <p>New mandatory quality indicators under Manual 4.0 are now active for reporting. Providers must ensure their systems capture the updated data requirements.</p>
+        <div class="update-tag">Quality</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <div class="section-label" style="justify-content:center;">Stay Informed</div>
+    <h2>Get Sector Updates Delivered</h2>
+    <p>Subscribe to receive our latest articles, regulatory updates, and sector insights directly to your inbox. No spam — just relevant, timely information.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Your email address" />
+      <button class="btn-gold">Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Want to discuss how these developments affect your organisation?</h2>
+  <a href="/cdn-cgi/l/email-protection#5c34393030331c282e293932332e28343d2f2f292e3d323f39723f3331" class="btn-dark">Get in Touch</a>
+</div>
+
+<footer>
+  <div class="footer-logo">True North <span>Assurance</span></div>
+  <p>© 2025 True North Assurance. All rights reserved.</p>
+  <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e464b4242416e5a5c5b4b40415c5a464f5d5d5b5c4f404d4b004d4143">[email&#160;protected]</a></p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/sc

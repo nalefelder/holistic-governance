@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | True North Assurance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0b1928; --navy-mid: #122338; --gold: #b8975a; --gold-light: #d4b07a;
+      --cream: #f5f0e8; --white: #ffffff; --text-light: #8a9ab0; --border: rgba(184,151,90,0.2);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--cream); overflow-x: hidden; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; background: rgba(11,25,40,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .logo span { color: var(--gold); }
+    nav ul { list-style: none; display: flex; gap: 2.5rem; }
+    nav ul a { text-decoration: none; color: var(--text-light); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.3s; }
+    nav ul a:hover, nav ul a.active { color: var(--gold); }
+    .nav-cta { padding: 0.6rem 1.6rem; border: 1px solid var(--gold); color: var(--gold) !important; border-radius: 2px; }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+
+    .page-hero { padding: 10rem 4rem 5rem; background: var(--navy-mid); position: relative; border-bottom: 1px solid var(--border); }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(184,151,90,0.06) 0%, transparent 70%); }
+    .breadcrumb { font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
+    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 1.5rem; }
+    .page-hero p { color: var(--text-light); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
+
+    section { padding: 5rem 4rem; }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+    .section-label::after { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
+
+    /* VISION & MISSION */
+    .vision-mission { background: var(--navy); }
+    .vm-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .vm-card { padding: 3rem; border: 1px solid var(--border); border-radius: 2px; position: relative; }
+    .vm-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); }
+    .vm-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--white); font-weight: 300; margin-bottom: 1.5rem; }
+    .vm-card blockquote { border-left: 3px solid var(--gold); padding-left: 1.5rem; }
+    .vm-card blockquote p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: var(--cream); line-height: 1.7; }
+
+    /* VALUES */
+    .values { background: var(--navy-mid); }
+    .values-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .values-intro { color: var(--text-light); font-size: 1rem; line-height: 1.8; margin-bottom: 2.5rem; max-width: 480px; }
+    .value-list { display: flex; flex-direction: column; gap: 2rem; }
+    .value-item { display: flex; gap: 1.5rem; align-items: flex-start; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .value-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .value-icon { width: 44px; height: 44px; background: rgba(184,151,90,0.1); border: 1px solid var(--border); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .value-icon svg { width: 22px; height: 22px; color: var(--gold); }
+    .value-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 0.4rem; font-weight: 400; }
+    .value-item p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+    .values-visual { position: relative; }
+    .values-box-stack { position: relative; height: 420px; }
+    .vbox { position: absolute; border: 1px solid var(--border); background: var(--navy); }
+    .vbox:nth-child(1) { inset: 0 15% 15% 0; }
+    .vbox:nth-child(2) { inset: 15% 0 0 15%; background: rgba(184,151,90,0.04); }
+    .vbox-gold { position: absolute; top: 38%; left: 38%; width: 80px; height: 80px; background: var(--gold); display: flex; align-items: center; justify-content: center; }
+    .vbox-gold svg { width: 36px; height: 36px; color: var(--navy); }
+    .explore-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--gold); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; transition: border-color 0.3s; }
+    .explore-link:hover { border-color: var(--gold); }
+
+    /* APPROACH */
+    .approach { background: var(--navy); }
+    .approach-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--border); }
+    .approach-step { padding: 2.5rem 2rem; border-right: 1px solid var(--border); position: relative; }
+    .approach-step:last-child { border-right: none; }
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: rgba(184,151,90,0.15); font-weight: 300; line-height: 1; margin-bottom: 1rem; }
+    .approach-step h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); margin-bottom: 0.8rem; font-weight: 400; }
+    .approach-step p { font-size: 0.85rem; color: var(--text-light); line-height: 1.75; }
+
+    /* CTA */
+    .cta-band { background: var(--gold); padding: 5rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .cta-band h2 { color: var(--navy); font-size: clamp(1.8rem, 3vw, 2.8rem); max-width: 520px; margin-bottom: 0; }
+    .btn-dark { display: inline-block; padding: 1rem 2.4rem; background: var(--navy); color: var(--cream); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; white-space: nowrap; }
+    .btn-dark:hover { background: var(--navy-mid); }
+
+    footer { background: #070f18; padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); }
+    .footer-logo span { color: var(--gold); }
+    footer p { font-size: 0.78rem; color: var(--text-light); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; } nav ul { display: none; }
+      .page-hero, section { padding: 6rem 1.5rem 3rem; }
+      .vm-layout, .values-layout, .approach-steps { grid-template-columns: 1fr; }
+      .values-visual { display: none; }
+      .cta-band { flex-direction: column; text-align: center; padding: 3rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">True North <span>Assurance</span></a>
+  <ul>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="healthcare.html">Health Care</a></li>
+    <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="mailto:hello@truenorthassurance.com" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> / About Us</div>
+  <h1>About True North Assurance</h1>
+  <p>We are a governance and data consultancy committed to improving clarity and confidence in organisations — helping them harness data and technology to drive efficiency and best practice outcomes.</p>
+</div>
+
+<!-- VISION & MISSION -->
+<section class="vision-mission">
+  <div class="section-label">Who We Are</div>
+  <h2>Our Vision & Mission</h2>
+  <div class="vm-layout" style="margin-top:2.5rem;">
+    <div class="vm-card">
+      <h3>Vision</h3>
+      <blockquote>
+        <p>Improve clarity and confidence in governance — shaping a future where data and technology drive efficiencies and best practice outcomes.</p>
+      </blockquote>
+    </div>
+    <div class="vm-card">
+      <h3>Mission Statement</h3>
+      <blockquote>
+        <p>Strive to offer the best available services underpinned by perspective, technology and data driven insight.</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="section-label">What We Stand For</div>
+  <h2>Our Values</h2>
+  <div class="values-layout" style="margin-top:2.5rem;">
+    <div>
+      <p class="values-intro">Our values are not aspirational statements — they are the principles that guide every engagement, every recommendation, and every relationship we build.</p>
+      <div class="value-list">
+        <div class="value-item">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg>
+          </div>
+          <div>
+            <h4>Tailored</h4>
+            <p>Custom solutions and builds, tailored to your services, team and risks. No two organisations are the same — and neither are our solutions.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>
+          </div>
+          <div>
+            <h4>Data Driven</h4>
+            <p>Visible governance and data driven decision making capability. We believe decisions should be grounded in evidence, not assumption.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <div>
+            <h4>Metrics & Outcomes</h4>
+            <p>Real-time tracking, oversight and continuous improvement. We measure what matters and ensure results are visible and sustained.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div>
+            <h4>Challenge Established Ways</h4>
+            <p>A multitude of perspectives to ensure best practice and sustainability. We are not afraid to question the status quo in pursuit of better outcomes.</p>
+          </div>
+        </div>
+      </div>
+      <a href="index.html#solutions" class="explore-link">Explore Our Solutions →</a>
+    </div>
+    <div class="values-visual">
+      <div class="values-box-stack">
+        <div class="vbox"></div>
+        <div class="vbox"></div>
+        <div class="vbox-gold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach">
+  <div class="section-label">How We Work</div>
+  <h2>Our Approach</h2>
+  <p style="color:var(--text-light);font-size:1rem;line-height:1.8;max-width:560px;margin-bottom:3rem;">A structured path to meaningful, lasting outcomes — built around your context, your people, and your goals.</p>
+  <div class="approach-steps">
+    <div class="approach-step">
+      <div class="step-num">01</div>
+      <h4>Discover & Assess</h4>
+      <p>We begin by deeply understanding your current data landscape, governance maturity, and strategic priorities through structured discovery workshops.</p>
+    </div>
+    <div class="approach-step">
+      <div class="step-num">02</div>
+      <h4>Design & Align</h4>
+      <p>Working collaboratively with your teams, we design frameworks and solutions tailored to your organisation's structure, culture, and regulatory context.</p>
+    </div>
+    <div class="approach-step">
+      <div class="step-num">03</div>
+      <h4>Implement & Embed</h4>
+      <p>We move beyond strategy into delivery — standing up governance functions, building analytics capabilities, and embedding practices that last.</p>
+    </div>
+    <div class="approach-step">
+      <div class="step-num">04</div>
+      <h4>Sustain & Evolve</h4>
+      <p>Through ongoing assurance reviews and advisory support, we help your organisation continuously improve and adapt as your data environment evolves.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Ready to work with True North Assurance?</h2>
+  <a href="mailto:hello@truenorthassurance.com" class="btn-dark">Get in Touch</a>
+</div>
+
+<footer>
+  <div class="footer-logo">True North <span>Assurance</span></div>
+  <p>© 2025 True North Assurance. All rights reserved.</p>
+  <p>hello@truenorthassurance.com</p>
+</footer>
+
+</body>
+</html>
