@@ -9,32 +9,32 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy: #0b1928; --navy-mid: #122338; --gold: #b8975a; --gold-light: #d4b07a;
-      --cream: #f5f0e8; --white: #ffffff; --text-light: #8a9ab0; --border: rgba(184,151,90,0.2);
+      --bg: #f4f7fb; --bg2: #e8eef6; --bg3: #ffffff; --navy: #1a2e4a; --navy-mid: #243b5a; --blue: #2563eb; --blue-light: #4a80f0; --blue-pale: #dbeafe;
+      --text: #1a2e4a; --text-mid: #3d5478; --text-light: #6b85a8; --border: rgba(37,99,235,0.15);
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--cream); overflow-x: hidden; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); overflow-x: hidden; }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; background: rgba(11,25,40,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 4rem; background: rgba(15,23,42,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
     .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
-    .logo span { color: var(--gold); }
+    .logo span { color: var(--sky); }
     nav ul { list-style: none; display: flex; gap: 2.5rem; }
     nav ul a { text-decoration: none; color: var(--text-light); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.3s; }
-    nav ul a:hover, nav ul a.active { color: var(--gold); }
-    .nav-cta { padding: 0.6rem 1.6rem; border: 1px solid var(--gold); color: var(--gold) !important; border-radius: 2px; }
-    .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+    nav ul a:hover, nav ul a.active { color: var(--sky); }
+    .nav-cta { padding: 0.6rem 1.6rem; border: 1px solid var(--sky); color: var(--sky) !important; border-radius: 2px; }
+    .nav-cta:hover { background: var(--sky) !important; color: var(--navy) !important; }
 
     .page-hero { padding: 10rem 4rem 5rem; background: var(--navy-mid); position: relative; border-bottom: 1px solid var(--border); }
-    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(184,151,90,0.06) 0%, transparent 70%); }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(56,189,248,0.06) 0%, transparent 70%); }
     .breadcrumb { font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
-    .breadcrumb a { color: var(--gold); text-decoration: none; }
+    .breadcrumb a { color: var(--sky); text-decoration: none; }
     .breadcrumb a:hover { text-decoration: underline; }
     .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 1.5rem; }
     .page-hero p { color: var(--text-light); font-size: 1.05rem; line-height: 1.8; max-width: 600px; }
 
     section { padding: 5rem 4rem; }
-    .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
-    .section-label::after { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sky); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+    .section-label::after { content: ''; display: block; width: 30px; height: 1px; background: var(--sky); }
     h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
     .section-intro { color: var(--text-light); font-size: 1rem; line-height: 1.8; max-width: 600px; margin-bottom: 3rem; }
 
@@ -42,13 +42,13 @@
     .hc-services { background: var(--navy); }
     .hc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .hc-card { background: var(--navy-mid); border: 1px solid var(--border); padding: 2.5rem 2rem; border-radius: 2px; transition: border-color 0.3s; }
-    .hc-card:hover { border-color: var(--gold); }
-    .hc-card svg { width: 36px; height: 36px; color: var(--gold); margin-bottom: 1.2rem; }
+    .hc-card:hover { border-color: var(--sky); }
+    .hc-card svg { width: 36px; height: 36px; color: var(--sky); margin-bottom: 1.2rem; }
     .hc-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--white); margin-bottom: 0.8rem; }
     .hc-card p { color: var(--text-light); font-size: 0.88rem; line-height: 1.75; margin-bottom: 1rem; }
     .hc-card ul { list-style: none; padding: 0; }
     .hc-card ul li { color: var(--text-light); font-size: 0.85rem; line-height: 1.7; padding-left: 1rem; position: relative; }
-    .hc-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: 0.7rem; top: 0.15rem; }
+    .hc-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--sky); font-size: 0.7rem; top: 0.15rem; }
 
     /* SPECIALTY */
     .specialty { background: var(--navy-mid); }
@@ -56,17 +56,17 @@
     .specialty-card { text-align: center; padding: 2.5rem 1.5rem; border: 1px solid var(--border); border-radius: 2px; }
     .specialty-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); margin-bottom: 0.8rem; }
     .specialty-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.7; }
-    .specialty-badge { display: inline-block; padding: 0.3rem 0.8rem; background: rgba(184,151,90,0.1); border: 1px solid var(--gold); color: var(--gold); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; margin-bottom: 1rem; }
+    .specialty-badge { display: inline-block; padding: 0.3rem 0.8rem; background: rgba(56,189,248,0.08); border: 1px solid var(--sky); color: var(--sky); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; margin-bottom: 1rem; }
 
     /* CTA */
-    .cta-band { background: var(--gold); padding: 5rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-    .cta-band h2 { color: var(--navy); font-size: clamp(1.8rem, 3vw, 2.8rem); max-width: 520px; margin-bottom: 0; }
-    .btn-dark { display: inline-block; padding: 1rem 2.4rem; background: var(--navy); color: var(--cream); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; white-space: nowrap; }
+    .cta-band { background: var(--sky); padding: 5rem 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .cta-band h2 { color: #0f172a; font-size: clamp(1.8rem, 3vw, 2.8rem); max-width: 520px; margin-bottom: 0; }
+    .btn-dark { display: inline-block; padding: 1rem 2.4rem; background: var(--navy); color: var(--text); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; white-space: nowrap; }
     .btn-dark:hover { background: var(--navy-mid); }
 
-    footer { background: #070f18; padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
+    footer { background: #070d1a; padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
     .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); }
-    .footer-logo span { color: var(--gold); }
+    .footer-logo span { color: var(--sky); }
     footer p { font-size: 0.78rem; color: var(--text-light); }
 
     @media (max-width: 900px) {
