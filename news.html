@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>News & Sector Updates | Holistic Governance</title>
+  <meta name="description" content="Stay informed on the latest developments in governance, healthcare regulation, data intelligence, and competitive insights from Holistic Governance." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -130,8 +131,9 @@
     .footer-logo span { color: var(--sky); }
     footer p { font-size: 0.78rem; color: var(--text-light); }
 
+    .hamburger { display: none; background: none; border: 1px solid var(--border); color: var(--sky); width: 40px; height: 40px; font-size: 1.4rem; cursor: pointer; border-radius: 2px; }
     @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.5rem; } nav ul { display: none; }
+      nav { padding: 1.2rem 1.5rem; } nav ul { display: none; position: fixed; top: 62px; left: 0; right: 0; background: rgba(15,23,42,0.98); flex-direction: column; padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border); } nav ul.open { display: flex; } .hamburger { display: block; }
       .page-hero, section { padding: 6rem 1.5rem 3rem; }
       .featured-article, .articles-grid, .updates-grid { grid-template-columns: 1fr; }
       .featured-img { border-right: none; border-bottom: 1px solid var(--border); }
@@ -145,13 +147,13 @@
 
 <nav>
   <a href="index.html" class="logo">Holistic <span>Governance</span></a>
+  <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
   <ul>
     <li><a href="about.html">About</a></li>
     <li><a href="healthcare.html">Health Care</a></li>
     <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
     <li><a href="news.html" class="active">News</a></li>
     <li><a href="mailto:hello@holisticgovernance.com" class="nav-cta">Contact</a></li>
-    <li><a href="admin.html" style="color:var(--sky);opacity:0.5;font-size:0.7rem;">Admin</a></li>
   </ul>
 </nav>
 

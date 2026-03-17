@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Health Care Solutions | Holistic Governance</title>
+    <meta name="description" content="Governance, compliance, and data solutions for healthcare organisations. Specialising in aged care quality standards, NSQHS, and FHIR interoperability." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap"
@@ -326,13 +327,16 @@
         color: var(--text-light);
       }
 
+      .hamburger { display: none; background: none; border: 1px solid var(--border); color: var(--sky); width: 40px; height: 40px; font-size: 1.4rem; cursor: pointer; border-radius: 2px; }
       @media (max-width: 900px) {
         nav {
           padding: 1.2rem 1.5rem;
         }
         nav ul {
-          display: none;
+          display: none; position: fixed; top: 62px; left: 0; right: 0; background: rgba(15,23,42,0.98); flex-direction: column; padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border);
         }
+        nav ul.open { display: flex; }
+        .hamburger { display: block; }
         .page-hero,
         section {
           padding: 6rem 1.5rem 3rem;
@@ -358,13 +362,15 @@
   <body>
     <nav>
       <a href="index.html" class="logo">Holistic <span>Governance</span></a>
+      <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
       <ul>
-        <li><a href="index.html#solutions">Solutions</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="healthcare.html" class="active">Health Care</a></li>
         <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
+        <li><a href="news.html">News</a></li>
         <li>
           <a
-            href="/cdn-cgi/l/email-protection#157d7079797a55616760707b7a67617d7466666067747b76703b767a78"
+            href="mailto:hello@holisticgovernance.com"
             class="nav-cta"
             >Contact</a
           >

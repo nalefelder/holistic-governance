@@ -108,7 +108,7 @@
 
 <div class="admin-header">
   <h1>Holistic <span>Governance</span> — Admin</h1>
-  <a href="/news.html" target="_blank">← View Live Site</a>
+  <a href="/news.html" target="_blank" rel="noopener noreferrer">← View Live Site</a>
 </div>
 
 <div class="admin-body">
@@ -207,6 +207,12 @@
   let isNew = false;
   let updates = [];
 
+  // Auth credentials are sent automatically by the browser via the Basic Auth
+  // prompt when loading admin.html. We capture them for API calls.
+  function authHeaders() {
+    return {};  // Browser sends credentials automatically after initial auth prompt
+  }
+
   // ── Load articles list ──
   async function loadArticles() {
     const res = await fetch('/api/articles');
@@ -301,6 +307,7 @@
     const res = await fetch('/api/articles', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
       body: JSON.stringify(data)
     });
 
@@ -321,7 +328,7 @@
     if (!currentSlug) return;
     if (!confirm('Delete this article? This cannot be undone.')) return;
 
-    const res = await fetch('/api/articles/' + currentSlug, { method: 'DELETE' });
+    const res = await fetch('/api/articles/' + currentSlug, { method: 'DELETE', credentials: 'same-origin' });
     if (res.ok) {
       currentSlug = null;
       hideEditor();
@@ -400,6 +407,7 @@
     const res = await fetch('/api/updates', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin',
       body: JSON.stringify(valid)
     });
     if (res.ok) {

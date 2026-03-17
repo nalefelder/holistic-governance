@@ -6,8 +6,48 @@ const app = express();
 const PORT = 3000;
 const articlesDir = path.join(__dirname, 'articles');
 const articlesJson = path.join(articlesDir, 'articles.json');
+const enquiriesDir = path.join(__dirname, 'enquiries');
+
+// Create enquiries directory if it doesn't exist
+if (!fs.existsSync(enquiriesDir)) fs.mkdirSync(enquiriesDir);
+
+// Admin credentials — change these or set via environment variables
+const ADMIN_USER = process.env.ADMIN_USER || 'admin';
+const ADMIN_PASS = process.env.ADMIN_PASS || 'HolisticGov2026!';
 
 app.use(express.json());
+
+// ── Basic auth middleware for admin routes ──
+function requireAuth(req, res, next) {
+  const auth = req.headers.authorization;
+  if (!auth || !auth.startsWith('Basic ')) {
+    res.set('WWW-Authenticate', 'Basic realm="Admin"');
+    return res.status(401).json({ error: 'Authentication required' });
+  }
+  const decoded = Buffer.from(auth.split(' ')[1], 'base64').toString();
+  const [user, pass] = decoded.split(':');
+  if (user === ADMIN_USER && pass === ADMIN_PASS) {
+    return next();
+  }
+  res.set('WWW-Authenticate', 'Basic realm="Admin"');
+  return res.status(401).json({ error: 'Invalid credentials' });
+}
+
+// ── Slug sanitisation helper ──
+function sanitiseSlug(slug) {
+  return slug.replace(/[^a-zA-Z0-9_-]/g, '');
+}
+
+function sanitiseFrontmatterValue(value) {
+  return (value || '').replace(/[\n\r]/g, ' ').trim();
+}
+
+// ── Serve admin.html behind auth ──
+app.get('/admin.html', requireAuth, (req, res) => {
+  res.sendFile(path.join(__dirname, 'admin.html'));
+});
+
+// Serve all other static files
 app.use(express.static(__dirname));
 
 // ── Build articles.json from .md frontmatter ──
@@ -48,25 +88,26 @@ function buildArticles() {
 fs.watch(articlesDir, (event, filename) => {
   if (filename && filename.endsWith('.md')) {
     console.log(`Detected change: ${filename}`);
-    setTimeout(buildArticles, 200); // small delay for file write to finish
+    setTimeout(buildArticles, 200);
   }
 });
 
-// ── API: List all articles ──
+// ── API: List all articles (public) ──
 app.get('/api/articles', (req, res) => {
   const articles = JSON.parse(fs.readFileSync(articlesJson, 'utf-8'));
   res.json(articles);
 });
 
-// ── API: Get single article content ──
+// ── API: Get single article content (public) ──
 app.get('/api/articles/:slug', (req, res) => {
-  const filePath = path.join(articlesDir, req.params.slug + '.md');
+  const safe = sanitiseSlug(req.params.slug);
+  const filePath = path.join(articlesDir, safe + '.md');
+  if (!filePath.startsWith(path.resolve(articlesDir))) return res.status(400).json({ error: 'Invalid slug' });
   if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'Not found' });
 
   const content = fs.readFileSync(filePath, 'utf-8');
   const body = content.replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
 
-  // Parse frontmatter
   const match = content.match(/^---\s*\n([\s\S]*?)\n---/);
   const fm = {};
   if (match) {
@@ -77,23 +118,23 @@ app.get('/api/articles/:slug', (req, res) => {
     }
   }
 
-  res.json({ ...fm, slug: req.params.slug, body });
+  res.json({ ...fm, slug: safe, body });
 });
 
-// ── API: Create or update article ──
-app.post('/api/articles', (req, res) => {
+// ── API: Create or update article (auth required) ──
+app.post('/api/articles', requireAuth, (req, res) => {
   const { slug, title, date, author, category, featured, summary, body } = req.body;
   if (!slug || !title || !date) return res.status(400).json({ error: 'slug, title, date required' });
 
-  const safeName = slug.replace(/[^a-zA-Z0-9_-]/g, '');
+  const safeName = sanitiseSlug(slug);
   const frontmatter = [
     '---',
-    `title: ${title}`,
-    `date: ${date}`,
-    `author: ${author || 'Holistic Governance'}`,
-    `category: ${category || 'General'}`,
+    `title: ${sanitiseFrontmatterValue(title)}`,
+    `date: ${sanitiseFrontmatterValue(date)}`,
+    `author: ${sanitiseFrontmatterValue(author) || 'Holistic Governance'}`,
+    `category: ${sanitiseFrontmatterValue(category) || 'General'}`,
     `featured: ${featured ? 'true' : 'false'}`,
-    `summary: ${summary || ''}`,
+    `summary: ${sanitiseFrontmatterValue(summary)}`,
     '---'
   ].join('\n');
 
@@ -103,25 +144,44 @@ app.post('/api/articles', (req, res) => {
   res.json({ ok: true, slug: safeName });
 });
 
-// ── API: Delete article ──
-app.delete('/api/articles/:slug', (req, res) => {
-  const filePath = path.join(articlesDir, req.params.slug + '.md');
+// ── API: Delete article (auth required) ──
+app.delete('/api/articles/:slug', requireAuth, (req, res) => {
+  const safe = sanitiseSlug(req.params.slug);
+  const filePath = path.join(articlesDir, safe + '.md');
+  if (!filePath.startsWith(path.resolve(articlesDir))) return res.status(400).json({ error: 'Invalid slug' });
   if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'Not found' });
   fs.unlinkSync(filePath);
   buildArticles();
   res.json({ ok: true });
 });
 
-// ── API: List sector updates ──
+// ── API: List sector updates (public) ──
 app.get('/api/updates', (req, res) => {
   const updates = JSON.parse(fs.readFileSync(path.join(articlesDir, 'updates.json'), 'utf-8'));
   res.json(updates);
 });
 
-// ── API: Save sector updates ──
-app.post('/api/updates', (req, res) => {
+// ── API: Save sector updates (auth required) ──
+app.post('/api/updates', requireAuth, (req, res) => {
   const updates = req.body;
   fs.writeFileSync(path.join(articlesDir, 'updates.json'), JSON.stringify(updates, null, 2) + '\n');
+  res.json({ ok: true });
+});
+
+// ── API: Receive enquiry forms ──
+app.post('/api/enquiry', (req, res) => {
+  const data = { ...req.body, receivedAt: new Date().toISOString() };
+  const filename = `enquiry-${Date.now()}.json`;
+  fs.writeFileSync(path.join(enquiriesDir, filename), JSON.stringify(data, null, 2));
+  console.log(`Enquiry received: ${filename}`);
+  res.json({ ok: true });
+});
+
+app.post('/api/competitor-enquiry', (req, res) => {
+  const data = { ...req.body, receivedAt: new Date().toISOString() };
+  const filename = `competitor-enquiry-${Date.now()}.json`;
+  fs.writeFileSync(path.join(enquiriesDir, filename), JSON.stringify(data, null, 2));
+  console.log(`Competitor enquiry received: ${filename}`);
   res.json({ ok: true });
 });
 

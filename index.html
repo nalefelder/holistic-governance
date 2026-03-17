@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Holistic Governance | Governance & Data</title>
+  <title>Holistic Governance | Governance, Risk & Data Intelligence</title>
+  <meta name="description" content="Holistic Governance helps organisations strengthen governance frameworks, translate complex regulation into practical systems, and harness data and emerging AI to improve decision-making." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -111,9 +112,12 @@
     footer p { font-size: 0.78rem; color: var(--text-light); }
     footer nav ul { gap: 1.5rem; }
 
+    .hamburger { display: none; background: none; border: 1px solid var(--border); color: var(--sky); width: 40px; height: 40px; font-size: 1.4rem; cursor: pointer; border-radius: 2px; }
     @media (max-width: 900px) {
       nav { padding: 1.2rem 1.5rem; }
-      nav ul { display: none; }
+      nav ul { display: none; position: fixed; top: 62px; left: 0; right: 0; background: rgba(15,23,42,0.98); flex-direction: column; padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border); }
+      nav ul.open { display: flex; }
+      .hamburger { display: block; }
       .hero, #solutions, #services, #why { padding: 6rem 1.5rem 3rem; }
       .solutions-grid, .services-grid, .why-grid { grid-template-columns: 1fr; }
       .cta-band { flex-direction: column; text-align: center; padding: 3rem 1.5rem; }
@@ -125,12 +129,13 @@
 
 <nav>
   <a href="index.html" class="logo">Holistic <span>Governance</span></a>
+  <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
   <ul>
     <li><a href="about.html">About</a></li>
-    <li><a href="#solutions">Solutions</a></li>
-    <li><a href="#services">Services</a></li>
+    <li><a href="healthcare.html">Health Care</a></li>
+    <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
     <li><a href="news.html">News</a></li>
-    <li><a href="mailto:hello@truenorthassurance.com" class="nav-cta">Contact</a></li>
+    <li><a href="mailto:hello@holisticgovernance.com" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
@@ -233,7 +238,7 @@
 
 <div class="cta-band">
   <h2>Ready to transform your data governance?</h2>
-  <a href="/cdn-cgi/l/email-protection#8de5e8e1e1e2cdf9fff8e8e3e2fff9e5ecfefef8ffece3eee8a3eee2e0" class="btn-dark">Get in Touch</a>
+  <a href="mailto:hello@holisticgovernance.com" class="btn-dark">Get in Touch</a>
 </div>
 
 <footer>

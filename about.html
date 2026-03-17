@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us | Holistic Governance</title>
+  <meta name="description" content="Learn about Holistic Governance — a governance and data consultancy committed to improving clarity and confidence in organisations through data, technology, and best practice." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -98,8 +99,9 @@
     .footer-logo span { color: var(--sky); }
     footer p { font-size: 0.78rem; color: var(--text-light); }
 
+    .hamburger { display: none; background: none; border: 1px solid var(--border); color: var(--sky); width: 40px; height: 40px; font-size: 1.4rem; cursor: pointer; border-radius: 2px; }
     @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.5rem; } nav ul { display: none; }
+      nav { padding: 1.2rem 1.5rem; } nav ul { display: none; position: fixed; top: 62px; left: 0; right: 0; background: rgba(15,23,42,0.98); flex-direction: column; padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border); } nav ul.open { display: flex; } .hamburger { display: block; }
       .page-hero, section { padding: 6rem 1.5rem 3rem; }
       .vm-layout, .values-layout, .approach-steps { grid-template-columns: 1fr; }
       .values-visual { display: none; }
@@ -112,12 +114,13 @@
 
 <nav>
   <a href="index.html" class="logo">Holistic <span>Governance</span></a>
+  <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
   <ul>
     <li><a href="about.html" class="active">About</a></li>
     <li><a href="healthcare.html">Health Care</a></li>
     <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
     <li><a href="news.html">News</a></li>
-    <li><a href="/cdn-cgi/l/email-protection#b4dcd1d8d8dbf4c0c6c1d1dadbc6c0dcd5c7c7c1c6d5dad7d19ad7dbd9" class="nav-cta">Contact</a></li>
+    <li><a href="mailto:hello@holisticgovernance.com" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
@@ -237,7 +240,7 @@
 
 <div class="cta-band">
   <h2>Ready to work with Holistic Governance?</h2>
-  <a href="/cdn-cgi/l/email-protection#98f0fdf4f4f7d8eceaedfdf6f7eaecf0f9ebebedeaf9f6fbfdb6fbf7f5" class="btn-dark">Get in Touch</a>
+  <a href="mailto:hello@holisticgovernance.com" class="btn-dark">Get in Touch</a>
 </div>
 
 <footer>
