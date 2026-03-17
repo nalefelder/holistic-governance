@@ -3,14 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Competitor Data Analytics | True North Assurance</title>
+  <title>Competitor Data Analytics | Holistic Governance</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #f4f7fb; --bg2: #e8eef6; --bg3: #ffffff; --navy: #1a2e4a; --navy-mid: #243b5a; --blue: #2563eb; --blue-light: #4a80f0; --blue-pale: #dbeafe;
-      --text: #1a2e4a; --text-mid: #3d5478; --text-light: #6b85a8; --border: rgba(37,99,235,0.15);
+      --navy: #0f172a;
+      --navy-mid: #1e293b;
+      --gold: #38bdf8;
+      --gold-light: #7dd3fc;
+      --cream: #f1f5f9;
+      --white: #f1f5f9;
+      --text: #f1f5f9;
+      --text-mid: #94a3b8;
+      --text-light: #64748b;
+      --sky: #38bdf8;
+      --sky-light: #7dd3fc;
+      --sky-pale: rgba(56,189,248,0.08);
+      --border: rgba(56,189,248,0.15);
+      --border-mid: rgba(56,189,248,0.25);
+      --accent-pink: #f472b6;
+      --accent-purple: #a78bfa;
+      --accent-green: #34d399;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); overflow-x: hidden; }
@@ -28,28 +43,28 @@
     .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(56,189,248,0.06) 0%, transparent 70%); }
     .breadcrumb { font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; }
     .breadcrumb a { color: var(--sky); text-decoration: none; }
-    .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 1.5rem; }
-    .page-hero p { color: var(--text-light); font-size: 1.05rem; line-height: 1.8; max-width: 650px; }
+    .page-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; color: var(--sky); line-height: 1.1; margin-bottom: 1.5rem; }
+    .page-hero p { color: var(--cream); font-size: 1.05rem; line-height: 1.8; max-width: 650px; }
 
     section { padding: 5rem 4rem; }
     .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sky); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
     .section-label::after { content: ''; display: block; width: 30px; height: 1px; background: var(--sky); }
     h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
-    .section-intro { color: var(--text-light); font-size: 1rem; line-height: 1.8; max-width: 650px; margin-bottom: 3rem; }
+    .section-intro { color: var(--cream); font-size: 1rem; line-height: 1.8; max-width: 650px; margin-bottom: 3rem; }
 
     /* OVERVIEW */
     .overview { background: var(--navy); }
     .overview-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
     .overview-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--white); margin-bottom: 1rem; font-weight: 400; }
-    .overview-text p { color: var(--text-light); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; }
-    .highlight-box { background: var(--navy-mid); border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 1.5rem; margin-top: 1.5rem; }
+    .overview-text p { color: var(--cream); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .highlight-box { background: var(--navy-mid); border: 1px solid var(--border); border-left: 3px solid var(--sky); padding: 1.5rem; margin-top: 1.5rem; }
     .highlight-box p { color: var(--cream); font-size: 0.92rem; line-height: 1.75; margin: 0; }
     .highlight-box strong { color: var(--sky); }
     .overview-features { display: flex; flex-direction: column; gap: 1.5rem; }
     .feature-item { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.5rem; background: var(--navy-mid); border: 1px solid var(--border); border-radius: 2px; }
     .feature-item svg { width: 28px; height: 28px; color: var(--sky); flex-shrink: 0; margin-top: 0.2rem; }
     .feature-item h4 { font-size: 0.95rem; font-weight: 500; color: var(--white); margin-bottom: 0.4rem; }
-    .feature-item p { font-size: 0.85rem; color: var(--text-light); line-height: 1.7; margin: 0; }
+    .feature-item p { font-size: 0.85rem; color: var(--cream); line-height: 1.7; margin: 0; }
 
     /* SERVICES */
     .ca-services { background: var(--navy-mid); }
@@ -60,30 +75,45 @@
     .ca-card-header svg { width: 32px; height: 32px; color: var(--sky); }
     .ca-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--white); font-weight: 400; }
     .ca-card .sub { font-size: 0.8rem; color: var(--sky); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.8rem; }
-    .ca-card p { color: var(--text-light); font-size: 0.88rem; line-height: 1.75; margin-bottom: 1rem; }
+    .ca-card p { color: var(--cream); font-size: 0.88rem; line-height: 1.75; margin-bottom: 1rem; }
     .ca-card ul { list-style: none; }
-    .ca-card ul li { color: var(--text-light); font-size: 0.85rem; line-height: 1.7; padding-left: 1rem; position: relative; }
+    .ca-card ul li { color: var(--cream); font-size: 0.85rem; line-height: 1.7; padding-left: 1rem; position: relative; }
     .ca-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--sky); font-size: 0.7rem; top: 0.15rem; }
     .value-tag { display: inline-block; margin-top: 1rem; padding: 0.4rem 0.8rem; background: rgba(56,189,248,0.08); border: 1px solid var(--border); color: var(--sky); font-size: 0.78rem; border-radius: 2px; }
 
     /* PRICING */
     .pricing { background: var(--navy); }
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .pricing-card { background: var(--navy-mid); border: 1px solid var(--border); padding: 2.5rem 2rem; border-radius: 2px; position: relative; }
+    .pricing-card { background: var(--navy-mid); border: 1px solid var(--border); padding: 2.5rem 2rem; border-radius: 2px; position: relative; transition: border-color 0.3s, transform 0.3s; }
+    .pricing-card:hover { transform: translateY(-3px); }
+    .pricing-card.starter-tier { border-color: var(--accent-green); }
     .pricing-card.featured { border-color: var(--sky); }
+    .pricing-card.new-tier { border-color: var(--accent-pink); background: linear-gradient(175deg, rgba(167,139,250,0.06) 0%, var(--navy-mid) 40%); }
     .pricing-badge { position: absolute; top: -1px; right: 2rem; background: var(--sky); color: var(--navy); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.8rem; }
+    .pricing-badge.new-badge { background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple)); color: #fff; }
     .pricing-tier { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sky); margin-bottom: 0.5rem; }
+    .pricing-tier.starter { color: var(--accent-green); }
+    .pricing-tier.social { color: var(--accent-pink); }
     .pricing-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem; font-weight: 400; }
     .pricing-price { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--white); font-weight: 300; margin: 1rem 0 0.3rem; }
-    .pricing-price span { font-size: 1rem; color: var(--text-light); }
-    .pricing-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    .pricing-price span { font-size: 1rem; color: var(--cream); }
+    .pricing-desc { font-size: 0.82rem; color: var(--cream); line-height: 1.6; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
     .pricing-features { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); margin-bottom: 1rem; }
+    .pricing-features.green { color: var(--accent-green); }
+    .pricing-features.pink { color: var(--accent-pink); }
     .pricing-card ul { list-style: none; margin-bottom: 1.5rem; }
-    .pricing-card ul li { font-size: 0.85rem; color: var(--text-light); line-height: 1.7; padding-left: 1.2rem; position: relative; margin-bottom: 0.4rem; }
+    .pricing-card ul li { font-size: 0.85rem; color: var(--cream); line-height: 1.7; padding-left: 1.2rem; position: relative; margin-bottom: 0.4rem; }
     .pricing-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--sky); font-size: 0.75rem; }
-    .outputs-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin: 1rem 0 0.5rem; }
+    .pricing-card.new-tier ul li::before { color: var(--accent-pink); }
+    .outputs-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream); margin: 1rem 0 0.5rem; }
     .btn-pricing { display: block; text-align: center; padding: 0.9rem; background: transparent; border: 1px solid var(--sky); color: var(--sky); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; transition: background 0.3s, color 0.3s; margin-top: 1.5rem; }
-    .btn-pricing:hover, .pricing-card.featured .btn-pricing { background: var(--sky); color: var(--navy); }
+    .btn-pricing:hover { opacity: 0.8; }
+    .btn-pricing.green { border-color: var(--accent-green); color: var(--accent-green); }
+    .btn-pricing.green:hover { background: var(--accent-green); color: var(--navy); }
+    .btn-pricing.blue { border-color: var(--sky); color: var(--sky); }
+    .btn-pricing.blue:hover { background: rgba(56,189,248,0.1); }
+    .btn-pricing.pink { border-color: var(--accent-pink); color: var(--accent-pink); }
+    .btn-pricing.pink:hover { background: rgba(244,114,182,0.1); }
     .pricing-quote { text-align: center; margin-top: 3rem; padding: 2rem; border: 1px solid var(--border); border-radius: 2px; }
     .pricing-quote p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; color: var(--gold-light); }
 
@@ -96,7 +126,7 @@
     footer { background: #070d1a; padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
     .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); }
     .footer-logo span { color: var(--sky); }
-    footer p { font-size: 0.78rem; color: var(--text-light); }
+    footer p { font-size: 0.78rem; color: var(--cream); }
 
     @media (max-width: 900px) {
       nav { padding: 1.2rem 1.5rem; } nav ul { display: none; }
@@ -110,12 +140,12 @@
 <body>
 
 <nav>
-  <a href="index.html" class="logo">True North <span>Assurance</span></a>
+  <a href="index.html" class="logo">Holistic <span>Governance</span></a>
   <ul>
     <li><a href="index.html#solutions">Solutions</a></li>
     <li><a href="healthcare.html">Health Care</a></li>
     <li><a href="competitor-analytics.html" class="active">Competitor Analytics</a></li>
-    <li><a href="mailto:hello@truenorthassurance.com" class="nav-cta">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
@@ -245,12 +275,13 @@
   <p class="section-intro">Choose the tier that matches your competitive intelligence needs. All plans include onboarding support and access to our analytics platform.</p>
   <div class="pricing-grid">
 
-    <div class="pricing-card">
-      <div class="pricing-tier">Starter</div>
+    <!-- STARTER -->
+    <div class="pricing-card starter-tier">
+      <div class="pricing-tier starter">Starter</div>
       <h3>Market Visibility</h3>
-      <div class="pricing-price">$800 <span>/ month</span></div>
+      <div class="pricing-price">$100 <span>/ month</span></div>
       <p class="pricing-desc">Best for SMEs, founders, and sales-led teams.</p>
-      <div class="pricing-features">Includes</div>
+      <div class="pricing-features green">Includes</div>
       <ul>
         <li>Competitive landscape overview (up to 5 competitors)</li>
         <li>Market positioning & benchmarking dashboard</li>
@@ -265,14 +296,15 @@
         <li>1 monthly insight report</li>
         <li>1 executive summary</li>
       </ul>
-      <a href="mailto:hello@truenorthassurance.com" class="btn-pricing">Get Started</a>
+      <a href="#contact" class="btn-pricing green">Get Started</a>
     </div>
 
+    <!-- GROWTH -->
     <div class="pricing-card featured">
       <div class="pricing-badge">Popular</div>
       <div class="pricing-tier">Growth</div>
       <h3>Competitive Intelligence & Analytics</h3>
-      <div class="pricing-price">$1,000 <span>/ month</span></div>
+      <div class="pricing-price">$150 <span>/ month</span></div>
       <p class="pricing-desc">Best for scale-ups, marketing teams, strategy & leadership. Up to 15 competitors.</p>
       <div class="pricing-features">Everything in Starter, plus</div>
       <ul>
@@ -290,31 +322,34 @@
         <li>Customised dashboards by function (Exec / Marketing / Sales)</li>
         <li>Monthly recommendations</li>
       </ul>
-      <a href="mailto:hello@truenorthassurance.com" class="btn-pricing">Get Started</a>
+      <a href="#contact" class="btn-pricing blue">Get Started</a>
     </div>
 
-    <div class="pricing-card">
-      <div class="pricing-tier">Enterprise</div>
-      <h3>Predictive Competitive Intelligence</h3>
-      <div class="pricing-price">$3,500 <span>/ month</span></div>
-      <p class="pricing-desc">Best for enterprise, regulated industries, boards & VC-backed firms. Unlimited competitors.</p>
-      <div class="pricing-features">Everything in Growth, plus</div>
+    <!-- SOCIAL MEDIA TREND ANALYSIS (NEW) -->
+    <div class="pricing-card new-tier">
+      <div class="pricing-badge new-badge">New</div>
+      <div class="pricing-tier social">Clarity</div>
+      <h3>Social Media Trend Analysis</h3>
+      <div class="pricing-price">$200 <span>/ month</span></div>
+      <p class="pricing-desc">Deep social listening & trend intelligence. Perfect for brands, agencies & growth teams.</p>
+      <div class="pricing-features pink">Everything in Market Visibility, plus</div>
       <ul>
-        <li>Advanced predictive modelling & scenario analysis</li>
-        <li>Market share estimation & forecasting</li>
-        <li>Industry-specific benchmarking</li>
-        <li>Real-time alerts & AI access</li>
-        <li>Quarterly competitive risk assessment</li>
-        <li>Executive & board-ready reporting</li>
-        <li>Dedicated analyst & strategist</li>
+        <li>Multi-platform social listening (X, Instagram, TikTok, LinkedIn, Reddit)</li>
+        <li>Real-time trending topic detection & alerts</li>
+        <li>Competitor social media benchmarking</li>
+        <li>Hashtag & keyword trend tracking</li>
+        <li>Audience sentiment & engagement analysis</li>
+        <li>Influencer & share-of-voice mapping</li>
+        <li>Content performance & viral pattern insights</li>
+        <li>Monthly social trend forecast report</li>
       </ul>
       <div class="outputs-label">Outputs</div>
       <ul>
-        <li>Bespoke analytics models</li>
-        <li>Board-level dashboards</li>
-        <li>Quarterly executive briefings</li>
+        <li>Social intelligence dashboard</li>
+        <li>Weekly trend digest</li>
+        <li>Monthly competitive social report</li>
       </ul>
-      <a href="mailto:hello@truenorthassurance.com" class="btn-pricing">Get Started</a>
+      <a href="#contact" class="btn-pricing pink">Get Started</a>
     </div>
 
   </div>
@@ -325,13 +360,12 @@
 
 <div class="cta-band">
   <h2>Ready to gain the competitive edge?</h2>
-  <a href="mailto:hello@truenorthassurance.com" class="btn-dark">Get Started</a>
+  <a href="#contact" class="btn-dark">Book a Consultation</a>
 </div>
 
 <footer>
-  <div class="footer-logo">True North <span>Assurance</span></div>
-  <p>© 2025 True North Assurance. All rights reserved.</p>
-  <p>hello@truenorthassurance.com</p>
+  <div class="footer-logo">Holistic <span>Governance</span></div>
+  <p>&copy; 2026 Holistic Governance. All rights reserved.</p>
 </footer>
 
 </body>

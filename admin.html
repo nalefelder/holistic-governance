@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin — Holistic Governance</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f172a; --navy-mid: #1e293b; --sky: #38bdf8; --sky-light: #7dd3fc;
+      --text: #f1f5f9; --text-mid: #94a3b8; --text-light: #64748b;
+      --border: rgba(56,189,248,0.15); --border-mid: rgba(56,189,248,0.25);
+      --green: #34d399; --red: #f87171; --amber: #fbbf24;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); min-height: 100vh; }
+
+    /* HEADER */
+    .admin-header { padding: 1.5rem 2rem; background: var(--navy-mid); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .admin-header h1 { font-size: 1.2rem; font-weight: 500; }
+    .admin-header h1 span { color: var(--sky); }
+    .admin-header a { color: var(--text-light); font-size: 0.8rem; text-decoration: none; }
+    .admin-header a:hover { color: var(--sky); }
+
+    /* LAYOUT */
+    .admin-body { display: flex; height: calc(100vh - 62px); }
+    .sidebar { width: 320px; border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; }
+    .main-panel { flex: 1; overflow-y: auto; padding: 2rem; }
+
+    /* SIDEBAR */
+    .sidebar-header { padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .sidebar-header h2 { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); }
+    .btn-new { padding: 0.4rem 1rem; background: var(--sky); color: var(--navy); font-size: 0.75rem; font-weight: 500; border: none; border-radius: 2px; cursor: pointer; font-family: inherit; letter-spacing: 0.05em; }
+    .btn-new:hover { background: var(--sky-light); }
+
+    .article-list { flex: 1; overflow-y: auto; }
+    .article-list-item { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); cursor: pointer; transition: background 0.2s; }
+    .article-list-item:hover { background: rgba(56,189,248,0.05); }
+    .article-list-item.active { background: rgba(56,189,248,0.1); border-left: 3px solid var(--sky); }
+    .article-list-item h4 { font-size: 0.88rem; font-weight: 400; color: var(--text); margin-bottom: 0.3rem; line-height: 1.3; }
+    .article-list-item .meta { font-size: 0.72rem; color: var(--text-light); }
+    .article-list-item .meta .cat { color: var(--sky); }
+    .article-list-item .featured-badge { display: inline-block; font-size: 0.65rem; background: rgba(251,191,36,0.15); color: var(--amber); padding: 0.1rem 0.5rem; border-radius: 2px; margin-left: 0.5rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* TABS */
+    .tab-bar { display: flex; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; }
+    .tab-btn { padding: 0.7rem 1.5rem; background: none; border: none; color: var(--text-light); font-size: 0.82rem; cursor: pointer; font-family: inherit; border-bottom: 2px solid transparent; transition: all 0.2s; }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--sky); border-bottom-color: var(--sky); }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* FORM */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group.full { grid-column: 1 / -1; }
+    label { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); }
+    input, select, textarea { padding: 0.7rem 1rem; background: var(--navy-mid); border: 1px solid var(--border); color: var(--text); font-size: 0.88rem; border-radius: 2px; font-family: inherit; outline: none; transition: border-color 0.2s; }
+    input:focus, select:focus, textarea:focus { border-color: var(--sky); }
+    textarea { min-height: 100px; resize: vertical; }
+    textarea.editor { min-height: 400px; font-family: 'Consolas', 'Monaco', monospace; font-size: 0.85rem; line-height: 1.7; }
+
+    .checkbox-row { display: flex; align-items: center; gap: 0.6rem; padding-top: 1.5rem; }
+    .checkbox-row input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--sky); }
+    .checkbox-row label { text-transform: none; font-size: 0.85rem; color: var(--text); }
+
+    /* ACTIONS */
+    .actions { display: flex; gap: 1rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .btn { padding: 0.7rem 1.8rem; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.06em; border: none; border-radius: 2px; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+    .btn-save { background: var(--sky); color: var(--navy); }
+    .btn-save:hover { background: var(--sky-light); }
+    .btn-delete { background: transparent; border: 1px solid var(--red); color: var(--red); }
+    .btn-delete:hover { background: var(--red); color: var(--navy); }
+    .btn-cancel { background: transparent; border: 1px solid var(--border); color: var(--text-light); }
+    .btn-cancel:hover { border-color: var(--text-light); color: var(--text); }
+
+    /* PREVIEW */
+    .preview-pane { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 2px; padding: 2rem; min-height: 400px; }
+    .preview-pane h1, .preview-pane h2, .preview-pane h3 { color: var(--text); margin-top: 1.5rem; margin-bottom: 0.8rem; }
+    .preview-pane h1 { font-size: 1.8rem; }
+    .preview-pane h2 { font-size: 1.4rem; }
+    .preview-pane h3 { font-size: 1.1rem; }
+    .preview-pane p { color: var(--text-mid); line-height: 1.8; margin-bottom: 1rem; font-size: 0.92rem; }
+    .preview-pane ul, .preview-pane ol { margin: 1rem 0 1rem 1.5rem; color: var(--text-mid); }
+    .preview-pane li { margin-bottom: 0.4rem; line-height: 1.7; }
+    .preview-pane strong { color: var(--text); }
+
+    /* TOAST */
+    .toast { position: fixed; bottom: 2rem; right: 2rem; padding: 0.8rem 1.5rem; background: var(--green); color: var(--navy); font-size: 0.85rem; font-weight: 500; border-radius: 2px; transform: translateY(100px); opacity: 0; transition: all 0.3s; z-index: 999; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.error { background: var(--red); }
+
+    /* EMPTY STATE */
+    .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: var(--text-light); gap: 1rem; }
+    .empty-state p { font-size: 0.95rem; }
+
+    /* SECTOR UPDATES */
+    .update-row { display: grid; grid-template-columns: 100px 1fr 1fr auto auto; gap: 0.8rem; align-items: start; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+    .update-row input, .update-row select { font-size: 0.82rem; padding: 0.5rem 0.8rem; }
+    .btn-icon { background: none; border: 1px solid var(--border); color: var(--text-light); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 2px; font-size: 1rem; transition: all 0.2s; }
+    .btn-icon:hover { border-color: var(--red); color: var(--red); }
+    .btn-icon.add { font-size: 1.2rem; }
+    .btn-icon.add:hover { border-color: var(--green); color: var(--green); }
+  </style>
+</head>
+<body>
+
+<div class="admin-header">
+  <h1>Holistic <span>Governance</span> — Admin</h1>
+  <a href="/news.html" target="_blank">← View Live Site</a>
+</div>
+
+<div class="admin-body">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>Articles</h2>
+      <button class="btn-new" onclick="newArticle()">+ New Article</button>
+    </div>
+    <div class="article-list" id="articleList"></div>
+  </div>
+
+  <!-- MAIN PANEL -->
+  <div class="main-panel" id="mainPanel">
+    <div class="empty-state" id="emptyState">
+      <p>Select an article or create a new one</p>
+    </div>
+
+    <!-- ARTICLE EDITOR -->
+    <div id="editorPanel" style="display:none;">
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="edit" onclick="switchTab('edit')">Edit</button>
+        <button class="tab-btn" data-tab="preview" onclick="switchTab('preview')">Preview</button>
+        <button class="tab-btn" data-tab="updates" onclick="switchTab('updates')">Sector Updates</button>
+      </div>
+
+      <!-- EDIT TAB -->
+      <div class="tab-content active" id="tab-edit">
+        <div class="form-grid">
+          <div class="form-group full">
+            <label>Title</label>
+            <input type="text" id="f-title" placeholder="Article title" />
+          </div>
+          <div class="form-group">
+            <label>Slug (filename)</label>
+            <input type="text" id="f-slug" placeholder="my-article-name" />
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="f-date" />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <input type="text" id="f-category" placeholder="e.g. Compliance, Health Care" list="categories" />
+            <datalist id="categories"></datalist>
+          </div>
+          <div class="form-group">
+            <label>Author</label>
+            <input type="text" id="f-author" value="Holistic Governance" />
+          </div>
+          <div class="form-group full">
+            <label>Summary (shown on card)</label>
+            <textarea id="f-summary" placeholder="One or two sentences..."></textarea>
+          </div>
+          <div class="form-group full">
+            <label>Article Body (Markdown)</label>
+            <textarea class="editor" id="f-body" placeholder="Write your article in markdown...&#10;&#10;## Heading&#10;&#10;Paragraph text here.&#10;&#10;- Bullet point&#10;- Another point"></textarea>
+          </div>
+          <div class="checkbox-row">
+            <input type="checkbox" id="f-featured" />
+            <label for="f-featured">Pin as featured article</label>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-save" onclick="saveArticle()">Save Article</button>
+          <button class="btn btn-delete" id="deleteBtn" onclick="deleteArticle()">Delete</button>
+          <button class="btn btn-cancel" onclick="cancelEdit()">Cancel</button>
+        </div>
+      </div>
+
+      <!-- PREVIEW TAB -->
+      <div class="tab-content" id="tab-preview">
+        <h2 id="preview-title" style="font-size:1.8rem;margin-bottom:0.5rem;"></h2>
+        <p id="preview-meta" style="color:var(--text-light);font-size:0.82rem;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--border);"></p>
+        <div class="preview-pane" id="preview-body"></div>
+      </div>
+
+      <!-- SECTOR UPDATES TAB -->
+      <div class="tab-content" id="tab-updates">
+        <h2 style="font-size:1.3rem;margin-bottom:1.5rem;">Sector Updates</h2>
+        <div id="updatesContainer"></div>
+        <div style="margin-top:1rem;display:flex;gap:1rem;">
+          <button class="btn btn-new" onclick="addUpdateRow()">+ Add Update</button>
+          <button class="btn btn-save" onclick="saveUpdates()">Save Updates</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  let articles = [];
+  let currentSlug = null;
+  let isNew = false;
+  let updates = [];
+
+  // ── Load articles list ──
+  async function loadArticles() {
+    const res = await fetch('/api/articles');
+    articles = await res.json();
+    renderList();
+    updateCategoryList();
+  }
+
+  function renderList() {
+    const list = document.getElementById('articleList');
+    list.innerHTML = articles.map(a => `
+      <div class="article-list-item ${a.slug === currentSlug ? 'active' : ''}" onclick="openArticle('${a.slug}')">
+        <h4>${a.title}${a.featured ? '<span class="featured-badge">Featured</span>' : ''}</h4>
+        <div class="meta">${a.date} · <span class="cat">${a.category}</span></div>
+      </div>
+    `).join('');
+  }
+
+  function updateCategoryList() {
+    const cats = [...new Set(articles.map(a => a.category))];
+    document.getElementById('categories').innerHTML = cats.map(c => `<option value="${c}">`).join('');
+  }
+
+  // ── Open article for editing ──
+  async function openArticle(slug) {
+    currentSlug = slug;
+    isNew = false;
+    const res = await fetch('/api/articles/' + slug);
+    const data = await res.json();
+
+    document.getElementById('f-title').value = data.title || '';
+    document.getElementById('f-slug').value = data.slug || '';
+    document.getElementById('f-date').value = data.date || '';
+    document.getElementById('f-category').value = data.category || '';
+    document.getElementById('f-author').value = data.author || 'Holistic Governance';
+    document.getElementById('f-summary').value = data.summary || '';
+    document.getElementById('f-body').value = data.body || '';
+    document.getElementById('f-featured').checked = data.featured === 'true';
+    document.getElementById('f-slug').disabled = true;
+    document.getElementById('deleteBtn').style.display = '';
+
+    showEditor();
+    renderList();
+  }
+
+  // ── New article ──
+  function newArticle() {
+    currentSlug = null;
+    isNew = true;
+    document.getElementById('f-title').value = '';
+    document.getElementById('f-slug').value = '';
+    document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
+    document.getElementById('f-category').value = '';
+    document.getElementById('f-author').value = 'Holistic Governance';
+    document.getElementById('f-summary').value = '';
+    document.getElementById('f-body').value = '';
+    document.getElementById('f-featured').checked = false;
+    document.getElementById('f-slug').disabled = false;
+    document.getElementById('deleteBtn').style.display = 'none';
+    showEditor();
+    switchTab('edit');
+  }
+
+  // ── Auto-generate slug from title ──
+  document.getElementById('f-title').addEventListener('input', () => {
+    if (!isNew) return;
+    const title = document.getElementById('f-title').value;
+    document.getElementById('f-slug').value = title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+  });
+
+  // ── Save ──
+  async function saveArticle() {
+    const data = {
+      slug: document.getElementById('f-slug').value.trim(),
+      title: document.getElementById('f-title').value.trim(),
+      date: document.getElementById('f-date').value,
+      category: document.getElementById('f-category').value.trim(),
+      author: document.getElementById('f-author').value.trim(),
+      summary: document.getElementById('f-summary').value.trim(),
+      body: document.getElementById('f-body').value,
+      featured: document.getElementById('f-featured').checked
+    };
+
+    if (!data.slug || !data.title || !data.date) {
+      toast('Please fill in title, slug, and date', true);
+      return;
+    }
+
+    const res = await fetch('/api/articles', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (res.ok) {
+      currentSlug = data.slug;
+      isNew = false;
+      document.getElementById('f-slug').disabled = true;
+      document.getElementById('deleteBtn').style.display = '';
+      await loadArticles();
+      toast('Article saved');
+    } else {
+      toast('Error saving article', true);
+    }
+  }
+
+  // ── Delete ──
+  async function deleteArticle() {
+    if (!currentSlug) return;
+    if (!confirm('Delete this article? This cannot be undone.')) return;
+
+    const res = await fetch('/api/articles/' + currentSlug, { method: 'DELETE' });
+    if (res.ok) {
+      currentSlug = null;
+      hideEditor();
+      await loadArticles();
+      toast('Article deleted');
+    }
+  }
+
+  // ── Cancel ──
+  function cancelEdit() {
+    currentSlug = null;
+    hideEditor();
+    renderList();
+  }
+
+  // ── UI helpers ──
+  function showEditor() {
+    document.getElementById('emptyState').style.display = 'none';
+    document.getElementById('editorPanel').style.display = 'block';
+  }
+
+  function hideEditor() {
+    document.getElementById('emptyState').style.display = '';
+    document.getElementById('editorPanel').style.display = 'none';
+  }
+
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+
+    if (tab === 'preview') {
+      document.getElementById('preview-title').textContent = document.getElementById('f-title').value;
+      document.getElementById('preview-meta').textContent = document.getElementById('f-date').value + ' · ' + document.getElementById('f-author').value;
+      document.getElementById('preview-body').innerHTML = marked.parse(document.getElementById('f-body').value || '*No content yet*');
+    }
+    if (tab === 'updates') {
+      loadUpdates();
+    }
+  }
+
+  function toast(msg, isError) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.className = 'toast show' + (isError ? ' error' : '');
+    setTimeout(() => el.className = 'toast', 2500);
+  }
+
+  // ── Sector Updates ──
+  async function loadUpdates() {
+    const res = await fetch('/api/updates');
+    updates = await res.json();
+    renderUpdates();
+  }
+
+  function renderUpdates() {
+    const container = document.getElementById('updatesContainer');
+    container.innerHTML = updates.map((u, i) => `
+      <div class="update-row">
+        <input type="date" value="${u.date}" onchange="updates[${i}].date=this.value" />
+        <input type="text" value="${u.title}" placeholder="Title" onchange="updates[${i}].title=this.value" />
+        <input type="text" value="${u.summary}" placeholder="Summary" onchange="updates[${i}].summary=this.value" />
+        <input type="text" value="${u.tag}" placeholder="Tag" style="width:100px" onchange="updates[${i}].tag=this.value" />
+        <button class="btn-icon" onclick="updates.splice(${i},1);renderUpdates();">×</button>
+      </div>
+    `).join('');
+  }
+
+  function addUpdateRow() {
+    updates.unshift({ date: new Date().toISOString().split('T')[0], title: '', summary: '', tag: '' });
+    renderUpdates();
+  }
+
+  async function saveUpdates() {
+    const valid = updates.filter(u => u.title.trim());
+    const res = await fetch('/api/updates', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(valid)
+    });
+    if (res.ok) {
+      updates = valid;
+      toast('Sector updates saved');
+    }
+  }
+
+  // ── Init ──
+  loadArticles();
+</script>
+
+</body>
+</html>

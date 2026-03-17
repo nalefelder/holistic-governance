@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request a Competitor Analytics Consultation — Holistic Governance</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0f172a;
+    --navy-mid: #1e293b;
+    --sky: #38bdf8;
+    --sky2: #0077a8;
+    --text: #f1f5f9;
+    --muted: #64748b;
+    --border: rgba(56,189,248,0.15);
+    --border-focus: rgba(56,189,248,0.45);
+    --surface: rgba(30,41,59,0.7);
+    --accent-green: #34d399;
+    --accent-pink: #f472b6;
+    --accent-purple: #a78bfa;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+  .bg { position: fixed; inset: 0; z-index: 0;
+    background: radial-gradient(ellipse 70% 50% at 15% -5%, rgba(56,189,248,0.1) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 85% 105%, rgba(167,139,250,0.08) 0%, transparent 60%), var(--navy); }
+  .bg-grid { position: fixed; inset: 0; z-index: 0; opacity: 0.025;
+    background-image: linear-gradient(var(--sky) 1px, transparent 1px), linear-gradient(90deg, var(--sky) 1px, transparent 1px);
+    background-size: 48px 48px; }
+
+  .page { position: relative; z-index: 1; max-width: 740px; margin: 0 auto; padding: 56px 24px 100px; }
+
+  /* Header */
+  .site-header { display: flex; align-items: center; gap: 12px; margin-bottom: 56px; }
+  .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; letter-spacing: 0.08em; color: var(--text); text-decoration: none; }
+  .logo-text span { color: var(--sky); }
+
+  /* Hero */
+  .hero { margin-bottom: 44px; }
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--sky); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--sky); }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 5.5vw, 48px); font-weight: 300; line-height: 1.1; margin-bottom: 18px; color: var(--sky); }
+  .hero-desc { font-size: 15px; line-height: 1.8; color: var(--muted); max-width: 520px; border-left: 2px solid var(--border); padding-left: 16px; }
+
+  /* Tier selector */
+  .tier-selector { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 0; }
+  .tier-option { border: 1px solid var(--border); border-radius: 8px; padding: 16px 14px; cursor: pointer; transition: all 0.15s; user-select: none; position: relative; }
+  .tier-option:hover { border-color: var(--border-focus); }
+  .tier-option.selected-starter { border-color: var(--accent-green); background: rgba(52,211,153,0.06); }
+  .tier-option.selected-growth { border-color: var(--sky); background: rgba(56,189,248,0.06); }
+  .tier-option.selected-clarity { border-color: var(--accent-pink); background: rgba(244,114,182,0.06); }
+  .tier-name { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .tier-name.green { color: var(--accent-green); }
+  .tier-name.blue { color: var(--sky); }
+  .tier-name.pink { color: var(--accent-pink); }
+  .tier-title { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--text); margin-bottom: 4px; }
+  .tier-price { font-size: 12px; color: var(--muted); }
+  .tier-check { position: absolute; top: 10px; right: 10px; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; opacity: 0; transition: opacity 0.15s; }
+  .tier-option.selected-starter .tier-check { opacity: 1; background: rgba(52,211,153,0.2); color: var(--accent-green); }
+  .tier-option.selected-growth .tier-check { opacity: 1; background: rgba(56,189,248,0.2); color: var(--sky); }
+  .tier-option.selected-clarity .tier-check { opacity: 1; background: rgba(244,114,182,0.2); color: var(--accent-pink); }
+
+  /* Form card */
+  .form-card { background: rgba(30,41,59,0.6); border: 1px solid var(--border); border-radius: 16px; padding: 40px; backdrop-filter: blur(12px); position: relative; overflow: hidden; }
+  .form-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--sky), transparent); }
+
+  .form-section { margin-bottom: 32px; }
+  .form-section-label { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--sky); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .form-section-label .num { width: 20px; height: 20px; border-radius: 50%; background: rgba(56,189,248,0.12); border: 1px solid var(--border-focus); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--sky); }
+
+  .field { margin-bottom: 20px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  @media (max-width: 560px) { .field-row { grid-template-columns: 1fr; } .tier-selector { grid-template-columns: 1fr; } }
+
+  label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 8px; }
+  label .optional { font-size: 10px; font-weight: 400; color: rgba(100,116,139,0.6); text-transform: none; letter-spacing: 0; margin-left: 6px; }
+
+  input, select, textarea { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; padding: 12px 14px; transition: border-color 0.2s, background 0.2s, box-shadow 0.2s; outline: none; appearance: none; }
+  input::placeholder, textarea::placeholder { color: rgba(100,116,139,0.5); }
+  input:focus, select:focus, textarea:focus { border-color: var(--border-focus); background: rgba(56,189,248,0.03); box-shadow: 0 0 0 3px rgba(56,189,248,0.07); }
+  input.error, select.error, textarea.error { border-color: #f87171; }
+  select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+  select option { background: #1e293b; color: var(--text); }
+  textarea { resize: vertical; min-height: 96px; line-height: 1.6; }
+  .field-hint { font-size: 11px; color: rgba(100,116,139,0.5); margin-top: 6px; }
+  .field-error { font-size: 11px; color: #f87171; margin-top: 6px; display: none; }
+  .field-error.show { display: block; }
+
+  /* Competitor tags input */
+  .tag-input-wrap { background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; display: flex; flex-wrap: wrap; gap: 6px; cursor: text; min-height: 48px; align-items: center; }
+  .tag-input-wrap:focus-within { border-color: var(--border-focus); background: rgba(56,189,248,0.03); box-shadow: 0 0 0 3px rgba(56,189,248,0.07); }
+  .tag { background: rgba(56,189,248,0.12); border: 1px solid rgba(56,189,248,0.3); color: var(--sky); font-size: 12px; padding: 3px 10px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
+  .tag-remove { cursor: pointer; opacity: 0.6; font-size: 14px; line-height: 1; }
+  .tag-remove:hover { opacity: 1; }
+  .tag-input { border: none; outline: none; background: transparent; color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 14px; min-width: 140px; flex: 1; padding: 4px 2px; }
+  .tag-input::placeholder { color: rgba(100,116,139,0.5); }
+
+  /* Goals chips */
+  .chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .chip { padding: 7px 14px; border-radius: 20px; font-size: 12px; font-weight: 500; border: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: all 0.15s; user-select: none; background: transparent; }
+  .chip:hover { border-color: var(--border-focus); color: var(--text); }
+  .chip.selected { background: rgba(56,189,248,0.1); border-color: rgba(56,189,248,0.45); color: var(--sky); }
+
+  /* Submit */
+  .submit-wrap { margin-top: 36px; }
+  .btn-submit { width: 100%; padding: 16px 32px; background: linear-gradient(135deg, #0077a8, var(--sky)); color: var(--navy); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; border: none; border-radius: 10px; cursor: pointer; transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s; position: relative; overflow: hidden; }
+  .btn-submit:hover { opacity: 0.92; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(56,189,248,0.2); }
+  .btn-submit:active { transform: translateY(0); }
+  .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .btn-submit .spinner { display: none; width: 16px; height: 16px; border: 2px solid rgba(15,23,42,0.3); border-top-color: var(--navy); border-radius: 50%; animation: spin 0.7s linear infinite; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); }
+  .btn-submit.loading .spinner { display: block; }
+  @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+  .submit-note { text-align: center; font-size: 11px; color: rgba(100,116,139,0.5); margin-top: 12px; line-height: 1.6; }
+
+  /* Success */
+  .success-panel { display: none; text-align: center; padding: 48px 24px; }
+  .success-panel.show { display: block; }
+  .success-icon { width: 64px; height: 64px; border-radius: 50%; background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; font-size: 28px; }
+  .success-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; margin-bottom: 12px; color: var(--sky); }
+  .success-desc { font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+  .form-card { animation: slideUp 0.5s ease forwards; }
+  .hero { animation: fadeIn 0.4s ease forwards; }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="bg-grid"></div>
+
+<div class="page">
+  <header class="site-header">
+    <a href="index.html" class="logo-text">Holistic <span>Governance</span></a>
+  </header>
+
+  <div class="hero">
+    <div class="hero-eyebrow">Competitor Analytics</div>
+    <h1 class="hero-title">Book a Consultation</h1>
+    <p class="hero-desc">Tell us about your business and competitive landscape. We'll be in touch within 2 business days to discuss the right approach for you.</p>
+  </div>
+
+  <div class="form-card" id="formCard">
+    <div id="formContent">
+
+      <!-- Section 1: Tier -->
+      <div class="form-section">
+        <div class="form-section-label"><span class="num">1</span> Select Your Plan</div>
+        <div class="tier-selector" id="tierSelector">
+          <div class="tier-option" data-tier="Market Visibility — $100/month" onclick="selectTier(this, 'starter')">
+            <div class="tier-check">✓</div>
+            <div class="tier-name green">Starter</div>
+            <div class="tier-title">Market Visibility</div>
+            <div class="tier-price">$100 / month</div>
+          </div>
+          <div class="tier-option" data-tier="Competitive Intelligence & Analytics — $150/month" onclick="selectTier(this, 'growth')">
+            <div class="tier-check">✓</div>
+            <div class="tier-name blue">Growth</div>
+            <div class="tier-title">Competitive Intelligence</div>
+            <div class="tier-price">$150 / month</div>
+          </div>
+          <div class="tier-option" data-tier="Social Media Trend Analysis — $200/month" onclick="selectTier(this, 'clarity')">
+            <div class="tier-check">✓</div>
+            <div class="tier-name pink">Clarity</div>
+            <div class="tier-title">Social Media Trends</div>
+            <div class="tier-price">$200 / month</div>
+          </div>
+        </div>
+        <input type="hidden" id="selectedTier" />
+        <div class="field-error" id="selectedTier-error" style="margin-top:10px">Please select a plan</div>
+      </div>
+
+      <!-- Section 2: Business -->
+      <div class="form-section">
+        <div class="form-section-label"><span class="num">2</span> Your Business</div>
+
+        <div class="field">
+          <label for="businessName">Business Name</label>
+          <input type="text" id="businessName" placeholder="e.g. Acme Retail Group" required />
+          <div class="field-error" id="businessName-error">Please enter your business name</div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="industry">Industry</label>
+            <select id="industry" required>
+              <option value="" disabled selected>Select industry…</option>
+              <option>Aged Care</option>
+              <option>Healthcare</option>
+              <option>Retail</option>
+              <option>Trade / Construction</option>
+              <option>Legal</option>
+              <option>Technology</option>
+              <option>Financial Services</option>
+              <option>Hospitality</option>
+              <option>Education</option>
+              <option>NDIS / Disability</option>
+              <option>Other</option>
+            </select>
+            <div class="field-error" id="industry-error">Please select your industry</div>
+          </div>
+          <div class="field">
+            <label for="businessSize">Business Size</label>
+            <select id="businessSize">
+              <option value="" disabled selected>Select size…</option>
+              <option>Solo / Freelancer</option>
+              <option>2–10 employees</option>
+              <option>11–50 employees</option>
+              <option>51–200 employees</option>
+              <option>200+ employees</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="competitors">Competitors to Track <span class="optional">type name and press Enter</span></label>
+          <div class="tag-input-wrap" id="tagWrap" onclick="document.getElementById('competitorInput').focus()">
+            <input type="text" id="competitorInput" class="tag-input" placeholder="Add competitor names…" />
+          </div>
+          <input type="hidden" id="competitors" />
+          <div class="field-hint">Add up to 15 competitor names. Press Enter or comma after each one.</div>
+        </div>
+      </div>
+
+      <!-- Section 3: Goals -->
+      <div class="form-section">
+        <div class="form-section-label"><span class="num">3</span> Your Goals</div>
+
+        <div class="field">
+          <label>Primary Goals <span class="optional">select all that apply</span></label>
+          <div class="chip-group" id="goalChips">
+            <div class="chip" data-value="Track competitor pricing">Track competitor pricing</div>
+            <div class="chip" data-value="Monitor market trends">Monitor market trends</div>
+            <div class="chip" data-value="Social media intelligence">Social media intelligence</div>
+            <div class="chip" data-value="SEO & digital benchmarking">SEO & digital benchmarking</div>
+            <div class="chip" data-value="Board / exec reporting">Board / exec reporting</div>
+            <div class="chip" data-value="New market entry">New market entry</div>
+            <div class="chip" data-value="Forecast market demand">Forecast market demand</div>
+            <div class="chip" data-value="Risk assessment">Risk assessment</div>
+          </div>
+          <input type="hidden" id="goals" />
+        </div>
+
+        <div class="field">
+          <label for="context">Additional Context <span class="optional">optional</span></label>
+          <textarea id="context" rows="3" placeholder="Any specific competitors, markets, or challenges you'd like us to focus on…"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="startTimeline">When Would You Like to Start?</label>
+          <select id="startTimeline" required>
+            <option value="" disabled selected>Select timeframe…</option>
+            <option>As soon as possible</option>
+            <option>Within 1 month</option>
+            <option>Within 2–3 months</option>
+            <option>Just exploring options</option>
+          </select>
+          <div class="field-error" id="startTimeline-error">Please select a timeframe</div>
+        </div>
+      </div>
+
+      <!-- Section 4: Contact -->
+      <div class="form-section">
+        <div class="form-section-label"><span class="num">4</span> Your Contact Details</div>
+
+        <div class="field">
+          <label for="contactName">Your Name</label>
+          <input type="text" id="contactName" placeholder="First and last name" required />
+          <div class="field-error" id="contactName-error">Please enter your name</div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@company.com" required />
+            <div class="field-error" id="email-error">Please enter a valid email</div>
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span class="optional">optional</span></label>
+            <input type="tel" id="phone" placeholder="04xx xxx xxx" />
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-wrap">
+        <button type="button" class="btn-submit" id="submitBtn" onclick="submitForm()">
+          Request Consultation →
+          <div class="spinner"></div>
+        </button>
+        <p class="submit-note">We'll respond within 2 business days. Your information is kept strictly confidential.</p>
+      </div>
+
+    </div><!-- /formContent -->
+
+    <div class="success-panel" id="successPanel">
+      <div class="success-icon">✓</div>
+      <div class="success-title">Consultation Requested</div>
+      <p class="success-desc">Thank you — your request has been received.<br>Naomi will be in touch within 2 business days.<br><br>
+        <span style="color:rgba(100,116,139,0.5);font-size:12px">Holistic Governance · tna.naomi@gmail.com</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Tier selection ──
+  let selectedTierClass = '';
+  function selectTier(el, type) {
+    document.querySelectorAll('.tier-option').forEach(t => {
+      t.classList.remove('selected-starter','selected-growth','selected-clarity');
+    });
+    el.classList.add('selected-' + type);
+    selectedTierClass = type;
+    document.getElementById('selectedTier').value = el.dataset.tier;
+    document.getElementById('selectedTier-error').classList.remove('show');
+  }
+
+  // Pre-select tier from URL param e.g. ?tier=growth
+  const urlTier = new URLSearchParams(window.location.search).get('tier');
+  if (urlTier) {
+    const map = { starter: 0, growth: 1, clarity: 2 };
+    const idx = map[urlTier];
+    if (idx !== undefined) {
+      const tiles = document.querySelectorAll('.tier-option');
+      selectTier(tiles[idx], urlTier);
+    }
+  }
+
+  // ── Competitor tag input ──
+  const tags = [];
+  const competitorInput = document.getElementById('competitorInput');
+  competitorInput.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ',') && competitorInput.value.trim()) {
+      e.preventDefault();
+      addTag(competitorInput.value.trim().replace(/,$/, ''));
+      competitorInput.value = '';
+    } else if (e.key === 'Backspace' && !competitorInput.value && tags.length) {
+      removeTag(tags.length - 1);
+    }
+  });
+
+  function addTag(name) {
+    if (!name || tags.includes(name) || tags.length >= 15) return;
+    tags.push(name);
+    renderTags();
+    document.getElementById('competitors').value = tags.join(', ');
+  }
+
+  function removeTag(idx) {
+    tags.splice(idx, 1);
+    renderTags();
+    document.getElementById('competitors').value = tags.join(', ');
+  }
+
+  function renderTags() {
+    const wrap = document.getElementById('tagWrap');
+    wrap.querySelectorAll('.tag').forEach(t => t.remove());
+    tags.forEach((tag, i) => {
+      const el = document.createElement('div');
+      el.className = 'tag';
+      el.innerHTML = `${tag}<span class="tag-remove" onclick="removeTag(${i})">×</span>`;
+      wrap.insertBefore(el, competitorInput);
+    });
+  }
+
+  // ── Goal chips ──
+  document.querySelectorAll('#goalChips .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      chip.classList.toggle('selected');
+      const selected = [...document.querySelectorAll('#goalChips .chip.selected')].map(c => c.dataset.value);
+      document.getElementById('goals').value = selected.join(', ');
+    });
+  });
+
+  // ── Validation ──
+  function validate() {
+    let valid = true;
+    if (!document.getElementById('selectedTier').value) {
+      document.getElementById('selectedTier-error').classList.add('show');
+      valid = false;
+    }
+    const required = [
+      { id: 'businessName', msg: 'Please enter your business name' },
+      { id: 'industry',     msg: 'Please select your industry' },
+      { id: 'startTimeline',msg: 'Please select a timeframe' },
+      { id: 'contactName',  msg: 'Please enter your name' },
+      { id: 'email',        msg: 'Please enter a valid email' },
+    ];
+    required.forEach(({ id, msg }) => {
+      const el = document.getElementById(id);
+      const err = document.getElementById(id + '-error');
+      if (!el.value.trim()) {
+        el.classList.add('error');
+        if (err) { err.textContent = msg; err.classList.add('show'); }
+        valid = false;
+      } else {
+        el.classList.remove('error');
+        if (err) err.classList.remove('show');
+      }
+    });
+    const email = document.getElementById('email');
+    if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      email.classList.add('error');
+      document.getElementById('email-error').textContent = 'Please enter a valid email';
+      document.getElementById('email-error').classList.add('show');
+      valid = false;
+    }
+    return valid;
+  }
+
+  // ── Submit ──
+  async function submitForm() {
+    if (!validate()) return;
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.classList.add('loading');
+
+    const data = {
+      enquiryType:   'competitor-analytics',
+      selectedTier:  document.getElementById('selectedTier').value,
+      businessName:  document.getElementById('businessName').value.trim(),
+      industry:      document.getElementById('industry').value,
+      businessSize:  document.getElementById('businessSize').value,
+      competitors:   document.getElementById('competitors').value,
+      goals:         document.getElementById('goals').value,
+      context:       document.getElementById('context').value.trim(),
+      startTimeline: document.getElementById('startTimeline').value,
+      contactName:   document.getElementById('contactName').value.trim(),
+      email:         document.getElementById('email').value.trim(),
+      phone:         document.getElementById('phone').value.trim(),
+      submittedAt:   new Date().toISOString(),
+    };
+
+    try {
+      const res = await fetch('http://localhost:3001/competitor-enquiry', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (res.ok) {
+        document.getElementById('formContent').style.display = 'none';
+        document.getElementById('successPanel').classList.add('show');
+      } else { throw new Error(); }
+    } catch {
+      alert('There was a problem submitting your request. Please email tna.naomi@gmail.com directly.');
+      btn.disabled = false; btn.classList.remove('loading');
+    }
+  }
+
+  document.querySelectorAll('input, select, textarea').forEach(el => {
+    el.addEventListener('input', () => {
+      el.classList.remove('error');
+      const err = document.getElementById(el.id + '-error');
+      if (err) err.classList.remove('show');
+    });
+  });
+</script>
+</body>
+</html>

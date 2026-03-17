@@ -3,14 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>News & Sector Updates | True North Assurance</title>
+  <title>News & Sector Updates | Holistic Governance</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #f4f7fb; --bg2: #e8eef6; --bg3: #ffffff; --navy: #1a2e4a; --navy-mid: #243b5a; --blue: #2563eb; --blue-light: #4a80f0; --blue-pale: #dbeafe;
-      --text: #1a2e4a; --text-mid: #3d5478; --text-light: #6b85a8; --border: rgba(37,99,235,0.15);
+      --navy: #0f172a;
+      --navy-mid: #1e293b;
+      --gold: #38bdf8;
+      --gold-light: #7dd3fc;
+      --cream: #f1f5f9;
+      --white: #f1f5f9;
+      --text: #f1f5f9;
+      --text-mid: #94a3b8;
+      --text-light: #64748b;
+      --sky: #38bdf8;
+      --sky-light: #7dd3fc;
+      --sky-pale: rgba(56,189,248,0.08);
+      --border: rgba(56,189,248,0.15);
+      --border-mid: rgba(56,189,248,0.25);
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); overflow-x: hidden; }
@@ -52,7 +65,7 @@
     .featured-body p { color: var(--text-light); font-size: 0.92rem; line-height: 1.8; margin-bottom: 1.5rem; }
     .article-meta { font-size: 0.78rem; color: var(--text-light); margin-bottom: 1.5rem; }
     .article-meta span { color: var(--sky); }
-    .read-more { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--sky); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; transition: border-color 0.3s; }
+    .read-more { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--sky); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; transition: border-color 0.3s; cursor: pointer; }
     .read-more:hover { border-color: var(--sky); }
 
     /* ARTICLES GRID */
@@ -64,6 +77,23 @@
     .article-card-body { padding: 1.8rem; }
     .article-card-body h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--white); font-weight: 400; margin-bottom: 0.8rem; line-height: 1.3; }
     .article-card-body p { font-size: 0.85rem; color: var(--text-light); line-height: 1.75; margin-bottom: 1.2rem; }
+
+    /* ARTICLE FULL VIEW */
+    .article-full-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(15,23,42,0.95); overflow-y: auto; padding: 6rem 2rem 4rem; }
+    .article-full-overlay.open { display: block; }
+    .article-full { max-width: 740px; margin: 0 auto; }
+    .article-full-close { position: fixed; top: 1.5rem; right: 2rem; background: none; border: 1px solid var(--border); color: var(--sky); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.2rem; cursor: pointer; font-family: 'DM Sans', sans-serif; border-radius: 2px; z-index: 210; transition: all 0.3s; }
+    .article-full-close:hover { background: var(--sky); color: var(--navy); }
+    .article-full h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--white); margin-bottom: 1rem; line-height: 1.2; }
+    .article-full-meta { font-size: 0.8rem; color: var(--text-light); margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
+    .article-full-meta span { color: var(--sky); }
+    .article-full-content { color: var(--text-mid); font-size: 0.95rem; line-height: 1.9; }
+    .article-full-content h2 { font-size: 1.6rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--white); }
+    .article-full-content h3 { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 500; margin-top: 2rem; margin-bottom: 0.8rem; color: var(--white); }
+    .article-full-content p { margin-bottom: 1.2rem; }
+    .article-full-content ul, .article-full-content ol { margin: 1rem 0 1.5rem 1.5rem; }
+    .article-full-content li { margin-bottom: 0.5rem; }
+    .article-full-content strong { color: var(--white); }
 
     /* SECTOR UPDATES */
     .sector-updates { background: var(--navy-mid); }
@@ -114,20 +144,21 @@
 <body>
 
 <nav>
-  <a href="index.html" class="logo">True North <span>Assurance</span></a>
+  <a href="index.html" class="logo">Holistic <span>Governance</span></a>
   <ul>
     <li><a href="about.html">About</a></li>
     <li><a href="healthcare.html">Health Care</a></li>
     <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
     <li><a href="news.html" class="active">News</a></li>
-    <li><a href="mailto:hello@truenorthassurance.com" class="nav-cta">Contact</a></li>
+    <li><a href="mailto:hello@holisticgovernance.com" class="nav-cta">Contact</a></li>
+    <li><a href="admin.html" style="color:var(--sky);opacity:0.5;font-size:0.7rem;">Admin</a></li>
   </ul>
 </nav>
 
 <div class="page-hero">
   <div class="breadcrumb"><a href="index.html">Home</a> / News & Sector Updates</div>
   <h1>News & Sector Updates</h1>
-  <p>Stay informed on the latest developments in data governance, healthcare regulation, and competitive intelligence. Insights from the True North Assurance team.</p>
+  <p>Stay informed on the latest developments in data governance, healthcare regulation, and competitive intelligence. Insights from the Holistic Governance team.</p>
 </div>
 
 <!-- NEWS -->
@@ -135,104 +166,13 @@
   <div class="section-label">Latest Articles</div>
   <h2>Insights & Updates</h2>
 
-  <div class="filter-bar" style="margin-top:2rem;">
-    <button class="filter-btn active">All</button>
-    <button class="filter-btn">Data Governance</button>
-    <button class="filter-btn">Health Care</button>
-    <button class="filter-btn">Competitor Analytics</button>
-    <button class="filter-btn">Compliance</button>
-    <button class="filter-btn">Industry News</button>
-  </div>
+  <div class="filter-bar" style="margin-top:2rem;" id="filterBar"></div>
 
-  <!-- FEATURED -->
-  <div class="featured-article">
-    <div class="featured-img">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-    </div>
-    <div class="featured-body">
-      <div class="article-tag">Featured — Data Governance</div>
-      <div class="article-meta">February 2025 · <span>True North Assurance</span></div>
-      <h3>Understanding the New Strengthened Aged Care Quality Standards</h3>
-      <p>The Aged Care Quality and Safety Commission has introduced strengthened quality standards that represent a significant shift in how aged care providers are assessed and held accountable. We break down what these changes mean for your organisation.</p>
-      <a href="#" class="read-more">Read Article →</a>
-    </div>
-  </div>
+  <!-- FEATURED — dynamically rendered -->
+  <div id="featuredArea"></div>
 
-  <!-- ARTICLES GRID -->
-  <div class="articles-grid">
-    <div class="article-card">
-      <div class="article-card-img">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>
-      </div>
-      <div class="article-card-body">
-        <div class="article-tag">Competitor Analytics</div>
-        <div class="article-meta" style="margin-bottom:0.8rem;">January 2025</div>
-        <h4>How AI is Reshaping Competitive Intelligence in 2025</h4>
-        <p>The way businesses monitor competitors is evolving rapidly. We explore how AI-powered tools are transforming competitive intelligence from reactive reporting to proactive strategy.</p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
-    </div>
-    <div class="article-card">
-      <div class="article-card-img">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
-      <div class="article-card-body">
-        <div class="article-tag">Compliance</div>
-        <div class="article-meta" style="margin-bottom:0.8rem;">January 2025</div>
-        <h4>NSQHS Standards Second Edition: Key Changes for 2025</h4>
-        <p>A practical guide to understanding the updated National Safety and Quality Health Service Standards and what your organisation needs to do to maintain accreditation.</p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
-    </div>
-    <div class="article-card">
-      <div class="article-card-img">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-      </div>
-      <div class="article-card-body">
-        <div class="article-tag">Health Care</div>
-        <div class="article-meta" style="margin-bottom:0.8rem;">December 2024</div>
-        <h4>FHIR Interoperability: What Healthcare Leaders Need to Know</h4>
-        <p>Fast Healthcare Interoperability Resources (FHIR) is becoming the backbone of digital health. We explain what it means for your organisation and how to prepare.</p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
-    </div>
-    <div class="article-card">
-      <div class="article-card-img">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-      </div>
-      <div class="article-card-body">
-        <div class="article-tag">Data Governance</div>
-        <div class="article-meta" style="margin-bottom:0.8rem;">December 2024</div>
-        <h4>Building a Data Governance Framework From Scratch</h4>
-        <p>Where do you start when your organisation has never had a formal data governance program? Our step-by-step guide to building foundations that actually work.</p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
-    </div>
-    <div class="article-card">
-      <div class="article-card-img">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-      </div>
-      <div class="article-card-body">
-        <div class="article-tag">Industry News</div>
-        <div class="article-meta" style="margin-bottom:0.8rem;">November 2024</div>
-        <h4>The Quality Indicator Program — Manual 4.0 Explained</h4>
-        <p>The National Aged Care Mandatory Quality Indicator Program Manual 4.0 introduces new indicators and reporting requirements. Here is what has changed.</p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
-    </div>
-    <div class="article-card">
-      <div class="article-card-img">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-      </div>
-      <div class="article-card-body">
-        <div class="article-tag">Data Governance</div>
-        <div class="article-meta" style="margin-bottom:0.8rem;">November 2024</div>
-        <h4>Why Data Quality Is the Foundation of Every AI Initiative</h4>
-        <p>Organisations rushing to adopt AI are discovering a hard truth — AI is only as good as the data behind it. We explore why data quality governance is more critical than ever.</p>
-        <a href="#" class="read-more">Read More →</a>
-      </div>
-    </div>
-  </div>
+  <!-- ARTICLES GRID — dynamically rendered -->
+  <div class="articles-grid" id="articlesGrid"></div>
 </section>
 
 <!-- SECTOR UPDATES -->
@@ -240,40 +180,7 @@
   <div class="section-label">Regulatory & Sector</div>
   <h2>Recent Sector Updates</h2>
   <p style="color:var(--text-light);font-size:1rem;line-height:1.8;max-width:560px;margin-bottom:3rem;">Key regulatory and industry developments relevant to our clients across health care and data governance.</p>
-  <div class="updates-grid">
-    <div class="update-item">
-      <div class="update-date"><div class="day">18</div><div class="month">Feb</div></div>
-      <div class="update-body">
-        <h4>Aged Care Quality Standards — Strengthened Standards Now in Effect</h4>
-        <p>The new strengthened aged care quality standards commenced, introducing stronger accountability measures for providers across Australia.</p>
-        <div class="update-tag">Aged Care</div>
-      </div>
-    </div>
-    <div class="update-item">
-      <div class="update-date"><div class="day">12</div><div class="month">Feb</div></div>
-      <div class="update-body">
-        <h4>ACQS Commission Releases Updated Provider Guidance</h4>
-        <p>The Aged Care Quality and Safety Commission has published updated guidance for providers navigating the new standards framework.</p>
-        <div class="update-tag">Compliance</div>
-      </div>
-    </div>
-    <div class="update-item">
-      <div class="update-date"><div class="day">05</div><div class="month">Feb</div></div>
-      <div class="update-body">
-        <h4>Digital Health Agency Publishes FHIR Implementation Guide</h4>
-        <p>The Australian Digital Health Agency has released updated FHIR implementation guidance for healthcare providers and vendors.</p>
-        <div class="update-tag">Digital Health</div>
-      </div>
-    </div>
-    <div class="update-item">
-      <div class="update-date"><div class="day">28</div><div class="month">Jan</div></div>
-      <div class="update-body">
-        <h4>QI Program Manual 4.0 — New Indicators Active</h4>
-        <p>New mandatory quality indicators under Manual 4.0 are now active for reporting. Providers must ensure their systems capture the updated data requirements.</p>
-        <div class="update-tag">Quality</div>
-      </div>
-    </div>
-  </div>
+  <div class="updates-grid" id="updatesGrid"></div>
 </section>
 
 <!-- NEWSLETTER -->
@@ -291,21 +198,168 @@
 
 <div class="cta-band">
   <h2>Want to discuss how these developments affect your organisation?</h2>
-  <a href="mailto:hello@truenorthassurance.com" class="btn-dark">Get in Touch</a>
+  <a href="mailto:hello@holisticgovernance.com" class="btn-dark">Get in Touch</a>
 </div>
 
 <footer>
-  <div class="footer-logo">True North <span>Assurance</span></div>
-  <p>© 2025 True North Assurance. All rights reserved.</p>
-  <p>hello@truenorthassurance.com</p>
+  <div class="footer-logo">Holistic <span>Governance</span></div>
+  <p>&copy; 2025 Holistic Governance. All rights reserved.</p>
 </footer>
 
+<!-- ARTICLE FULL VIEW OVERLAY -->
+<div class="article-full-overlay" id="articleOverlay">
+  <button class="article-full-close" id="articleClose">&larr; Back to News</button>
+  <div class="article-full">
+    <h1 id="articleTitle"></h1>
+    <div class="article-full-meta" id="articleMeta"></div>
+    <div class="article-full-content" id="articleContent"></div>
+  </div>
+</div>
+
 <script>
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  const ICONS = {
+    'Data Governance': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>',
+    'Competitor Analytics': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>',
+    'Compliance': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+    'Health Care': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>',
+    'Industry News': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>',
+    'default': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>'
+  };
+
+  function getIcon(category) {
+    return ICONS[category] || ICONS['default'];
+  }
+
+  function formatDate(dateStr) {
+    const d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString('en-AU', { month: 'long', year: 'numeric' });
+  }
+
+  function formatDateShort(dateStr) {
+    const d = new Date(dateStr + 'T00:00:00');
+    const day = String(d.getDate()).padStart(2, '0');
+    const month = d.toLocaleDateString('en-AU', { month: 'short' });
+    return { day, month };
+  }
+
+  let allArticles = [];
+
+  // Load articles
+  fetch('articles/articles.json')
+    .then(r => r.json())
+    .then(articles => {
+      allArticles = articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+      buildFilters(allArticles);
+      renderArticles(allArticles);
     });
+
+  // Load sector updates
+  fetch('articles/updates.json')
+    .then(r => r.json())
+    .then(updates => {
+      const grid = document.getElementById('updatesGrid');
+      updates.sort((a, b) => new Date(b.date) - new Date(a.date));
+      grid.innerHTML = updates.map(u => {
+        const { day, month } = formatDateShort(u.date);
+        return `
+          <div class="update-item">
+            <div class="update-date"><div class="day">${day}</div><div class="month">${month}</div></div>
+            <div class="update-body">
+              <h4>${u.title}</h4>
+              <p>${u.summary}</p>
+              <div class="update-tag">${u.tag}</div>
+            </div>
+          </div>`;
+      }).join('');
+    });
+
+  function buildFilters(articles) {
+    const categories = ['All', ...new Set(articles.map(a => a.category))];
+    const bar = document.getElementById('filterBar');
+    bar.innerHTML = categories.map(c =>
+      `<button class="filter-btn${c === 'All' ? ' active' : ''}" data-cat="${c}">${c}</button>`
+    ).join('');
+    bar.addEventListener('click', e => {
+      if (!e.target.classList.contains('filter-btn')) return;
+      bar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      const cat = e.target.dataset.cat;
+      const filtered = cat === 'All' ? allArticles : allArticles.filter(a => a.category === cat);
+      renderArticles(filtered);
+    });
+  }
+
+  function renderArticles(articles) {
+    const featuredArea = document.getElementById('featuredArea');
+    const grid = document.getElementById('articlesGrid');
+
+    const featured = articles.find(a => a.featured);
+    const rest = articles.filter(a => a !== featured);
+
+    if (featured) {
+      featuredArea.innerHTML = `
+        <div class="featured-article">
+          <div class="featured-img">${getIcon(featured.category)}</div>
+          <div class="featured-body">
+            <div class="article-tag">Featured — ${featured.category}</div>
+            <div class="article-meta">${formatDate(featured.date)} · <span>${featured.author}</span></div>
+            <h3>${featured.title}</h3>
+            <p>${featured.summary}</p>
+            <a class="read-more" onclick="openArticle('${featured.slug}', '${featured.title.replace(/'/g, "\\'")}', '${formatDate(featured.date)}', '${featured.author}')">Read Article →</a>
+          </div>
+        </div>`;
+    } else {
+      featuredArea.innerHTML = '';
+    }
+
+    grid.innerHTML = rest.map(a => `
+      <div class="article-card" data-category="${a.category}">
+        <div class="article-card-img">${getIcon(a.category)}</div>
+        <div class="article-card-body">
+          <div class="article-tag">${a.category}</div>
+          <div class="article-meta" style="margin-bottom:0.8rem;">${formatDate(a.date)}</div>
+          <h4>${a.title}</h4>
+          <p>${a.summary}</p>
+          <a class="read-more" onclick="openArticle('${a.slug}', '${a.title.replace(/'/g, "\\'")}', '${formatDate(a.date)}', '${a.author}')">Read More →</a>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Article full view
+  function openArticle(slug, title, date, author) {
+    const overlay = document.getElementById('articleOverlay');
+    document.getElementById('articleTitle').textContent = title;
+    document.getElementById('articleMeta').innerHTML = date + ' · <span>' + author + '</span>';
+    document.getElementById('articleContent').innerHTML = '<p style="color:var(--text-light)">Loading...</p>';
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    fetch('articles/' + slug + '.md')
+      .then(r => {
+        if (!r.ok) throw new Error('Not found');
+        return r.text();
+      })
+      .then(md => {
+        // Strip frontmatter if present
+        const stripped = md.replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
+        document.getElementById('articleContent').innerHTML = marked.parse(stripped);
+      })
+      .catch(() => {
+        document.getElementById('articleContent').innerHTML = '<p style="color:var(--text-light)">Article content coming soon.</p>';
+      });
+  }
+
+  document.getElementById('articleClose').addEventListener('click', () => {
+    document.getElementById('articleOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  });
+
+  document.getElementById('articleOverlay').addEventListener('click', e => {
+    if (e.target === e.currentTarget) {
+      document.getElementById('articleOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
   });
 </script>
 

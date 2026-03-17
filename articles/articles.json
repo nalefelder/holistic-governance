@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "TEST",
+    "title": "Test Article — Data Governance Foundations",
+    "date": "2026-03-17",
+    "author": "Holistic Governance",
+    "category": "Data Governance",
+    "featured": false,
+    "summary": "Where do you start when your organisation has never had a formal data governance program? Our step-by-step guide to building foundations that actually work."
+  },
+  {
+    "slug": "strengthened-aged-care-quality-standards",
+    "title": "Understanding the New Strengthened Aged Care Quality Standards",
+    "date": "2025-02-15",
+    "author": "Holistic Governance",
+    "category": "Data Governance",
+    "featured": true,
+    "summary": "The Aged Care Quality and Safety Commission has introduced strengthened quality standards that represent a significant shift in how aged care providers are assessed and held accountable. We break down what these changes mean for your organisation."
+  },
+  {
+    "slug": "ai-reshaping-competitive-intelligence",
+    "title": "How AI is Reshaping Competitive Intelligence in 2025",
+    "date": "2025-01-20",
+    "author": "Holistic Governance",
+    "category": "Competitor Analytics",
+    "featured": false,
+    "summary": "The way businesses monitor competitors is evolving rapidly. We explore how AI-powered tools are transforming competitive intelligence from reactive reporting to proactive strategy."
+  },
+  {
+    "slug": "nsqhs-standards-second-edition",
+    "title": "NSQHS Standards Second Edition: Key Changes for 2025",
+    "date": "2025-01-10",
+    "author": "Holistic Governance",
+    "category": "Compliance",
+    "featured": false,
+    "summary": "A practical guide to understanding the updated National Safety and Quality Health Service Standards and what your organisation needs to do to maintain accreditation."
+  },
+  {
+    "slug": "fhir-interoperability",
+    "title": "FHIR Interoperability: What Healthcare Leaders Need to Know",
+    "date": "2024-12-18",
+    "author": "Holistic Governance",
+    "category": "Health Care",
+    "featured": false,
+    "summary": "Fast Healthcare Interoperability Resources (FHIR) is becoming the backbone of digital health. We explain what it means for your organisation and how to prepare."
+  },
+  {
+    "slug": "data-governance-framework-from-scratch",
+    "title": "Building a Data Governance Framework From Scratch",
+    "date": "2024-12-05",
+    "author": "Holistic Governance",
+    "category": "Data Governance",
+    "featured": false,
+    "summary": "Where do you start when your organisation has never had a formal data governance program? Our step-by-step guide to building foundations that actually work."
+  },
+  {
+    "slug": "quality-indicator-program-manual-4",
+    "title": "The Quality Indicator Program — Manual 4.0 Explained",
+    "date": "2024-11-22",
+    "author": "Holistic Governance",
+    "category": "Industry News",
+    "featured": false,
+    "summary": "The National Aged Care Mandatory Quality Indicator Program Manual 4.0 introduces new indicators and reporting requirements. Here is what has changed."
+  },
+  {
+    "slug": "data-quality-foundation-of-ai",
+    "title": "Why Data Quality Is the Foundation of Every AI Initiative",
+    "date": "2024-11-10",
+    "author": "Holistic Governance",
+    "category": "Data Governance",
+    "featured": false,
+    "summary": "Organisations rushing to adopt AI are discovering a hard truth — AI is only as good as the data behind it. We explore why data quality governance is more critical than ever."
+  }
+]

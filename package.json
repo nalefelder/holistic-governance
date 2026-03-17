@@ -1,0 +1,25 @@
+{
+  "name": "true-north-assurance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build-articles.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node build-articles.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nalefelder/true-north-assurance.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nalefelder/true-north-assurance/issues"
+  },
+  "homepage": "https://github.com/nalefelder/true-north-assurance#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
