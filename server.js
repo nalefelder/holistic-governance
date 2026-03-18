@@ -205,6 +205,34 @@ app.post('/api/subscribe', (req, res) => {
   res.json({ ok: true });
 });
 
+// ── API: List enquiries (auth required) ──
+app.get('/api/enquiries', requireAuth, (req, res) => {
+  if (!fs.existsSync(enquiriesDir)) return res.json([]);
+  const files = fs.readdirSync(enquiriesDir).filter(f => f.endsWith('.json') && f !== 'subscribers.json');
+  const enquiries = files.map(f => {
+    const data = JSON.parse(fs.readFileSync(path.join(enquiriesDir, f), 'utf-8'));
+    return { ...data, _file: f };
+  }).sort((a, b) => new Date(b.receivedAt || b.submittedAt || 0) - new Date(a.receivedAt || a.submittedAt || 0));
+  res.json(enquiries);
+});
+
+// ── API: Delete enquiry (auth required) ──
+app.delete('/api/enquiries/:file', requireAuth, (req, res) => {
+  const safe = req.params.file.replace(/[^a-zA-Z0-9_.-]/g, '');
+  const filePath = path.join(enquiriesDir, safe);
+  if (!filePath.startsWith(path.resolve(enquiriesDir))) return res.status(400).json({ error: 'Invalid file' });
+  if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'Not found' });
+  fs.unlinkSync(filePath);
+  res.json({ ok: true });
+});
+
+// ── API: List subscribers (auth required) ──
+app.get('/api/subscribers', requireAuth, (req, res) => {
+  const subsFile = path.join(enquiriesDir, 'subscribers.json');
+  if (!fs.existsSync(subsFile)) return res.json([]);
+  res.json(JSON.parse(fs.readFileSync(subsFile, 'utf-8')));
+});
+
 // ── Start ──
 buildArticles();
 app.listen(PORT, () => {
