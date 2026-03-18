@@ -5,21 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Request a Governance Proposal — Holistic Governance</title>
 <meta name="description" content="Request a governance proposal from Holistic Governance. We work with a select number of organisations to ensure focused, high-quality support." />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --navy: #080f1c;
-    --navy2: #0d1828;
-    --navy3: #111f33;
-    --cyan: #00b4d8;
-    --cyan2: #0077a8;
-    --text: #e8edf5;
-    --muted: rgba(180,200,220,0.55);
-    --border: rgba(0,180,216,0.15);
-    --border-focus: rgba(0,180,216,0.5);
-    --surface: rgba(13,24,40,0.7);
+    --navy: #0f172a;
+    --navy2: #1e293b;
+    --navy3: #1e293b;
+    --cyan: #38bdf8;
+    --cyan2: #38bdf8;
+    --sky: #38bdf8;
+    --sky-light: #7dd3fc;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: rgba(56,189,248,0.15);
+    --border-focus: rgba(56,189,248,0.4);
+    --surface: rgba(30,41,59,0.7);
     --error: #f87171;
     --success: #4ade80;
   }
@@ -27,7 +30,7 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     background: var(--navy);
     color: var(--text);
     min-height: 100vh;
@@ -134,7 +137,7 @@
   input, select, textarea {
     width: 100%; background: rgba(255,255,255,0.04);
     border: 1px solid var(--border); border-radius: 8px;
-    color: var(--text); font-family: 'Inter', sans-serif;
+    color: var(--text); font-family: 'DM Sans', sans-serif;
     font-size: 14px; padding: 12px 14px;
     transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
     outline: none; appearance: none;
@@ -180,7 +183,7 @@
   .btn-submit {
     width: 100%; padding: 16px 32px;
     background: linear-gradient(135deg, var(--cyan2), var(--cyan));
-    color: var(--navy); font-family: 'Inter', sans-serif;
+    color: var(--navy); font-family: 'DM Sans', sans-serif;
     font-size: 14px; font-weight: 700; letter-spacing: 0.5px;
     border: none; border-radius: 10px; cursor: pointer;
     transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
@@ -210,11 +213,11 @@
   .success-panel.show { display: block; }
   .success-icon {
     width: 64px; height: 64px; border-radius: 50%;
-    background: rgba(74,222,128,0.1); border: 1px solid rgba(74,222,128,0.3);
+    background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.3);
     display: flex; align-items: center; justify-content: center;
     margin: 0 auto 24px; font-size: 28px;
   }
-  .success-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+  .success-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; margin-bottom: 12px; color: var(--sky); }
   .success-desc { font-size: 14px; color: var(--muted); line-height: 1.8; }
 
   /* ── Animations ── */

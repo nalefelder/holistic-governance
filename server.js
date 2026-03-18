@@ -185,6 +185,26 @@ app.post('/api/competitor-enquiry', (req, res) => {
   res.json({ ok: true });
 });
 
+// ── API: Newsletter subscription ──
+app.post('/api/subscribe', (req, res) => {
+  const { email } = req.body;
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ error: 'Valid email required' });
+  }
+  const subsFile = path.join(enquiriesDir, 'subscribers.json');
+  let subscribers = [];
+  if (fs.existsSync(subsFile)) {
+    subscribers = JSON.parse(fs.readFileSync(subsFile, 'utf-8'));
+  }
+  if (subscribers.some(s => s.email === email)) {
+    return res.json({ ok: true, message: 'Already subscribed' });
+  }
+  subscribers.push({ email, subscribedAt: new Date().toISOString() });
+  fs.writeFileSync(subsFile, JSON.stringify(subscribers, null, 2) + '\n');
+  console.log(`New subscriber: ${email}`);
+  res.json({ ok: true });
+});
+
 // ── Start ──
 buildArticles();
 app.listen(PORT, () => {

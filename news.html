@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>News & Sector Updates | Holistic Governance</title>
   <meta name="description" content="Stay informed on the latest developments in governance, healthcare regulation, data intelligence, and competitive insights from Holistic Governance." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -138,10 +139,11 @@
     <div class="section-label" style="justify-content:center;">Stay Informed</div>
     <h2>Get Sector Updates Delivered</h2>
     <p>Subscribe to receive our latest articles, regulatory updates, and sector insights directly to your inbox. No spam — just relevant, timely information.</p>
-    <div class="newsletter-form">
-      <input type="email" placeholder="Your email address" />
-      <button class="btn-gold">Subscribe</button>
+    <div class="newsletter-form" id="newsletterForm">
+      <input type="email" id="newsletterEmail" placeholder="Your email address" />
+      <button class="btn-gold" onclick="subscribe()">Subscribe</button>
     </div>
+    <p id="newsletterMsg" style="display:none;margin-top:1rem;font-size:0.85rem;color:var(--sky);"></p>
   </div>
 </section>
 
@@ -310,6 +312,35 @@
       document.body.style.overflow = '';
     }
   });
+
+  // Newsletter subscription
+  async function subscribe() {
+    const email = document.getElementById('newsletterEmail').value.trim();
+    const msg = document.getElementById('newsletterMsg');
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.textContent = 'Please enter a valid email address.';
+      msg.style.color = '#f87171';
+      msg.style.display = 'block';
+      return;
+    }
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      if (res.ok) {
+        msg.textContent = 'Thank you — you\'re subscribed!';
+        msg.style.color = 'var(--sky)';
+        msg.style.display = 'block';
+        document.getElementById('newsletterEmail').value = '';
+      } else { throw new Error(); }
+    } catch {
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.style.color = '#f87171';
+      msg.style.display = 'block';
+    }
+  }
 </script>
 
 </body>
