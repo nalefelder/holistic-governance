@@ -162,6 +162,12 @@
     .empty-state { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 300px; color: var(--text-light); gap: 1rem; }
     .empty-state p { font-size: 0.9rem; }
 
+    /* SITE SWITCHER */
+    .site-switcher { padding: 1rem 1.5rem; border-bottom: 1px solid var(--border); }
+    .site-switcher label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); display: block; margin-bottom: 0.4rem; }
+    .site-switcher select { width: 100%; padding: 0.5rem; background: var(--navy-mid); border: 1px solid var(--border); color: var(--text); font-family: inherit; font-size: 0.8rem; border-radius: 2px; outline: none; cursor: pointer; }
+    .site-switcher select:focus { border-color: var(--sky); }
+
     /* HIDDEN */
     .section { display: none; }
     .section.active { display: block; }
@@ -173,8 +179,15 @@
   <!-- LEFT NAV -->
   <div class="dash-nav">
     <div class="dash-logo">
-      <h1>Holistic <span>Governance</span></h1>
+      <h1 id="dashLogo">Holistic <span>Governance</span></h1>
       <p>Business Dashboard</p>
+    </div>
+    <div class="site-switcher">
+      <label>Managing</label>
+      <select id="siteSwitcher" onchange="switchSite(this.value)">
+        <option value="true-north">True North Assurance</option>
+        <option value="holistic-governance">Holistic Governance</option>
+      </select>
     </div>
     <div class="nav-section">
       <div class="nav-section-label">Overview</div>
@@ -204,7 +217,8 @@
       </a>
     </div>
     <div class="nav-footer">
-      <a href="/news.html" target="_blank" rel="noopener noreferrer">View Live Site &rarr;</a>
+      <a href="/news.html" target="_blank" rel="noopener noreferrer" id="liveSiteLink">View Live Site &rarr;</a>
+      <br><a href="#" onclick="logout()" style="color:var(--red);margin-top:0.5rem;display:inline-block;">Logout</a>
     </div>
   </div>
 
@@ -388,6 +402,20 @@
   let updates = [];
   let currentSlug = null;
   let isNew = false;
+  let currentSite = 'true-north';
+
+  function switchSite(siteKey) {
+    currentSite = siteKey;
+    currentSlug = null;
+    hideEditor();
+    document.title = 'Dashboard — Holistic Governance';
+    loadAll();
+  }
+
+  async function logout() {
+    await fetch('/api/logout', { method: 'POST' });
+    window.location.href = '/login.html';
+  }
 
   // ── Navigation ──
   function showSection(name) {
@@ -405,10 +433,10 @@
   // ── Load all data ──
   async function loadAll() {
     const [artRes, enqRes, subRes, updRes] = await Promise.all([
-      fetch('/api/articles'),
-      fetch('/api/enquiries', { credentials: 'same-origin' }),
-      fetch('/api/subscribers', { credentials: 'same-origin' }),
-      fetch('/api/updates')
+      fetch('/api/' + currentSite + '/articles'),
+      fetch('/api/' + currentSite + '/enquiries'),
+      fetch('/api/' + currentSite + '/subscribers'),
+      fetch('/api/' + currentSite + '/updates')
     ]);
     articles = await artRes.json();
     allEnquiries = await enqRes.json();
@@ -474,7 +502,7 @@
 
   async function openArticle(slug) {
     currentSlug = slug; isNew = false;
-    const res = await fetch('/api/articles/' + slug);
+    const res = await fetch('/api/' + currentSite + '/articles/' + slug);
     const data = await res.json();
     document.getElementById('f-title').value = data.title || '';
     document.getElementById('f-slug').value = data.slug || '';
@@ -522,7 +550,7 @@
       featured: document.getElementById('f-featured').checked
     };
     if (!data.slug || !data.title || !data.date) { toast('Please fill in title, slug, and date', true); return; }
-    const res = await fetch('/api/articles', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: JSON.stringify(data) });
+    const res = await fetch('/api/' + currentSite + '/articles', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
     if (res.ok) {
       currentSlug = data.slug; isNew = false;
       document.getElementById('f-slug').disabled = true;
@@ -533,7 +561,7 @@
 
   async function deleteArticle() {
     if (!currentSlug || !confirm('Delete this article?')) return;
-    const res = await fetch('/api/articles/' + currentSlug, { method: 'DELETE', credentials: 'same-origin' });
+    const res = await fetch('/api/' + currentSite + '/articles/' + currentSlug, { method: 'DELETE' });
     if (res.ok) { currentSlug = null; hideEditor(); await loadAll(); toast('Article deleted'); }
   }
 
@@ -554,7 +582,7 @@
 
   // ── Enquiries ──
   async function loadEnquiries() {
-    const res = await fetch('/api/enquiries', { credentials: 'same-origin' });
+    const res = await fetch('/api/' + currentSite + '/enquiries');
     allEnquiries = await res.json();
     const tbody = document.getElementById('enquiryBody');
     if (allEnquiries.length === 0) { tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-light);padding:2rem;">No enquiries yet.</td></tr>'; return; }
@@ -593,13 +621,13 @@
 
   async function deleteEnquiry(file, btn) {
     if (!confirm('Delete this enquiry?')) return;
-    const res = await fetch('/api/enquiries/' + file, { method: 'DELETE', credentials: 'same-origin' });
+    const res = await fetch('/api/' + currentSite + '/enquiries/' + file, { method: 'DELETE' });
     if (res.ok) { loadEnquiries(); loadAll(); toast('Enquiry deleted'); }
   }
 
   // ── Subscribers ──
   async function loadSubscribers() {
-    const res = await fetch('/api/subscribers', { credentials: 'same-origin' });
+    const res = await fetch('/api/' + currentSite + '/subscribers');
     allSubscribers = await res.json();
     const list = document.getElementById('subscriberList');
     if (allSubscribers.length === 0) { list.innerHTML = '<li style="color:var(--text-light);">No subscribers yet.</li>'; return; }
@@ -610,7 +638,7 @@
 
   // ── Sector Updates ──
   async function loadUpdates() {
-    const res = await fetch('/api/updates');
+    const res = await fetch('/api/' + currentSite + '/updates');
     updates = await res.json();
     renderUpdates();
   }
@@ -634,7 +662,7 @@
 
   async function saveUpdates() {
     const valid = updates.filter(u => u.title.trim());
-    const res = await fetch('/api/updates', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: JSON.stringify(valid) });
+    const res = await fetch('/api/' + currentSite + '/updates', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(valid) });
     if (res.ok) { updates = valid; await loadAll(); toast('Sector updates saved'); }
   }
 

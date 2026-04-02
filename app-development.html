@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Development & Digital Solutions | Holistic Governance</title>
+    <meta name="description" content="Governed vibe coding and custom app development — AI-speed delivery with enterprise guardrails. Security, compliance, and quality assurance built in. 45% of AI-generated code has vulnerabilities — ours doesn't." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      section {
+        padding: 5rem 4rem;
+      }
+      .section-intro {
+        color: var(--text-light);
+        font-size: 1rem;
+        line-height: 1.8;
+        max-width: 600px;
+        margin-bottom: 3rem;
+      }
+
+      /* OVERVIEW */
+      .ad-overview {
+        background: var(--navy);
+      }
+      .ad-overview-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: start;
+      }
+      .ad-overview-text h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.6rem;
+        color: var(--white);
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+      .ad-overview-text p {
+        color: var(--text-light);
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+      .ad-feature-item {
+        display: flex;
+        gap: 1.2rem;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+      }
+      .ad-feature-item svg {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        color: var(--sky);
+      }
+      .ad-feature-item h4 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        color: var(--white);
+        margin-bottom: 0.4rem;
+      }
+      .ad-feature-item p {
+        color: var(--text-light);
+        font-size: 0.88rem;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      /* VIBE CODING SPOTLIGHT */
+      .ad-vibe {
+        background: var(--navy);
+        position: relative;
+        overflow: hidden;
+      }
+      .ad-vibe::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 50% 80% at 80% 50%, rgba(56,189,248,0.06) 0%, transparent 70%);
+      }
+      .ad-vibe-layout {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+      .ad-vibe-content h2 {
+        font-size: clamp(2rem, 3.5vw, 3rem);
+      }
+      .ad-vibe-content .vibe-tagline {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        color: var(--sky);
+        font-size: 1.15rem;
+        margin-bottom: 1.5rem;
+      }
+      .ad-vibe-content p {
+        color: var(--text-light);
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+      .ad-vibe-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .vibe-stat {
+        text-align: center;
+        padding: 2rem 1rem;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+        transition: border-color 0.3s;
+      }
+      .vibe-stat:hover {
+        border-color: var(--sky);
+      }
+      .vibe-stat .stat-value {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: var(--sky);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+      .vibe-stat .stat-label {
+        font-size: 0.78rem;
+        color: var(--text-light);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      .ad-vibe-btn {
+        display: inline-block;
+        padding: 1rem 2.4rem;
+        background: var(--sky);
+        color: var(--navy);
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 2px;
+        transition: background 0.3s, transform 0.2s;
+      }
+      .ad-vibe-btn:hover {
+        background: var(--sky-light);
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 900px) {
+        .ad-vibe-layout {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .ad-vibe-stats {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* RISKS SECTION */
+      .ad-risks {
+        background: var(--navy-mid);
+      }
+      .ad-risks-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      .risk-card {
+        background: var(--navy);
+        border: 1px solid rgba(248,113,113,0.2);
+        padding: 2rem;
+        border-radius: 2px;
+        transition: border-color 0.3s;
+      }
+      .risk-card:hover {
+        border-color: rgba(248,113,113,0.5);
+      }
+      .risk-card .risk-stat {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2rem;
+        font-weight: 300;
+        color: #f87171;
+        margin-bottom: 0.5rem;
+      }
+      .risk-card h4 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        color: var(--white);
+        margin-bottom: 0.6rem;
+      }
+      .risk-card p {
+        color: var(--text-light);
+        font-size: 0.85rem;
+        line-height: 1.75;
+      }
+      .risk-card .risk-source {
+        font-size: 0.72rem;
+        color: var(--text-mid);
+        margin-top: 0.8rem;
+        font-style: italic;
+      }
+
+      /* GUARDRAILS SECTION */
+      .ad-guardrails {
+        background: var(--navy);
+      }
+      .ad-guardrails-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      .guardrail-card {
+        background: var(--navy-mid);
+        border: 1px solid var(--border);
+        padding: 2rem;
+        border-radius: 2px;
+        display: flex;
+        gap: 1.2rem;
+        align-items: flex-start;
+        transition: border-color 0.3s;
+      }
+      .guardrail-card:hover {
+        border-color: var(--sky);
+      }
+      .guardrail-card svg {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        color: var(--sky);
+      }
+      .guardrail-card h4 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.15rem;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+      .guardrail-card p {
+        color: var(--text-light);
+        font-size: 0.85rem;
+        line-height: 1.75;
+      }
+
+      @media (max-width: 900px) {
+        .ad-risks-grid,
+        .ad-guardrails-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* SERVICE CARD GRIDS */
+      .ad-services {
+        background: var(--navy-mid);
+      }
+      .ad-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .ad-card {
+        background: var(--navy);
+        border: 1px solid var(--border);
+        padding: 2.5rem 2rem;
+        border-radius: 2px;
+        transition: border-color 0.3s;
+      }
+      .ad-services .ad-card {
+        background: var(--navy);
+      }
+      .ad-card:hover {
+        border-color: var(--sky);
+      }
+      .ad-card svg {
+        width: 36px;
+        height: 36px;
+        color: var(--sky);
+        margin-bottom: 1.2rem;
+      }
+      .ad-card h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        color: var(--white);
+        margin-bottom: 0.8rem;
+      }
+      .ad-card p {
+        color: var(--text-light);
+        font-size: 0.88rem;
+        line-height: 1.75;
+        margin-bottom: 1rem;
+      }
+      .ad-card ul {
+        list-style: none;
+        padding: 0;
+      }
+      .ad-card ul li {
+        color: var(--text-light);
+        font-size: 0.85rem;
+        line-height: 1.7;
+        padding-left: 1rem;
+        position: relative;
+      }
+      .ad-card ul li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--sky);
+        font-size: 0.7rem;
+        top: 0.15rem;
+      }
+
+      /* TECH STACK */
+      .ad-tech {
+        background: var(--navy-mid);
+      }
+      .ad-tech-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+      .ad-tech-card {
+        text-align: center;
+        padding: 2.5rem 1.5rem;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+      }
+      .ad-tech-card h4 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        color: var(--white);
+        margin-bottom: 0.8rem;
+      }
+      .ad-tech-card p {
+        font-size: 0.82rem;
+        color: var(--text-light);
+        line-height: 1.7;
+      }
+      .ad-badge {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid var(--sky);
+        color: var(--sky);
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-radius: 2px;
+        margin-bottom: 1rem;
+      }
+
+      @media (max-width: 900px) {
+        .page-hero,
+        section {
+          padding: 6rem 1.5rem 3rem;
+        }
+        .ad-overview-layout {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .ad-grid,
+        .ad-tech-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="logo">Holistic <span>Governance</span></a>
+      <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="healthcare.html">Health Care</a></li>
+        <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
+        <li><a href="ai-technology.html">AI &amp; Technology</a></li>
+        <li><a href="app-development.html" class="active">App Development</a></li>
+        <li><a href="news.html">News</a></li>
+        <li>
+          <a
+            href="mailto:hello@holisticgovernance.com.au"
+            class="nav-cta"
+            >Contact</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div class="page-hero">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> / App Development
+      </div>
+      <h1>App Development & Digital Solutions</h1>
+      <p>
+        Custom applications and digital platforms — built with governance,
+        security, and compliance from the start, not bolted on after.
+      </p>
+    </div>
+
+    <!-- OVERVIEW -->
+    <section class="ad-overview">
+      <div class="section-label">Our Approach</div>
+      <div class="ad-overview-layout">
+        <div class="ad-overview-text">
+          <h3>Applications that are governed, compliant, and built to last.</h3>
+          <p>
+            We build custom applications grounded in real-world business needs.
+            Whether it's a reporting dashboard, an internal workflow platform,
+            or an AI-powered tool, every solution is designed with data
+            governance, privacy, and compliance at its core.
+          </p>
+          <p>
+            Our difference is that we understand both the technology and the
+            governance landscape — so your applications don't just work, they're
+            safe, auditable, and ready for the regulatory environment they
+            operate in.
+          </p>
+        </div>
+        <div class="ad-overview-features">
+          <div class="ad-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <div>
+              <h4>Custom Applications</h4>
+              <p>Dashboards, workflow tools, and internal platforms that turn your data into decisions and your processes into systems.</p>
+            </div>
+          </div>
+          <div class="ad-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <div>
+              <h4>Data Platforms & Integration</h4>
+              <p>Reliable data infrastructure that connects your systems, automates pipelines, and makes data available where it's needed.</p>
+            </div>
+          </div>
+          <div class="ad-feature-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            <div>
+              <h4>Governance-First Approach</h4>
+              <p>Security, privacy, and compliance by design — every application is built to meet regulatory obligations from day one.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIBE CODING SPOTLIGHT -->
+    <section class="ad-vibe">
+      <div class="ad-vibe-layout">
+        <div class="ad-vibe-content">
+          <div class="section-label">Governed Vibe Coding</div>
+          <h2>Vibe Coding. Governed.</h2>
+          <p class="vibe-tagline">"AI-speed development. Enterprise-grade assurance."</p>
+          <p>
+            Vibe coding is transforming how software gets built — AI tools can
+            turn ideas into working applications in days, not months. But speed
+            without oversight creates security vulnerabilities, compliance gaps,
+            and unmaintainable code.
+          </p>
+          <p>
+            We are the governance layer that makes AI-assisted development
+            enterprise-ready. We don't replace vibe coding — we make it safe,
+            compliant, and sustainable. Every line of AI-generated code is
+            reviewed against security benchmarks, compliance requirements, and
+            architectural standards by experienced practitioners.
+          </p>
+          <p>
+            Whether you need a rapid proof of concept, an internal tool, or a
+            full MVP to take to market — we deliver vibe coding speed with the
+            guardrails your organisation demands.
+          </p>
+          <a href="proposal-enquiry.html" class="ad-vibe-btn">Start a Governed Vibe Coding Project</a>
+        </div>
+        <div class="ad-vibe-stats">
+          <div class="vibe-stat">
+            <div class="stat-value">Days</div>
+            <div class="stat-label">Not months</div>
+          </div>
+          <div class="vibe-stat">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Human reviewed</div>
+          </div>
+          <div class="vibe-stat">
+            <div class="stat-value">Audit</div>
+            <div class="stat-label">Ready from day one</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR GUARDRAILS -->
+    <section class="ad-guardrails">
+      <div class="section-label">Our Guardrails</div>
+      <h2>The Governed Vibe Coding Approach</h2>
+      <p class="section-intro">
+        We don't slow you down — we make the speed sustainable and defensible.
+        AI generates, experts validate. Here's what we bring that DIY vibe
+        coding doesn't.
+      </p>
+      <div class="ad-guardrails-grid">
+        <div class="guardrail-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          <div>
+            <h4>Security-First Code Review</h4>
+            <p>Every line of AI-generated code reviewed against OWASP standards, with vulnerability scanning and penetration testing before deployment.</p>
+          </div>
+        </div>
+        <div class="guardrail-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          <div>
+            <h4>Compliance Framework Integration</h4>
+            <p>Development mapped to your regulatory obligations — whether that's the Privacy Act, ISO 27001, SOC 2, or sector-specific standards.</p>
+          </div>
+        </div>
+        <div class="guardrail-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <div>
+            <h4>Architectural Oversight</h4>
+            <p>Structured application architecture designed by humans, not hallucinated by AI. Maintainable, scalable, and free from comprehension debt.</p>
+          </div>
+        </div>
+        <div class="guardrail-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          <div>
+            <h4>Audit Trail & Documentation</h4>
+            <p>Full traceability from requirement to deployment. Version-controlled code, documented decisions, and compliance evidence built into the process.</p>
+          </div>
+        </div>
+        <div class="guardrail-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <div>
+            <h4>Data Privacy & IP Protection</h4>
+            <p>Proprietary code and sensitive data never exposed to third-party AI training pipelines. Clear IP ownership and data handling governance.</p>
+          </div>
+        </div>
+        <div class="guardrail-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <div>
+            <h4>Human Oversight Where It Matters</h4>
+            <p>Experienced practitioners review every deliverable. We speak both languages — AI capabilities and enterprise governance — so nothing falls through the gap.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="ad-services">
+      <div class="section-label">What We Build</div>
+      <h2>Our App Development Services</h2>
+      <p class="section-intro">
+        Custom-built applications and platforms that streamline operations,
+        automate workflows, and put data at the centre of your decision-making.
+      </p>
+      <div class="ad-grid">
+        <div class="ad-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+          <h3>Custom Dashboards & Reporting</h3>
+          <p>
+            Tailored dashboards and automated reporting that give your teams
+            real-time visibility into the metrics that matter.
+          </p>
+          <ul>
+            <li>Web-based and interactive dashboard builds</li>
+            <li>Automated data refresh and scheduling</li>
+            <li>Role-based views (board, exec, operational)</li>
+            <li>KPI tracking and trend analysis</li>
+          </ul>
+        </div>
+        <div class="ad-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+          </svg>
+          <h3>Workflow & Process Apps</h3>
+          <p>
+            Replace manual processes and spreadsheets with purpose-built
+            applications that enforce consistency and save time.
+          </p>
+          <ul>
+            <li>Internal tools and admin platforms</li>
+            <li>Approval and escalation workflows</li>
+            <li>Case and incident management systems</li>
+            <li>Forms, checklists, and audit tools</li>
+          </ul>
+        </div>
+        <div class="ad-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+          <h3>Data Platforms & Pipelines</h3>
+          <p>
+            Reliable data infrastructure that connects your systems, cleans
+            your data, and makes it available where it's needed.
+          </p>
+          <ul>
+            <li>ETL and data transformation pipelines</li>
+            <li>Data warehousing and lake architecture</li>
+            <li>API integrations and middleware</li>
+            <li>Data quality and validation frameworks</li>
+          </ul>
+        </div>
+        <div class="ad-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+          <h3>AI-Powered Tools</h3>
+          <p>
+            Intelligent applications that automate repetitive work, extract
+            insights from unstructured data, and support smarter decisions.
+          </p>
+          <ul>
+            <li>Intelligent document processing</li>
+            <li>Predictive analytics and forecasting</li>
+            <li>Natural language search and summarisation</li>
+            <li>Automated classification and routing</li>
+          </ul>
+        </div>
+        <div class="ad-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+          <h3>System Integration</h3>
+          <p>
+            Connect your systems, break down data silos, and enable real-time
+            data exchange across your organisation.
+          </p>
+          <ul>
+            <li>API development and management</li>
+            <li>Third-party system integration</li>
+            <li>Data transformation and mapping</li>
+            <li>Event-driven and real-time architectures</li>
+          </ul>
+        </div>
+        <div class="ad-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          <h3>Portals & Self-Service Platforms</h3>
+          <p>
+            User-facing platforms that improve access, reduce admin burden,
+            and give stakeholders the tools to help themselves.
+          </p>
+          <ul>
+            <li>Client and stakeholder portals</li>
+            <li>Self-service reporting and data access</li>
+            <li>Online forms and submission platforms</li>
+            <li>Secure document sharing and collaboration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section class="ad-tech">
+      <div class="section-label">Technology & Standards</div>
+      <h2>Technologies We Work With</h2>
+      <p class="section-intro">
+        We build on modern, open standards and proven technology — ensuring your
+        applications are maintainable, interoperable, and future-proof.
+      </p>
+      <div class="ad-tech-grid">
+        <div class="ad-tech-card">
+          <div class="ad-badge">Frontend</div>
+          <h4>React / Next.js</h4>
+          <p>
+            Modern web frameworks for building fast, responsive, and accessible
+            user interfaces — from dashboards to client portals.
+          </p>
+        </div>
+        <div class="ad-tech-card">
+          <div class="ad-badge">Backend</div>
+          <h4>Node.js / TypeScript</h4>
+          <p>
+            Scalable, type-safe server-side development for APIs, data
+            pipelines, and integration services.
+          </p>
+        </div>
+        <div class="ad-tech-card">
+          <div class="ad-badge">Deployment</div>
+          <h4>Cloud & Serverless</h4>
+          <p>
+            Modern cloud infrastructure for scalable, cost-effective hosting
+            — from serverless functions to managed container services.
+          </p>
+        </div>
+        <div class="ad-tech-card">
+          <div class="ad-badge">Database</div>
+          <h4>SQL / Cloud Databases</h4>
+          <p>
+            Relational and cloud-native databases for reliable, scalable
+            data storage — from SQLite to managed cloud services.
+          </p>
+        </div>
+        <div class="ad-tech-card">
+          <div class="ad-badge">Integration</div>
+          <h4>REST & GraphQL APIs</h4>
+          <p>
+            Standards-based API design for connecting systems, enabling
+            data exchange, and building extensible platforms.
+          </p>
+        </div>
+        <div class="ad-tech-card">
+          <div class="ad-badge">AI</div>
+          <h4>AI & Machine Learning</h4>
+          <p>
+            Modern AI capabilities including large language models, document
+            processing, and predictive analytics.
+          </p>
+        </div>
+        <div class="ad-tech-card">
+          <div class="ad-badge">Google</div>
+          <h4>Google for Developers</h4>
+          <p>
+            Access to Google's developer ecosystem — Firebase, Google Cloud,
+            Maps, and AI/ML APIs for building intelligent, scalable applications.
+          </p>
+        </div>
+        <div class="ad-tech-card">
+          <div class="ad-badge">Mobile</div>
+          <h4>Google Play Console</h4>
+          <p>
+            Publishing, managing, and monitoring Android applications —
+            from beta testing to production release and performance analytics.
+          </p>
+        </div>
+        <div class="ad-tech-card">
+          <div class="ad-badge">Source Control</div>
+          <h4>GitHub</h4>
+          <p>
+            Version control, collaboration, and CI/CD pipelines — ensuring
+            code quality, traceability, and seamless team workflows.
+          </p>
+        </div>
+        <div class="ad-tech-card">
+          <div class="ad-badge">Mobile</div>
+          <h4>Expo Pro</h4>
+          <p>
+            Cross-platform mobile app development for iOS and Android from
+            a single codebase — with over-the-air updates and cloud builds.
+          </p>
+        </div>
+        <div class="ad-tech-card">
+          <div class="ad-badge">Platform</div>
+          <h4>Firebase</h4>
+          <p>
+            Google's app development platform — authentication, real-time
+            databases, cloud functions, hosting, and push notifications.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RISKS OF UNGOVERNED VIBE CODING -->
+    <section class="ad-risks">
+      <div class="section-label">The Hidden Risks</div>
+      <h2>Why DIY Vibe Coding Fails at Scale</h2>
+      <p class="section-intro">
+        Vibe coding delivers extraordinary speed — but without governance, the
+        risks are well-documented and serious. Australia's Cyber Security Centre
+        (ACSC) and the UK's NCSC have both flagged AI-generated code as a
+        growing threat to organisational security.
+      </p>
+      <div class="ad-risks-grid">
+        <div class="risk-card">
+          <div class="risk-stat">45%</div>
+          <h4>Security Vulnerabilities in AI Code</h4>
+          <p>
+            Research by Veracode (2024) found that 45% of AI-generated code
+            introduces security flaws — including SQL injection, hardcoded
+            credentials, and broken authentication. A separate CodeRabbit
+            analysis of 470 GitHub pull requests found AI co-authored code
+            has 2.74x higher vulnerability rates.
+          </p>
+          <div class="risk-source">Veracode State of Software Security 2024; CodeRabbit Code Quality Report 2025</div>
+        </div>
+        <div class="risk-card">
+          <div class="risk-stat">NCSC</div>
+          <h4>Government Warnings on AI Code Risk</h4>
+          <p>
+            The UK National Cyber Security Centre warned in March 2026 that
+            AI-generated code presents "intolerable risks" for many
+            organisations. In Australia, the ACSC's Essential Eight framework
+            and the Australian Government's Voluntary AI Safety Standard
+            both emphasise the need for human oversight of AI-generated outputs.
+          </p>
+          <div class="risk-source">UK NCSC Advisory, March 2026; Australian Cyber Security Centre; DISR Voluntary AI Safety Standard 2024</div>
+        </div>
+        <div class="risk-card">
+          <div class="risk-stat">75%</div>
+          <h4>Technical Debt & Maintainability</h4>
+          <p>
+            AI co-authored code has 75% more misconfigurations and 1.7x more
+            critical issues than human-written code. Without architectural
+            oversight, organisations inherit "comprehension debt" — code that
+            nobody understands and that often requires a full rewrite within
+            months.
+          </p>
+          <div class="risk-source">CodeRabbit Code Quality Report 2025; Vibe Coding in Practice, arXiv:2512.11922</div>
+        </div>
+        <div class="risk-card">
+          <div class="risk-stat">Privacy</div>
+          <h4>Australian Privacy & IP Exposure</h4>
+          <p>
+            AI coding tools transmit source code to third-party models —
+            potentially exposing proprietary business logic, API keys, and
+            personal information. Under the Australian Privacy Act 1988 and
+            the proposed reforms, organisations remain liable for data handled
+            by AI tools. IP ownership of AI-generated code remains legally
+            untested in Australian courts.
+          </p>
+          <div class="risk-source">OAIC Australian Privacy Principles; Attorney-General's Privacy Act Review 2023; ACCC Digital Platform Services Inquiry</div>
+        </div>
+        <div class="risk-card">
+          <div class="risk-stat">OWASP</div>
+          <h4>Emerging AI Security Standards</h4>
+          <p>
+            The OWASP Foundation released its Top 10 Risks for AI Coding Agents
+            in 2026, identifying critical threats including insecure code
+            generation, prompt injection, and supply chain attacks via
+            hallucinated package names ("slopsquatting"). These risks require
+            mapping to existing compliance frameworks like ISO 27001 and SOC 2.
+          </p>
+          <div class="risk-source">OWASP Top 10 for AI Coding Agents 2026; Checkmarx AI Security Research 2025</div>
+        </div>
+        <div class="risk-card">
+          <div class="risk-stat">Real</div>
+          <h4>Real-World Incidents</h4>
+          <p>
+            Documented incidents include an AI agent deleting an entire
+            production database (Replit/SaaStr, 2025), security researchers
+            demonstrating live data exposure in AI-built apps on BBC News
+            (February 2026), and Wiz finding that 20% of vibe-coded
+            applications had serious vulnerabilities or configuration errors.
+          </p>
+          <div class="risk-source">Wiz Cloud Security Report 2026; BBC News, February 2026; The New Stack, March 2026</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <h2>Ready to build something — properly?</h2>
+      <a href="proposal-enquiry.html" class="btn-dark">ENQUIRE NOW</a>
+    </div>
+
+    <footer>
+      <div class="footer-logo">Holistic <span>Governance</span></div>
+      <p>&copy; 2025 Holistic Governance</p>
+    </footer>
+  </body>
+</html>

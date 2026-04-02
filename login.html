@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login — Holistic Governance</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0f172a; --navy-mid: #1e293b; --navy-light: #273549;
+      --sky: #38bdf8; --sky-light: #7dd3fc;
+      --text: #f1f5f9; --text-mid: #94a3b8; --text-light: #64748b;
+      --border: rgba(56,189,248,0.15); --red: #f87171;
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2.5rem;
+      width: 380px;
+      max-width: 90vw;
+    }
+    .login-logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .login-logo h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+    .login-logo h1 span { color: var(--sky); }
+    .login-logo p {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 0.4rem;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    label {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.4rem;
+    }
+    input {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      background: var(--navy);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.85rem;
+      border-radius: 2px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus { border-color: var(--sky); }
+    .btn-login {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--sky);
+      color: var(--navy);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+    .btn-login:hover { background: var(--sky-light); }
+    .btn-login:disabled { opacity: 0.5; cursor: not-allowed; }
+    .error-msg {
+      color: var(--red);
+      font-size: 0.8rem;
+      text-align: center;
+      margin-top: 1rem;
+      min-height: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <div class="login-logo">
+      <h1>Holistic <span>Governance</span></h1>
+      <p>Business Dashboard</p>
+    </div>
+    <form id="loginForm" onsubmit="return handleLogin(event)">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" autocomplete="username" required autofocus />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="btn-login" id="loginBtn">Sign In</button>
+      <div class="error-msg" id="errorMsg"></div>
+    </form>
+  </div>
+
+  <script>
+    async function handleLogin(e) {
+      e.preventDefault();
+      const btn = document.getElementById('loginBtn');
+      const errEl = document.getElementById('errorMsg');
+      btn.disabled = true;
+      errEl.textContent = '';
+
+      try {
+        const res = await fetch('/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value
+          })
+        });
+        if (res.ok) {
+          window.location.href = '/admin.html';
+        } else {
+          const data = await res.json();
+          errEl.textContent = data.error || 'Invalid credentials';
+        }
+      } catch {
+        errEl.textContent = 'Connection error. Is the server running?';
+      }
+      btn.disabled = false;
+      return false;
+    }
+  </script>
+</body>
+</html>

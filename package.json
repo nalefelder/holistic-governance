@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/nalefelder/true-north-assurance#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0"
   }
 }

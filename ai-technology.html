@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI & Technology Consultancy | Holistic Governance</title>
+    <meta name="description" content="AI governance, technology risk management, digital transformation assurance, and privacy frameworks. Helping organisations navigate emerging technology with confidence." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      section {
+        padding: 5rem 4rem;
+      }
+      .section-intro {
+        color: var(--text-light);
+        font-size: 1rem;
+        line-height: 1.8;
+        max-width: 600px;
+        margin-bottom: 3rem;
+      }
+
+      /* SERVICES GRID */
+      .at-services {
+        background: var(--navy);
+      }
+      .at-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      .at-card {
+        background: var(--navy-mid);
+        border: 1px solid var(--border);
+        padding: 2.5rem 2rem;
+        border-radius: 2px;
+        transition: border-color 0.3s;
+      }
+      .at-card:hover {
+        border-color: var(--sky);
+      }
+      .at-card svg {
+        width: 36px;
+        height: 36px;
+        color: var(--sky);
+        margin-bottom: 1.2rem;
+      }
+      .at-card h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.4rem;
+        color: var(--white);
+        margin-bottom: 0.8rem;
+      }
+      .at-card p {
+        color: var(--text-light);
+        font-size: 0.88rem;
+        line-height: 1.75;
+        margin-bottom: 1rem;
+      }
+      .at-card ul {
+        list-style: none;
+        padding: 0;
+      }
+      .at-card ul li {
+        color: var(--text-light);
+        font-size: 0.85rem;
+        line-height: 1.7;
+        padding-left: 1rem;
+        position: relative;
+      }
+      .at-card ul li::before {
+        content: "—";
+        position: absolute;
+        left: 0;
+        color: var(--sky);
+        font-size: 0.7rem;
+        top: 0.15rem;
+      }
+
+      /* FRAMEWORKS */
+      .at-frameworks {
+        background: var(--navy-mid);
+      }
+      .at-frameworks-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+      .at-framework-card {
+        text-align: center;
+        padding: 2.5rem 1.5rem;
+        border: 1px solid var(--border);
+        border-radius: 2px;
+      }
+      .at-framework-card h4 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        color: var(--white);
+        margin-bottom: 0.8rem;
+      }
+      .at-framework-card p {
+        font-size: 0.82rem;
+        color: var(--text-light);
+        line-height: 1.7;
+      }
+      .at-badge {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid var(--sky);
+        color: var(--sky);
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border-radius: 2px;
+        margin-bottom: 1rem;
+      }
+
+      @media (max-width: 900px) {
+        .page-hero,
+        section {
+          padding: 6rem 1.5rem 3rem;
+        }
+        .at-grid,
+        .at-frameworks-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="logo">Holistic <span>Governance</span></a>
+      <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="healthcare.html">Health Care</a></li>
+        <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
+        <li><a href="ai-technology.html" class="active">AI &amp; Technology</a></li>
+        <li><a href="app-development.html">App Development</a></li>
+        <li><a href="news.html">News</a></li>
+        <li>
+          <a
+            href="mailto:hello@holisticgovernance.com.au"
+            class="nav-cta"
+            >Contact</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div class="page-hero">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> / AI & Technology Consultancy
+      </div>
+      <h1>AI & Technology Consultancy</h1>
+      <p>
+        Helping organisations govern emerging technology, manage cyber and
+        technology risk, assure digital transformation programs, and protect
+        privacy in an AI-driven world.
+      </p>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="at-services">
+      <div class="section-label">AI & Technology Services</div>
+      <h2>Our AI & Technology Offerings</h2>
+      <p class="section-intro">
+        We deliver governance-led advisory across AI, cybersecurity, digital
+        transformation, and privacy — helping you adopt technology safely,
+        compliantly, and with confidence.
+      </p>
+      <div class="at-grid">
+        <div class="at-card">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="M9 12l2 2 4-4" />
+          </svg>
+          <h3>AI Governance & Responsible AI</h3>
+          <p>
+            Build trust in your AI initiatives with robust governance frameworks,
+            risk classification, and regulatory readiness — ensuring your use of
+            AI is ethical, transparent, and compliant.
+          </p>
+          <ul>
+            <li>AI governance frameworks aligned to ISO/IEC 42001</li>
+            <li>Responsible AI assessments (fairness, transparency, accountability)</li>
+            <li>AI risk classification and tiering</li>
+            <li>AI policy and acceptable use development</li>
+            <li>Regulatory readiness — Australian AI Ethics Principles and proposed mandatory guardrails</li>
+          </ul>
+        </div>
+        <div class="at-card">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0110 0v4" />
+          </svg>
+          <h3>Technology Risk & Cyber Governance</h3>
+          <p>
+            Governance-layer oversight of technology and cyber risk — ensuring
+            your board and executive have visibility, controls, and confidence
+            across the IT environment.
+          </p>
+          <ul>
+            <li>Cybersecurity governance reviews (Essential Eight, ISM, NIST CSF)</li>
+            <li>Technology risk assessments</li>
+            <li>Cloud governance and assurance</li>
+            <li>Third-party and vendor technology risk</li>
+            <li>IT governance maturity assessments (COBIT 2019)</li>
+          </ul>
+        </div>
+        <div class="at-card">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+          <h3>Digital Transformation Assurance</h3>
+          <p>
+            Independent assurance over digital strategy, major technology
+            programs, and organisational readiness — so your transformation
+            delivers real value, on time and within risk appetite.
+          </p>
+          <ul>
+            <li>Digital strategy assurance and independent review</li>
+            <li>Program and project assurance (gateway reviews)</li>
+            <li>Technology capability assessments</li>
+            <li>Data governance and data strategy frameworks</li>
+          </ul>
+          <p style="margin-top:1rem;"><a href="app-development.html" style="color:var(--sky);text-decoration:none;font-size:0.85rem;">Looking to build? See our App Development services →</a></p>
+        </div>
+        <div class="at-card">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+            />
+            <path d="M9 14l2 2 4-4" />
+          </svg>
+          <h3>Privacy & Information Governance</h3>
+          <p>
+            Protect personal information and govern the information lifecycle
+            with practical frameworks that meet regulatory obligations and
+            support ethical data use.
+          </p>
+          <ul>
+            <li>Privacy impact assessments for technology deployments</li>
+            <li>Information management and records governance</li>
+            <li>Data ethics and secondary use frameworks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRAMEWORKS -->
+    <section class="at-frameworks">
+      <div class="section-label">Standards & Frameworks</div>
+      <h2>Frameworks We Work With</h2>
+      <p class="section-intro">
+        Our advisory is grounded in leading international and Australian
+        standards — ensuring your technology governance is credible, defensible,
+        and fit for purpose.
+      </p>
+      <div class="at-frameworks-grid">
+        <div class="at-framework-card">
+          <div class="at-badge">AI Standards</div>
+          <h4>ISO/IEC 42001</h4>
+          <p>
+            The international standard for AI management systems — establishing
+            governance, risk, and controls for organisations developing or
+            deploying AI.
+          </p>
+        </div>
+        <div class="at-framework-card">
+          <div class="at-badge">Cyber</div>
+          <h4>Essential Eight</h4>
+          <p>
+            The Australian Cyber Security Centre's baseline mitigation
+            strategies — the foundation for cybersecurity governance in
+            Australian organisations.
+          </p>
+        </div>
+        <div class="at-framework-card">
+          <div class="at-badge">Risk</div>
+          <h4>NIST Cybersecurity Framework</h4>
+          <p>
+            A widely adopted framework for managing cybersecurity risk across
+            identify, protect, detect, respond, and recover functions.
+          </p>
+        </div>
+        <div class="at-framework-card">
+          <div class="at-badge">Governance</div>
+          <h4>COBIT 2019</h4>
+          <p>
+            The leading framework for enterprise IT governance — aligning
+            technology decisions with business objectives and stakeholder needs.
+          </p>
+        </div>
+        <div class="at-framework-card">
+          <div class="at-badge">Privacy</div>
+          <h4>Australian Privacy Act</h4>
+          <p>
+            The Australian Privacy Principles (APPs) governing the collection,
+            use, disclosure, and storage of personal information.
+          </p>
+        </div>
+        <div class="at-framework-card">
+          <div class="at-badge">AI Ethics</div>
+          <h4>Australian AI Ethics Principles</h4>
+          <p>
+            Australia's voluntary ethical framework for AI — moving toward
+            mandatory guardrails for high-risk AI applications.
+          </p>
+        </div>
+        <div class="at-framework-card">
+          <div class="at-badge">Interoperability</div>
+          <h4>HL7 FHIR</h4>
+          <p>
+            Fast Healthcare Interoperability Resources — the leading standard
+            for health care data exchange, published by HL7 International.
+          </p>
+        </div>
+        <div class="at-framework-card">
+          <div class="at-badge">Health Tech</div>
+          <h4>SMART on FHIR</h4>
+          <p>
+            An open standards-based platform for launching apps within
+            clinical systems — enabling secure, interoperable health
+            applications at the point of care.
+          </p>
+        </div>
+        <div class="at-framework-card">
+          <div class="at-badge">Messaging</div>
+          <h4>HL7 v2 / v3</h4>
+          <p>
+            The foundational health care messaging standards underpinning
+            clinical system integration across hospitals, pathology, and
+            diagnostic services.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <h2>Ready to strengthen your technology governance?</h2>
+      <a href="proposal-enquiry.html" class="btn-dark">ENQUIRE NOW</a>
+    </div>
+
+    <footer>
+      <div class="footer-logo">Holistic <span>Governance</span></div>
+      <p>&copy; 2025 Holistic Governance</p>
+    </footer>
+  </body>
+</html>
