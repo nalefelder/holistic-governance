@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Holistic Governance | Governance, Risk & Data Intelligence</title>
   <meta name="description" content="Holistic Governance helps organisations strengthen governance frameworks, translate complex regulation into practical systems, and harness data and emerging AI to improve decision-making." />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="logo-hg.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
     /* HERO */
-    .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 4rem 4rem; position: relative; overflow: hidden; }
+    .hero { display: flex; align-items: center; padding: 10rem 4rem 6rem; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 70% 50%, rgba(56,189,248,0.07) 0%, transparent 70%); }
-    .hero-grid { position: absolute; inset: 0; opacity: 0.04; background-image: linear-gradient(var(--sky) 1px, transparent 1px), linear-gradient(90deg, var(--sky) 1px, transparent 1px); background-size: 60px 60px; }
-    .hero-content { position: relative; max-width: 680px; }
+    .hero-grid { display: none; }
+    .hero-content { position: relative; max-width: 780px; }
     .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sky); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
     .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--sky); }
-    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.08; color: var(--white); margin-bottom: 1.8rem; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; color: var(--white); margin-bottom: 1.8rem; }
     h1 em { font-style: italic; color: var(--gold-light); }
-    .hero-sub { font-size: 1.05rem; line-height: 1.75; color: var(--text-light); max-width: 520px; margin-bottom: 1rem; }
+    .hero-sub { font-size: 1.05rem; line-height: 1.75; color: #ffffff; max-width: 520px; margin-bottom: 1rem; }
     .hero-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--sky); font-size: 1.1rem; margin-bottom: 3rem; }
     .hero-actions { display: flex; gap: 1.2rem; align-items: center; }
     .btn-primary { display: inline-block; padding: 1rem 2.4rem; background: var(--sky); color: var(--navy); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.2s; }
@@ -29,8 +29,8 @@
 
     /* SOLUTIONS */
     #solutions { background: var(--navy-mid); padding: 6rem 4rem; }
-    h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); }
-    .section-intro { color: var(--text-light); font-size: 1rem; line-height: 1.8; max-width: 560px; margin-bottom: 4rem; }
+    h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
+    .section-intro { color: #ffffff; font-size: 1rem; line-height: 1.8; max-width: 560px; margin-bottom: 4rem; }
     .solutions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
     .solution-card { background: var(--navy); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; text-decoration: none; display: block; transition: transform 0.3s, border-color 0.3s; }
     .solution-card:hover { transform: translateY(-6px); border-color: var(--sky); }
@@ -39,7 +39,7 @@
     .solution-img-placeholder svg { width: 80px; height: 80px; color: var(--sky); opacity: 0.3; }
     .solution-body { padding: 2rem; }
     .solution-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--white); margin-bottom: 1rem; }
-    .solution-body p { color: var(--text-light); font-size: 0.92rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .solution-body p { color: #ffffff; font-size: 0.92rem; line-height: 1.8; margin-bottom: 1.5rem; }
     .solution-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--sky); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
 
     /* SERVICES */
@@ -51,7 +51,7 @@
     .service-card:hover::before { transform: scaleX(1); }
     .service-icon { width: 48px; height: 48px; margin-bottom: 1.8rem; color: var(--sky); opacity: 0.8; }
     .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--white); margin-bottom: 1rem; }
-    .service-card p { color: var(--text-light); font-size: 0.92rem; line-height: 1.8; }
+    .service-card p { color: #ffffff; font-size: 0.92rem; line-height: 1.8; }
     .service-num { position: absolute; top: 2rem; right: 2.5rem; font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: var(--border); line-height: 1; }
 
     /* WHY */
@@ -61,13 +61,31 @@
     .why-card:hover { border-color: var(--sky); }
     .why-card svg { color: var(--sky); width: 32px; height: 32px; margin-bottom: 1.2rem; }
     .why-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 0.8rem; }
-    .why-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.75; }
+    .why-card p { font-size: 0.88rem; color: #ffffff; line-height: 1.75; }
+
+    /* PROVEN IMPACT */
+    #impact { background: var(--navy); padding: 6rem 4rem; }
+    .impact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .impact-item { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.8rem; border: 1px solid var(--border); border-radius: 2px; transition: border-color 0.3s; }
+    .impact-item:hover { border-color: var(--sky); }
+    .impact-icon { width: 36px; height: 36px; background: rgba(56,189,248,0.08); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .impact-icon svg { width: 18px; height: 18px; color: var(--sky); }
+    .impact-item p { font-size: 0.92rem; color: var(--white); line-height: 1.7; }
+
+    /* WHO WE WORK WITH */
+    #clients { background: var(--navy-mid); padding: 6rem 4rem; }
+    .clients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .client-card { text-align: center; padding: 2rem 1.5rem; border: 1px solid var(--border); border-radius: 2px; transition: border-color 0.3s; }
+    .client-card:hover { border-color: var(--border); }
+    .client-card svg { width: 28px; height: 28px; color: var(--sky); margin-bottom: 1rem; opacity: 0.8; }
+    .client-card p { font-size: 0.85rem; color: var(--white); line-height: 1.5; }
 
     footer nav ul { gap: 1.5rem; }
 
     @media (max-width: 900px) {
-      .hero, #solutions, #services, #why { padding: 6rem 1.5rem 3rem; }
-      .solutions-grid, .services-grid, .why-grid { grid-template-columns: 1fr; }
+      .hero, #solutions, #services, #why, #impact, #clients { padding: 6rem 1.5rem 3rem; }
+      .solutions-grid, .services-grid, .why-grid, .impact-grid { grid-template-columns: 1fr; }
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -79,11 +97,15 @@
   <ul>
     <li><a href="about.html">About</a></li>
     <li><a href="healthcare.html">Health Care</a></li>
-    <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
-    <li><a href="ai-technology.html">AI &amp; Technology</a></li>
-    <li><a href="app-development.html">App Development</a></li>
     <li><a href="news.html">News</a></li>
-    <li><a href="mailto:hello@holisticgovernance.com.au" class="nav-cta">Contact</a></li>
+    <li class="nav-contact-wrapper">
+      <button class="nav-cta" onclick="this.nextElementSibling.classList.toggle('open')">Contact</button>
+      <div class="nav-contact-popup">
+        <a href="tel:0405515300"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>0405 515 300</a>
+        <a href="mailto:naomi@hg-au.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>naomi@hg-au.com</a>
+        <a href="proposal-enquiry.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Submit a Proposal</a>
+      </div>
+    </li>
   </ul>
 </nav>
 
@@ -91,124 +113,133 @@
   <div class="hero-grid"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Governance, Risk & Data Intelligence</div>
-    <h1>Navigate governance, regulation and emerging technology with <em>clarity</em> and confidence.</h1>
-    <p class="hero-sub">Holistic Governance helps organisations strengthen governance frameworks, translate complex regulation into practical systems, and harness data, technology, and emerging AI to improve decision-making and accountability.</p>
-    <p class="hero-tagline">"Lets challenge established ways"</p>
+    <h1>Navigate clinical governance, risk, and AI with <em>clarity</em> and confidence.</h1>
+    <p class="hero-sub">Supporting healthcare and regulated organisations to strengthen governance, assurance, and decision-making in complex environments.</p>
     <div class="hero-actions">
-      <a href="#solutions" class="btn-primary">Explore Our Solutions</a>
-      <a href="#services" class="btn-ghost">Our Services →</a>
+      <a href="proposal-enquiry.html" class="btn-primary">Request a Proposal</a>
+      <a href="healthcare.html" class="btn-ghost">Explore Our Solutions →</a>
     </div>
   </div>
 </section>
 
-<section id="solutions">
-  <div class="section-label">Tailored Solutions</div>
-  <h2>Explore Our Tailored Solutions</h2>
-  <p class="section-intro">We deliver specialist solutions designed around your sector's unique challenges, regulatory landscape, and strategic goals.</p>
-  <div class="solutions-grid">
-    <a href="healthcare.html" class="solution-card">
-      <div class="solution-img-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-      </div>
-      <div class="solution-body">
-        <h3>Health Care Sector Specific</h3>
-        <p>Specialised governance, compliance, analytics and advisory services purpose-built for healthcare organisations — from aged care to digital health.</p>
-        <span class="solution-link">Explore Health Care Solutions →</span>
-      </div>
-    </a>
-    <a href="competitor-analytics.html" class="solution-card">
-      <div class="solution-img-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>
-      </div>
-      <div class="solution-body">
-        <h3>Competitor Data Analytics</h3>
-        <p>A comprehensive competitive intelligence platform that helps businesses understand their competitive landscape, identify trends and make strategic decisions with confidence.</p>
-        <span class="solution-link">Get Started →</span>
-      </div>
-    </a>
-    <a href="ai-technology.html" class="solution-card">
-      <div class="solution-img-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-      </div>
-      <div class="solution-body">
-        <h3>AI & Technology Consultancy</h3>
-        <p>AI governance, technology risk management, digital transformation assurance, and privacy frameworks — helping organisations navigate emerging technology with confidence.</p>
-        <span class="solution-link">Explore AI & Technology →</span>
-      </div>
-    </a>
-    <a href="app-development.html" class="solution-card">
-      <div class="solution-img-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-      </div>
-      <div class="solution-body">
-        <h3>App Development & Digital Solutions</h3>
-        <p>Custom dashboards, workflow platforms, data pipelines, and AI-powered tools — built with governance, security, and compliance at their core.</p>
-        <span class="solution-link">Explore App Development →</span>
-      </div>
-    </a>
-  </div>
-</section>
 
 <section id="services">
-  <div class="section-label">What We Do</div>
-  <h2>Our Core Services</h2>
+  <div class="section-label">Our Focus</div>
+  <h2>Why Choose Us</h2>
   <p class="section-intro">We deliver end-to-end governance and data solutions that align with your strategic objectives, regulatory environment, and operational reality.</p>
   <div class="services-grid">
     <div class="service-card">
       <div class="service-num">01</div>
       <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       <h3>Governance & Assurance</h3>
-      <p>Board governance, assurance frameworks</p>
+      <p>Strengthen board oversight, accountability, and assurance visibility.</p>
     </div>
     <div class="service-card">
       <div class="service-num">02</div>
       <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       <h3>Risk & Compliance</h3>
-      <p>Regulatory readiness, internal audit</p>
+      <p>Achieve regulatory readiness and embed sustainable compliance systems.</p>
     </div>
     <div class="service-card">
       <div class="service-num">03</div>
       <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>
       <h3>Data & Intelligence</h3>
-      <p>Analytics, dashboards, reporting</p>
+      <p>Turn fragmented data into board-level insight and decision confidence.</p>
     </div>
     <div class="service-card">
       <div class="service-num">04</div>
       <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
       <h3>Technology & AI</h3>
-      <p>AI governance, technology risk, digital transformation assurance, and privacy frameworks. <a href="ai-technology.html" style="color:var(--sky);text-decoration:none;">Learn more →</a></p>
+      <p>Govern digital transformation and AI adoption with risk-informed frameworks.</p>
     </div>
   </div>
 </section>
 
-<section id="why">
-  <div class="section-label">Why Holistic Governance</div>
-  <h2>Built on expertise. Driven by outcomes.</h2>
-  <p class="section-intro">We are not generalists. Data governance and analytics is our singular focus — and it shows in every engagement.</p>
-  <div class="why-grid">
-    <div class="why-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-      <h4>Deep Domain Expertise</h4>
-      <p>Our practitioners bring hands-on experience across complex enterprise environments in healthcare, government, and regulated industries.</p>
+
+<section id="impact">
+  <div class="section-label">Track Record</div>
+  <h2>Proven Impact</h2>
+  <p class="section-intro">Real outcomes delivered across healthcare and regulated environments.</p>
+  <div class="impact-grid">
+    <div class="impact-item">
+      <div class="impact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <p>Led governance frameworks supporting accreditation readiness across multiple aged care and hospital providers</p>
     </div>
-    <div class="why-card">
+    <div class="impact-item">
+      <div class="impact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg></div>
+      <p>Designed board-level reporting systems improving governance visibility and executive decision-making</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <p>Delivered clinical governance uplift across residential aged care, hospital, and community health settings</p>
+    </div>
+    <div class="impact-item">
+      <div class="impact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <p>Supported organisations through Royal Commission response, regulatory reform, and quality system transformation</p>
+    </div>
+  </div>
+</section>
+
+<section id="clients">
+  <div class="section-label">Our Clients</div>
+  <h2>Who We Work With</h2>
+  <div class="clients-grid">
+    <div class="client-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1m-2 0h2"/></svg>
+      <p>Aged care providers</p>
+    </div>
+    <div class="client-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2m-16 0H3m4-8h2m4 0h2m-8 4h2m4 0h2m-8-8h2m4 0h2"/></svg>
+      <p>Hospitals &amp; day procedures</p>
+    </div>
+    <div class="client-card">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-      <h4>Collaborative by Design</h4>
-      <p>We work alongside your people, not above them. Knowledge transfer and capability building are central to every engagement we undertake.</p>
+      <p>Community &amp; disability services</p>
     </div>
-    <div class="why-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-      <h4>Measurable Results</h4>
-      <p>We define success clearly before we start and measure it rigorously. Our clients see tangible improvements in data quality, compliance posture, and decision confidence.</p>
+    <div class="client-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+      <p>Respite &amp; specialist services</p>
+    </div>
+    <div class="client-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      <p>Digital health &amp; health tech</p>
+    </div>
+    <div class="client-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      <p>Boards &amp; executive teams</p>
     </div>
   </div>
 </section>
 
 <div class="cta-band">
-  <h2>Ready to transform your data governance?</h2>
-  <a href="mailto:hello@holisticgovernance.com.au" class="btn-dark">Get in Touch</a>
+  <h2>Bring clarity and assurance to your clinical and corporate governance</h2>
+  <div class="contact-wrapper">
+    <button class="btn-dark" onclick="this.nextElementSibling.classList.toggle('open')">Get in Touch</button>
+    <div class="contact-popup">
+      <a href="tel:0405515300">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        0405 515 300
+      </a>
+      <a href="mailto:naomi@hg-au.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        naomi@hg-au.com
+      </a>
+      <a href="proposal-enquiry.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Submit a Proposal
+      </a>
+    </div>
+  </div>
 </div>
 
 <footer>
   <div class="footer-logo">Holistic <span>Governance</span></div>
-  <p>© 2025 Holistic Governance
+  <p>© 2026 Holistic Governance
+
+<script>
+document.addEventListener('click', function(e) {
+  document.querySelectorAll('.contact-popup.open, .nav-contact-popup.open').forEach(function(popup) {
+    if (!popup.parentElement.contains(e.target)) popup.classList.remove('open');
+  });
+});
+</script>

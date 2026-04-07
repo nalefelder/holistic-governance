@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us | Holistic Governance</title>
   <meta name="description" content="Learn about Holistic Governance — a governance and data consultancy committed to improving clarity and confidence in organisations through data, technology, and best practice." />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="logo-hg.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -23,15 +23,15 @@
 
     /* VALUES */
     .values { background: var(--navy-mid); }
-    .values-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .values-intro { color: var(--text-light); font-size: 1rem; line-height: 1.8; margin-bottom: 2.5rem; max-width: 480px; }
-    .value-list { display: flex; flex-direction: column; gap: 2rem; }
-    .value-item { display: flex; gap: 1.5rem; align-items: flex-start; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-    .value-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .values-layout { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: start; }
+    .values-intro { color: #ffffff; font-size: 1rem; line-height: 1.8; margin-bottom: 2.5rem; }
+    .value-list { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .value-item { display: flex; gap: 1.5rem; align-items: flex-start; padding: 2rem; border: 1px solid var(--border); border-radius: 2px; transition: border-color 0.3s; }
+    .value-item:hover { border-color: var(--sky); }
     .value-icon { width: 44px; height: 44px; background: rgba(56,189,248,0.08); border: 1px solid var(--border); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .value-icon svg { width: 22px; height: 22px; color: var(--sky); }
     .value-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 0.4rem; font-weight: 400; }
-    .value-item p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+    .value-item p { font-size: 0.9rem; color: #ffffff; line-height: 1.7; }
     .values-visual { position: relative; }
     .values-box-stack { position: relative; height: 420px; }
     .vbox { position: absolute; border: 1px solid var(--border); background: var(--navy); }
@@ -49,12 +49,29 @@
     .approach-step:last-child { border-right: none; }
     .step-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: rgba(184,151,90,0.15); font-weight: 300; line-height: 1; margin-bottom: 1rem; }
     .approach-step h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); margin-bottom: 0.8rem; font-weight: 400; }
-    .approach-step p { font-size: 0.85rem; color: var(--text-light); line-height: 1.75; }
+    .approach-step p { font-size: 0.85rem; color: #ffffff; line-height: 1.75; }
+
+    /* PRINCIPAL CONSULTANT */
+    .consultant { background: var(--navy-mid); }
+    .consultant-layout { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+    .consultant-avatar { width: 280px; height: 320px; background: var(--navy); border: 1px solid var(--border); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+    .consultant-avatar span { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: var(--sky); opacity: 0.6; }
+    .consultant-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: var(--white); margin-bottom: 0.3rem; }
+    .consultant-title { font-size: 0.85rem; color: var(--sky); letter-spacing: 0.08em; margin-bottom: 1.5rem; }
+    .consultant-bio { font-size: 0.95rem; color: #ffffff; line-height: 1.8; margin-bottom: 2rem; }
+    .consultant-details { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .detail-block h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 0.8rem; font-weight: 400; }
+    .detail-block ul { list-style: none; }
+    .detail-block li { font-size: 0.85rem; color: #ffffff; line-height: 1.7; padding-left: 1rem; position: relative; }
+    .detail-block li::before { content: ''; position: absolute; left: 0; top: 0.55rem; width: 5px; height: 5px; background: var(--sky); border-radius: 1px; }
+    .board-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); margin-top: 1rem; margin-bottom: 0.4rem; }
+    .board-label:first-child { margin-top: 0; }
 
     @media (max-width: 900px) {
       .page-hero, section { padding: 6rem 1.5rem 3rem; }
-      .vm-layout, .values-layout, .approach-steps { grid-template-columns: 1fr; }
+      .vm-layout, .values-layout, .approach-steps, .consultant-layout, .consultant-details { grid-template-columns: 1fr; }
       .values-visual { display: none; }
+      .consultant-avatar { width: 100%; height: 200px; }
     }
   </style>
 </head>
@@ -66,18 +83,21 @@
   <ul>
     <li><a href="about.html" class="active">About</a></li>
     <li><a href="healthcare.html">Health Care</a></li>
-    <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
-    <li><a href="ai-technology.html">AI &amp; Technology</a></li>
-    <li><a href="app-development.html">App Development</a></li>
     <li><a href="news.html">News</a></li>
-    <li><a href="mailto:hello@holisticgovernance.com.au" class="nav-cta">Contact</a></li>
+    <li class="nav-contact-wrapper">
+      <button class="nav-cta" onclick="this.nextElementSibling.classList.toggle('open')">Contact</button>
+      <div class="nav-contact-popup">
+        <a href="tel:0405515300"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>0405 515 300</a>
+        <a href="mailto:naomi@hg-au.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>naomi@hg-au.com</a>
+        <a href="proposal-enquiry.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Submit a Proposal</a>
+      </div>
+    </li>
   </ul>
 </nav>
 
 <div class="page-hero">
   <div class="breadcrumb"><a href="index.html">Home</a> / About Us</div>
   <h1>About Holistic Governance</h1>
-  <p>We are a governance and data consultancy committed to improving clarity and confidence in organisations — helping them harness data and technology to drive efficiency and best practice outcomes.</p>
 </div>
 
 <!-- VISION & MISSION -->
@@ -88,18 +108,17 @@
     <div class="vm-card">
       <h3>Vision</h3>
       <blockquote>
-        <p>Improve clarity and confidence in governance — shaping a future where data and technology drive efficiencies and best practice outcomes.</p>
+        <p>Improve clarity and confidence in governance — shaping a future where knowledge, data, and technology drive efficiencies and best practice outcomes.</p>
       </blockquote>
     </div>
     <div class="vm-card">
       <h3>Mission Statement</h3>
       <blockquote>
-        <p>Strive to offer the best available services underpinned by perspective, technology and data driven insight.</p>
+        <p>Strive to offer the best available solutions underpinned by clinical expertise, technology and data driven insight.</p>
       </blockquote>
     </div>
   </div>
 </section>
-
 <!-- VALUES -->
 <section class="values">
   <div class="section-label">What We Stand For</div>
@@ -145,54 +164,113 @@
           </div>
         </div>
       </div>
-      <a href="index.html#solutions" class="explore-link">Explore Our Solutions →</a>
     </div>
-    <div class="values-visual">
-      <div class="values-box-stack">
-        <div class="vbox"></div>
-        <div class="vbox"></div>
-        <div class="vbox-gold">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+  </div>
+</section>
+
+<section class="consultant">
+  <div class="section-label">Leadership</div>
+  <h2>Principal Consultant</h2>
+  <div class="consultant-layout">
+    <div class="consultant-info" style="grid-column: 1 / -1;">
+      <h3>Naomi Alefelder</h3>
+      <div class="consultant-title">Founding Director & Senior Consultant</div>
+      <p class="consultant-bio">Naomi is a highly experienced governance, quality, and risk specialist with over a decade of senior leadership across the aged care, disability, hospital, and community health sectors. She brings deep expertise in clinical governance, accreditation frameworks, and data-driven assurance — translating complex regulatory requirements into practical, sustainable systems.</p>
+      <p style="font-size:0.88rem; color:var(--sky); margin-bottom:2rem; font-style:italic;">Supported by a network of specialist associates across governance, data analytics, and digital health.</p>
+      <div class="consultant-details">
+        <div class="detail-block">
+          <h4>Qualifications</h4>
+          <ul>
+            <li>Master of Business Administration — CSU</li>
+            <li>Bachelor of Nursing — Australian Catholic University (AHPRA Reg. NMW000180905)</li>
+            <li>Foundations of Directorship — AICD</li>
+            <li>Lead Auditor, Exemplar Global AU & TL — PricewaterhouseCoopers</li>
+            <li>Respirator Fit Tester QNFT and QLFT — Kinnect Training</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4>Board & Committee Experience</h4>
+          <div class="board-label">Current</div>
+          <ul>
+            <li>Board Director and Care Governance Committee Member — Caladenia Dementia Care</li>
+          </ul>
+          <div class="board-label">Previous</div>
+          <ul>
+            <li>Chair of Medical Advisory Committee — Victorian Cosmetic Institute Day Surgery</li>
+            <li>Chair of Quality and NSQHS Committee — Brunswick Private Hospital</li>
+          </ul>
+        </div>
+      </div>
+      <div class="consultant-details" style="margin-top: 2rem;">
+        <div class="detail-block">
+          <h4>Skills & Expertise</h4>
+          <div class="board-label">Governance, Standards & Risk</div>
+          <ul>
+            <li>National Safety & Quality Health Service (NSQHS) Standards</li>
+            <li>Aged Care Quality Standards (ACQS)</li>
+            <li>Clinical Care Standards</li>
+            <li>National Disability Insurance Scheme (NDIS)</li>
+            <li>ISO 31000 Risk Management</li>
+          </ul>
+          <div class="board-label">Digital Health Standards</div>
+          <ul>
+            <li>Fast Healthcare Interoperability Resources (FHIR)</li>
+          </ul>
+        </div>
+        <div class="detail-block">
+          <h4 style="opacity:0;">‎</h4>
+          <div class="board-label">Analytics Tools</div>
+          <ul>
+            <li>Microsoft Power BI</li>
+            <li>Microsoft Excel</li>
+          </ul>
+          <div class="board-label">Healthcare Sector Experience</div>
+          <ul>
+            <li>Aged Care — Residential & Respite</li>
+            <li>Home Care</li>
+            <li>Disability</li>
+            <li>Hospital</li>
+            <li>Day Surgery</li>
+            <li>Cosmetic</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- APPROACH -->
-<section class="approach">
-  <div class="section-label">How We Work</div>
-  <h2>Our Approach</h2>
-  <p style="color:var(--text-light);font-size:1rem;line-height:1.8;max-width:560px;margin-bottom:3rem;">A structured path to meaningful, lasting outcomes — built around your context, your people, and your goals.</p>
-  <div class="approach-steps">
-    <div class="approach-step">
-      <div class="step-num">01</div>
-      <h4>Discover & Assess</h4>
-      <p>We begin by deeply understanding your current data landscape, governance maturity, and strategic priorities through structured discovery workshops.</p>
-    </div>
-    <div class="approach-step">
-      <div class="step-num">02</div>
-      <h4>Design & Align</h4>
-      <p>Working collaboratively with your teams, we design frameworks and solutions tailored to your organisation's structure, culture, and regulatory context.</p>
-    </div>
-    <div class="approach-step">
-      <div class="step-num">03</div>
-      <h4>Implement & Embed</h4>
-      <p>We move beyond strategy into delivery — standing up governance functions, building analytics capabilities, and embedding practices that last.</p>
-    </div>
-    <div class="approach-step">
-      <div class="step-num">04</div>
-      <h4>Sustain & Evolve</h4>
-      <p>Through ongoing assurance reviews and advisory support, we help your organisation continuously improve and adapt as your data environment evolves.</p>
-    </div>
-  </div>
-</section>
-
 <div class="cta-band">
   <h2>Ready to work with Holistic Governance?</h2>
-  <a href="mailto:hello@holisticgovernance.com.au" class="btn-dark">Get in Touch</a>
+  <div class="contact-wrapper">
+    <button class="btn-dark" onclick="this.nextElementSibling.classList.toggle('open')">Get in Touch</button>
+    <div class="contact-popup">
+      <a href="tel:0405515300">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        0405 515 300
+      </a>
+      <a href="mailto:naomi@hg-au.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        naomi@hg-au.com
+      </a>
+      <a href="proposal-enquiry.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Submit a Proposal
+      </a>
+    </div>
+  </div>
 </div>
 
 <footer>
   <div class="footer-logo">Holistic <span>Governance</span></div>
-  <p>© 2025 Holistic Governance
+  <p>© 2026 Holistic Governance</p>
+</footer>
+
+<script>
+document.addEventListener('click', function(e) {
+  document.querySelectorAll('.contact-popup.open, .nav-contact-popup.open').forEach(function(popup) {
+    if (!popup.parentElement.contains(e.target)) popup.classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>

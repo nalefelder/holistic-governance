@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Request a Competitor Analytics Consultation — Holistic Governance</title>
 <meta name="description" content="Book a competitor analytics consultation with Holistic Governance. Tell us about your business and competitive landscape." />
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="logo-hg.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -301,7 +301,7 @@
       <div class="success-icon">✓</div>
       <div class="success-title">Consultation Requested</div>
       <p class="success-desc">Thank you — your request has been received.<br>Naomi will be in touch within 2 business days.<br><br>
-        <span style="color:rgba(100,116,139,0.5);font-size:12px">Holistic Governance · hello@holisticgovernance.com.au</span>
+        <span style="color:rgba(100,116,139,0.5);font-size:12px">Holistic Governance · naomi@hg-au.com</span>
       </p>
     </div>
   </div>
@@ -436,7 +436,7 @@
     };
 
     try {
-      const res = await fetch('/api/competitor-enquiry', {
+      const res = await fetch('https://hg-proposals-1010766137344.australia-southeast1.run.app/competitor-enquiry', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
@@ -445,7 +445,7 @@
         document.getElementById('successPanel').classList.add('show');
       } else { throw new Error(); }
     } catch {
-      alert('There was a problem submitting your request. Please email hello@holisticgovernance.com.au directly.');
+      alert('There was a problem submitting your request. Please email naomi@hg-au.com directly.');
       btn.disabled = false; btn.classList.remove('loading');
     }
   }
@@ -458,5 +458,10 @@
     });
   });
 </script>
+
+<footer style="background:#070d1a;padding:3rem 4rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(56,189,248,0.15);">
+  <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#f1f5f9;">Holistic <span style="color:#38bdf8;">Governance</span></div>
+  <p style="font-size:0.78rem;color:#64748b;">© 2026 Holistic Governance</p>
+</footer>
 </body>
 </html>

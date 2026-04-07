@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>News & Sector Updates | Holistic Governance</title>
   <meta name="description" content="Stay informed on the latest developments in governance, healthcare regulation, data intelligence, and competitive insights from Holistic Governance." />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="logo-hg.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -26,7 +26,7 @@
     .featured-body { padding: 3rem; }
     .article-tag { display: inline-block; padding: 0.3rem 0.8rem; background: rgba(56,189,248,0.08); border: 1px solid var(--border); color: var(--sky); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; margin-bottom: 1.2rem; }
     .featured-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--white); font-weight: 300; margin-bottom: 1rem; line-height: 1.2; }
-    .featured-body p { color: var(--text-light); font-size: 0.92rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .featured-body p { color: #ffffff; font-size: 0.92rem; line-height: 1.8; margin-bottom: 1.5rem; }
     .article-meta { font-size: 0.78rem; color: var(--text-light); margin-bottom: 1.5rem; }
     .article-meta span { color: var(--sky); }
     .read-more { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--sky); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; transition: border-color 0.3s; cursor: pointer; }
@@ -40,7 +40,7 @@
     .article-card-img svg { width: 48px; height: 48px; color: var(--sky); opacity: 0.2; }
     .article-card-body { padding: 1.8rem; }
     .article-card-body h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--white); font-weight: 400; margin-bottom: 0.8rem; line-height: 1.3; }
-    .article-card-body p { font-size: 0.85rem; color: var(--text-light); line-height: 1.75; margin-bottom: 1.2rem; }
+    .article-card-body p { font-size: 0.85rem; color: #ffffff; line-height: 1.75; margin-bottom: 1.2rem; }
 
     /* ARTICLE FULL VIEW */
     .article-full-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(15,23,42,0.95); overflow-y: auto; padding: 6rem 2rem 4rem; }
@@ -68,14 +68,14 @@
     .update-date .day { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--sky); font-weight: 300; line-height: 1; }
     .update-date .month { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); }
     .update-body h4 { font-size: 0.95rem; font-weight: 500; color: var(--white); margin-bottom: 0.5rem; }
-    .update-body p { font-size: 0.85rem; color: var(--text-light); line-height: 1.7; }
+    .update-body p { font-size: 0.85rem; color: #ffffff; line-height: 1.7; }
     .update-tag { display: inline-block; margin-top: 0.8rem; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); border: 1px solid var(--border); padding: 0.2rem 0.6rem; border-radius: 2px; }
 
     /* NEWSLETTER */
     .newsletter { background: var(--navy); }
     .newsletter-inner { max-width: 600px; margin: 0 auto; text-align: center; }
     .newsletter-inner h2 { margin-bottom: 1rem; }
-    .newsletter-inner p { color: var(--text-light); font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; }
+    .newsletter-inner p { color: #ffffff; font-size: 0.95rem; line-height: 1.8; margin-bottom: 2rem; }
     .newsletter-form { display: flex; gap: 1rem; }
     .newsletter-form input { flex: 1; padding: 0.9rem 1.2rem; background: var(--navy-mid); border: 1px solid var(--border); color: var(--cream); font-size: 0.9rem; border-radius: 2px; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.3s; }
     .newsletter-form input:focus { border-color: var(--sky); }
@@ -99,12 +99,15 @@
   <ul>
     <li><a href="about.html">About</a></li>
     <li><a href="healthcare.html">Health Care</a></li>
-    <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
-    <li><a href="ai-technology.html">AI &amp; Technology</a></li>
-    <li><a href="app-development.html">App Development</a></li>
     <li><a href="news.html" class="active">News</a></li>
-    <li><a href="mailto:hello@holisticgovernance.com.au" class="nav-cta">Contact</a></li>
-    <li><a href="admin.html" style="opacity:0.4;font-size:0.7rem;">Admin</a></li>
+    <li class="nav-contact-wrapper">
+      <button class="nav-cta" onclick="this.nextElementSibling.classList.toggle('open')">Contact</button>
+      <div class="nav-contact-popup">
+        <a href="tel:0405515300"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>0405 515 300</a>
+        <a href="mailto:naomi@hg-au.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>naomi@hg-au.com</a>
+        <a href="proposal-enquiry.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Submit a Proposal</a>
+      </div>
+    </li>
   </ul>
 </nav>
 
@@ -121,6 +124,12 @@
 
   <div class="filter-bar" style="margin-top:2rem;" id="filterBar"></div>
 
+  <!-- COMING SOON BANNER — hidden when articles exist -->
+  <div id="comingSoonBanner" style="display:none; text-align:center; padding:4rem 2rem; border:1px solid var(--border); border-radius:2px; margin-top:2rem;">
+    <div style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--white); margin-bottom:0.8rem;">Articles Coming Soon</div>
+    <p style="color:#ffffff; font-size:0.95rem; line-height:1.7; max-width:480px; margin:0 auto;">We're preparing insights on clinical governance, regulatory reform, and data-driven assurance. Subscribe below to be notified when we publish.</p>
+  </div>
+
   <!-- FEATURED — dynamically rendered -->
   <div id="featuredArea"></div>
 
@@ -128,13 +137,6 @@
   <div class="articles-grid" id="articlesGrid"></div>
 </section>
 
-<!-- SECTOR UPDATES -->
-<section class="sector-updates">
-  <div class="section-label">Regulatory & Sector</div>
-  <h2>Recent Sector Updates</h2>
-  <p style="color:var(--text-light);font-size:1rem;line-height:1.8;max-width:560px;margin-bottom:3rem;">Key regulatory and industry developments relevant to our clients across health care and data governance.</p>
-  <div class="updates-grid" id="updatesGrid"></div>
-</section>
 
 <!-- NEWSLETTER -->
 <section class="newsletter">
@@ -152,12 +154,28 @@
 
 <div class="cta-band">
   <h2>Want to discuss how these developments affect your organisation?</h2>
-  <a href="mailto:hello@holisticgovernance.com.au" class="btn-dark">Get in Touch</a>
+  <div class="contact-wrapper">
+    <button class="btn-dark" onclick="this.nextElementSibling.classList.toggle('open')">Get in Touch</button>
+    <div class="contact-popup">
+      <a href="tel:0405515300">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        0405 515 300
+      </a>
+      <a href="mailto:naomi@hg-au.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        naomi@hg-au.com
+      </a>
+      <a href="proposal-enquiry.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Submit a Proposal
+      </a>
+    </div>
+  </div>
 </div>
 
 <footer>
   <div class="footer-logo">Holistic <span>Governance</span></div>
-  <p>&copy; 2025 Holistic Governance. All rights reserved.</p>
+  <p>© 2026 Holistic Governance</p>
 </footer>
 
 <!-- ARTICLE FULL VIEW OVERLAY -->
@@ -198,39 +216,30 @@
 
   let allArticles = [];
 
-  // Load articles
-  fetch('articles/articles.json')
+  const API_BASE = 'https://hg-proposals-1010766137344.australia-southeast1.run.app';
+  const FILTER_CATEGORIES = ['All', 'Healthcare', 'Governance', 'AI & Tech', 'Strategy', 'General'];
+
+  // Load articles from dashboard API (Firestore)
+  fetch(API_BASE + '/api/articles')
     .then(r => r.json())
     .then(articles => {
       allArticles = articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-      buildFilters(allArticles);
-      renderArticles(allArticles);
+      const banner = document.getElementById('comingSoonBanner');
+      if (allArticles.length === 0) {
+        banner.style.display = 'block';
+      } else {
+        banner.style.display = 'none';
+        buildFilters();
+        renderArticles(allArticles);
+      }
+    })
+    .catch(() => {
+      document.getElementById('comingSoonBanner').style.display = 'block';
     });
 
-  // Load sector updates
-  fetch('articles/updates.json')
-    .then(r => r.json())
-    .then(updates => {
-      const grid = document.getElementById('updatesGrid');
-      updates.sort((a, b) => new Date(b.date) - new Date(a.date));
-      grid.innerHTML = updates.map(u => {
-        const { day, month } = formatDateShort(u.date);
-        return `
-          <div class="update-item">
-            <div class="update-date"><div class="day">${day}</div><div class="month">${month}</div></div>
-            <div class="update-body">
-              <h4>${u.title}</h4>
-              <p>${u.summary}</p>
-              <div class="update-tag">${u.tag}</div>
-            </div>
-          </div>`;
-      }).join('');
-    });
-
-  function buildFilters(articles) {
-    const categories = ['All', ...new Set(articles.map(a => a.category))];
+  function buildFilters() {
     const bar = document.getElementById('filterBar');
-    bar.innerHTML = categories.map(c =>
+    bar.innerHTML = FILTER_CATEGORIES.map(c =>
       `<button class="filter-btn${c === 'All' ? ' active' : ''}" data-cat="${c}">${c}</button>`
     ).join('');
     bar.addEventListener('click', e => {
@@ -289,18 +298,16 @@
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
 
-    fetch('articles/' + slug + '.md')
+    fetch(API_BASE + '/api/articles/' + slug)
       .then(r => {
         if (!r.ok) throw new Error('Not found');
-        return r.text();
+        return r.json();
       })
-      .then(md => {
-        // Strip frontmatter if present
-        const stripped = md.replace(/^---\s*\n[\s\S]*?\n---\s*\n/, '');
-        document.getElementById('articleContent').innerHTML = marked.parse(stripped);
+      .then(data => {
+        document.getElementById('articleContent').innerHTML = marked.parse(data.body || '*No content yet.*');
       })
       .catch(() => {
-        document.getElementById('articleContent').innerHTML = '<p style="color:var(--text-light)">Article content coming soon.</p>';
+        document.getElementById('articleContent').innerHTML = '<p style="color:#ffffff">Article content coming soon.</p>';
       });
   }
 
@@ -316,6 +323,13 @@
     }
   });
 
+  // Close contact popup on click outside
+  document.addEventListener('click', function(e) {
+    document.querySelectorAll('.contact-popup.open, .nav-contact-popup.open').forEach(function(popup) {
+      if (!popup.parentElement.contains(e.target)) popup.classList.remove('open');
+    });
+  });
+
   // Newsletter subscription
   async function subscribe() {
     const email = document.getElementById('newsletterEmail').value.trim();
@@ -327,7 +341,7 @@
       return;
     }
     try {
-      const res = await fetch('/api/subscribe', {
+      const res = await fetch(API_BASE + '/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })

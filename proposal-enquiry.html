@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Request a Governance Proposal — Holistic Governance</title>
 <meta name="description" content="Request a governance proposal from Holistic Governance. We work with a select number of organisations to ensure focused, high-quality support." />
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" href="logo-hg.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -299,9 +299,8 @@
           <label for="accreditation">Current Accreditation Status <span class="optional">optional</span></label>
           <div class="chip-group" id="accredChips">
             <div class="chip" data-value="Accredited">Accredited</div>
-            <div class="chip" data-value="Accreditation Due">Accreditation Due</div>
+            <div class="chip" data-value="Accreditation Renewal">Accreditation Renewal</div>
             <div class="chip" data-value="Improvement Notice">Improvement Notice</div>
-            <div class="chip" data-value="Post-Audit Review">Post-Audit Review</div>
             <div class="chip" data-value="Not Yet Accredited">Not Yet Accredited</div>
           </div>
           <input type="hidden" id="accreditation" name="accreditation" />
@@ -310,14 +309,14 @@
 
       <!-- Section 2: Challenge -->
       <div class="form-section">
-        <div class="form-section-label"><span class="num">2</span> Your Governance Challenge</div>
+        <div class="form-section-label"><span class="num">2</span> Your Governance Challenge / Goal</div>
 
         <div class="field">
-          <label for="challenge">Primary Governance Challenge</label>
+          <label for="challenge">Primary Governance Challenge / Goal</label>
           <textarea id="challenge" name="challenge" rows="4"
             placeholder="Briefly describe what you're facing — e.g. upcoming ACQSC audit, board reporting gaps, NDIS compliance concerns, quality improvement program…" required></textarea>
           <div class="field-hint">This helps us tailor the right proposal for your situation.</div>
-          <div class="field-error" id="challenge-error">Please describe your governance challenge</div>
+          <div class="field-error" id="challenge-error">Please describe your governance challenge / goal</div>
         </div>
 
         <div class="field">
@@ -378,7 +377,7 @@
       <p class="success-desc">
         Thank you — your proposal request has been submitted.<br>
         Naomi will review your enquiry and be in touch within 2 business days.<br><br>
-        <span style="color: rgba(180,200,220,0.4); font-size: 12px;">Holistic Governance · hello@holisticgovernance.com.au</span>
+        <span style="color: rgba(180,200,220,0.4); font-size: 12px;">Holistic Governance · naomi@hg-au.com</span>
       </p>
     </div>
 
@@ -402,7 +401,7 @@
     const required = [
       { id: 'orgName',     msg: 'Please enter your organisation name' },
       { id: 'orgType',     msg: 'Please select an organisation type' },
-      { id: 'challenge',   msg: 'Please describe your governance challenge' },
+      { id: 'challenge',   msg: 'Please describe your governance challenge / goal' },
       { id: 'timeframe',   msg: 'Please select a timeframe' },
       { id: 'contactName', msg: 'Please enter your name' },
       { id: 'email',       msg: 'Please enter a valid email address' },
@@ -453,7 +452,7 @@
     };
 
     try {
-      const res = await fetch('/api/enquiry', {
+      const res = await fetch('https://hg-proposals-1010766137344.australia-southeast1.run.app/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -466,7 +465,7 @@
         throw new Error('Server error');
       }
     } catch (e) {
-      alert('There was a problem submitting your request. Please email hello@holisticgovernance.com.au directly.');
+      alert('There was a problem submitting your request. Please email naomi@hg-au.com directly.');
       btn.disabled = false;
       btn.classList.remove('loading');
     }
@@ -481,5 +480,10 @@
     });
   });
 </script>
+
+<footer style="background:#070d1a;padding:3rem 4rem;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(56,189,248,0.15);">
+  <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#f1f5f9;">Holistic <span style="color:#38bdf8;">Governance</span></div>
+  <p style="font-size:0.78rem;color:#64748b;">© 2026 Holistic Governance</p>
+</footer>
 </body>
 </html>
