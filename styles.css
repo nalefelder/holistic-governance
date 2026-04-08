@@ -57,7 +57,7 @@ nav.scrolled {
 nav.scrolled .logo img { height: 40px; }
 .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.08em; color: var(--white); }
 .logo-name span { color: var(--sky); }
-nav ul { list-style: none; display: flex; gap: 2.5rem; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
+nav ul { list-style: none; display: flex; gap: 2.5rem; align-items: center; margin-left: auto; }
 nav ul a { text-decoration: none; color: var(--text-light); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.3s; position: relative; }
 nav ul a:hover, nav ul a.active { color: var(--sky); }
 nav ul a.active::after { content: ''; position: absolute; bottom: -6px; left: 0; right: 0; height: 2px; background: var(--sky); border-radius: 1px; }
