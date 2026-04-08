@@ -117,33 +117,7 @@
     .client-card:hover svg { opacity: 1; }
     .client-card p { font-size: 0.88rem; color: var(--white); line-height: 1.5; }
 
-    /* ── OPTION A: Minimal dot-separated row ── */
-    .fw-optionA {
-      background: var(--navy); padding: 4rem 4rem;
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-    }
-    .fwA-label {
-      font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--sky); margin-bottom: 2rem; font-weight: 500;
-    }
-    .fwA-row {
-      display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
-      gap: 0;
-    }
-    .fwA-row span {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 400;
-      color: var(--text-mid); letter-spacing: 0.03em;
-      padding: 0.3rem 0;
-      transition: color 0.3s;
-    }
-    .fwA-row span:hover { color: var(--sky); }
-    .fwA-row span:not(:last-child)::after {
-      content: '·'; margin: 0 1rem;
-      color: var(--border-mid); font-weight: 300;
-    }
-
-    /* ── OPTION B: Two-column split with tags ── */
+    /* ── FRAMEWORKS & STANDARDS ── */
     .fw-optionB {
       background: var(--navy-mid); padding: 6rem 4rem;
       border-bottom: 1px solid var(--border);
@@ -167,9 +141,6 @@
 
     @media (max-width: 900px) {
       .hero { min-height: auto; padding: 8rem 1.5rem 4rem; }
-      .fw-optionA { padding: 3rem 1.5rem; }
-      .fwA-row span { font-size: 0.9rem; }
-      .fwA-row span:not(:last-child)::after { margin: 0 0.6rem; }
       .fw-optionB { padding: 4rem 1.5rem; }
       .fwB-inner { grid-template-columns: 1fr; gap: 2rem; }
       .hero, #services, #impact, #clients { padding-left: 1.5rem; padding-right: 1.5rem; }
@@ -215,19 +186,7 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ -->
-<!-- OPTION A — Minimal single-row dot-separated bar -->
-<!-- ═══════════════════════════════════════════ -->
-<div class="fw-optionA fade-in">
-  <div class="fwA-label">Frameworks & Standards We Work In</div>
-  <div class="fwA-row">
-    <span>NSQHS</span><span>ACQS</span><span>FHIR</span><span>ISO</span><span>NDIS</span><span>QI Program</span><span>SNOMED CT</span><span>SIRS</span><span>Clinical Care Standards</span><span>NFDHS</span><span>ELDAC</span>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════════ -->
-<!-- OPTION B — Two-column split with pill tags -->
-<!-- ═══════════════════════════════════════════ -->
+<!-- FRAMEWORKS & STANDARDS -->
 <div class="fw-optionB fade-in">
   <div class="fwB-inner">
     <div class="fwB-left">
@@ -246,7 +205,7 @@
         <span class="fwB-tag">SNOMED CT</span>
         <span class="fwB-tag">SIRS</span>
         <span class="fwB-tag">Clinical Care Standards</span>
-        <span class="fwB-tag">NFDHS</span>
+        <span class="fwB-tag">National Framework for Digital Health Standards</span>
         <span class="fwB-tag">ELDAC</span>
       </div>
     </div>
