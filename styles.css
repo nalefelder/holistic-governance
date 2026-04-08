@@ -33,8 +33,10 @@ nav {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
-.logo { text-decoration: none; display: flex; align-items: center; }
-.logo img { height: 40px; width: auto; }
+.logo { text-decoration: none; display: flex; align-items: center; gap: 0.75rem; }
+.logo img { height: 55px; width: auto; }
+.logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.08em; color: var(--white); }
+.logo-name span { color: var(--sky); }
 nav ul { list-style: none; display: flex; gap: 2.5rem; }
 nav ul a { text-decoration: none; color: var(--text-light); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.3s; }
 nav ul a:hover, nav ul a.active { color: var(--sky); }
@@ -82,8 +84,10 @@ h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3re
 
 /* FOOTER */
 footer { background: #070d1a; padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
-.footer-logo { display: flex; align-items: center; }
-.footer-logo img { height: 35px; width: auto; }
+.footer-logo { display: flex; align-items: center; gap: 0.6rem; }
+.footer-logo img { height: 45px; width: auto; }
+.footer-logo .logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--white); }
+.footer-logo .logo-name span { color: var(--sky); }
 footer p { font-size: 0.78rem; color: var(--text-light); }
 
 /* HAMBURGER */
