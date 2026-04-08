@@ -10,80 +10,123 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* HERO */
-    .hero { display: flex; align-items: center; padding: 10rem 4rem 6rem; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 70% 50%, rgba(56,189,248,0.07) 0%, transparent 70%); }
-    .hero-grid { display: none; }
+    /* ── ACCENT COLOURS ── */
+    :root { --copper: #c9956b; --copper-light: #d4a97a; --copper-pale: rgba(201,149,107,0.12); }
+
+    /* ── HERO ── */
+    .hero {
+      display: flex; align-items: center;
+      min-height: 100vh; padding: 10rem 4rem 6rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 75% 45%, rgba(56,189,248,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 20% 80%, rgba(201,149,107,0.05) 0%, transparent 60%);
+    }
+    /* Animated grid pattern */
+    .hero-grid {
+      display: block; position: absolute; inset: 0; opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(56,189,248,0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56,189,248,0.3) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridShift 20s linear infinite;
+    }
+    @keyframes gridShift {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(60px, 60px); }
+    }
     .hero-content { position: relative; max-width: 780px; }
-    .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sky); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
-    .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--sky); }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; color: var(--white); margin-bottom: 1.8rem; }
-    h1 em { font-style: italic; color: var(--gold-light); }
-    .hero-sub { font-size: 1.05rem; line-height: 1.75; color: #ffffff; max-width: 520px; margin-bottom: 1rem; }
-    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--sky); font-size: 1.1rem; margin-bottom: 3rem; }
-    .hero-actions { display: flex; gap: 1.2rem; align-items: center; }
-    .btn-primary { display: inline-block; padding: 1rem 2.4rem; background: var(--sky); color: var(--navy); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.3s, transform 0.2s; }
-    .btn-primary:hover { background: var(--sky-light); transform: translateY(-2px); }
-    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-light); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.06em; transition: color 0.3s; }
+    .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--copper); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+    .hero-eyebrow::before { content: ''; display: block; width: 50px; height: 1px; background: linear-gradient(90deg, var(--copper), var(--sky)); }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 300; line-height: 1.08; color: var(--white); margin-bottom: 2rem; }
+    h1 em { font-style: italic; color: var(--copper-light); }
+    .hero-sub { font-size: 1.1rem; line-height: 1.85; color: rgba(241,245,249,0.85); max-width: 540px; margin-bottom: 3rem; }
+    .hero-actions { display: flex; gap: 1.5rem; align-items: center; }
+    .btn-primary { display: inline-block; padding: 1.1rem 2.8rem; background: var(--sky); color: var(--navy); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.3s; box-shadow: 0 4px 15px rgba(56,189,248,0.25); }
+    .btn-primary:hover { background: var(--sky-light); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(56,189,248,0.35); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-mid); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.06em; transition: color 0.3s; }
     .btn-ghost:hover { color: var(--white); }
 
-    /* SOLUTIONS */
-    #solutions { background: var(--navy-mid); padding: 6rem 4rem; }
-    h2 { font-size: clamp(2rem, 3.5vw, 3rem); }
-    .section-intro { color: #ffffff; font-size: 1rem; line-height: 1.8; max-width: 560px; margin-bottom: 4rem; }
-    .solutions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-    .solution-card { background: var(--navy); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; text-decoration: none; display: block; transition: transform 0.3s, border-color 0.3s; }
-    .solution-card:hover { transform: translateY(-6px); border-color: var(--sky); }
-    .solution-img { width: 100%; height: 240px; object-fit: cover; display: block; background: var(--navy-mid); position: relative; overflow: hidden; }
-    .solution-img-placeholder { width: 100%; height: 240px; display: flex; align-items: center; justify-content: center; }
-    .solution-img-placeholder svg { width: 80px; height: 80px; color: var(--sky); opacity: 0.3; }
-    .solution-body { padding: 2rem; }
-    .solution-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; color: var(--white); margin-bottom: 1rem; }
-    .solution-body p { color: #ffffff; font-size: 0.92rem; line-height: 1.8; margin-bottom: 1.5rem; }
-    .solution-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--sky); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    /* ── CREDENTIALS BAR ── */
+    .credentials-bar {
+      background: var(--navy-mid); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 4rem 4rem;
+    }
+    .credentials-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+      text-align: center;
+    }
+    .credential-item { position: relative; padding: 0 1rem; }
+    .credential-item:not(:last-child)::after {
+      content: ''; position: absolute; right: 0; top: 15%; bottom: 15%;
+      width: 1px; background: var(--border);
+    }
+    .credential-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300;
+      color: var(--copper); line-height: 1; margin-bottom: 0.5rem;
+    }
+    .credential-label {
+      font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-mid); line-height: 1.5;
+    }
 
-    /* SERVICES */
-    #services { padding: 6rem 4rem; background: var(--navy); }
-    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
-    .service-card { background: var(--navy); padding: 3rem; position: relative; overflow: hidden; transition: background 0.4s; }
-    .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--sky); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
-    .service-card:hover { background: rgba(18,35,56,0.5); }
+    /* ── SERVICES ── */
+    #services { padding: 8rem 4rem; background: var(--navy); }
+    .section-intro { color: rgba(241,245,249,0.75); font-size: 1.05rem; line-height: 1.9; max-width: 560px; margin-bottom: 4rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 2px; }
+    .service-card {
+      background: var(--navy); padding: 3.5rem; position: relative; overflow: hidden;
+      transition: background 0.5s, transform 0.3s;
+    }
+    .service-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--sky), var(--copper)); transform: scaleX(0); transform-origin: left; transition: transform 0.5s; }
+    .service-card:hover { background: rgba(18,35,56,0.6); }
     .service-card:hover::before { transform: scaleX(1); }
-    .service-icon { width: 48px; height: 48px; margin-bottom: 1.8rem; color: var(--sky); opacity: 0.8; }
-    .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--white); margin-bottom: 1rem; }
-    .service-card p { color: #ffffff; font-size: 0.92rem; line-height: 1.8; }
-    .service-num { position: absolute; top: 2rem; right: 2.5rem; font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: var(--border); line-height: 1; }
+    .service-card:hover .service-icon { opacity: 1; transform: scale(1.1); }
+    .service-icon { width: 48px; height: 48px; margin-bottom: 2rem; color: var(--sky); opacity: 0.7; transition: opacity 0.4s, transform 0.4s; }
+    .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 400; color: var(--white); margin-bottom: 1rem; }
+    .service-card p { color: rgba(241,245,249,0.8); font-size: 0.92rem; line-height: 1.85; }
+    .service-num { position: absolute; top: 2rem; right: 2.5rem; font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-weight: 300; color: rgba(201,149,107,0.1); line-height: 1; }
 
-    /* WHY */
-    #why { background: var(--navy-mid); padding: 6rem 4rem; }
-    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-    .why-card { padding: 2.5rem 2rem; border: 1px solid var(--border); border-radius: 2px; transition: border-color 0.3s; }
-    .why-card:hover { border-color: var(--sky); }
-    .why-card svg { color: var(--sky); width: 32px; height: 32px; margin-bottom: 1.2rem; }
-    .why-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 0.8rem; }
-    .why-card p { font-size: 0.88rem; color: #ffffff; line-height: 1.75; }
-
-    /* PROVEN IMPACT */
-    #impact { background: var(--navy); padding: 6rem 4rem; }
+    /* ── PROVEN IMPACT ── */
+    #impact { background: var(--navy-mid); padding: 8rem 4rem; }
     .impact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 3rem; }
-    .impact-item { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.8rem; border: 1px solid var(--border); border-radius: 2px; transition: border-color 0.3s; }
-    .impact-item:hover { border-color: var(--sky); }
-    .impact-icon { width: 36px; height: 36px; background: rgba(56,189,248,0.08); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .impact-icon svg { width: 18px; height: 18px; color: var(--sky); }
-    .impact-item p { font-size: 0.92rem; color: var(--white); line-height: 1.7; }
+    .impact-item {
+      display: flex; gap: 1.5rem; align-items: flex-start; padding: 2.2rem;
+      border: 1px solid var(--border); border-radius: 2px;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      background: rgba(15,23,42,0.5);
+    }
+    .impact-item:hover { border-color: var(--copper); box-shadow: 0 4px 20px rgba(0,0,0,0.2); transform: translateY(-2px); }
+    .impact-icon { width: 42px; height: 42px; background: var(--copper-pale); border: 1px solid rgba(201,149,107,0.2); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .impact-icon svg { width: 20px; height: 20px; color: var(--copper); }
+    .impact-item p { font-size: 0.95rem; color: var(--white); line-height: 1.8; }
 
-    /* WHO WE WORK WITH */
-    #clients { background: var(--navy-mid); padding: 6rem 4rem; }
+    /* ── WHO WE WORK WITH ── */
+    #clients { background: var(--navy); padding: 8rem 4rem; }
     .clients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
-    .client-card { text-align: center; padding: 2rem 1.5rem; border: 1px solid var(--border); border-radius: 2px; transition: border-color 0.3s; }
-    .client-card:hover { border-color: var(--sky); }
-    .client-card svg { width: 28px; height: 28px; color: var(--sky); margin-bottom: 1rem; opacity: 0.8; }
-    .client-card p { font-size: 0.85rem; color: var(--white); line-height: 1.5; }
+    .client-card {
+      text-align: center; padding: 2.5rem 2rem;
+      border: 1px solid var(--border); border-radius: 2px;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+      background: rgba(30,41,59,0.3);
+    }
+    .client-card:hover { border-color: var(--sky); box-shadow: 0 4px 20px rgba(0,0,0,0.2); transform: translateY(-3px); }
+    .client-card svg { width: 32px; height: 32px; color: var(--sky); margin-bottom: 1.2rem; opacity: 0.7; transition: opacity 0.3s; }
+    .client-card:hover svg { opacity: 1; }
+    .client-card p { font-size: 0.88rem; color: var(--white); line-height: 1.5; }
 
     @media (max-width: 900px) {
-      .hero, #solutions, #services, #why, #impact, #clients { padding: 6rem 1.5rem 3rem; }
-      .solutions-grid, .services-grid, .why-grid, .impact-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; padding: 8rem 1.5rem 4rem; }
+      .hero, #services, #impact, #clients { padding-left: 1.5rem; padding-right: 1.5rem; }
+      #services, #impact, #clients { padding-top: 5rem; padding-bottom: 3rem; }
+      .services-grid, .impact-grid { grid-template-columns: 1fr; }
       .clients-grid { grid-template-columns: repeat(2, 1fr); }
+      .credentials-bar { padding: 3rem 1.5rem; }
+      .credentials-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .credential-item:not(:last-child)::after { display: none; }
     }
   </style>
 </head>
@@ -120,8 +163,27 @@
   </div>
 </section>
 
-
-<div class="section-divider"></div>
+<!-- CREDENTIALS BAR -->
+<div class="credentials-bar fade-in">
+  <div class="credentials-grid">
+    <div class="credential-item">
+      <div class="credential-num">10+</div>
+      <div class="credential-label">Years Senior<br>Leadership</div>
+    </div>
+    <div class="credential-item">
+      <div class="credential-num">5</div>
+      <div class="credential-label">Healthcare<br>Sectors</div>
+    </div>
+    <div class="credential-item">
+      <div class="credential-num">AICD</div>
+      <div class="credential-label">Foundations of<br>Directorship</div>
+    </div>
+    <div class="credential-item">
+      <div class="credential-num">PwC</div>
+      <div class="credential-label">Certified Lead<br>Auditor</div>
+    </div>
+  </div>
+</div>
 
 <section id="services" class="fade-in">
   <div class="section-label">Our Focus</div>

@@ -17,6 +17,9 @@
   --sky-pale: rgba(56,189,248,0.08);
   --border: rgba(56,189,248,0.15);
   --border-mid: rgba(56,189,248,0.25);
+  --copper: #c9956b;
+  --copper-light: #d4a97a;
+  --copper-pale: rgba(201,149,107,0.12);
   --gold: #38bdf8;
   --gold-light: #7dd3fc;
 }
@@ -88,7 +91,7 @@ h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3re
 
 /* ── CTA BAND ── */
 .cta-band {
-  background: linear-gradient(135deg, var(--sky) 0%, #0ea5e9 50%, #0284c7 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, var(--sky) 40%, #7dd3fc 100%);
   padding: 5rem 4rem;
   display: flex; align-items: center; justify-content: space-between; gap: 2rem;
   overflow: visible; position: relative;
