@@ -118,8 +118,41 @@
     .client-card:hover svg { opacity: 1; }
     .client-card p { font-size: 0.88rem; color: var(--white); line-height: 1.5; }
 
+    /* ── FRAMEWORKS BAR ── */
+    .frameworks-bar {
+      background: var(--navy); padding: 4rem 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .frameworks-label {
+      text-align: center; font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--text-light); margin-bottom: 2.5rem;
+    }
+    .frameworks-strip {
+      display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center;
+    }
+    .framework-lockup {
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      padding: 1.2rem 1.8rem;
+      border: 1px solid var(--border); border-radius: 3px;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+      min-width: 130px;
+    }
+    .framework-lockup:hover { border-color: var(--copper); background: var(--copper-pale); transform: translateY(-2px); }
+    .framework-abbr {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600;
+      color: var(--white); letter-spacing: 0.05em; line-height: 1;
+    }
+    .framework-lockup:hover .framework-abbr { color: var(--copper); }
+    .framework-name {
+      font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-light); text-align: center; line-height: 1.4; max-width: 140px;
+    }
+
     @media (max-width: 900px) {
       .hero { min-height: auto; padding: 8rem 1.5rem 4rem; }
+      .frameworks-bar { padding: 3rem 1.5rem; }
+      .frameworks-strip { gap: 1rem; }
+      .framework-lockup { min-width: 110px; padding: 1rem 1.2rem; }
       .hero, #services, #impact, #clients { padding-left: 1.5rem; padding-right: 1.5rem; }
       #services, #impact, #clients { padding-top: 5rem; padding-bottom: 3rem; }
       .services-grid, .impact-grid { grid-template-columns: 1fr; }
@@ -181,6 +214,37 @@
     <div class="credential-item">
       <div class="credential-num">PwC</div>
       <div class="credential-label">Certified Lead<br>Auditor</div>
+    </div>
+  </div>
+</div>
+
+<!-- FRAMEWORKS & STANDARDS -->
+<div class="frameworks-bar fade-in">
+  <div class="frameworks-label">Frameworks & Standards We Work In</div>
+  <div class="frameworks-strip">
+    <div class="framework-lockup">
+      <div class="framework-abbr">NSQHS</div>
+      <div class="framework-name">National Safety &amp; Quality Health Service</div>
+    </div>
+    <div class="framework-lockup">
+      <div class="framework-abbr">ACQS</div>
+      <div class="framework-name">Aged Care Quality Standards</div>
+    </div>
+    <div class="framework-lockup">
+      <div class="framework-abbr">FHIR</div>
+      <div class="framework-name">Healthcare Interoperability Resources</div>
+    </div>
+    <div class="framework-lockup">
+      <div class="framework-abbr">ISO</div>
+      <div class="framework-name">31000 Risk Management</div>
+    </div>
+    <div class="framework-lockup">
+      <div class="framework-abbr">AICD</div>
+      <div class="framework-name">Australian Institute of Company Directors</div>
+    </div>
+    <div class="framework-lockup">
+      <div class="framework-abbr">NDIS</div>
+      <div class="framework-name">National Disability Insurance Scheme</div>
     </div>
   </div>
 </div>
