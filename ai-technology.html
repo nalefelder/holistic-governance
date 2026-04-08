@@ -143,16 +143,14 @@
       <ul>
         <li><a href="about.html">About</a></li>
         <li><a href="healthcare.html">Health Care</a></li>
-        <li><a href="competitor-analytics.html">Competitor Analytics</a></li>
-        <li><a href="ai-technology.html" class="active">AI &amp; Technology</a></li>
-        <li><a href="app-development.html">App Development</a></li>
         <li><a href="news.html">News</a></li>
-        <li>
-          <a
-            href="mailto:hello@holisticgovernance.com.au"
-            class="nav-cta"
-            >Contact</a
-          >
+        <li class="nav-contact-wrapper">
+          <button class="nav-cta" onclick="this.nextElementSibling.classList.toggle('open')">Contact</button>
+          <div class="nav-contact-popup">
+            <a href="tel:0405515300"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>0405 515 300</a>
+            <a href="mailto:naomi@hg-au.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>naomi@hg-au.com</a>
+            <a href="proposal-enquiry.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Submit a Proposal</a>
+          </div>
         </li>
       </ul>
     </nav>
@@ -373,7 +371,14 @@
 
     <footer>
       <div class="footer-logo"><img src="logo-hg-trimmed.png" alt="Holistic Governance"><span class="logo-name">Holistic <span>Governance</span></span></div>
-      <p>&copy; 2025 Holistic Governance</p>
+      <p>&copy; 2026 Holistic Governance</p>
     </footer>
+    <script>
+    document.addEventListener('click', function(e) {
+      document.querySelectorAll('.contact-popup.open, .nav-contact-popup.open').forEach(function(popup) {
+        if (!popup.parentElement.contains(e.target)) popup.classList.remove('open');
+      });
+    });
+    </script>
   </body>
 </html>

@@ -7,8 +7,8 @@
 :root {
   --navy: #0f172a;
   --navy-mid: #1e293b;
-  --gold: #38bdf8;
-  --gold-light: #7dd3fc;
+  --gold: #38bdf8; /* legacy alias for --sky */
+  --gold-light: #7dd3fc; /* legacy alias for --sky-light */
   --cream: #f1f5f9;
   --white: #f1f5f9;
   --text: #f1f5f9;
