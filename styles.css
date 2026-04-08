@@ -33,8 +33,8 @@ nav {
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
-.logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
-.logo span { color: var(--sky); }
+.logo { text-decoration: none; display: flex; align-items: center; }
+.logo img { height: 40px; width: auto; }
 nav ul { list-style: none; display: flex; gap: 2.5rem; }
 nav ul a { text-decoration: none; color: var(--text-light); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.3s; }
 nav ul a:hover, nav ul a.active { color: var(--sky); }
@@ -82,8 +82,8 @@ h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3re
 
 /* FOOTER */
 footer { background: #070d1a; padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); }
-.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); }
-.footer-logo span { color: var(--sky); }
+.footer-logo { display: flex; align-items: center; }
+.footer-logo img { height: 35px; width: auto; }
 footer p { font-size: 0.78rem; color: var(--text-light); }
 
 /* HAMBURGER */
