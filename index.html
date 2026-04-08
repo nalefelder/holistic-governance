@@ -127,14 +127,13 @@
       color: var(--sky); margin-bottom: 2.5rem; font-weight: 500;
     }
     .frameworks-strip {
-      display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
     }
     .framework-lockup {
-      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
-      padding: 1.2rem 1.8rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem;
+      padding: 1.5rem 1rem;
       border: 1px solid var(--border); border-radius: 3px;
       transition: border-color 0.3s, background 0.3s, transform 0.3s;
-      min-width: 130px;
     }
     .framework-lockup:hover { border-color: var(--sky); background: var(--sky-pale); transform: translateY(-2px); }
     .framework-abbr {
@@ -150,8 +149,7 @@
     @media (max-width: 900px) {
       .hero { min-height: auto; padding: 8rem 1.5rem 4rem; }
       .frameworks-bar { padding: 3rem 1.5rem; }
-      .frameworks-strip { gap: 1rem; }
-      .framework-lockup { min-width: 110px; padding: 1rem 1.2rem; }
+      .frameworks-strip { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
       .hero, #services, #impact, #clients { padding-left: 1.5rem; padding-right: 1.5rem; }
       #services, #impact, #clients { padding-top: 5rem; padding-bottom: 3rem; }
       .services-grid, .impact-grid { grid-template-columns: 1fr; }
