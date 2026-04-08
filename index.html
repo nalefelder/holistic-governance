@@ -117,41 +117,61 @@
     .client-card:hover svg { opacity: 1; }
     .client-card p { font-size: 0.88rem; color: var(--white); line-height: 1.5; }
 
-    /* ── FRAMEWORKS BAR ── */
-    .frameworks-bar {
+    /* ── OPTION A: Minimal dot-separated row ── */
+    .fw-optionA {
       background: var(--navy); padding: 4rem 4rem;
       border-bottom: 1px solid var(--border);
+      text-align: center;
     }
-    .frameworks-label {
-      text-align: center; font-size: 0.82rem; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--sky); margin-bottom: 2.5rem; font-weight: 500;
+    .fwA-label {
+      font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--sky); margin-bottom: 2rem; font-weight: 500;
     }
-    .frameworks-strip {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
-      max-width: 900px; margin: 0 auto;
+    .fwA-row {
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+      gap: 0;
     }
-    .framework-lockup {
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem;
-      padding: 1.2rem 1rem;
-      border: 1px solid var(--border); border-radius: 3px;
-      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    .fwA-row span {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 400;
+      color: var(--text-mid); letter-spacing: 0.03em;
+      padding: 0.3rem 0;
+      transition: color 0.3s;
     }
-    .framework-lockup:hover { border-color: var(--sky); background: var(--sky-pale); transform: translateY(-2px); }
-    .framework-abbr {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600;
-      color: var(--white); letter-spacing: 0.05em; line-height: 1.2;
+    .fwA-row span:hover { color: var(--sky); }
+    .fwA-row span:not(:last-child)::after {
+      content: '·'; margin: 0 1rem;
+      color: var(--border-mid); font-weight: 300;
     }
-    .framework-lockup:hover .framework-abbr { color: var(--sky); }
-    .framework-name {
-      font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--text-light); text-align: center; line-height: 1.4;
+
+    /* ── OPTION B: Two-column split with tags ── */
+    .fw-optionB {
+      background: var(--navy-mid); padding: 6rem 4rem;
+      border-bottom: 1px solid var(--border);
     }
-    .framework-abbr { text-align: center; }
+    .fwB-inner {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem;
+      max-width: 1100px; margin: 0 auto; align-items: center;
+    }
+    .fwB-tags { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+    .fwB-tag {
+      padding: 0.6rem 1.4rem;
+      border: 1px solid var(--border); border-radius: 30px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 400;
+      color: var(--text-mid); letter-spacing: 0.04em;
+      transition: all 0.3s; cursor: default;
+    }
+    .fwB-tag:hover {
+      border-color: var(--sky); color: var(--sky);
+      background: var(--sky-pale);
+    }
 
     @media (max-width: 900px) {
       .hero { min-height: auto; padding: 8rem 1.5rem 4rem; }
-      .frameworks-bar { padding: 3rem 1.5rem; }
-      .frameworks-strip { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .fw-optionA { padding: 3rem 1.5rem; }
+      .fwA-row span { font-size: 0.9rem; }
+      .fwA-row span:not(:last-child)::after { margin: 0 0.6rem; }
+      .fw-optionB { padding: 4rem 1.5rem; }
+      .fwB-inner { grid-template-columns: 1fr; gap: 2rem; }
       .hero, #services, #impact, #clients { padding-left: 1.5rem; padding-right: 1.5rem; }
       #services, #impact, #clients { padding-top: 5rem; padding-bottom: 3rem; }
       .services-grid, .impact-grid { grid-template-columns: 1fr; }
@@ -195,53 +215,40 @@
   </div>
 </section>
 
-<!-- FRAMEWORKS & STANDARDS -->
-<div class="frameworks-bar fade-in">
-  <div class="frameworks-label">Frameworks & Standards We Work In</div>
-  <div class="frameworks-strip">
-    <div class="framework-lockup">
-      <div class="framework-abbr">NSQHS</div>
-      <div class="framework-name">National Safety &amp; Quality Health Service</div>
+<!-- ═══════════════════════════════════════════ -->
+<!-- OPTION A — Minimal single-row dot-separated bar -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="fw-optionA fade-in">
+  <div class="fwA-label">Frameworks & Standards We Work In</div>
+  <div class="fwA-row">
+    <span>NSQHS</span><span>ACQS</span><span>FHIR</span><span>ISO</span><span>NDIS</span><span>QI Program</span><span>SNOMED CT</span><span>SIRS</span><span>Clinical Care Standards</span><span>NFDHS</span><span>ELDAC</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- OPTION B — Two-column split with pill tags -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="fw-optionB fade-in">
+  <div class="fwB-inner">
+    <div class="fwB-left">
+      <div class="section-label">Our Expertise</div>
+      <h2 style="margin-bottom:1.5rem;">Frameworks & Standards</h2>
+      <p style="color:var(--text-mid); font-size:0.95rem; line-height:1.8; max-width:400px;">We work across the key regulatory and interoperability frameworks governing Australian healthcare — from aged care quality standards to digital health.</p>
     </div>
-    <div class="framework-lockup">
-      <div class="framework-abbr">ACQS</div>
-      <div class="framework-name">Strengthened Aged Care Quality Standards</div>
-    </div>
-    <div class="framework-lockup">
-      <div class="framework-abbr">FHIR</div>
-      <div class="framework-name">Healthcare Interoperability Resources</div>
-    </div>
-    <div class="framework-lockup">
-      <div class="framework-abbr">ISO</div>
-      <div class="framework-name">International Organization for Standardisation</div>
-    </div>
-    <div class="framework-lockup">
-      <div class="framework-abbr">NDIS</div>
-      <div class="framework-name">National Disability Insurance Scheme</div>
-    </div>
-    <div class="framework-lockup">
-      <div class="framework-abbr">QI Program</div>
-      <div class="framework-name">National Aged Care Mandatory Quality Indicator Program</div>
-    </div>
-    <div class="framework-lockup">
-      <div class="framework-abbr">SNOMED CT</div>
-      <div class="framework-name">Clinical Terminology Standard</div>
-    </div>
-    <div class="framework-lockup">
-      <div class="framework-abbr">SIRS</div>
-      <div class="framework-name">Serious Incident Response Scheme</div>
-    </div>
-    <div class="framework-lockup">
-      <div class="framework-abbr" style="font-size:1.05rem; text-align:center;">Clinical Care Standards</div>
-      <div class="framework-name">Australian Commission on Safety and Quality in Health Care</div>
-    </div>
-    <div class="framework-lockup">
-      <div class="framework-abbr" style="font-size:1.05rem; text-align:center;">National Framework for Digital Health Standards</div>
-      <div class="framework-name">Australian Digital Health Agency</div>
-    </div>
-    <div class="framework-lockup">
-      <div class="framework-abbr">ELDAC</div>
-      <div class="framework-name">End of Life Directions for Aged Care</div>
+    <div class="fwB-right">
+      <div class="fwB-tags">
+        <span class="fwB-tag">NSQHS</span>
+        <span class="fwB-tag">ACQS</span>
+        <span class="fwB-tag">FHIR</span>
+        <span class="fwB-tag">ISO</span>
+        <span class="fwB-tag">NDIS</span>
+        <span class="fwB-tag">QI Program</span>
+        <span class="fwB-tag">SNOMED CT</span>
+        <span class="fwB-tag">SIRS</span>
+        <span class="fwB-tag">Clinical Care Standards</span>
+        <span class="fwB-tag">NFDHS</span>
+        <span class="fwB-tag">ELDAC</span>
+      </div>
     </div>
   </div>
 </div>
