@@ -261,7 +261,7 @@
         <div class="field-row">
           <div class="field">
             <label for="orgType">Organisation Type</label>
-            <select id="orgType" name="orgType" required>
+            <select id="orgType" name="orgType" required onchange="document.getElementById('orgTypeOther').style.display = this.value === 'Other' ? 'block' : 'none'; if(this.value !== 'Other') document.getElementById('orgTypeOther').value = '';">
               <option value="" disabled selected>Select type…</option>
               <option>Aged Care — Residential</option>
               <option>Aged Care — Home Care</option>
@@ -273,6 +273,7 @@
               <option>Day Surgery</option>
               <option>Other</option>
             </select>
+            <input type="text" id="orgTypeOther" name="orgTypeOther" placeholder="Please specify…" style="display:none; margin-top:8px;" />
             <div class="field-error" id="orgType-error">Please select an organisation type</div>
           </div>
           <div class="field">
@@ -352,7 +353,7 @@
       <!-- Submit -->
       <div class="submit-wrap">
         <button type="button" class="btn-submit" id="submitBtn" onclick="submitForm()">
-          Submit Proposal Request →
+          Submit Request →
           <div class="spinner"></div>
         </button>
         <p class="submit-note">
@@ -369,7 +370,7 @@
       <div class="success-title">Request Received</div>
       <p class="success-desc">
         Thank you — your proposal request has been submitted.<br>
-        Naomi will review your enquiry and be in touch within 2 business days.<br><br>
+        Holistic Governance will review your enquiry and be in touch within 2 business days.<br><br>
         <span style="color: rgba(180,200,220,0.4); font-size: 12px;">Holistic Governance · naomi@hg-au.com</span>
       </p>
     </div>
@@ -379,12 +380,17 @@
 </div><!-- /page -->
 
 <script>
-  // ── Chip selection ──
+  // ── Chip selection (single select) ──
   document.querySelectorAll('.chip').forEach(chip => {
     chip.addEventListener('click', () => {
-      chip.classList.toggle('selected');
-      const selected = [...document.querySelectorAll('.chip.selected')].map(c => c.dataset.value);
-      document.getElementById('accreditation').value = selected.join(', ');
+      const wasSelected = chip.classList.contains('selected');
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+      if (!wasSelected) {
+        chip.classList.add('selected');
+        document.getElementById('accreditation').value = chip.dataset.value;
+      } else {
+        document.getElementById('accreditation').value = '';
+      }
     });
   });
 
@@ -433,7 +439,7 @@
 
     const data = {
       orgName:       document.getElementById('orgName').value.trim(),
-      orgType:       document.getElementById('orgType').value,
+      orgType:       document.getElementById('orgType').value === 'Other' && document.getElementById('orgTypeOther').value.trim() ? 'Other — ' + document.getElementById('orgTypeOther').value.trim() : document.getElementById('orgType').value,
       orgSize:       document.getElementById('orgSize').value,
       accreditation: document.getElementById('accreditation').value,
       challenge:     document.getElementById('challenge').value.trim(),
