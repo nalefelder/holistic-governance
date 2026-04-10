@@ -151,7 +151,7 @@
       <p style="font-size:0.85rem; color:var(--sky); font-style:italic;">Coming soon — watch this space.</p>
       <p style="font-size:0.85rem; color:var(--text-mid); margin-bottom:0;">Register your interest and we'll notify you when it launches.</p>
       <div class="interest-form">
-        <input type="email" id="interestEmail" placeholder="Your email address" />
+        <input type="email" id="interestEmail" placeholder="Your email address" onkeydown="if(event.key==='Enter')registerInterest()" />
         <button onclick="registerInterest()">Notify Me</button>
       </div>
       <p id="interestMsg" style="display:none;margin-top:0.8rem;font-size:0.82rem;"></p>
@@ -166,7 +166,7 @@
     <h2>Get Sector Updates Delivered</h2>
     <p style="color:#ffffff; font-size:0.95rem; line-height:1.8; margin-top:1rem; margin-bottom:2rem;">Subscribe to receive regulatory updates, sector insights, and new resource alerts directly to your inbox. No spam — just relevant, timely information.</p>
     <div class="interest-form" style="justify-content:center;">
-      <input type="email" id="subscribeEmail" placeholder="Your email address" />
+      <input type="email" id="subscribeEmail" placeholder="Your email address" onkeydown="if(event.key==='Enter')subscribeNewsletter()" />
       <button onclick="subscribeNewsletter()">Subscribe</button>
     </div>
     <p id="subscribeMsg" style="display:none;margin-top:0.8rem;font-size:0.82rem;"></p>
@@ -269,7 +269,7 @@ var FALLBACK = [
   {"title":"Support at Home Program","description":"The new Support at Home program replacing the Commonwealth Home Support Programme (CHSP), Home Care Packages, and Short-Term Restorative Care. A single unified program for in-home aged care support from July 2025.","type":"Framework","sectors":["Support at Home","Aged Care"],"url":"https://www.health.gov.au/our-work/support-at-home","source":"Australian Government Department of Health and Aged Care"},
   {"title":"Support at Home Program Manual","description":"Operational guidance for providers delivering services under the Support at Home program \u2014 covering eligibility, classification, funding, and service delivery requirements.","type":"Best Practice","sectors":["Support at Home","Aged Care"],"url":"https://www.health.gov.au/resources/publications/support-at-home-program-manual-a-guide-for-registered-providers","source":"Australian Government Department of Health and Aged Care"},
   {"title":"Single Assessment System","description":"The single assessment system for aged care \u2014 streamlining how older Australians are assessed for Support at Home and residential care, replacing multiple assessment pathways with one consistent framework.","type":"Framework","sectors":["Support at Home","Aged Care","Governance"],"url":"https://www.health.gov.au/our-work/single-assessment-system?language=en","source":"Australian Government Department of Health and Aged Care"},
-  {"title":"Home Care Workforce Guidelines","description":"Best practice guidelines for workforce management in home and community care settings \u2014 covering skills, supervision, safety, and quality requirements for support workers and clinicians.","type":"Best Practice","sectors":["Support at Home"],"url":"https://www.agedcarequality.gov.au/providers/workforce","source":"Aged Care Quality and Safety Commission"},
+  {"title":"Home Care Workforce Guidelines","description":"Best practice guidelines for workforce management in home and community care settings \u2014 covering skills, supervision, safety, and quality requirements for support workers and clinicians.","type":"Best Practice","sectors":["Support at Home"],"url":"https://www.agedcarequality.gov.au/for-providers/provider-obligations","source":"Aged Care Quality and Safety Commission"},
   {"title":"Code of Conduct for Aged Care","description":"The legislated code of conduct setting out the behaviour and standards expected of aged care workers and providers \u2014 covering safe, respectful, and person-centred care. Enforceable under the new Aged Care Act.","type":"Standard","sectors":["Aged Care","Support at Home","Governance"],"url":"https://www.agedcarequality.gov.au/for-providers/code-conduct","source":"Aged Care Quality and Safety Commission"},
   {"title":"A New Aged Care Act \u2014 For the Rights of Older People","description":"Overview of the new rights-based Aged Care Act \u2014 outlining how the legislation strengthens the rights of older Australians, establishes provider obligations, and reforms the regulatory framework for aged care.","type":"White Paper","sectors":["Aged Care","Governance"],"url":"https://www.health.gov.au/resources/publications/a-new-aged-care-act-for-the-rights-of-older-people","source":"Australian Government Department of Health and Aged Care"},
   {"title":"Independent Health and Aged Care Pricing Authority (IHACPA)","description":"The national authority responsible for health care and aged care pricing, classification, and costing \u2014 including casemix funding models, activity-based funding, and the ICD-10-AM classification system.","type":"Standard","sectors":["Hospital","Aged Care","Governance"],"url":"https://www.ihacpa.gov.au/","source":"Independent Health and Aged Care Pricing Authority"},
