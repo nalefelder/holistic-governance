@@ -58,7 +58,7 @@
   {
     "title": "Antimicrobial Stewardship Clinical Care Standard",
     "description": "Quality statements to guide appropriate antimicrobial use across health care settings, reducing resistance and improving patient outcomes.",
-    "type": "Best Practice",
+    "type": "Standard",
     "sectors": ["Aged Care"],
     "url": "https://www.safetyandquality.gov.au/standards/clinical-care-standards/antimicrobial-stewardship-clinical-care-standard",
     "source": "Australian Commission on Safety and Quality in Health Care"
@@ -66,7 +66,7 @@
   {
     "title": "Serious Incident Response Scheme (SIRS)",
     "description": "Framework requiring aged care providers to identify, record, manage, resolve, and report serious incidents — a key compliance obligation.",
-    "type": "Best Practice",
+    "type": "Framework",
     "sectors": ["Aged Care", "Governance"],
     "url": "https://www.agedcarequality.gov.au/providers/serious-incident-response-scheme",
     "source": "Aged Care Quality and Safety Commission"
