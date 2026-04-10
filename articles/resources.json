@@ -52,7 +52,7 @@
     "description": "Establishes a coordinated approach to digital health standards adoption in Australia, including interoperability, terminology, and clinical information standards.",
     "type": "Framework",
     "sectors": ["Digital Health"],
-    "url": "https://www.digitalhealth.gov.au/about-us/strategies-and-plans/framework-for-digital-health-standards",
+    "url": "https://www.digitalhealth.gov.au/healthcare-providers/standards",
     "source": "Australian Digital Health Agency"
   },
   {
@@ -148,7 +148,7 @@
     "description": "National program requiring residential aged care providers to collect and report quality indicator data across key care domains — driving transparency and continuous improvement.",
     "type": "Framework",
     "sectors": ["Aged Care", "Governance"],
-    "url": "https://www.health.gov.au/our-work/national-aged-care-mandatory-quality-indicator-program",
+    "url": "https://www.health.gov.au/our-work/aged-care/quality-indicator-program",
     "source": "Australian Government Department of Health and Aged Care"
   },
   {
