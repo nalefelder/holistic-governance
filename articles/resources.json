@@ -246,5 +246,13 @@
     "sectors": ["Aged Care", "Hospital", "Governance"],
     "url": "https://www.safetyandquality.gov.au/standards/integrated-health-and-aged-care-services-module",
     "source": "Australian Commission on Safety and Quality in Health Care"
+  },
+  {
+    "title": "Code of Conduct for Aged Care",
+    "description": "The legislated code of conduct setting out the behaviour and standards expected of aged care workers and providers — covering safe, respectful, and person-centred care. Enforceable under the new Aged Care Act.",
+    "type": "Standard",
+    "sectors": ["Aged Care", "Support at Home", "Governance"],
+    "url": "https://www.agedcarequality.gov.au/providers/code-conduct",
+    "source": "Aged Care Quality and Safety Commission"
   }
 ]
