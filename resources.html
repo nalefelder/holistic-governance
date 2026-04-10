@@ -120,6 +120,11 @@
 
   <!-- Resource grid -->
   <div class="resources-grid" id="resourcesGrid"></div>
+
+  <!-- Load more -->
+  <div style="text-align:center; margin-top:2rem;" id="loadMoreWrap">
+    <button class="filter-btn" id="loadMoreBtn" onclick="showMore()" style="padding:0.7rem 2.5rem;">Load More</button>
+  </div>
 </section>
 
 <!-- PREMIUM CTA -->
@@ -269,6 +274,8 @@ var TYPE_ICONS = {
 var allResources = [];
 var activeSector = 'All';
 var activeType = '';
+var INITIAL_COUNT = 6;
+var showAll = false;
 
 // Fetch resources from dashboard API, fall back to embedded data
 fetch(API_BASE + '/api/holistic-governance/resources')
@@ -323,8 +330,14 @@ function buildFilters() {
       if (!wasActive) { e.target.classList.add('active'); activeType = e.target.dataset.type; }
       else { activeType = ''; }
     }
+    showAll = false;
     renderResources();
   });
+}
+
+function showMore() {
+  showAll = true;
+  renderResources();
 }
 
 function renderResources() {
@@ -337,11 +350,13 @@ function renderResources() {
   var grid = document.getElementById('resourcesGrid');
   var noResults = document.getElementById('noResults');
   var countEl = document.getElementById('resultCount');
+  var loadMoreWrap = document.getElementById('loadMoreWrap');
 
   if (allResources.length === 0) {
     countEl.textContent = '';
     grid.innerHTML = '';
     noResults.style.display = 'block';
+    loadMoreWrap.style.display = 'none';
     noResults.querySelector('p').textContent = 'No resources available yet. Check back soon.';
     return;
   }
@@ -350,17 +365,19 @@ function renderResources() {
     countEl.textContent = '';
     grid.innerHTML = '';
     noResults.style.display = 'block';
+    loadMoreWrap.style.display = 'none';
     noResults.querySelector('p').textContent = 'No resources match the selected filters. Try a different combination.';
     return;
   }
 
   noResults.style.display = 'none';
-  var total = allResources.length;
-  countEl.textContent = filtered.length === total
-    ? 'Showing all ' + total + ' resources'
-    : 'Showing ' + filtered.length + ' of ' + total + ' resources';
+  var visible = showAll ? filtered : filtered.slice(0, INITIAL_COUNT);
+  var hasMore = !showAll && filtered.length > INITIAL_COUNT;
 
-  grid.innerHTML = filtered.map(function(r) {
+  countEl.textContent = 'Showing ' + visible.length + ' of ' + filtered.length + ' resources';
+  loadMoreWrap.style.display = hasMore ? 'block' : 'none';
+
+  grid.innerHTML = visible.map(function(r) {
     var cats = (r.sectors || []).map(function(s) { return '<span class="resource-cat">' + s + '</span>'; }).join('');
     var icon = TYPE_ICONS[r.type] || TYPE_ICONS['Standard'];
     return '<div class="resource-card">' +
