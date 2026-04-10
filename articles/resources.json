@@ -238,5 +238,13 @@
     "sectors": ["Support at Home", "Aged Care"],
     "url": "https://www.health.gov.au/our-work/support-at-home/wellness-and-reablement",
     "source": "Australian Government Department of Health and Aged Care"
+  },
+  {
+    "title": "Integrated Health and Aged Care Services Module",
+    "description": "Module supporting integrated care across health and aged care settings — designed to complement the NSQHS Standards and Aged Care Quality Standards for organisations delivering services across both sectors.",
+    "type": "Standard",
+    "sectors": ["Aged Care", "Hospital", "Governance"],
+    "url": "https://www.safetyandquality.gov.au/standards/integrated-health-and-aged-care-services-module",
+    "source": "Australian Commission on Safety and Quality in Health Care"
   }
 ]
