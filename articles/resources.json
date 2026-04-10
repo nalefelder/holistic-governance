@@ -64,14 +64,6 @@
     "source": "Australian Institute of Health and Welfare"
   },
   {
-    "title": "Open Disclosure Framework",
-    "description": "National framework for open communication with patients and carers following adverse events — covering the process, principles, and governance requirements.",
-    "type": "Best Practice",
-    "sectors": ["Hospital", "Aged Care", "Governance"],
-    "url": "https://www.safetyandquality.gov.au/standards/nsqhs-standards/clinical-governance/clinical-governance-standard/open-disclosure",
-    "source": "Australian Commission on Safety and Quality in Health Care"
-  },
-  {
     "title": "Antimicrobial Stewardship Clinical Care Standard",
     "description": "Quality statements to guide appropriate antimicrobial use across health care settings, reducing resistance and improving patient outcomes.",
     "type": "Best Practice",
