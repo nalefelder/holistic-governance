@@ -216,6 +216,14 @@
     "source": "Australian Government Department of Health and Aged Care"
   },
   {
+    "title": "Clinical Coding Practice Framework",
+    "description": "National framework for clinical coding practice in Australia — setting out the principles, governance, workforce standards, and quality assurance requirements for accurate and consistent clinical coding.",
+    "type": "Framework",
+    "sectors": ["Hospital", "Digital Health"],
+    "url": "https://www.ihacpa.gov.au/resources/clinical-coding-practice-framework",
+    "source": "Independent Health and Aged Care Pricing Authority (IHACPA)"
+  },
+  {
     "title": "ICD-10-AM/ACHI/ACS Classification System",
     "description": "Australia's official clinical coding classification system — covering ICD-10-AM (diagnosis coding), ACHI (procedure coding), and ACS (Australian Coding Standards). The national standard for hospital activity data and casemix funding.",
     "type": "Standard",
