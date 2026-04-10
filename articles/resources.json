@@ -220,7 +220,7 @@
     "description": "Australia's official clinical coding classification system — covering ICD-10-AM (diagnosis coding), ACHI (procedure coding), and ACS (Australian Coding Standards). The national standard for hospital activity data and casemix funding.",
     "type": "Standard",
     "sectors": ["Hospital", "Digital Health"],
-    "url": "https://www.ihacpa.gov.au/health-care/classification/icd-10-amachiacs",
+    "url": "https://www.ihacpa.gov.au/health-care/classification/icd-11",
     "source": "Independent Hospital Pricing Authority (IHPA)"
   }
 ]
