@@ -12,7 +12,7 @@
     "description": "Eight standards that set out the level of care and services expected by aged care consumers. The basis for quality assessment and accreditation of aged care services.",
     "type": "Standard",
     "sectors": ["Aged Care", "Governance"],
-    "url": "https://www.agedcarequality.gov.au/providers/standards",
+    "url": "https://www.agedcarequality.gov.au/providers/quality-standards",
     "source": "Aged Care Quality and Safety Commission"
   },
   {
@@ -28,7 +28,7 @@
     "description": "Quality standards for NDIS providers covering rights and responsibilities, governance, service delivery, and the service environment.",
     "type": "Standard",
     "sectors": ["Governance"],
-    "url": "https://www.ndiscommission.gov.au/providers/registered-ndis-providers/provider-obligations-and-requirements/ndis-practice-standards",
+    "url": "https://www.ndiscommission.gov.au/rules-and-standards/ndis-practice-standards",
     "source": "NDIS Quality and Safeguards Commission"
   },
   {
@@ -52,7 +52,7 @@
     "description": "Establishes a coordinated approach to digital health standards adoption in Australia, including interoperability, terminology, and clinical information standards.",
     "type": "Framework",
     "sectors": ["Digital Health"],
-    "url": "https://www.digitalhealth.gov.au/healthcare-providers/standards",
+    "url": "https://www.digitalhealth.gov.au/about-us/strategies-and-plans",
     "source": "Australian Digital Health Agency"
   },
   {
@@ -76,7 +76,7 @@
     "description": "National framework for reporting on health system performance across effectiveness, safety, accessibility, continuity, efficiency, and sustainability.",
     "type": "Framework",
     "sectors": ["Hospital", "Governance"],
-    "url": "https://www.aihw.gov.au/reports-data/indicators/australias-health-performance-framework",
+    "url": "https://www.aihw.gov.au/reports-data/ahpf/australias-health-performance-framework",
     "source": "Australian Institute of Health and Welfare"
   },
   {
@@ -84,7 +84,7 @@
     "description": "Guidance on establishing clinical governance structures including safety systems, clinical effectiveness, consumer engagement, and workforce capability.",
     "type": "Best Practice",
     "sectors": ["Hospital", "Aged Care", "Governance"],
-    "url": "https://www.safetyandquality.gov.au/our-work/clinical-governance/clinical-governance-standard",
+    "url": "https://www.safetyandquality.gov.au/standards/nsqhs-standards/clinical-governance/clinical-governance-standard",
     "source": "Australian Commission on Safety and Quality in Health Care"
   },
   {
@@ -92,7 +92,7 @@
     "description": "National framework for open communication with patients and carers following adverse events — covering the process, principles, and governance requirements.",
     "type": "Best Practice",
     "sectors": ["Hospital", "Aged Care", "Governance"],
-    "url": "https://www.safetyandquality.gov.au/our-work/clinical-governance/open-disclosure",
+    "url": "https://www.safetyandquality.gov.au/standards/nsqhs-standards/clinical-governance/clinical-governance-standard/open-disclosure",
     "source": "Australian Commission on Safety and Quality in Health Care"
   },
   {
@@ -108,7 +108,7 @@
     "description": "Framework requiring aged care providers to identify, record, manage, resolve, and report serious incidents — a key compliance obligation.",
     "type": "Best Practice",
     "sectors": ["Aged Care", "Governance"],
-    "url": "https://www.agedcarequality.gov.au/sirs",
+    "url": "https://www.agedcarequality.gov.au/providers/serious-incident-response-scheme",
     "source": "Aged Care Quality and Safety Commission"
   },
   {
@@ -140,7 +140,7 @@
     "description": "The new strengthened standards replacing the current Aged Care Quality Standards, with greater emphasis on clinical care, food and nutrition, diversity, and the aged care workforce.",
     "type": "Standard",
     "sectors": ["Aged Care", "Governance"],
-    "url": "https://www.agedcarequality.gov.au/providers/standards/new-quality-standards",
+    "url": "https://www.agedcarequality.gov.au/providers/quality-standards",
     "source": "Aged Care Quality and Safety Commission"
   },
   {
@@ -148,7 +148,7 @@
     "description": "National program requiring residential aged care providers to collect and report quality indicator data across key care domains — driving transparency and continuous improvement.",
     "type": "Framework",
     "sectors": ["Aged Care", "Governance"],
-    "url": "https://www.health.gov.au/our-work/aged-care/quality-indicator-program",
+    "url": "https://www.health.gov.au/our-work/aged-care-quality-and-safety/national-aged-care-mandatory-quality-indicator-program",
     "source": "Australian Government Department of Health and Aged Care"
   },
   {
@@ -172,7 +172,7 @@
     "description": "Describes the rights of patients and consumers when accessing health care services in Australia — a foundational document for consumer-centred governance and accreditation.",
     "type": "Best Practice",
     "sectors": ["Hospital", "Aged Care", "Governance"],
-    "url": "https://www.safetyandquality.gov.au/consumers/working-your-healthcare-provider/australian-charter-healthcare-rights",
+    "url": "https://www.safetyandquality.gov.au/our-work/partnering-consumers/australian-charter-healthcare-rights",
     "source": "Australian Commission on Safety and Quality in Health Care"
   },
   {
