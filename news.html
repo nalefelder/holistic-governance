@@ -146,7 +146,7 @@
     <h2>Get Sector Updates Delivered</h2>
     <p>Subscribe to receive our latest articles, regulatory updates, and sector insights directly to your inbox. No spam — just relevant, timely information.</p>
     <div class="newsletter-form" id="newsletterForm">
-      <input type="email" id="newsletterEmail" placeholder="Your email address" />
+      <input type="email" id="newsletterEmail" placeholder="Your email address" onkeydown="if(event.key==='Enter')subscribe()" />
       <button class="btn-gold" onclick="subscribe()">Subscribe</button>
     </div>
     <p id="newsletterMsg" style="display:none;margin-top:1rem;font-size:0.85rem;color:var(--sky);"></p>
