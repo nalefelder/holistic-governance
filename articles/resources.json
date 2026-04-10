@@ -206,5 +206,13 @@
     "sectors": ["Aged Care", "Support at Home", "Governance"],
     "url": "https://www.agedcarequality.gov.au/for-providers/code-conduct",
     "source": "Aged Care Quality and Safety Commission"
+  },
+  {
+    "title": "A New Aged Care Act — For the Rights of Older People",
+    "description": "Overview of the new rights-based Aged Care Act — outlining how the legislation strengthens the rights of older Australians, establishes provider obligations, and reforms the regulatory framework for aged care.",
+    "type": "White Paper",
+    "sectors": ["Aged Care", "Governance"],
+    "url": "https://www.health.gov.au/resources/publications/a-new-aged-care-act-for-the-rights-of-older-people",
+    "source": "Australian Government Department of Health and Aged Care"
   }
 ]
