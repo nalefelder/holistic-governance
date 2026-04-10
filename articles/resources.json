@@ -58,7 +58,7 @@
   {
     "title": "Antimicrobial Stewardship Clinical Care Standard",
     "description": "Quality statements to guide appropriate antimicrobial use across health care settings, reducing resistance and improving patient outcomes.",
-    "type": "Standard",
+    "type": "Regulatory",
     "sectors": ["Aged Care"],
     "url": "https://www.safetyandquality.gov.au/standards/clinical-care-standards/antimicrobial-stewardship-clinical-care-standard",
     "source": "Australian Commission on Safety and Quality in Health Care"
@@ -66,7 +66,7 @@
   {
     "title": "Serious Incident Response Scheme (SIRS)",
     "description": "Framework requiring aged care providers to identify, record, manage, resolve, and report serious incidents — a key compliance obligation.",
-    "type": "Framework",
+    "type": "Regulatory",
     "sectors": ["Aged Care", "Governance"],
     "url": "https://www.agedcarequality.gov.au/providers/serious-incident-response-scheme",
     "source": "Aged Care Quality and Safety Commission"
@@ -74,7 +74,7 @@
   {
     "title": "A New Aged Care Act — Summary of Key Changes",
     "description": "Overview of the new rights-based Aged Care Act, replacing the Aged Care Act 1997. Covers strengthened quality standards, provider obligations, and consumer rights.",
-    "type": "Framework",
+    "type": "Regulatory",
     "sectors": ["Aged Care", "Governance"],
     "url": "https://www.health.gov.au/our-work/aged-care-act",
     "source": "Australian Government Department of Health and Aged Care"
@@ -82,7 +82,7 @@
   {
     "title": "Royal Commission into Aged Care — Final Report",
     "description": "The landmark report with 148 recommendations for reforming aged care in Australia. Essential reading for providers navigating the reform landscape.",
-    "type": "Framework",
+    "type": "Regulatory",
     "sectors": ["Aged Care", "Governance"],
     "url": "https://www.royalcommission.gov.au/aged-care/final-report",
     "source": "Royal Commission into Aged Care Quality and Safety"
@@ -122,7 +122,7 @@
   {
     "title": "Australian Charter of Healthcare Rights",
     "description": "Describes the rights of patients and consumers when accessing health care services in Australia — a foundational document for consumer-centred governance and accreditation.",
-    "type": "Best Practice",
+    "type": "Regulatory",
     "sectors": ["Hospital", "Governance"],
     "url": "https://www.safetyandquality.gov.au/our-work/partnering-consumers/australian-charter-healthcare-rights",
     "source": "Australian Commission on Safety and Quality in Health Care"
@@ -138,7 +138,7 @@
   {
     "title": "HL7 International",
     "description": "The global authority for health data interoperability standards — including HL7 v2 messaging, CDA clinical documents, and FHIR. Essential for any organisation working with digital health data exchange.",
-    "type": "Framework",
+    "type": "Standard",
     "sectors": ["Digital Health"],
     "url": "https://www.hl7.org/",
     "source": "Health Level Seven International"
@@ -154,7 +154,7 @@
   {
     "title": "Support at Home Program",
     "description": "The new Support at Home program replacing the Commonwealth Home Support Programme (CHSP), Home Care Packages, and Short-Term Restorative Care. A single unified program for in-home aged care support from July 2025.",
-    "type": "Framework",
+    "type": "Regulatory",
     "sectors": ["Support at Home", "Aged Care"],
     "url": "https://www.health.gov.au/our-work/support-at-home",
     "source": "Australian Government Department of Health and Aged Care"
@@ -162,7 +162,7 @@
   {
     "title": "Support at Home Program Manual",
     "description": "Operational guidance for providers delivering services under the Support at Home program — covering eligibility, classification, funding, and service delivery requirements.",
-    "type": "Best Practice",
+    "type": "Regulatory",
     "sectors": ["Support at Home", "Aged Care"],
     "url": "https://www.health.gov.au/resources/publications/support-at-home-program-manual-a-guide-for-registered-providers",
     "source": "Australian Government Department of Health and Aged Care"
@@ -170,7 +170,7 @@
   {
     "title": "Single Assessment System",
     "description": "The single assessment system for aged care — streamlining how older Australians are assessed for Support at Home and residential care, replacing multiple assessment pathways with one consistent framework.",
-    "type": "Framework",
+    "type": "Regulatory",
     "sectors": ["Support at Home", "Aged Care", "Governance"],
     "url": "https://www.health.gov.au/our-work/single-assessment-system?language=en",
     "source": "Australian Government Department of Health and Aged Care"
@@ -186,7 +186,7 @@
   {
     "title": "Code of Conduct for Aged Care",
     "description": "The legislated code of conduct setting out the behaviour and standards expected of aged care workers and providers — covering safe, respectful, and person-centred care. Enforceable under the new Aged Care Act.",
-    "type": "Standard",
+    "type": "Regulatory",
     "sectors": ["Aged Care", "Support at Home", "Governance"],
     "url": "https://www.agedcarequality.gov.au/for-providers/code-conduct",
     "source": "Aged Care Quality and Safety Commission"
@@ -194,7 +194,7 @@
   {
     "title": "Aged Care Act 2024",
     "description": "The full text of the Aged Care Act 2024 — the new rights-based legislation replacing the Aged Care Act 1997, strengthening the rights of older Australians and reforming provider obligations and regulatory requirements.",
-    "type": "Standard",
+    "type": "Regulatory",
     "sectors": ["Aged Care", "Governance"],
     "url": "https://www.legislation.gov.au/C2024A00104/latest/text",
     "source": "Australian Government — Federal Register of Legislation"
@@ -202,7 +202,7 @@
   {
     "title": "Home-Level Care Minutes Performance in Residential Aged Care",
     "description": "Reporting on individual residential aged care home performance against mandatory care minute targets — enabling providers, consumers, and regulators to monitor direct care delivery at the facility level.",
-    "type": "Best Practice",
+    "type": "Regulatory",
     "sectors": ["Aged Care", "Governance"],
     "url": "https://www.health.gov.au/resources/publications/home-level-care-minutes-performance-in-residential-aged-care",
     "source": "Australian Government Department of Health and Aged Care"
@@ -210,7 +210,7 @@
   {
     "title": "Care Minutes in Residential Aged Care",
     "description": "Mandatory care minute targets requiring residential aged care providers to deliver a minimum amount of direct care time per resident per day — including registered nurse time. A key workforce and quality compliance obligation.",
-    "type": "Standard",
+    "type": "Regulatory",
     "sectors": ["Aged Care", "Governance"],
     "url": "https://www.health.gov.au/our-work/care-minutes-registered-nurses-aged-care/care-minutes",
     "source": "Australian Government Department of Health and Aged Care"
@@ -218,7 +218,7 @@
   {
     "title": "Independent Health and Aged Care Pricing Authority (IHACPA)",
     "description": "The national authority responsible for health care and aged care pricing, classification, and costing — including casemix funding models, activity-based funding, and the ICD-10-AM classification system.",
-    "type": "Standard",
+    "type": "Regulatory",
     "sectors": ["Hospital", "Aged Care", "Governance"],
     "url": "https://www.ihacpa.gov.au/",
     "source": "Independent Health and Aged Care Pricing Authority"
