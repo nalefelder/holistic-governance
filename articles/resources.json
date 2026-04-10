@@ -58,7 +58,7 @@
   {
     "title": "Antimicrobial Stewardship Clinical Care Standard",
     "description": "Quality statements to guide appropriate antimicrobial use across health care settings, reducing resistance and improving patient outcomes.",
-    "type": "Regulatory",
+    "type": "Standard",
     "sectors": ["Aged Care"],
     "url": "https://www.safetyandquality.gov.au/standards/clinical-care-standards/antimicrobial-stewardship-clinical-care-standard",
     "source": "Australian Commission on Safety and Quality in Health Care"
