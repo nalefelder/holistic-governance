@@ -327,7 +327,7 @@ function buildFilters() {
 
   // Type buttons
   html += TYPES.map(function(t) {
-    return '<button class="filter-btn" data-type="' + t + '">' + t + 's</button>';
+    return '<button class="filter-btn" data-type="' + t + '">' + (t === 'Regulatory' ? t : t + 's') + '</button>';
   }).join('');
 
   bar.innerHTML = html;
