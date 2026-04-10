@@ -97,9 +97,9 @@
   },
   {
     "title": "Strengthened Aged Care Quality Standards",
-    "description": "The strengthened standards replacing the current Aged Care Quality Standards, with greater emphasis on clinical care, food and nutrition, diversity, and the aged care workforce.",
+    "description": "The strengthened standards applying across residential care, home care, and Support at Home — with greater emphasis on clinical care, food and nutrition, diversity, and the aged care workforce. Commenced alongside the Aged Care Act 2024 reforms.",
     "type": "Standard",
-    "sectors": ["Aged Care", "Governance"],
+    "sectors": ["Aged Care", "Support at Home", "Governance"],
     "url": "https://www.agedcarequality.gov.au/providers/quality-standards",
     "source": "Aged Care Quality and Safety Commission"
   },
