@@ -253,7 +253,7 @@ var FALLBACK = [
 ];
 
 var SECTORS = ['All', 'Aged Care', 'Digital Health', 'Governance', 'Hospital'];
-var TYPES = ['All Types', 'Standard', 'Framework', 'Best Practice', 'White Paper'];
+var TYPES = ['Standard', 'Framework', 'Best Practice', 'White Paper'];
 
 var TYPE_ICONS = {
   'Standard': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>',
@@ -264,7 +264,7 @@ var TYPE_ICONS = {
 
 var allResources = [];
 var activeSector = 'All';
-var activeType = 'All Types';
+var activeType = '';
 
 // Fetch resources from dashboard API, fall back to embedded data
 fetch(API_BASE + '/api/holistic-governance/resources')
@@ -298,7 +298,7 @@ function buildFilters() {
 
   // Type buttons
   html += TYPES.map(function(t) {
-    return '<button class="filter-btn' + (t === 'All Types' ? ' active' : '') + '" data-type="' + t + '">' + (t === 'All Types' ? 'All Types' : t + 's') + '</button>';
+    return '<button class="filter-btn" data-type="' + t + '">' + t + 's</button>';
   }).join('');
 
   bar.innerHTML = html;
@@ -314,9 +314,10 @@ function buildFilters() {
       activeSector = e.target.dataset.sector;
     }
     if (isType) {
+      var wasActive = e.target.classList.contains('active');
       bar.querySelectorAll('[data-type]').forEach(function(b) { b.classList.remove('active'); });
-      e.target.classList.add('active');
-      activeType = e.target.dataset.type;
+      if (!wasActive) { e.target.classList.add('active'); activeType = e.target.dataset.type; }
+      else { activeType = ''; }
     }
     renderResources();
   });
@@ -325,7 +326,7 @@ function buildFilters() {
 function renderResources() {
   var filtered = allResources.filter(function(r) {
     var sectorMatch = activeSector === 'All' || (r.sectors && r.sectors.indexOf(activeSector) !== -1);
-    var typeMatch = activeType === 'All Types' || r.type === activeType;
+    var typeMatch = !activeType || r.type === activeType;
     return sectorMatch && typeMatch;
   });
 
