@@ -212,7 +212,7 @@
     "description": "Operational guidance for providers delivering services under the Support at Home program — covering eligibility, classification, funding, and service delivery requirements.",
     "type": "Best Practice",
     "sectors": ["Support at Home", "Aged Care"],
-    "url": "https://www.health.gov.au/resources/collections/support-at-home-program-resources",
+    "url": "https://www.health.gov.au/our-work/support-at-home",
     "source": "Australian Government Department of Health and Aged Care"
   },
   {
@@ -220,7 +220,7 @@
     "description": "The assessment framework for aged care services including Support at Home — covering single assessment, needs classification, and funding allocation under the new aged care system.",
     "type": "Framework",
     "sectors": ["Support at Home", "Aged Care", "Governance"],
-    "url": "https://www.health.gov.au/our-work/aged-care-assessment",
+    "url": "https://www.health.gov.au/our-work/support-at-home",
     "source": "Australian Government Department of Health and Aged Care"
   },
   {
@@ -228,15 +228,15 @@
     "description": "Best practice guidelines for workforce management in home and community care settings — covering skills, supervision, safety, and quality requirements for support workers and clinicians.",
     "type": "Best Practice",
     "sectors": ["Support at Home"],
-    "url": "https://www.agedcarequality.gov.au/providers/quality-standards",
+    "url": "https://www.agedcarequality.gov.au/providers/aged-care-workforce",
     "source": "Aged Care Quality and Safety Commission"
   },
   {
-    "title": "Independence and Wellbeing Framework",
-    "description": "Framework for supporting older Australians to live independently at home — emphasising reablement, wellness, consumer choice, and goal-oriented care planning.",
-    "type": "Framework",
+    "title": "Wellness and Reablement in Aged Care",
+    "description": "Guidance on embedding wellness and reablement approaches in home care and support services — helping older Australians maintain independence, build capacity, and achieve their goals.",
+    "type": "Best Practice",
     "sectors": ["Support at Home", "Aged Care"],
-    "url": "https://www.health.gov.au/our-work/support-at-home",
+    "url": "https://www.health.gov.au/topics/aged-care/providing-aged-care-services/wellness-and-reablement-for-aged-care",
     "source": "Australian Government Department of Health and Aged Care"
   }
 ]
