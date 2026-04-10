@@ -184,14 +184,6 @@
     "source": "Australian Government Department of Health and Aged Care"
   },
   {
-    "title": "Home Care Workforce Guidelines",
-    "description": "Best practice guidelines for workforce management in home and community care settings — covering skills, supervision, safety, and quality requirements for support workers and clinicians.",
-    "type": "Best Practice",
-    "sectors": ["Support at Home"],
-    "url": "https://www.agedcarequality.gov.au/for-providers/provider-obligations",
-    "source": "Aged Care Quality and Safety Commission"
-  },
-  {
     "title": "Integrated Health and Aged Care Services Module",
     "description": "Module supporting integrated care across health and aged care settings — designed to complement the NSQHS Standards and Aged Care Quality Standards for organisations delivering services across both sectors.",
     "type": "Standard",
@@ -213,6 +205,22 @@
     "type": "White Paper",
     "sectors": ["Aged Care", "Governance"],
     "url": "https://www.health.gov.au/resources/publications/a-new-aged-care-act-for-the-rights-of-older-people",
+    "source": "Australian Government Department of Health and Aged Care"
+  },
+  {
+    "title": "Home-Level Care Minutes Performance in Residential Aged Care",
+    "description": "Reporting on individual residential aged care home performance against mandatory care minute targets — enabling providers, consumers, and regulators to monitor direct care delivery at the facility level.",
+    "type": "Best Practice",
+    "sectors": ["Aged Care", "Governance"],
+    "url": "https://www.health.gov.au/resources/publications/home-level-care-minutes-performance-in-residential-aged-care",
+    "source": "Australian Government Department of Health and Aged Care"
+  },
+  {
+    "title": "Care Minutes in Residential Aged Care",
+    "description": "Mandatory care minute targets requiring residential aged care providers to deliver a minimum amount of direct care time per resident per day — including registered nurse time. A key workforce and quality compliance obligation.",
+    "type": "Standard",
+    "sectors": ["Aged Care", "Governance"],
+    "url": "https://www.health.gov.au/our-work/care-minutes-registered-nurses-aged-care/care-minutes",
     "source": "Australian Government Department of Health and Aged Care"
   },
   {
