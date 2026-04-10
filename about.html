@@ -53,9 +53,10 @@
 
     /* PRINCIPAL CONSULTANT */
     .consultant { background: var(--navy-mid); }
-    .consultant-layout { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
-    .consultant-avatar { width: 280px; height: 320px; background: var(--navy); border: 1px solid var(--border); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
-    .consultant-avatar span { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: var(--sky); opacity: 0.6; }
+    .consultant-layout { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; margin-top: 3rem; }
+    .consultant-header { display: flex; align-items: center; gap: 2rem; }
+    .consultant-avatar { width: 160px; height: 160px; border: 1px solid var(--border); border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+    .consultant-avatar img { width: 100%; height: 100%; object-fit: cover; }
     .consultant-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: var(--white); margin-bottom: 0.3rem; }
     .consultant-title { font-size: 0.85rem; color: var(--sky); letter-spacing: 0.08em; margin-bottom: 1.5rem; }
     .consultant-bio { font-size: 0.95rem; color: #ffffff; line-height: 1.8; margin-bottom: 2rem; }
@@ -74,7 +75,7 @@
       .approach-step { border-right: none; border-bottom: 1px solid var(--border); }
       .approach-step:last-child { border-bottom: none; }
       .values-visual { display: none; }
-      .consultant-avatar { width: 100%; height: 200px; }
+      .consultant-avatar { width: 120px; height: 120px; }
       .consultant-details h4[style*="opacity:0"] { display: none; }
     }
   </style>
@@ -86,7 +87,7 @@
   <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
   <ul>
     <li><a href="about.html" class="active">About</a></li>
-    <li><a href="healthcare.html">Health Care</a></li>
+    <li><a href="healthcare.html">Health Care Solutions</a></li>
     <li><a href="news.html">News</a></li>
     <li class="nav-contact-wrapper">
       <button class="nav-cta" onclick="this.nextElementSibling.classList.toggle('open')">Contact</button>
@@ -177,9 +178,14 @@
   <div class="section-label">Leadership</div>
   <h2>Principal Consultant</h2>
   <div class="consultant-layout">
-    <div class="consultant-info" style="grid-column: 1 / -1;">
-      <h3>Naomi Alefelder</h3>
-      <div class="consultant-title">Founding Director & Senior Consultant</div>
+    <div class="consultant-info">
+      <div class="consultant-header">
+        <div class="consultant-avatar"><img src="headshotimage.png" alt="Naomi Alefelder"></div>
+        <div>
+          <h3>Naomi Alefelder</h3>
+          <div class="consultant-title">Founding Director & Senior Consultant</div>
+        </div>
+      </div>
       <p class="consultant-bio">Naomi is a highly experienced governance, quality, and risk specialist with over a decade of senior leadership across the aged care, disability, hospital, and community health sectors. She brings deep expertise in clinical governance, accreditation frameworks, and data-driven assurance — translating complex regulatory requirements into practical, sustainable systems.</p>
       <p style="font-size:0.88rem; color:var(--sky); margin-bottom:2rem; font-style:italic;">Supported by a network of specialist associates across governance, data analytics, and digital health.</p>
       <div class="consultant-details">
@@ -210,22 +216,22 @@
         <div class="detail-block">
           <h4>Skills & Expertise</h4>
           <div class="board-label">Governance, Standards & Risk</div>
-          <ul>
-            <li>National Safety & Quality Health Service (NSQHS) Standards</li>
-            <li>Aged Care Quality Standards (ACQS)</li>
-            <li>Clinical Care Standards</li>
-            <li>National Disability Insurance Scheme (NDIS)</li>
-            <li>ISO 31000 Risk Management</li>
-          </ul>
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
+            <span style="padding:0.4rem 1rem; border:1px solid var(--border); border-radius:30px; font-size:0.8rem; color:var(--text-mid); transition:all 0.3s;">NSQHS Standards</span>
+            <span style="padding:0.4rem 1rem; border:1px solid var(--border); border-radius:30px; font-size:0.8rem; color:var(--text-mid); transition:all 0.3s;">Aged Care Quality Standards</span>
+            <span style="padding:0.4rem 1rem; border:1px solid var(--border); border-radius:30px; font-size:0.8rem; color:var(--text-mid); transition:all 0.3s;">Clinical Care Standards</span>
+            <span style="padding:0.4rem 1rem; border:1px solid var(--border); border-radius:30px; font-size:0.8rem; color:var(--text-mid); transition:all 0.3s;">NDIS</span>
+            <span style="padding:0.4rem 1rem; border:1px solid var(--border); border-radius:30px; font-size:0.8rem; color:var(--text-mid); transition:all 0.3s;">ISO 31000 Risk Management</span>
+          </div>
           <div class="board-label">Digital Health Standards</div>
-          <ul>
-            <li>Fast Healthcare Interoperability Resources (FHIR)</li>
-          </ul>
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
+            <span style="padding:0.4rem 1rem; border:1px solid var(--border); border-radius:30px; font-size:0.8rem; color:var(--text-mid); transition:all 0.3s;">FHIR</span>
+          </div>
           <div class="board-label">Analytics Tools</div>
-          <ul>
-            <li>Microsoft Power BI</li>
-            <li>Microsoft Excel</li>
-          </ul>
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem;">
+            <span style="padding:0.4rem 1rem; border:1px solid var(--border); border-radius:30px; font-size:0.8rem; color:var(--text-mid); transition:all 0.3s;">Microsoft Power BI</span>
+            <span style="padding:0.4rem 1rem; border:1px solid var(--border); border-radius:30px; font-size:0.8rem; color:var(--text-mid); transition:all 0.3s;">Microsoft Excel</span>
+          </div>
         </div>
         <div class="detail-block">
           <h4>Healthcare Sector Experience</h4>
@@ -304,7 +310,7 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="healthcare.html">Health Care</a></li>
+        <li><a href="healthcare.html">Health Care Solutions</a></li>
         <li><a href="news.html">News</a></li>
       </ul>
     </div>
