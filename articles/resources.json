@@ -198,5 +198,45 @@
     "sectors": ["Governance"],
     "url": "https://www.coso.org/guidance-on-ic",
     "source": "Committee of Sponsoring Organizations of the Treadway Commission (COSO)"
+  },
+  {
+    "title": "Support at Home Program",
+    "description": "The new Support at Home program replacing the Commonwealth Home Support Programme (CHSP), Home Care Packages, and Short-Term Restorative Care. A single unified program for in-home aged care support from July 2025.",
+    "type": "Framework",
+    "sectors": ["Support at Home", "Aged Care"],
+    "url": "https://www.health.gov.au/our-work/support-at-home",
+    "source": "Australian Government Department of Health and Aged Care"
+  },
+  {
+    "title": "Support at Home Program Manual",
+    "description": "Operational guidance for providers delivering services under the Support at Home program — covering eligibility, classification, funding, and service delivery requirements.",
+    "type": "Best Practice",
+    "sectors": ["Support at Home", "Aged Care"],
+    "url": "https://www.health.gov.au/resources/collections/support-at-home-program-resources",
+    "source": "Australian Government Department of Health and Aged Care"
+  },
+  {
+    "title": "Aged Care Assessment Framework",
+    "description": "The assessment framework for aged care services including Support at Home — covering single assessment, needs classification, and funding allocation under the new aged care system.",
+    "type": "Framework",
+    "sectors": ["Support at Home", "Aged Care", "Governance"],
+    "url": "https://www.health.gov.au/our-work/aged-care-assessment",
+    "source": "Australian Government Department of Health and Aged Care"
+  },
+  {
+    "title": "Home Care Workforce Guidelines",
+    "description": "Best practice guidelines for workforce management in home and community care settings — covering skills, supervision, safety, and quality requirements for support workers and clinicians.",
+    "type": "Best Practice",
+    "sectors": ["Support at Home"],
+    "url": "https://www.agedcarequality.gov.au/providers/quality-standards",
+    "source": "Aged Care Quality and Safety Commission"
+  },
+  {
+    "title": "Independence and Wellbeing Framework",
+    "description": "Framework for supporting older Australians to live independently at home — emphasising reablement, wellness, consumer choice, and goal-oriented care planning.",
+    "type": "Framework",
+    "sectors": ["Support at Home", "Aged Care"],
+    "url": "https://www.health.gov.au/our-work/support-at-home",
+    "source": "Australian Government Department of Health and Aged Care"
   }
 ]
