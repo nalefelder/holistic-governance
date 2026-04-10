@@ -190,5 +190,13 @@
     "sectors": ["Digital Health"],
     "url": "https://www.hl7.org/",
     "source": "Health Level Seven International"
+  },
+  {
+    "title": "COSO Enterprise Risk Management Framework",
+    "description": "The globally recognised framework for enterprise risk management, integrating strategy and performance. Provides principles for designing, implementing, and evaluating risk management across an organisation.",
+    "type": "Framework",
+    "sectors": ["Governance"],
+    "url": "https://www.coso.org/guidance-on-ic",
+    "source": "Committee of Sponsoring Organizations of the Treadway Commission (COSO)"
   }
 ]
