@@ -228,6 +228,20 @@ app.delete('/api/:site/articles/:slug', requireSession, validateSite, (req, res)
   res.json({ ok: true });
 });
 
+// ── List resources (public) ──
+app.get('/api/:site/resources', validateSite, (req, res) => {
+  const resourcesPath = path.join(req.site.articlesDir, 'resources.json');
+  if (!fs.existsSync(resourcesPath)) return res.json([]);
+  res.json(JSON.parse(fs.readFileSync(resourcesPath, 'utf-8')));
+});
+
+// ── Save resources (auth required) ──
+app.post('/api/:site/resources', requireSession, validateSite, (req, res) => {
+  const resources = req.body;
+  fs.writeFileSync(path.join(req.site.articlesDir, 'resources.json'), JSON.stringify(resources, null, 2) + '\n');
+  res.json({ ok: true });
+});
+
 // ── List sector updates ──
 app.get('/api/:site/updates', validateSite, (req, res) => {
   const updatesPath = path.join(req.site.articlesDir, 'updates.json');
@@ -300,6 +314,12 @@ app.get('/api/articles/:slug', (req, res) => {
     }
   }
   res.json({ ...fm, slug: safe, body });
+});
+
+app.get('/api/resources', (req, res) => {
+  const resourcesPath = path.join(tnSite.articlesDir, 'resources.json');
+  if (!fs.existsSync(resourcesPath)) return res.json([]);
+  res.json(JSON.parse(fs.readFileSync(resourcesPath, 'utf-8')));
 });
 
 app.get('/api/updates', (req, res) => {

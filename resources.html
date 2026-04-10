@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resources | Holistic Governance</title>
+  <meta name="description" content="Evidence-based governance resources — standards, frameworks, white papers, and best practice documents for aged care, hospitals, digital health, and governance professionals." />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    section { padding: 5rem 4rem; }
+
+    /* FILTERS */
+    .resources-section { background: var(--navy); }
+    .filter-bar { display: flex; gap: 0.6rem; margin-bottom: 3rem; flex-wrap: wrap; align-items: center; }
+    .filter-btn { padding: 0.5rem 1.2rem; border: 1px solid var(--border); background: transparent; color: var(--text-light); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: all 0.3s; font-family: 'DM Sans', sans-serif; }
+    .filter-btn:hover, .filter-btn.active { border-color: var(--sky); color: var(--sky); background: rgba(56,189,248,0.08); }
+    .filter-divider { width: 1px; height: 24px; background: var(--border); margin: 0 0.6rem; flex-shrink: 0; }
+
+    /* RESOURCE CARDS */
+    .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .resource-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 2px; padding: 2rem; transition: border-color 0.3s; display: flex; flex-direction: column; }
+    .resource-card:hover { border-color: var(--sky); }
+    .resource-card-header { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; }
+    .resource-icon { width: 36px; height: 36px; background: rgba(56,189,248,0.08); border: 1px solid var(--border); border-radius: 2px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .resource-icon svg { width: 18px; height: 18px; color: var(--sky); }
+    .resource-type-label { display: inline-block; padding: 0.2rem 0.6rem; background: rgba(56,189,248,0.08); border: 1px solid var(--border); color: var(--sky); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; margin-top: 0.2rem; }
+    .resource-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: var(--white); font-weight: 400; margin-bottom: 0.6rem; line-height: 1.3; }
+    .resource-card p { font-size: 0.85rem; color: #ffffff; line-height: 1.75; margin-bottom: 1.2rem; flex: 1; }
+    .resource-meta { font-size: 0.75rem; color: var(--text-light); margin-bottom: 1rem; }
+    .resource-categories { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
+    .resource-cat { padding: 0.2rem 0.6rem; border: 1px solid var(--border); border-radius: 20px; font-size: 0.7rem; color: var(--text-mid); }
+    .resource-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--sky); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; transition: border-color 0.3s; margin-top: auto; align-self: flex-start; }
+    .resource-link:hover { border-color: var(--sky); }
+
+    /* LOADING & EMPTY STATE */
+    .loading-state { text-align: center; padding: 4rem 2rem; }
+    .loading-state p { color: var(--text-light); font-size: 0.95rem; }
+    .loading-dots::after { content: ''; animation: dots 1.5s steps(4,end) infinite; }
+    @keyframes dots { 0% { content: ''; } 25% { content: '.'; } 50% { content: '..'; } 75% { content: '...'; } }
+    .no-results { text-align: center; padding: 4rem 2rem; border: 1px solid var(--border); border-radius: 2px; display: none; }
+    .no-results p { color: var(--text-mid); font-size: 0.95rem; }
+    .result-count { font-size: 0.8rem; color: var(--text-light); margin-bottom: 1.5rem; }
+
+    /* PREMIUM CTA */
+    .premium-section { background: var(--navy-mid); }
+    .premium-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 2.5rem; }
+    .premium-features { list-style: none; }
+    .premium-features li { font-size: 0.9rem; color: #ffffff; line-height: 1.8; padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem; }
+    .premium-features li::before { content: ''; position: absolute; left: 0; top: 0.6rem; width: 6px; height: 6px; background: var(--sky); border-radius: 1px; }
+    .premium-card { background: var(--navy); border: 1px solid var(--border); border-radius: 2px; padding: 3rem; position: relative; overflow: hidden; }
+    .premium-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--sky); }
+    .premium-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--white); font-weight: 300; margin-bottom: 1rem; }
+    .premium-card p { font-size: 0.9rem; color: #ffffff; line-height: 1.8; margin-bottom: 1.5rem; }
+    .premium-card .btn-primary { display: inline-block; text-decoration: none; }
+    .interest-form { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
+    .interest-form input { flex: 1; padding: 0.8rem 1rem; background: var(--navy-mid); border: 1px solid var(--border); color: var(--cream); font-size: 0.85rem; border-radius: 2px; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.3s; }
+    .interest-form input:focus { border-color: var(--sky); }
+    .interest-form input::placeholder { color: var(--text-light); }
+    .interest-form button { padding: 0.8rem 1.5rem; background: var(--sky); color: var(--navy); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 2px; cursor: pointer; white-space: nowrap; font-family: 'DM Sans', sans-serif; transition: background 0.3s; }
+    .interest-form button:hover { background: var(--sky-light); }
+
+    @media (max-width: 900px) {
+      .page-hero, section { padding: 6rem 1.5rem 3rem; }
+      .resources-grid { grid-template-columns: 1fr; }
+      .premium-layout { grid-template-columns: 1fr; }
+      .interest-form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo"><img src="logo-hg-trimmed.png" alt="Holistic Governance"><span class="logo-name">Holistic <span>Governance</span></span></a>
+  <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="healthcare.html">Health Care Solutions</a></li>
+    <li><a href="resources.html" class="active">Resources</a></li>
+    <li><a href="news.html">News</a></li>
+    <li class="nav-contact-wrapper">
+      <button class="nav-cta" onclick="this.nextElementSibling.classList.toggle('open')">Contact</button>
+      <div class="nav-contact-popup">
+        <a href="tel:0405515300"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>0405 515 300</a>
+        <a href="mailto:naomi@hg-au.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>naomi@hg-au.com</a>
+        <a href="proposal-enquiry.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Submit a Proposal</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a> / Resources</div>
+  <h1>Evidence-Based Resources</h1>
+  <p>Curated standards, frameworks, white papers, and best practice documents to support governance, quality, and compliance across the healthcare sector.</p>
+</div>
+
+<!-- RESOURCES -->
+<section class="resources-section">
+  <div class="section-label">Resource Library</div>
+  <h2>Browse Resources</h2>
+
+  <!-- Combined filters -->
+  <div class="filter-bar" style="margin-top:2rem;" id="filterBar"></div>
+
+  <!-- Result count -->
+  <div class="result-count" id="resultCount"></div>
+
+  <!-- Loading state -->
+  <div class="loading-state" id="loadingState">
+    <p>Loading resources<span class="loading-dots"></span></p>
+  </div>
+
+  <!-- No results -->
+  <div class="no-results" id="noResults">
+    <p>No resources match the selected filters. Try a different combination.</p>
+  </div>
+
+  <!-- Resource grid -->
+  <div class="resources-grid" id="resourcesGrid"></div>
+</section>
+
+<!-- PREMIUM CTA -->
+<section class="premium-section fade-in">
+  <div class="section-label">Go Further</div>
+  <h2>Premium Resource Library</h2>
+  <div class="premium-layout">
+    <div>
+      <p style="color:#ffffff; font-size:0.95rem; line-height:1.8; margin-bottom:2rem;">The free library covers key public standards and frameworks. Our premium collection goes deeper — with implementation guides, audit-ready templates, and sector-specific toolkits developed from real engagements.</p>
+      <ul class="premium-features">
+        <li>Implementation guides with step-by-step workflows</li>
+        <li>Audit-ready templates and self-assessment tools</li>
+        <li>Policy and procedure frameworks</li>
+        <li>Board reporting templates and governance calendars</li>
+        <li>Sector-specific compliance checklists</li>
+        <li>Regular updates aligned to regulatory changes</li>
+      </ul>
+    </div>
+    <div class="premium-card">
+      <h3>Unlock the Full Library</h3>
+      <p>Get access to our complete collection of implementation guides, templates, and tools — built from years of hands-on governance consulting across aged care, hospital, and disability sectors.</p>
+      <p style="font-size:0.85rem; color:var(--sky); font-style:italic;">Coming soon — watch this space.</p>
+      <p style="font-size:0.85rem; color:var(--text-mid); margin-bottom:0;">Register your interest and we'll notify you when it launches.</p>
+      <div class="interest-form">
+        <input type="email" id="interestEmail" placeholder="Your email address" />
+        <button onclick="registerInterest()">Notify Me</button>
+      </div>
+      <p id="interestMsg" style="display:none;margin-top:0.8rem;font-size:0.82rem;"></p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h2>Need help applying these frameworks in your organisation?</h2>
+  <div class="contact-wrapper">
+    <button class="btn-dark" onclick="this.nextElementSibling.classList.toggle('open')">Get in Touch</button>
+    <div class="contact-popup">
+      <a href="tel:0405515300">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        0405 515 300
+      </a>
+      <a href="mailto:naomi@hg-au.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        naomi@hg-au.com
+      </a>
+      <a href="proposal-enquiry.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Submit a Proposal
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo"><img src="logo-hg-trimmed.png" alt="Holistic Governance"><span class="logo-name">Holistic <span>Governance</span></span></div>
+      <p class="footer-tagline">Improving clarity and confidence in governance through knowledge, data, and technology.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="healthcare.html">Health Care Solutions</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="news.html">News</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <a href="mailto:naomi@hg-au.com">naomi@hg-au.com</a>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <a href="tel:0405515300">0405 515 300</a>
+      </div>
+      <div class="footer-contact-item" style="margin-top: 0.5rem;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <a href="proposal-enquiry.html">Request a Proposal</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Where We Work</h4>
+      <ul>
+        <li>Australia</li>
+        <li>New Zealand</li>
+      </ul>
+      <p style="font-size:0.8rem; color:var(--text-light); margin-top:0.8rem;">Remote & on-site delivery</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Holistic Governance. All rights reserved.</p>
+  </div>
+</footer>
+
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script>
+var API_BASE = 'https://hg-proposals-1010766137344.australia-southeast1.run.app';
+
+var SECTORS = ['All', 'Aged Care', 'Digital Health', 'Governance', 'Hospital'];
+var TYPES = ['All Types', 'Standard', 'Framework', 'Best Practice', 'White Paper'];
+
+var TYPE_ICONS = {
+  'Standard': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>',
+  'Framework': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>',
+  'Best Practice': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',
+  'White Paper': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>'
+};
+
+var allResources = [];
+var activeSector = 'All';
+var activeType = 'All Types';
+
+// Fetch resources from dashboard API
+fetch(API_BASE + '/api/holistic-governance/resources')
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    allResources = data && data.length ? data : [];
+    onLoaded();
+  })
+  .catch(function() {
+    allResources = [];
+    onLoaded();
+  });
+
+function onLoaded() {
+  document.getElementById('loadingState').style.display = 'none';
+  buildFilters();
+  renderResources();
+}
+
+function buildFilters() {
+  var bar = document.getElementById('filterBar');
+  var html = '';
+
+  // Sector buttons
+  html += SECTORS.map(function(s) {
+    return '<button class="filter-btn' + (s === 'All' ? ' active' : '') + '" data-sector="' + s + '">' + s + '</button>';
+  }).join('');
+
+  // Divider
+  html += '<div class="filter-divider"></div>';
+
+  // Type buttons
+  html += TYPES.map(function(t) {
+    return '<button class="filter-btn' + (t === 'All Types' ? ' active' : '') + '" data-type="' + t + '">' + (t === 'All Types' ? 'All Types' : t + 's') + '</button>';
+  }).join('');
+
+  bar.innerHTML = html;
+
+  bar.addEventListener('click', function(e) {
+    if (!e.target.classList.contains('filter-btn')) return;
+    var isSector = e.target.hasAttribute('data-sector');
+    var isType = e.target.hasAttribute('data-type');
+
+    if (isSector) {
+      bar.querySelectorAll('[data-sector]').forEach(function(b) { b.classList.remove('active'); });
+      e.target.classList.add('active');
+      activeSector = e.target.dataset.sector;
+    }
+    if (isType) {
+      bar.querySelectorAll('[data-type]').forEach(function(b) { b.classList.remove('active'); });
+      e.target.classList.add('active');
+      activeType = e.target.dataset.type;
+    }
+    renderResources();
+  });
+}
+
+function renderResources() {
+  var filtered = allResources.filter(function(r) {
+    var sectorMatch = activeSector === 'All' || (r.sectors && r.sectors.indexOf(activeSector) !== -1);
+    var typeMatch = activeType === 'All Types' || r.type === activeType;
+    return sectorMatch && typeMatch;
+  });
+
+  var grid = document.getElementById('resourcesGrid');
+  var noResults = document.getElementById('noResults');
+  var countEl = document.getElementById('resultCount');
+
+  if (allResources.length === 0) {
+    countEl.textContent = '';
+    grid.innerHTML = '';
+    noResults.style.display = 'block';
+    noResults.querySelector('p').textContent = 'No resources available yet. Check back soon.';
+    return;
+  }
+
+  if (filtered.length === 0) {
+    countEl.textContent = '';
+    grid.innerHTML = '';
+    noResults.style.display = 'block';
+    noResults.querySelector('p').textContent = 'No resources match the selected filters. Try a different combination.';
+    return;
+  }
+
+  noResults.style.display = 'none';
+  var total = allResources.length;
+  countEl.textContent = filtered.length === total
+    ? 'Showing all ' + total + ' resources'
+    : 'Showing ' + filtered.length + ' of ' + total + ' resources';
+
+  grid.innerHTML = filtered.map(function(r) {
+    var cats = (r.sectors || []).map(function(s) { return '<span class="resource-cat">' + s + '</span>'; }).join('');
+    var icon = TYPE_ICONS[r.type] || TYPE_ICONS['Standard'];
+    return '<div class="resource-card">' +
+      '<div class="resource-card-header">' +
+        '<div class="resource-icon">' + icon + '</div>' +
+        '<div><span class="resource-type-label">' + (r.type || 'Resource') + '</span></div>' +
+      '</div>' +
+      '<h4>' + r.title + '</h4>' +
+      '<p>' + (r.description || '') + '</p>' +
+      '<div class="resource-meta">' + (r.source || '') + '</div>' +
+      '<div class="resource-categories">' + cats + '</div>' +
+      '<a href="' + r.url + '" target="_blank" rel="noopener" class="resource-link">View Resource &rarr;</a>' +
+    '</div>';
+  }).join('');
+}
+
+// Register interest for premium library
+function registerInterest() {
+  var email = document.getElementById('interestEmail').value.trim();
+  var msg = document.getElementById('interestMsg');
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    msg.textContent = 'Please enter a valid email address.';
+    msg.style.color = '#f87171';
+    msg.style.display = 'block';
+    return;
+  }
+  fetch(API_BASE + '/api/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email })
+  })
+  .then(function(res) {
+    if (res.ok) {
+      msg.textContent = 'Thank you — we\'ll notify you when the premium library launches.';
+      msg.style.color = 'var(--sky)';
+      msg.style.display = 'block';
+      document.getElementById('interestEmail').value = '';
+    } else { throw new Error(); }
+  })
+  .catch(function() {
+    msg.textContent = 'Something went wrong. Please try again.';
+    msg.style.color = '#f87171';
+    msg.style.display = 'block';
+  });
+}
+
+// Fade in
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+// Close contact popup on click outside
+document.addEventListener('click', function(e) {
+  document.querySelectorAll('.contact-popup.open, .nav-contact-popup.open').forEach(function(popup) {
+    if (!popup.parentElement.contains(e.target)) popup.classList.remove('open');
+  });
+});
+
+// Nav shrink + back to top
+window.addEventListener('scroll', function() {
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
+  document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 400);
+});
+</script>
+
+</body>
+</html>

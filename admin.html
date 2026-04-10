@@ -204,6 +204,10 @@
       <a class="nav-item" onclick="showSection('updates')" id="nav-updates">
         <span class="icon">&#9889;</span> Sector Updates
       </a>
+      <a class="nav-item" onclick="showSection('resources')" id="nav-resources">
+        <span class="icon">&#128218;</span> Resources
+        <span class="badge" id="badge-resources">0</span>
+      </a>
     </div>
     <div class="nav-section">
       <div class="nav-section-label">Enquiries</div>
@@ -245,8 +249,8 @@
             <div class="stat-value" id="stat-subscribers">0</div>
           </div>
           <div class="stat-card">
-            <div class="stat-label">Sector Updates</div>
-            <div class="stat-value" id="stat-updates">0</div>
+            <div class="stat-label">Resources</div>
+            <div class="stat-value" id="stat-resources">0</div>
           </div>
         </div>
 
@@ -348,6 +352,23 @@
         </div>
       </div>
 
+      <!-- ══ RESOURCES ══ -->
+      <div class="section" id="sec-resources">
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Manage Resources</h3>
+            <button class="btn-new" onclick="addResourceRow()">+ Add Resource</button>
+          </div>
+          <div class="panel-body">
+            <p style="color:var(--text-light);font-size:0.78rem;margin-bottom:1.2rem;">Add evidence-based standards, frameworks, white papers, and best practice documents. These appear on the public Resources page.</p>
+            <div id="resourcesContainer"></div>
+            <div style="margin-top:1rem;">
+              <button class="btn btn-save" onclick="saveResources()">Save All Resources</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- ══ ENQUIRIES ══ -->
       <div class="section" id="sec-enquiries">
         <div class="panel">
@@ -400,6 +421,7 @@
   let allEnquiries = [];
   let allSubscribers = [];
   let updates = [];
+  let resources = [];
   let currentSlug = null;
   let isNew = false;
   let currentSite = 'true-north';
@@ -423,36 +445,40 @@
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
     document.getElementById('sec-' + name).classList.add('active');
     document.getElementById('nav-' + name).classList.add('active');
-    const titles = { overview: 'Dashboard', articles: 'Articles', updates: 'Sector Updates', enquiries: 'Enquiries', subscribers: 'Subscribers' };
+    const titles = { overview: 'Dashboard', articles: 'Articles', updates: 'Sector Updates', resources: 'Resources', enquiries: 'Enquiries', subscribers: 'Subscribers' };
     document.getElementById('sectionTitle').textContent = titles[name] || name;
     if (name === 'enquiries') loadEnquiries();
     if (name === 'subscribers') loadSubscribers();
     if (name === 'updates') loadUpdates();
+    if (name === 'resources') loadResources();
   }
 
   // ── Load all data ──
   async function loadAll() {
-    const [artRes, enqRes, subRes, updRes] = await Promise.all([
+    const [artRes, enqRes, subRes, updRes, resRes] = await Promise.all([
       fetch('/api/' + currentSite + '/articles'),
       fetch('/api/' + currentSite + '/enquiries'),
       fetch('/api/' + currentSite + '/subscribers'),
-      fetch('/api/' + currentSite + '/updates')
+      fetch('/api/' + currentSite + '/updates'),
+      fetch('/api/' + currentSite + '/resources')
     ]);
     articles = await artRes.json();
     allEnquiries = await enqRes.json();
     allSubscribers = await subRes.json();
     updates = await updRes.json();
+    resources = await resRes.json();
 
     // Stats
     document.getElementById('stat-articles').textContent = articles.length;
     document.getElementById('stat-enquiries').textContent = allEnquiries.length;
     document.getElementById('stat-subscribers').textContent = allSubscribers.length;
-    document.getElementById('stat-updates').textContent = updates.length;
+    document.getElementById('stat-resources').textContent = resources.length;
 
     // Badges
     document.getElementById('badge-articles').textContent = articles.length;
     document.getElementById('badge-enquiries').textContent = allEnquiries.length;
     document.getElementById('badge-subscribers').textContent = allSubscribers.length;
+    document.getElementById('badge-resources').textContent = resources.length;
 
     // Recent enquiries on overview
     renderRecentEnquiries();
@@ -664,6 +690,66 @@
     const valid = updates.filter(u => u.title.trim());
     const res = await fetch('/api/' + currentSite + '/updates', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(valid) });
     if (res.ok) { updates = valid; await loadAll(); toast('Sector updates saved'); }
+  }
+
+  // ── Resources ──
+  const RESOURCE_TYPES = ['Standard', 'Framework', 'Best Practice', 'White Paper'];
+  const RESOURCE_SECTORS = ['Aged Care', 'Digital Health', 'Governance', 'Hospital'];
+
+  async function loadResources() {
+    const res = await fetch('/api/' + currentSite + '/resources');
+    resources = await res.json();
+    renderResources();
+  }
+
+  function renderResources() {
+    const container = document.getElementById('resourcesContainer');
+    if (resources.length === 0) { container.innerHTML = '<p style="color:var(--text-light);font-size:0.85rem;">No resources yet. Click "+ Add Resource" to get started.</p>'; return; }
+    container.innerHTML = resources.map(function(r, i) {
+      var typeOpts = RESOURCE_TYPES.map(function(t) { return '<option' + (t === r.type ? ' selected' : '') + '>' + t + '</option>'; }).join('');
+      var sectorChecks = RESOURCE_SECTORS.map(function(s) {
+        var checked = r.sectors && r.sectors.indexOf(s) !== -1 ? ' checked' : '';
+        return '<label style="font-size:0.72rem;text-transform:none;color:var(--text-mid);margin-right:0.8rem;cursor:pointer;"><input type="checkbox"' + checked + ' onchange="toggleResourceSector(' + i + ',\'' + s + '\',this.checked)" style="margin-right:0.3rem;accent-color:var(--sky);">' + s + '</label>';
+      }).join('');
+      return '<div style="border:1px solid var(--border);border-radius:4px;padding:1.2rem;margin-bottom:1rem;background:var(--navy);">' +
+        '<div style="display:grid;grid-template-columns:1fr 1fr auto;gap:0.8rem;margin-bottom:0.8rem;">' +
+          '<input type="text" value="' + (r.title || '').replace(/"/g, '&quot;') + '" placeholder="Resource title" onchange="resources[' + i + '].title=this.value" />' +
+          '<select onchange="resources[' + i + '].type=this.value">' + typeOpts + '</select>' +
+          '<button class="btn-icon" onclick="resources.splice(' + i + ',1);renderResources();">&times;</button>' +
+        '</div>' +
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:0.8rem;">' +
+          '<input type="text" value="' + (r.url || '').replace(/"/g, '&quot;') + '" placeholder="URL (https://...)" onchange="resources[' + i + '].url=this.value" />' +
+          '<input type="text" value="' + (r.source || '').replace(/"/g, '&quot;') + '" placeholder="Source (e.g. ACSQHC)" onchange="resources[' + i + '].source=this.value" />' +
+        '</div>' +
+        '<div style="margin-bottom:0.8rem;">' +
+          '<textarea rows="2" placeholder="Description" onchange="resources[' + i + '].description=this.value" style="width:100%;">' + (r.description || '') + '</textarea>' +
+        '</div>' +
+        '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.3rem;">' +
+          '<span style="font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-light);margin-right:0.5rem;">Sectors:</span>' + sectorChecks +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  function toggleResourceSector(idx, sector, checked) {
+    if (!resources[idx].sectors) resources[idx].sectors = [];
+    if (checked && resources[idx].sectors.indexOf(sector) === -1) {
+      resources[idx].sectors.push(sector);
+    } else if (!checked) {
+      resources[idx].sectors = resources[idx].sectors.filter(function(s) { return s !== sector; });
+    }
+  }
+
+  function addResourceRow() {
+    resources.unshift({ title: '', type: 'Standard', url: '', source: '', description: '', sectors: [] });
+    renderResources();
+  }
+
+  async function saveResources() {
+    var valid = resources.filter(function(r) { return r.title && r.title.trim(); });
+    var res = await fetch('/api/' + currentSite + '/resources', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(valid) });
+    if (res.ok) { resources = valid; await loadAll(); toast('Resources saved'); }
+    else { toast('Error saving resources', true); }
   }
 
   // ── Toast ──

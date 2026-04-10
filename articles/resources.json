@@ -1,0 +1,178 @@
+[
+  {
+    "title": "National Safety and Quality Health Service (NSQHS) Standards",
+    "description": "The eight NSQHS Standards provide a nationally consistent framework for safety and quality in health service organisations. Mandatory for accreditation.",
+    "type": "Standard",
+    "sectors": ["Hospital", "Governance"],
+    "url": "https://www.safetyandquality.gov.au/standards/nsqhs-standards",
+    "source": "Australian Commission on Safety and Quality in Health Care"
+  },
+  {
+    "title": "Aged Care Quality Standards",
+    "description": "Eight standards that set out the level of care and services expected by aged care consumers. The basis for quality assessment and accreditation of aged care services.",
+    "type": "Standard",
+    "sectors": ["Aged Care", "Governance"],
+    "url": "https://www.agedcarequality.gov.au/providers/standards",
+    "source": "Aged Care Quality and Safety Commission"
+  },
+  {
+    "title": "Clinical Care Standards",
+    "description": "Evidence-based statements describing the care patients should be offered for specific clinical conditions. Designed to reduce unwarranted variation.",
+    "type": "Standard",
+    "sectors": ["Hospital", "Aged Care"],
+    "url": "https://www.safetyandquality.gov.au/standards/clinical-care-standards",
+    "source": "Australian Commission on Safety and Quality in Health Care"
+  },
+  {
+    "title": "NDIS Practice Standards",
+    "description": "Quality standards for NDIS providers covering rights and responsibilities, governance, service delivery, and the service environment.",
+    "type": "Standard",
+    "sectors": ["Governance"],
+    "url": "https://www.ndiscommission.gov.au/providers/registered-ndis-providers/provider-obligations-and-requirements/ndis-practice-standards",
+    "source": "NDIS Quality and Safeguards Commission"
+  },
+  {
+    "title": "ISO 31000 Risk Management",
+    "description": "International standard providing principles, a framework, and guidelines for managing risk. Applicable to any organisation regardless of size or sector.",
+    "type": "Standard",
+    "sectors": ["Governance"],
+    "url": "https://www.iso.org/iso-31000-risk-management.html",
+    "source": "International Organization for Standardization"
+  },
+  {
+    "title": "National Digital Health Strategy",
+    "description": "Australia's framework for a digitally enabled health system — setting out priorities for secure, interoperable, and consumer-centred digital health.",
+    "type": "Framework",
+    "sectors": ["Digital Health", "Governance"],
+    "url": "https://www.digitalhealth.gov.au/about-us/strategies-and-plans/national-digital-health-strategy",
+    "source": "Australian Digital Health Agency"
+  },
+  {
+    "title": "National Framework for Digital Health Standards",
+    "description": "Establishes a coordinated approach to digital health standards adoption in Australia, including interoperability, terminology, and clinical information standards.",
+    "type": "Framework",
+    "sectors": ["Digital Health"],
+    "url": "https://www.digitalhealth.gov.au/about-us/strategies-and-plans/framework-for-digital-health-standards",
+    "source": "Australian Digital Health Agency"
+  },
+  {
+    "title": "FHIR (Fast Healthcare Interoperability Resources)",
+    "description": "The leading global standard for health care data exchange. FHIR defines how health information is structured, shared, and accessed across systems.",
+    "type": "Framework",
+    "sectors": ["Digital Health"],
+    "url": "https://www.hl7.org/fhir/",
+    "source": "HL7 International"
+  },
+  {
+    "title": "ELDAC Palliative Care Toolkit",
+    "description": "Evidence-based resources supporting aged care providers to deliver quality palliative care and end-of-life care within residential and community settings.",
+    "type": "Framework",
+    "sectors": ["Aged Care"],
+    "url": "https://www.eldac.com.au/",
+    "source": "End of Life Directions for Aged Care (ELDAC)"
+  },
+  {
+    "title": "Australian Health Performance Framework",
+    "description": "National framework for reporting on health system performance across effectiveness, safety, accessibility, continuity, efficiency, and sustainability.",
+    "type": "Framework",
+    "sectors": ["Hospital", "Governance"],
+    "url": "https://www.aihw.gov.au/reports-data/indicators/australias-health-performance-framework",
+    "source": "Australian Institute of Health and Welfare"
+  },
+  {
+    "title": "Clinical Governance Framework",
+    "description": "Guidance on establishing clinical governance structures including safety systems, clinical effectiveness, consumer engagement, and workforce capability.",
+    "type": "Best Practice",
+    "sectors": ["Hospital", "Aged Care", "Governance"],
+    "url": "https://www.safetyandquality.gov.au/our-work/clinical-governance/clinical-governance-standard",
+    "source": "Australian Commission on Safety and Quality in Health Care"
+  },
+  {
+    "title": "Open Disclosure Framework",
+    "description": "National framework for open communication with patients and carers following adverse events — covering the process, principles, and governance requirements.",
+    "type": "Best Practice",
+    "sectors": ["Hospital", "Aged Care", "Governance"],
+    "url": "https://www.safetyandquality.gov.au/our-work/clinical-governance/open-disclosure",
+    "source": "Australian Commission on Safety and Quality in Health Care"
+  },
+  {
+    "title": "Antimicrobial Stewardship Clinical Care Standard",
+    "description": "Quality statements to guide appropriate antimicrobial use across health care settings, reducing resistance and improving patient outcomes.",
+    "type": "Best Practice",
+    "sectors": ["Hospital"],
+    "url": "https://www.safetyandquality.gov.au/standards/clinical-care-standards/antimicrobial-stewardship-clinical-care-standard",
+    "source": "Australian Commission on Safety and Quality in Health Care"
+  },
+  {
+    "title": "Serious Incident Response Scheme (SIRS)",
+    "description": "Framework requiring aged care providers to identify, record, manage, resolve, and report serious incidents — a key compliance obligation.",
+    "type": "Best Practice",
+    "sectors": ["Aged Care", "Governance"],
+    "url": "https://www.agedcarequality.gov.au/sirs",
+    "source": "Aged Care Quality and Safety Commission"
+  },
+  {
+    "title": "A New Aged Care Act — Summary of Key Changes",
+    "description": "Overview of the new rights-based Aged Care Act, replacing the Aged Care Act 1997. Covers strengthened quality standards, provider obligations, and consumer rights.",
+    "type": "White Paper",
+    "sectors": ["Aged Care", "Governance"],
+    "url": "https://www.health.gov.au/our-work/aged-care-act",
+    "source": "Australian Government Department of Health and Aged Care"
+  },
+  {
+    "title": "Royal Commission into Aged Care — Final Report",
+    "description": "The landmark report with 148 recommendations for reforming aged care in Australia. Essential reading for providers navigating the reform landscape.",
+    "type": "White Paper",
+    "sectors": ["Aged Care", "Governance"],
+    "url": "https://agedcare.royalcommission.gov.au/publications/final-report",
+    "source": "Royal Commission into Aged Care Quality and Safety"
+  },
+  {
+    "title": "Interoperability Roadmap for Australian Healthcare",
+    "description": "Strategic roadmap for achieving seamless, secure data sharing across the Australian health system using FHIR and national standards.",
+    "type": "White Paper",
+    "sectors": ["Digital Health"],
+    "url": "https://www.digitalhealth.gov.au/about-us/strategies-and-plans/national-healthcare-interoperability-plan",
+    "source": "Australian Digital Health Agency"
+  },
+  {
+    "title": "Strengthened Aged Care Quality Standards",
+    "description": "The new strengthened standards replacing the current Aged Care Quality Standards, with greater emphasis on clinical care, food and nutrition, diversity, and the aged care workforce.",
+    "type": "Standard",
+    "sectors": ["Aged Care", "Governance"],
+    "url": "https://www.agedcarequality.gov.au/providers/standards/strengthened-standards",
+    "source": "Aged Care Quality and Safety Commission"
+  },
+  {
+    "title": "Quality Indicator Program (QI Program)",
+    "description": "National program requiring residential aged care providers to collect and report quality indicator data across key care domains — driving transparency and continuous improvement.",
+    "type": "Framework",
+    "sectors": ["Aged Care", "Governance"],
+    "url": "https://www.health.gov.au/our-work/national-aged-care-mandatory-quality-indicator-program",
+    "source": "Australian Government Department of Health and Aged Care"
+  },
+  {
+    "title": "SNOMED CT (Clinical Terminology)",
+    "description": "The international clinical terminology standard used for consistent, computable representation of clinical concepts across electronic health records and health information systems.",
+    "type": "Standard",
+    "sectors": ["Digital Health", "Hospital"],
+    "url": "https://www.healthterminologies.gov.au/access-clinical-terminology/access-snomed-ct-au/",
+    "source": "National Clinical Terminology Service (NCTS)"
+  },
+  {
+    "title": "My Health Records Act 2012",
+    "description": "The legislative framework governing Australia's My Health Record system — covering data access, privacy protections, provider obligations, and consumer controls.",
+    "type": "Standard",
+    "sectors": ["Digital Health", "Governance"],
+    "url": "https://www.legislation.gov.au/Series/C2012A00063",
+    "source": "Australian Government"
+  },
+  {
+    "title": "Australian Charter of Healthcare Rights",
+    "description": "Describes the rights of patients and consumers when accessing health care services in Australia — a foundational document for consumer-centred governance and accreditation.",
+    "type": "Best Practice",
+    "sectors": ["Hospital", "Aged Care", "Governance"],
+    "url": "https://www.safetyandquality.gov.au/consumers/working-your-healthcare-provider/australian-charter-healthcare-rights",
+    "source": "Australian Commission on Safety and Quality in Health Care"
+  }
+]
