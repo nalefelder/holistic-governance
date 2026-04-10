@@ -74,7 +74,7 @@
   {
     "title": "A New Aged Care Act — Summary of Key Changes",
     "description": "Overview of the new rights-based Aged Care Act, replacing the Aged Care Act 1997. Covers strengthened quality standards, provider obligations, and consumer rights.",
-    "type": "White Paper",
+    "type": "Framework",
     "sectors": ["Aged Care", "Governance"],
     "url": "https://www.health.gov.au/our-work/aged-care-act",
     "source": "Australian Government Department of Health and Aged Care"
@@ -82,7 +82,7 @@
   {
     "title": "Royal Commission into Aged Care — Final Report",
     "description": "The landmark report with 148 recommendations for reforming aged care in Australia. Essential reading for providers navigating the reform landscape.",
-    "type": "White Paper",
+    "type": "Framework",
     "sectors": ["Aged Care", "Governance"],
     "url": "https://www.royalcommission.gov.au/aged-care/final-report",
     "source": "Royal Commission into Aged Care Quality and Safety"
@@ -90,7 +90,7 @@
   {
     "title": "Interoperability Roadmap for Australian Healthcare",
     "description": "Strategic roadmap for achieving seamless, secure data sharing across the Australian health system using FHIR and national standards.",
-    "type": "White Paper",
+    "type": "Framework",
     "sectors": ["Digital Health"],
     "url": "https://www.digitalhealth.gov.au/about-us/strategies-and-plans/national-healthcare-interoperability-plan",
     "source": "Australian Digital Health Agency"
