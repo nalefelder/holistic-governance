@@ -174,5 +174,21 @@
     "sectors": ["Hospital", "Aged Care", "Governance"],
     "url": "https://www.safetyandquality.gov.au/consumers/working-your-healthcare-provider/australian-charter-healthcare-rights",
     "source": "Australian Commission on Safety and Quality in Health Care"
+  },
+  {
+    "title": "International Organization for Standardization (ISO)",
+    "description": "The global body for developing and publishing international standards across industries — including quality management (ISO 9001), information security (ISO 27001), and risk management (ISO 31000) frameworks widely adopted in healthcare governance.",
+    "type": "Standard",
+    "sectors": ["Governance"],
+    "url": "https://www.iso.org/home.html",
+    "source": "International Organization for Standardization"
+  },
+  {
+    "title": "HL7 International",
+    "description": "The global authority for health data interoperability standards — including HL7 v2 messaging, CDA clinical documents, and FHIR. Essential for any organisation working with digital health data exchange.",
+    "type": "Framework",
+    "sectors": ["Digital Health"],
+    "url": "https://www.hl7.org/",
+    "source": "Health Level Seven International"
   }
 ]
