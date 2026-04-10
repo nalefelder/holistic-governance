@@ -216,6 +216,14 @@
     "source": "Australian Government Department of Health and Aged Care"
   },
   {
+    "title": "Independent Health and Aged Care Pricing Authority (IHACPA)",
+    "description": "The national authority responsible for health care and aged care pricing, classification, and costing — including casemix funding models, activity-based funding, and the ICD-10-AM classification system.",
+    "type": "Standard",
+    "sectors": ["Hospital", "Aged Care", "Governance"],
+    "url": "https://www.ihacpa.gov.au/",
+    "source": "Independent Health and Aged Care Pricing Authority"
+  },
+  {
     "title": "Clinical Coding Practice Framework",
     "description": "National framework for clinical coding practice in Australia — setting out the principles, governance, workforce standards, and quality assurance requirements for accurate and consistent clinical coding.",
     "type": "Framework",
