@@ -8,14 +8,6 @@
     "source": "Australian Commission on Safety and Quality in Health Care"
   },
   {
-    "title": "Aged Care Quality Standards",
-    "description": "Eight standards that set out the level of care and services expected by aged care consumers. The basis for quality assessment and accreditation of aged care services.",
-    "type": "Standard",
-    "sectors": ["Aged Care", "Governance"],
-    "url": "https://www.agedcarequality.gov.au/providers/quality-standards",
-    "source": "Aged Care Quality and Safety Commission"
-  },
-  {
     "title": "Clinical Care Standards",
     "description": "Evidence-based statements describing the care patients should be offered for specific clinical conditions. Designed to reduce unwarranted variation.",
     "type": "Standard",
@@ -30,14 +22,6 @@
     "sectors": ["Governance"],
     "url": "https://www.ndiscommission.gov.au/rules-and-standards/ndis-practice-standards",
     "source": "NDIS Quality and Safeguards Commission"
-  },
-  {
-    "title": "ISO 31000 Risk Management",
-    "description": "International standard providing principles, a framework, and guidelines for managing risk. Applicable to any organisation regardless of size or sector.",
-    "type": "Standard",
-    "sectors": ["Governance"],
-    "url": "https://www.iso.org/iso-31000-risk-management.html",
-    "source": "International Organization for Standardization"
   },
   {
     "title": "National Digital Health Strategy",
@@ -129,7 +113,7 @@
   },
   {
     "title": "Strengthened Aged Care Quality Standards",
-    "description": "The new strengthened standards replacing the current Aged Care Quality Standards, with greater emphasis on clinical care, food and nutrition, diversity, and the aged care workforce.",
+    "description": "The strengthened standards replacing the current Aged Care Quality Standards, with greater emphasis on clinical care, food and nutrition, diversity, and the aged care workforce.",
     "type": "Standard",
     "sectors": ["Aged Care", "Governance"],
     "url": "https://www.agedcarequality.gov.au/providers/quality-standards",
@@ -150,14 +134,6 @@
     "sectors": ["Digital Health", "Hospital"],
     "url": "https://www.healthterminologies.gov.au/access-clinical-terminology/access-snomed-ct-au/",
     "source": "National Clinical Terminology Service (NCTS)"
-  },
-  {
-    "title": "My Health Records Act 2012",
-    "description": "The legislative framework governing Australia's My Health Record system — covering data access, privacy protections, provider obligations, and consumer controls.",
-    "type": "Standard",
-    "sectors": ["Digital Health", "Governance"],
-    "url": "https://www.legislation.gov.au/Series/C2012A00063",
-    "source": "Australian Government"
   },
   {
     "title": "Australian Charter of Healthcare Rights",
@@ -222,14 +198,6 @@
     "sectors": ["Support at Home"],
     "url": "https://www.agedcarequality.gov.au/providers/workforce",
     "source": "Aged Care Quality and Safety Commission"
-  },
-  {
-    "title": "Wellness and Reablement in Aged Care",
-    "description": "Guidance on embedding wellness and reablement approaches in home care and support services — helping older Australians maintain independence, build capacity, and achieve their goals.",
-    "type": "Best Practice",
-    "sectors": ["Support at Home", "Aged Care"],
-    "url": "https://www.health.gov.au/our-work/support-at-home/wellness-and-reablement",
-    "source": "Australian Government Department of Health and Aged Care"
   },
   {
     "title": "Integrated Health and Aged Care Services Module",
