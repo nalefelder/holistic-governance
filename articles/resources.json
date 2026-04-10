@@ -80,14 +80,6 @@
     "source": "Australian Institute of Health and Welfare"
   },
   {
-    "title": "Clinical Governance Framework",
-    "description": "Guidance on establishing clinical governance structures including safety systems, clinical effectiveness, consumer engagement, and workforce capability.",
-    "type": "Best Practice",
-    "sectors": ["Hospital", "Aged Care", "Governance"],
-    "url": "https://www.safetyandquality.gov.au/standards/nsqhs-standards/clinical-governance/clinical-governance-standard",
-    "source": "Australian Commission on Safety and Quality in Health Care"
-  },
-  {
     "title": "Open Disclosure Framework",
     "description": "National framework for open communication with patients and carers following adverse events — covering the process, principles, and governance requirements.",
     "type": "Best Practice",
