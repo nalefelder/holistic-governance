@@ -11,7 +11,7 @@
     "title": "Clinical Care Standards",
     "description": "Evidence-based statements describing the care patients should be offered for specific clinical conditions. Designed to reduce unwarranted variation.",
     "type": "Standard",
-    "sectors": ["Hospital", "Aged Care"],
+    "sectors": ["Hospital"],
     "url": "https://www.safetyandquality.gov.au/standards/clinical-care-standards",
     "source": "Australian Commission on Safety and Quality in Health Care"
   },
@@ -48,7 +48,7 @@
     "source": "HL7 International"
   },
   {
-    "title": "ELDAC Palliative Care Toolkit",
+    "title": "ELDAC Palliative Care",
     "description": "Evidence-based resources supporting aged care providers to deliver quality palliative care and end-of-life care within residential and community settings.",
     "type": "Framework",
     "sectors": ["Aged Care"],
@@ -56,18 +56,10 @@
     "source": "End of Life Directions for Aged Care (ELDAC)"
   },
   {
-    "title": "Australian Health Performance Framework",
-    "description": "National framework for reporting on health system performance across effectiveness, safety, accessibility, continuity, efficiency, and sustainability.",
-    "type": "Framework",
-    "sectors": ["Hospital", "Governance"],
-    "url": "https://www.aihw.gov.au/reports-data/ahpf/australias-health-performance-framework",
-    "source": "Australian Institute of Health and Welfare"
-  },
-  {
     "title": "Antimicrobial Stewardship Clinical Care Standard",
     "description": "Quality statements to guide appropriate antimicrobial use across health care settings, reducing resistance and improving patient outcomes.",
     "type": "Best Practice",
-    "sectors": ["Hospital"],
+    "sectors": ["Aged Care"],
     "url": "https://www.safetyandquality.gov.au/standards/clinical-care-standards/antimicrobial-stewardship-clinical-care-standard",
     "source": "Australian Commission on Safety and Quality in Health Care"
   },
@@ -200,12 +192,12 @@
     "source": "Aged Care Quality and Safety Commission"
   },
   {
-    "title": "A New Aged Care Act — For the Rights of Older People",
-    "description": "Overview of the new rights-based Aged Care Act — outlining how the legislation strengthens the rights of older Australians, establishes provider obligations, and reforms the regulatory framework for aged care.",
-    "type": "White Paper",
+    "title": "Aged Care Act 2024",
+    "description": "The full text of the Aged Care Act 2024 — the new rights-based legislation replacing the Aged Care Act 1997, strengthening the rights of older Australians and reforming provider obligations and regulatory requirements.",
+    "type": "Standard",
     "sectors": ["Aged Care", "Governance"],
-    "url": "https://www.health.gov.au/resources/publications/a-new-aged-care-act-for-the-rights-of-older-people",
-    "source": "Australian Government Department of Health and Aged Care"
+    "url": "https://www.legislation.gov.au/C2024A00104/latest/text",
+    "source": "Australian Government — Federal Register of Legislation"
   },
   {
     "title": "Home-Level Care Minutes Performance in Residential Aged Care",
