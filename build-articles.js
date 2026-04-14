@@ -9,12 +9,13 @@ const files = fs.readdirSync(articlesDir).filter(f => f.endsWith('.md'));
 
 const articles = [];
 
+// AI & App Development pages are archived — all categories point to healthcare only.
 const SOLUTIONS_BY_CATEGORY = {
-  'Health Care':          ['healthcare', 'app-development'],
+  'Health Care':          ['healthcare'],
   'Compliance':           ['healthcare'],
   'Industry News':        ['healthcare'],
-  'Data Governance':      ['ai-technology', 'healthcare'],
-  'Competitor Analytics': ['ai-technology', 'app-development']
+  'Data Governance':      ['healthcare'],
+  'Competitor Analytics': ['healthcare']
 };
 
 const SOLUTION_LABELS = {
@@ -180,7 +181,7 @@ function renderArticlePage(meta, body) {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: 'News', item: `${SITE_URL}/news.html` },
+      { '@type': 'ListItem', position: 2, name: 'Resources', item: `${SITE_URL}/resources.html` },
       { '@type': 'ListItem', position: 3, name: meta.title, item: canonical }
     ]
   };
@@ -277,7 +278,7 @@ ${JSON.stringify(breadcrumb, null, 2)}
 </nav>
 
 <article class="article-page">
-  <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../news.html">News</a> / ${escapeAttr(meta.title)}</div>
+  <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../resources.html">Resources</a> / ${escapeAttr(meta.title)}</div>
   <div class="article-tag">${escapeAttr(meta.category)}</div>
   <h1>${escapeAttr(meta.title)}</h1>
   <div class="article-meta"><span>${formatDate(meta.date)}</span> &middot; ${escapeAttr(meta.author)}</div>
@@ -286,7 +287,7 @@ ${bodyHtml}
   </div>
 ${renderRelatedSolutions(meta.category)}
   <nav class="article-footer-nav" aria-label="Article navigation">
-    <a href="../news.html">&larr; All articles</a>
+    <a href="../resources.html">&larr; All articles</a>
     <a href="../proposal-enquiry.html">Request a Proposal</a>
     <a href="../healthcare.html">Our Solutions</a>
   </nav>
@@ -303,9 +304,7 @@ ${renderRelatedSolutions(meta.category)}
       <ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="../about.html">About</a></li>
-        <li><a href="../healthcare.html">Healthcare Governance</a></li>
-        <li><a href="../ai-technology.html">AI &amp; Technology</a></li>
-        <li><a href="../app-development.html">App Development</a></li>
+        <li><a href="../healthcare.html">Solutions</a></li>
         <li><a href="../resources.html">Resources</a></li>
       </ul>
     </div>
