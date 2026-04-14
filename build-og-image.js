@@ -52,9 +52,9 @@ async function build() {
   await sharp(Buffer.from(svg))
     .composite([{ input: logoBuf, left: logoX, top: logoY }])
     .png({ compressionLevel: 9, adaptiveFiltering: true })
-    .toFile(path.join(__dirname, 'og-image.png'));
+    .toFile(path.join(__dirname, 'og-image-v2.png'));
 
-  console.log(`Wrote og-image.png (${W}x${H})`);
+  console.log(`Wrote og-image-v2.png (${W}x${H})`);
 }
 
 build().catch(e => { console.error(e); process.exit(1); });
