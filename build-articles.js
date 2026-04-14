@@ -182,6 +182,7 @@ function renderArticlePage(meta, body) {
   <meta name="twitter:description" content="${escapeAttr(description)}" />
   <meta name="twitter:image" content="${SITE_URL}/logo-hg-trimmed.png" />
   <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="preload" as="image" href="../logo-hg-trimmed.png" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
@@ -215,7 +216,7 @@ ${JSON.stringify(breadcrumb, null, 2)}
 <body>
 
 <nav>
-  <a href="../index.html" class="logo"><img src="../logo-hg-trimmed.png" alt="Holistic Governance"><span class="logo-name">Holistic <span>Governance</span></span></a>
+  <a href="../index.html" class="logo"><img src="../logo-hg-trimmed.png" alt="Holistic Governance" width="351" height="524"><span class="logo-name">Holistic <span>Governance</span></span></a>
   <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
   <ul>
     <li><a href="../about.html">About</a></li>
@@ -250,7 +251,7 @@ ${bodyHtml}
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="footer-logo"><img src="../logo-hg-trimmed.png" alt="Holistic Governance"><span class="logo-name">Holistic <span>Governance</span></span></div>
+      <div class="footer-logo"><img src="../logo-hg-trimmed.png" alt="Holistic Governance" width="351" height="524"><span class="logo-name">Holistic <span>Governance</span></span></div>
       <p class="footer-tagline">Improving clarity and confidence in governance through knowledge, data, and technology.</p>
     </div>
     <div class="footer-col">

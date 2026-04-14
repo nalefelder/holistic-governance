@@ -20,6 +20,7 @@
     <meta name="twitter:description" content="Aged care audits, NSQHS readiness, Power BI dashboards, and FHIR advisory for Australian healthcare providers." />
     <meta name="twitter:image" content="https://hg-au.com/logo-hg-trimmed.png" />
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preload" as="image" href="logo-hg-trimmed.png" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap"
@@ -149,10 +150,40 @@
         }
       }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Healthcare Governance &amp; Compliance Consultancy",
+      "serviceType": "Healthcare Governance Consultancy",
+      "url": "https://hg-au.com/healthcare.html",
+      "description": "Aged care audits, NSQHS readiness, Power BI dashboards and FHIR advisory for Australian healthcare providers.",
+      "provider": { "@id": "https://hg-au.com/#organization" },
+      "areaServed": [
+        { "@type": "Country", "name": "Australia" },
+        { "@type": "Country", "name": "New Zealand" }
+      ],
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Aged care providers, hospitals, day procedures, disability services, digital health"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Healthcare Governance Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "NSQHS Standards readiness &amp; accreditation support" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aged Care Quality Standards audits &amp; gap analysis" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Clinical governance framework design" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Power BI dashboards &amp; board reporting" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "FHIR interoperability advisory" } }
+        ]
+      }
+    }
+    </script>
   </head>
   <body>
     <nav>
-      <a href="index.html" class="logo"><img src="logo-hg-trimmed.png" alt="Holistic Governance"><span class="logo-name">Holistic <span>Governance</span></span></a>
+      <a href="index.html" class="logo"><img src="logo-hg-trimmed.png" alt="Holistic Governance" width="351" height="524"><span class="logo-name">Holistic <span>Governance</span></span></a>
       <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
       <ul>
         <li><a href="about.html">About</a></li>
@@ -486,7 +517,7 @@
     <footer>
       <div class="footer-inner">
         <div class="footer-brand">
-          <div class="footer-logo"><img src="logo-hg-trimmed.png" alt="Holistic Governance"><span class="logo-name">Holistic <span>Governance</span></span></div>
+          <div class="footer-logo"><img src="logo-hg-trimmed.png" alt="Holistic Governance" width="351" height="524"><span class="logo-name">Holistic <span>Governance</span></span></div>
           <p class="footer-tagline">Improving clarity and confidence in governance through knowledge, data, and technology.</p>
         </div>
         <div class="footer-col">
