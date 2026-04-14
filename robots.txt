@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+Sitemap: https://hg-au.com/sitemap.xml
