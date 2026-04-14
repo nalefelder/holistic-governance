@@ -175,8 +175,8 @@ function renderArticlePage(meta, body) {
   <meta property="og:title" content="${escapeAttr(ogTitle)}" />
   <meta property="og:description" content="${escapeAttr(description)}" />
   <meta property="og:image" content="${SITE_URL}/og-image.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image:width" content="2000" />
+  <meta property="og:image:height" content="1400" />
   <meta property="article:published_time" content="${meta.date}" />
   <meta property="article:section" content="${escapeAttr(meta.category)}" />
   <meta name="twitter:card" content="summary_large_image" />
