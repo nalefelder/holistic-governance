@@ -40,4 +40,46 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://hg-au.com/articles/strengthened-aged-care-quality-standards.html</loc>
+    <lastmod>2025-02-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hg-au.com/articles/ai-reshaping-competitive-intelligence.html</loc>
+    <lastmod>2025-01-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hg-au.com/articles/nsqhs-standards-second-edition.html</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hg-au.com/articles/fhir-interoperability.html</loc>
+    <lastmod>2024-12-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hg-au.com/articles/data-governance-framework-from-scratch.html</loc>
+    <lastmod>2024-12-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hg-au.com/articles/quality-indicator-program-manual-4.html</loc>
+    <lastmod>2024-11-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://hg-au.com/articles/data-quality-foundation-of-ai.html</loc>
+    <lastmod>2024-11-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
