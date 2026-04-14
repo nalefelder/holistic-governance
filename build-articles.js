@@ -174,15 +174,15 @@ function renderArticlePage(meta, body) {
   <meta property="og:url" content="${canonical}" />
   <meta property="og:title" content="${escapeAttr(ogTitle)}" />
   <meta property="og:description" content="${escapeAttr(description)}" />
-  <meta property="og:image" content="${SITE_URL}/og-image-v2.png" />
-  <meta property="og:image:width" content="2000" />
-  <meta property="og:image:height" content="1400" />
+  <meta property="og:image" content="${SITE_URL}/og-image-v3.png" />
+  <meta property="og:image:width" content="2400" />
+  <meta property="og:image:height" content="1260" />
   <meta property="article:published_time" content="${meta.date}" />
   <meta property="article:section" content="${escapeAttr(meta.category)}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeAttr(ogTitle)}" />
   <meta name="twitter:description" content="${escapeAttr(description)}" />
-  <meta name="twitter:image" content="${SITE_URL}/og-image-v2.png" />
+  <meta name="twitter:image" content="${SITE_URL}/og-image-v3.png" />
   <link rel="icon" type="image/png" href="../favicon.png" />
   <link rel="preload" as="image" href="../logo-hg-trimmed.png" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
