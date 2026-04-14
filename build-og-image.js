@@ -2,24 +2,37 @@ const fs = require('fs');
 const path = require('path');
 const sharp = require('sharp');
 
-const W = 1200;
-const H = 630;
+// Render at 2x to stay sharp when messaging apps display on high-DPI screens.
+// Aspect stays 1200x630 (Facebook / LinkedIn recommended ratio).
+const SCALE = 2;
+const W = 1000 * SCALE;
+const H = 700 * SCALE;
 const NAVY = '#0f172a';
 const NAVY_MID = '#1e293b';
 const WHITE = '#f1f5f9';
 const SKY = '#38bdf8';
-const BORDER = 'rgba(56,189,248,0.25)';
 
 async function build() {
   const logoPath = path.join(__dirname, 'logo-hg-trimmed.png');
-  const logoMeta = await sharp(logoPath).metadata();
-  const logoTargetH = 360;
-  const logoTargetW = Math.round(logoMeta.width * (logoTargetH / logoMeta.height));
-  const logoBuf = await sharp(logoPath).resize({ height: logoTargetH }).toBuffer();
 
-  const logoX = 90;
-  const logoY = Math.round((H - logoTargetH) / 2);
-  const textX = logoX + logoTargetW + 60;
+  // Trim transparent padding so the logo optically centers.
+  const trimmed = await sharp(logoPath).trim().toBuffer();
+  const trimmedMeta = await sharp(trimmed).metadata();
+
+  const TEXT_SIZE = 50;
+  const GAP = 70;
+  const logoTargetH = 360 * SCALE;
+  const logoTargetW = Math.round(trimmedMeta.width * (logoTargetH / trimmedMeta.height));
+  const logoBuf = await sharp(trimmed)
+    .resize({ height: logoTargetH, kernel: sharp.kernel.lanczos3 })
+    .toBuffer();
+
+  const s = v => v * SCALE;
+
+  const stackH = logoTargetH + s(GAP) + s(TEXT_SIZE);
+  const logoY = Math.round((H - stackH) / 2);
+  const logoX = Math.round((W - logoTargetW) / 2);
+  const textBaselineY = logoY + logoTargetH + s(GAP) + s(TEXT_SIZE * 0.8);
 
   const svg = `
 <svg width="${W}" height="${H}" xmlns="http://www.w3.org/2000/svg">
@@ -30,22 +43,15 @@ async function build() {
     </linearGradient>
   </defs>
   <rect width="${W}" height="${H}" fill="url(#bg)"/>
-  <rect x="0" y="${H - 6}" width="${W}" height="6" fill="${SKY}"/>
 
-  <text x="${textX}" y="260" font-family="Georgia, 'Cormorant Garamond', serif" font-size="86" font-weight="400" fill="${WHITE}">Holistic</text>
-  <text x="${textX}" y="360" font-family="Georgia, 'Cormorant Garamond', serif" font-size="86" font-weight="400" fill="${SKY}">Governance</text>
-
-  <line x1="${textX}" y1="400" x2="${textX + 80}" y2="400" stroke="${SKY}" stroke-width="2"/>
-
-  <text x="${textX}" y="450" font-family="'Segoe UI', 'DM Sans', Arial, sans-serif" font-size="22" fill="${WHITE}" opacity="0.85">Clarity and confidence in governance</text>
-  <text x="${textX}" y="482" font-family="'Segoe UI', 'DM Sans', Arial, sans-serif" font-size="22" fill="${WHITE}" opacity="0.85">through knowledge, data, and technology.</text>
-
-  <text x="${textX}" y="560" font-family="'Segoe UI', 'DM Sans', Arial, sans-serif" font-size="18" fill="${SKY}" letter-spacing="3">HG-AU.COM</text>
+  <text x="${W / 2}" y="${textBaselineY}" text-anchor="middle" font-family="Georgia, 'Cormorant Garamond', serif" font-size="${s(TEXT_SIZE)}" font-weight="400" xml:space="preserve">
+    <tspan fill="${WHITE}">Holistic</tspan><tspan fill="${SKY}">&#160;Governance</tspan>
+  </text>
 </svg>`;
 
   await sharp(Buffer.from(svg))
     .composite([{ input: logoBuf, left: logoX, top: logoY }])
-    .png()
+    .png({ compressionLevel: 9, adaptiveFiltering: true })
     .toFile(path.join(__dirname, 'og-image.png'));
 
   console.log(`Wrote og-image.png (${W}x${H})`);
