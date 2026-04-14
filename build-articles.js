@@ -212,6 +212,14 @@ ${JSON.stringify(jsonLd, null, 2)}
   <script type="application/ld+json">
 ${JSON.stringify(breadcrumb, null, 2)}
   </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9PMGXF9Q9T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9PMGXF9Q9T');
+  </script>
 </head>
 <body>
 
