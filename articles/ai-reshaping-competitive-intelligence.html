@@ -43,7 +43,13 @@
     .article-body li { margin-bottom: 0.5rem; }
     .article-body strong { color: var(--white); }
     .article-body a { color: var(--sky); text-decoration: underline; }
-    .article-footer-nav { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; gap: 1rem; flex-wrap: wrap; }
+    .related-solutions { margin-top: 3.5rem; padding: 1.75rem; background: rgba(56,189,248,0.04); border: 1px solid var(--border); border-radius: 4px; }
+    .related-solutions h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--white); margin: 0 0 0.9rem; }
+    .related-solutions ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .related-solutions li { margin: 0; }
+    .related-solutions a { display: inline-block; color: var(--sky); font-size: 0.9rem; text-decoration: none; border: 1px solid rgba(56,189,248,0.3); padding: 0.5rem 1rem; border-radius: 2px; transition: all 0.2s; }
+    .related-solutions a:hover { background: rgba(56,189,248,0.12); border-color: var(--sky); }
+    .article-footer-nav { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; gap: 1rem; flex-wrap: wrap; }
     .article-footer-nav a { color: var(--sky); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--border); padding: 0.8rem 1.6rem; border-radius: 2px; transition: all 0.3s; }
     .article-footer-nav a:hover { background: var(--sky); color: var(--navy); }
     @media (max-width: 900px) { .article-page { padding: 8rem 1.5rem 3rem; } }
@@ -144,6 +150,13 @@
 <h2>What This Means for Your Organisation</h2>
 <p>Organisations that embrace AI-powered competitive intelligence gain a significant strategic advantage. The key is not just collecting more data, but transforming that data into actionable insights that inform decision-making at every level.</p>
   </div>
+  <aside class="related-solutions" aria-label="Related solutions">
+    <h2>Related Solutions</h2>
+    <ul>
+      <li><a href="../ai-technology.html">AI &amp; Technology Governance</a></li>
+      <li><a href="../app-development.html">Healthcare App Development</a></li>
+    </ul>
+  </aside>
   <nav class="article-footer-nav" aria-label="Article navigation">
     <a href="../news.html">&larr; All articles</a>
     <a href="../proposal-enquiry.html">Request a Proposal</a>
@@ -162,7 +175,9 @@
       <ul>
         <li><a href="../index.html">Home</a></li>
         <li><a href="../about.html">About</a></li>
-        <li><a href="../healthcare.html">Solutions</a></li>
+        <li><a href="../healthcare.html">Healthcare Governance</a></li>
+        <li><a href="../ai-technology.html">AI &amp; Technology</a></li>
+        <li><a href="../app-development.html">App Development</a></li>
         <li><a href="../resources.html">Resources</a></li>
       </ul>
     </div>
