@@ -229,8 +229,27 @@
     "@id": "https://hg-au.com/#website",
     "url": "https://hg-au.com/",
     "name": "Holistic Governance",
+    "alternateName": "HG",
     "publisher": { "@id": "https://hg-au.com/#organization" },
-    "inLanguage": "en-AU"
+    "inLanguage": "en-AU",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://hg-au.com/resources.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    "name": ["About", "Solutions", "Resources", "Contact"],
+    "url": [
+      "https://hg-au.com/about.html",
+      "https://hg-au.com/healthcare.html",
+      "https://hg-au.com/resources.html",
+      "https://hg-au.com/proposal-enquiry.html"
+    ]
   }
   </script>
   <script type="application/ld+json">
