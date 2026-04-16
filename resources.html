@@ -272,8 +272,8 @@
       <p style="font-size:0.85rem; color:var(--sky); font-style:italic;">Coming soon — watch this space.</p>
       <p style="font-size:0.85rem; color:var(--text-mid); margin-bottom:0;">Register your interest and we'll notify you when it launches.</p>
       <div class="interest-form">
-        <input type="email" id="interestEmail" placeholder="Your email address" onkeydown="if(event.key==='Enter')registerInterest()" />
-        <button onclick="registerInterest()">Notify Me</button>
+        <input type="email" id="interestEmail" placeholder="Your email address" autocomplete="email" onkeydown="if(event.key==='Enter'){event.preventDefault();registerInterest()}" />
+        <button type="button" onclick="registerInterest()">Notify Me</button>
       </div>
       <p id="interestMsg" style="display:none;margin-top:0.8rem;font-size:0.82rem;"></p>
     </div>
@@ -304,8 +304,8 @@
     <h2>Get Sector Updates Delivered</h2>
     <p style="color:#ffffff; font-size:0.95rem; line-height:1.8; margin-top:1rem; margin-bottom:2rem;">Subscribe to receive regulatory updates, sector insights, and new resource alerts directly to your inbox. No spam — just relevant, timely information.</p>
     <div class="interest-form" style="justify-content:center;">
-      <input type="email" id="subscribeEmail" placeholder="Your email address" onkeydown="if(event.key==='Enter')subscribeNewsletter()" />
-      <button onclick="subscribeNewsletter()">Subscribe</button>
+      <input type="email" id="subscribeEmail" placeholder="Your email address" autocomplete="email" onkeydown="if(event.key==='Enter'){event.preventDefault();subscribeNewsletter()}" />
+      <button type="button" onclick="subscribeNewsletter()">Subscribe</button>
     </div>
     <p id="subscribeMsg" style="display:none;margin-top:0.8rem;font-size:0.82rem;"></p>
   </div>
