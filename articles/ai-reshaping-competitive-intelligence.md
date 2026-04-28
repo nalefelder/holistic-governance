@@ -1,7 +1,7 @@
 ---
 title: How AI is Reshaping Competitive Intelligence in 2025
 date: 2025-01-20
-author: Holistic Governance
+author: Naomi Alefelder
 category: Competitor Analytics
 featured: false
 summary: The way businesses monitor competitors is evolving rapidly. We explore how AI-powered tools are transforming competitive intelligence from reactive reporting to proactive strategy.

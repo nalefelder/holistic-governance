@@ -1,7 +1,7 @@
 ---
 title: FHIR Interoperability: What Healthcare Leaders Need to Know
 date: 2024-12-18
-author: Holistic Governance
+author: Naomi Alefelder
 category: Health Care
 featured: false
 summary: Fast Healthcare Interoperability Resources (FHIR) is becoming the backbone of digital health. We explain what it means for your organisation and how to prepare.

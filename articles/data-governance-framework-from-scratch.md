@@ -1,7 +1,7 @@
 ---
 title: Building a Data Governance Framework From Scratch
 date: 2024-12-05
-author: Holistic Governance
+author: Naomi Alefelder
 category: Data Governance
 featured: false
 summary: Where do you start when your organisation has never had a formal data governance program? Our step-by-step guide to building foundations that actually work.

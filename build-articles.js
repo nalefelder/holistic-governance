@@ -1,13 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const articlesDir = path.join(__dirname, 'articles');
-const outputFile = path.join(articlesDir, 'articles.json');
 const SITE_URL = 'https://hg-au.com';
-
-const files = fs.readdirSync(articlesDir).filter(f => f.endsWith('.md'));
-
-const articles = [];
 
 // AI & App Development pages are archived — all categories point to healthcare only.
 const SOLUTIONS_BY_CATEGORY = {
@@ -37,51 +31,63 @@ ${items}
   </aside>`;
 }
 
-for (const file of files) {
-  const content = fs.readFileSync(path.join(articlesDir, file), 'utf-8');
+function buildAll(articlesDir) {
+  const files = fs.readdirSync(articlesDir).filter(f => f.endsWith('.md'));
+  const articles = [];
 
-  const match = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
-  if (!match) {
-    console.warn(`Skipping ${file} — no frontmatter found`);
-    continue;
+  for (const file of files) {
+    const content = fs.readFileSync(path.join(articlesDir, file), 'utf-8');
+
+    const match = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n?([\s\S]*)$/);
+    if (!match) {
+      console.warn(`Skipping ${file} — no frontmatter found`);
+      continue;
+    }
+
+    const frontmatter = {};
+    for (const line of match[1].split('\n')) {
+      const colon = line.indexOf(':');
+      if (colon === -1) continue;
+      const key = line.slice(0, colon).trim();
+      const value = line.slice(colon + 1).trim();
+      frontmatter[key] = value;
+    }
+
+    if (!frontmatter.title || !frontmatter.date) {
+      console.warn(`Skipping ${file} — missing title or date`);
+      continue;
+    }
+
+    const slug = path.basename(file, '.md');
+    const meta = {
+      slug,
+      title: frontmatter.title,
+      date: frontmatter.date,
+      author: frontmatter.author || 'Naomi Alefelder',
+      category: frontmatter.category || 'General',
+      featured: frontmatter.featured === 'true',
+      summary: frontmatter.summary || ''
+    };
+
+    articles.push(meta);
+
+    const body = match[2] || '';
+    const html = renderArticlePage(meta, body);
+    fs.writeFileSync(path.join(articlesDir, `${slug}.html`), html);
   }
 
-  const frontmatter = {};
-  for (const line of match[1].split('\n')) {
-    const colon = line.indexOf(':');
-    if (colon === -1) continue;
-    const key = line.slice(0, colon).trim();
-    const value = line.slice(colon + 1).trim();
-    frontmatter[key] = value;
-  }
-
-  if (!frontmatter.title || !frontmatter.date) {
-    console.warn(`Skipping ${file} — missing title or date`);
-    continue;
-  }
-
-  const slug = path.basename(file, '.md');
-  const meta = {
-    slug,
-    title: frontmatter.title,
-    date: frontmatter.date,
-    author: frontmatter.author || 'Holistic Governance',
-    category: frontmatter.category || 'General',
-    featured: frontmatter.featured === 'true',
-    summary: frontmatter.summary || ''
-  };
-
-  articles.push(meta);
-
-  const body = match[2] || '';
-  const html = renderArticlePage(meta, body);
-  fs.writeFileSync(path.join(articlesDir, `${slug}.html`), html);
+  articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+  fs.writeFileSync(path.join(articlesDir, 'articles.json'), JSON.stringify(articles, null, 2) + '\n');
+  return articles;
 }
 
-articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+if (require.main === module) {
+  const articlesDir = path.join(__dirname, 'articles');
+  const articles = buildAll(articlesDir);
+  console.log(`Built articles.json — ${articles.length} articles; generated ${articles.length} HTML pages`);
+}
 
-fs.writeFileSync(outputFile, JSON.stringify(articles, null, 2) + '\n');
-console.log(`Built articles.json — ${articles.length} articles; generated ${articles.length} HTML pages`);
+module.exports = { renderArticlePage, mdToHtml, escapeAttr, formatDate, buildAll, SITE_URL };
 
 // ── Minimal markdown → HTML renderer (covers the subset used in articles) ──
 function mdToHtml(md) {
@@ -162,9 +168,15 @@ function renderArticlePage(meta, body) {
     '@type': 'Article',
     headline: meta.title,
     description,
-    author: { '@type': 'Organization', name: meta.author, url: SITE_URL },
+    author: {
+      '@type': 'Person',
+      '@id': `${SITE_URL}/about.html#naomi`,
+      name: 'Naomi Alefelder',
+      url: `${SITE_URL}/about.html`
+    },
     publisher: {
       '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
       name: 'Holistic Governance',
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo-hg-trimmed.png` }
     },
@@ -313,7 +325,7 @@ ${renderRelatedSolutions(meta.category)}
       <div class="footer-contact-item"><a href="mailto:naomi@hg-au.com">naomi@hg-au.com</a></div>
       <div class="footer-contact-item"><a href="tel:0405515300">0405 515 300</a></div>
       <div class="footer-contact-item" style="margin-top: 0.5rem;"><a href="../proposal-enquiry.html">Request a Proposal</a></div>
-      <div class="footer-contact-item"><a href="https://www.linkedin.com/company/113694138/" target="_blank" rel="noopener">LinkedIn</a></div>
+      <div class="footer-contact-item"><a href="https://www.linkedin.com/company/hg-au/" target="_blank" rel="noopener">LinkedIn</a></div>
     </div>
     <div class="footer-col">
       <h4>Where We Work</h4>

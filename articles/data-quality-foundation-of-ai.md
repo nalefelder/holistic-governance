@@ -1,7 +1,7 @@
 ---
 title: Why Data Quality Is the Foundation of Every AI Initiative
 date: 2024-11-10
-author: Holistic Governance
+author: Naomi Alefelder
 category: Data Governance
 featured: false
 summary: Organisations rushing to adopt AI are discovering a hard truth — AI is only as good as the data behind it. We explore why data quality governance is more critical than ever.

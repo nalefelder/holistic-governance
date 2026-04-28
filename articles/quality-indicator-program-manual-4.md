@@ -1,7 +1,7 @@
 ---
 title: The Quality Indicator Program — Manual 4.0 Explained
 date: 2024-11-22
-author: Holistic Governance
+author: Naomi Alefelder
 category: Industry News
 featured: false
 summary: The National Aged Care Mandatory Quality Indicator Program Manual 4.0 introduces new indicators and reporting requirements. Here is what has changed.

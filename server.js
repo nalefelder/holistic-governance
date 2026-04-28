@@ -4,6 +4,7 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');
+const { renderArticlePage } = require('./build-articles');
 
 const app = express();
 const PORT = 3000;
@@ -100,7 +101,7 @@ function buildArticles(siteKey) {
       slug: path.basename(file, '.md'),
       title: fm.title,
       date: fm.date,
-      author: fm.author || 'Holistic Governance',
+      author: fm.author || 'Naomi Alefelder',
       category: fm.category || 'General',
       featured: fm.featured === 'true',
       summary: fm.summary || ''
@@ -200,19 +201,35 @@ app.post('/api/:site/articles', requireSession, validateSite, (req, res) => {
   if (!slug || !title || !date) return res.status(400).json({ error: 'slug, title, date required' });
 
   const safeName = sanitiseSlug(slug);
+  const meta = {
+    slug: safeName,
+    title: sanitiseFrontmatterValue(title),
+    date: sanitiseFrontmatterValue(date),
+    author: sanitiseFrontmatterValue(author) || 'Naomi Alefelder',
+    category: sanitiseFrontmatterValue(category) || 'General',
+    featured: !!featured,
+    summary: sanitiseFrontmatterValue(summary)
+  };
+
   const frontmatter = [
     '---',
-    `title: ${sanitiseFrontmatterValue(title)}`,
-    `date: ${sanitiseFrontmatterValue(date)}`,
-    `author: ${sanitiseFrontmatterValue(author) || 'Holistic Governance'}`,
-    `category: ${sanitiseFrontmatterValue(category) || 'General'}`,
-    `featured: ${featured ? 'true' : 'false'}`,
-    `summary: ${sanitiseFrontmatterValue(summary)}`,
+    `title: ${meta.title}`,
+    `date: ${meta.date}`,
+    `author: ${meta.author}`,
+    `category: ${meta.category}`,
+    `featured: ${meta.featured ? 'true' : 'false'}`,
+    `summary: ${meta.summary}`,
     '---'
   ].join('\n');
 
   const fileContent = frontmatter + '\n\n' + (body || '');
   fs.writeFileSync(path.join(req.site.articlesDir, safeName + '.md'), fileContent);
+
+  if (req.params.site === 'holistic-governance') {
+    const html = renderArticlePage(meta, body || '');
+    fs.writeFileSync(path.join(req.site.articlesDir, safeName + '.html'), html);
+  }
+
   buildArticles(req.params.site);
   res.json({ ok: true, slug: safeName });
 });
@@ -220,10 +237,12 @@ app.post('/api/:site/articles', requireSession, validateSite, (req, res) => {
 // ── Delete article (auth required) ──
 app.delete('/api/:site/articles/:slug', requireSession, validateSite, (req, res) => {
   const safe = sanitiseSlug(req.params.slug);
-  const filePath = path.join(req.site.articlesDir, safe + '.md');
-  if (!filePath.startsWith(path.resolve(req.site.articlesDir))) return res.status(400).json({ error: 'Invalid slug' });
-  if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'Not found' });
-  fs.unlinkSync(filePath);
+  const mdPath = path.join(req.site.articlesDir, safe + '.md');
+  const htmlPath = path.join(req.site.articlesDir, safe + '.html');
+  if (!mdPath.startsWith(path.resolve(req.site.articlesDir))) return res.status(400).json({ error: 'Invalid slug' });
+  if (!fs.existsSync(mdPath)) return res.status(404).json({ error: 'Not found' });
+  fs.unlinkSync(mdPath);
+  if (fs.existsSync(htmlPath)) fs.unlinkSync(htmlPath);
   buildArticles(req.params.site);
   res.json({ ok: true });
 });

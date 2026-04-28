@@ -1,7 +1,7 @@
 ---
 title: NSQHS Standards Second Edition: Key Changes for 2025
 date: 2025-01-10
-author: Holistic Governance
+author: Naomi Alefelder
 category: Compliance
 featured: false
 summary: A practical guide to understanding the updated National Safety and Quality Health Service Standards and what your organisation needs to do to maintain accreditation.

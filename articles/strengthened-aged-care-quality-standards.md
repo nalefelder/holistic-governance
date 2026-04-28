@@ -1,7 +1,7 @@
 ---
 title: Understanding the New Strengthened Aged Care Quality Standards
 date: 2025-02-15
-author: Holistic Governance
+author: Naomi Alefelder
 category: Health Care
 featured: true
 summary: The Aged Care Quality and Safety Commission has introduced strengthened quality standards that represent a significant shift in how aged care providers are assessed and held accountable. We break down what these changes mean for your organisation.
