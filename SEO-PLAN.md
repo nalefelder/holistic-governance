@@ -82,7 +82,36 @@ Reference doc for the SEO work on the Holistic Governance website. Written 2026-
 > Holistic Governance is a specialist clinical governance, risk and data consultancy for healthcare, aged care and disability providers across Australia and New Zealand. Founded by Naomi Alefelder in Heidelberg, Victoria, we help boards and executives strengthen assurance frameworks, simplify NSQHS and Aged Care Quality Standards compliance, and turn fragmented operational data into board-ready insight. Services include clinical governance reviews, NSQHS readiness, aged care audits, AI governance frameworks, FHIR interoperability advisory, and Power BI dashboards. Servicing clients remotely across Australia and New Zealand, with on-site delivery available in Victoria and surrounding states.
 
 ### D. Services
-Add as line items: Clinical Governance Review · NSQHS Standards Readiness Assessment · Aged Care Quality Standards Compliance Audit · Quality Indicator Program Reporting · AI Governance Advisory · Data Governance Framework Development · FHIR Interoperability Advisory · Power BI Board Reporting Dashboards · Risk Management Framework Design · Board & Executive Coaching
+
+Add via Edit profile → Services → + Add service. Each gets a name + 250-char description. Don't set prices (leave blank).
+
+#### Top 8 — definitely add
+
+| # | Service name | Description |
+|---|---|---|
+| 1 | Clinical Governance Review | Independent review of your organisation's clinical governance framework — board oversight, accountability, risk and quality assurance — with practical recommendations to strengthen safeguards and meet regulatory expectations. |
+| 2 | NSQHS Standards Readiness Assessment | Pre-survey gap analysis against the National Safety and Quality Health Service Standards (Second Edition), including mock surveys, interview coaching, and remediation plans for hospitals and day procedure services. |
+| 3 | Aged Care Quality Standards Compliance Audit | Detailed audit against the Strengthened Aged Care Quality Standards. Includes evidence review, on-site or remote assessment, and a prioritised action plan for residential, home care, and respite providers. |
+| 4 | Aged Care Act 2024 Compliance Support | End-to-end support for the new Aged Care Act 2024 — gap analysis, governance updates, board briefings, policy revisions, and ongoing assurance to keep your organisation compliant under the new regime. |
+| 5 | AI Governance Advisory | AI governance frameworks tailored to healthcare, aged care and disability providers. Includes AI risk assessments, responsible AI policy design, model oversight, and integration with existing risk and quality systems. |
+| 6 | Data Governance Framework Development | Build a fit-for-purpose data governance framework covering data ownership, quality, privacy, lifecycle and reporting — designed to meet healthcare regulatory expectations and AI readiness. |
+| 7 | Power BI Board Reporting Dashboards | Custom Power BI dashboards that turn fragmented operational data into board-ready insight — quality indicators, risk registers, incident trends, complaints, workforce metrics, and compliance status. |
+| 8 | Risk Management Framework Design | ISO 31000-aligned enterprise risk management frameworks for healthcare and regulated organisations. Includes risk register design, control mapping, and embedding risk into board reporting. |
+
+#### Optional 4 — add when time permits
+
+| # | Service name | Description |
+|---|---|---|
+| 9 | Quality Indicator Program (QI) Reporting Support | Practical support for the Aged Care Quality Indicator Program 4.0 — data collection, reporting, validation, and using QI data to drive quality improvement rather than tick-box compliance. |
+| 10 | FHIR Interoperability Advisory | Strategic and technical advisory on FHIR (Fast Healthcare Interoperability Resources) for digital health and aged care providers planning system integration, data sharing, or My Health Record alignment. |
+| 11 | Board & Executive Governance Coaching | One-on-one and group coaching for boards, CEOs, and senior executives on clinical and corporate governance, accountability, regulatory engagement, and translating data into confident decisions. |
+| 12 | Policy and Procedure Development | Development and review of clinical, quality, and governance policies aligned to NSQHS, Aged Care, NDIS, and ISO standards — with version control, review schedules, and embedding plans. |
+
+**Tips:**
+- Service names use search-optimised phrasing (e.g., "NSQHS Standards Readiness Assessment" matches what providers actually search for)
+- Descriptions naturally include keywords (NSQHS, Aged Care Act, FHIR, etc.) without keyword-stuffing
+- A profile with 10+ services often outranks competitors with 0–3, even at similar review counts
+- You can edit/reorder later; start with the 8 then add the optional 4 next session
 
 ### E. Photos (min 3)
 Logo, headshot, professional desk/office, plus optionally a redacted dashboard screenshot
