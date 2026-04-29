@@ -11,7 +11,7 @@ Reference doc for the SEO work on the Holistic Governance website. Written 2026-
 | Region | Victoria, Australia | Footer + JSON-LD `addressRegion` / `addressCountry: AU` |
 | Phone | 0405 515 300 | Site footer + GBP |
 | Website | https://hg-au.com | GBP, all directories |
-| Email | naomi@hg-au.com | Site, GBP |
+| Email | enquiries@hg-au.com | Site, GBP |
 | Personal LinkedIn | https://www.linkedin.com/in/naomi-alefelder | Person.sameAs in `about.html` |
 | Company LinkedIn | https://www.linkedin.com/company/hg-au/ | Organization.sameAs site-wide |
 | Founder | Naomi Alefelder | Person schema + visible bylines |
@@ -199,7 +199,7 @@ Open profile in regular Google search → "Ask a question" → post + answer 3:
 >
 > Best,
 > Naomi Alefelder
-> hg-au.com | naomi@hg-au.com | 0405 515 300
+> hg-au.com | enquiries@hg-au.com | 0405 515 300
 
 ### Tracking
 - Ahrefs Webmaster Tools (free for verified site owners) — weekly
