@@ -328,6 +328,13 @@ ${renderRelatedSolutions(meta.category)}
       <div class="footer-contact-item"><a href="https://www.linkedin.com/company/hg-au/" target="_blank" rel="noopener">LinkedIn</a></div>
     </div>
     <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="naomi/" style="display:block;margin-bottom:0.7rem;line-height:0;" aria-label="Open Naomi&apos;s digital business card">
+        <img src="qr-naomi.png" alt="Scan to save Naomi&apos;s contact" width="120" height="120" loading="lazy" style="display:block;border-radius:6px;background:#070d1a;">
+      </a>
+      <p style="font-size:0.78rem;color:var(--text-light);line-height:1.5;margin:0;">Scan to save my contact<br>or book a discovery meeting</p>
+    </div>
+    <div class="footer-col">
       <h4>Where We Work</h4>
       <address style="font-style:normal; font-size:0.85rem; line-height:1.6; color:var(--text); margin-bottom:0.6rem;">Heidelberg, Victoria, Australia</address>
       <ul><li>Australia</li><li>New Zealand</li></ul>
