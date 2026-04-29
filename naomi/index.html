@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Naomi Alefelder · Holistic Governance</title>
+<meta name="description" content="Naomi Alefelder, Founding Director of Holistic Governance. Tap to save contact, call, email, or book a discovery call.">
+<meta name="theme-color" content="#0f172a">
+<link rel="canonical" href="https://hg-au.com/naomi/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Naomi Alefelder · Holistic Governance">
+<meta property="og:description" content="Founding Director, Holistic Governance — clarity and confidence in governance through knowledge, data, and technology.">
+<meta property="og:url" content="https://hg-au.com/naomi/">
+<meta property="og:image" content="https://hg-au.com/og-image-v3.png">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f172a;
+    --navy-deep: #070d1a;
+    --navy-mid: #1e293b;
+    --slate: #334155;
+    --cream: #f1f5f9;
+    --text-mid: #94a3b8;
+    --text-dim: #64748b;
+    --sky: #38bdf8;
+    --sky-light: #7dd3fc;
+    --sky-dark: #0e749e;
+    --border: rgba(56,189,248,0.18);
+    --border-strong: rgba(56,189,248,0.35);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--navy-deep);
+    color: var(--cream);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Stage / animated background ────────────────────────────────── */
+  .stage {
+    position: relative;
+    min-height: 100vh;
+    padding: 28px 22px 40px;
+    overflow: hidden;
+  }
+  .stage::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 10%, rgba(56,189,248,0.18), transparent 65%),
+      radial-gradient(ellipse 50% 40% at 80% 95%, rgba(56,189,248,0.10), transparent 70%),
+      linear-gradient(180deg, #070d1a 0%, #0f172a 60%, #1e293b 100%);
+    z-index: -2;
+  }
+  .stage::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(56,189,248,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56,189,248,0.07) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 30%, transparent 80%);
+    animation: drift 30s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+  }
+  @keyframes drift {
+    from { background-position: 0 0; }
+    to   { background-position: 48px 48px; }
+  }
+
+  /* ── Card container ─────────────────────────────────────────────── */
+  .card {
+    max-width: 460px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.85) 100%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px 24px 24px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(56,189,248,0.08) inset;
+    animation: card-in 0.7s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  @keyframes card-in {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Header ─────────────────────────────────────────────────────── */
+  .header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 22px;
+  }
+  .header img {
+    width: 56px; height: 84px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 12px rgba(56,189,248,0.35));
+  }
+  .header .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; line-height: 1.05; font-weight: 400;
+    color: var(--cream);
+  }
+  .header .brand span { color: var(--sky); display: block; }
+  .header .eyebrow {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--sky); font-weight: 600; margin-bottom: 4px;
+  }
+
+  /* ── Identity block ─────────────────────────────────────────────── */
+  .id { margin-bottom: 22px; }
+  .id h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px; line-height: 1.05; font-weight: 600;
+    color: var(--cream);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .id .role {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--sky-light); font-weight: 600;
+  }
+  .id .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px; color: var(--text-mid);
+    margin-top: 12px; line-height: 1.45;
+  }
+
+  /* ── Action buttons ─────────────────────────────────────────────── */
+  .actions {
+    display: grid; grid-template-columns: 1fr; gap: 10px;
+    margin: 22px 0 8px;
+  }
+  .btn {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 18px;
+    background: rgba(56,189,248,0.08);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 15px; font-weight: 500;
+    transition: background 0.25s, border-color 0.25s, transform 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn:hover, .btn:focus-visible {
+    background: rgba(56,189,248,0.14);
+    border-color: var(--border-strong);
+  }
+  .btn:active { transform: scale(0.985); }
+  .btn svg { width: 22px; height: 22px; flex-shrink: 0; color: var(--sky); }
+  .btn .label { display: flex; flex-direction: column; line-height: 1.2; }
+  .btn .label small {
+    font-size: 11px; color: var(--text-dim); font-weight: 400;
+    margin-top: 2px;
+  }
+  .btn.primary {
+    background: linear-gradient(180deg, var(--sky) 0%, var(--sky-dark) 100%);
+    border-color: transparent;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .btn.primary svg { color: var(--navy); }
+  .btn.primary .label small { color: rgba(15,23,42,0.7); }
+  .btn.primary:hover { filter: brightness(1.08); }
+
+  /* ── Two-up grid for compact actions ───────────────────────────── */
+  .grid-2 {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  .grid-2 .btn { padding: 12px 14px; font-size: 14px; }
+  .grid-2 .btn .label small { font-size: 10px; }
+
+  /* ── Sector chips ──────────────────────────────────────────────── */
+  .chips {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin: 18px 0 6px;
+  }
+  .chip {
+    font-size: 11px; letter-spacing: 0.05em;
+    padding: 5px 10px;
+    background: rgba(56,189,248,0.06);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text-mid);
+  }
+
+  /* ── Divider with label ─────────────────────────────────────────── */
+  .divider {
+    display: flex; align-items: center; gap: 12px;
+    margin: 22px 0 12px;
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .divider::before, .divider::after {
+    content: ''; flex: 1; height: 1px;
+    background: var(--border);
+  }
+
+  /* ── Footer ─────────────────────────────────────────────────────── */
+  .foot {
+    text-align: center;
+    font-size: 10px; color: var(--text-dim);
+    letter-spacing: 0.04em; line-height: 1.6;
+    margin-top: 18px;
+  }
+  .foot a { color: var(--text-mid); text-decoration: none; }
+
+  @media (min-width: 520px) {
+    .stage { padding: 60px 30px 50px; }
+    .id h1 { font-size: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<main class="stage">
+  <div class="card">
+
+    <div class="header">
+      <img src="../logo-hg-trimmed.png" alt="" aria-hidden="true">
+      <div>
+        <div class="eyebrow">Holistic</div>
+        <div class="brand">Governance<span style="font-size:11px;letter-spacing:0.16em;color:var(--text-dim);font-family:'DM Sans',sans-serif;text-transform:uppercase;font-weight:500;margin-top:4px;">hg-au.com</span></div>
+      </div>
+    </div>
+
+    <div class="id">
+      <h1>Naomi Alefelder</h1>
+      <div class="role">Founding Director · Principal Consultant</div>
+      <div class="tagline">Clarity and confidence in governance through knowledge, data, and technology.</div>
+    </div>
+
+    <div class="actions">
+      <a class="btn primary" href="naomi-alefelder.vcf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M17 11h6"/></svg>
+        <div class="label">Save my contact<small>Adds to your address book</small></div>
+      </a>
+
+      <a class="btn" href="https://hg-au.com/proposal-enquiry.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <div class="label">Book a discovery call<small>15-minute intro, no obligation</small></div>
+      </a>
+    </div>
+
+    <div class="actions grid-2">
+      <a class="btn" href="tel:+61405515300">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div class="label">Call<small>+61 405 515 300</small></div>
+      </a>
+
+      <a class="btn" href="mailto:naomi@hg-au.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+        <div class="label">Email<small>naomi@hg-au.com</small></div>
+      </a>
+
+      <a class="btn" href="https://www.linkedin.com/in/naomi-alefelder">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+        <div class="label">LinkedIn<small>/in/naomi-alefelder</small></div>
+      </a>
+
+      <a class="btn" href="https://hg-au.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <div class="label">Website<small>hg-au.com</small></div>
+      </a>
+    </div>
+
+    <div class="divider">Sectors served</div>
+    <div class="chips">
+      <span class="chip">Aged care</span>
+      <span class="chip">Hospital</span>
+      <span class="chip">Community</span>
+      <span class="chip">Disability</span>
+      <span class="chip">Australia &amp; NZ</span>
+    </div>
+
+    <div class="foot">
+      Holistic Governance Pty Ltd · ABN 62 639 441 557<br>
+      <a href="https://hg-au.com">hg-au.com</a>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>
