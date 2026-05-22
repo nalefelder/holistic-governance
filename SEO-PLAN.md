@@ -51,7 +51,7 @@ Reference doc for the SEO work on the Holistic Governance website. Written 2026-
 | Article build pipeline upgrade | ✅ per-article OG image, distinct `dateModified`, auto-extracted Key Takeaways block, visible author bio at foot, WebPage entity with Speakable |
 | Server admin-save routed through unified pipeline | ✅ dashboard writes won't bypass new schema |
 | Incorrect "NSQHS Standards Second Edition: Key Changes for 2025" article deleted | ✅ 2026-05-22 (factual errors per author); removed from sitemap, llms files, resources.html |
-| Backend HG Reference topic dossiers at `/topics/` | ✅ 8 dossiers, ~10,200 words — Aged Care Act 2024, Strengthened Standards, Rights-Based Care, ACQS Audit, Financial & Prudential Standards, QI Program, SIRS, Support at Home. Indexed only via `llms.txt`; not in sitemap; not linked from visible pages. |
+| Backend HG Reference topic dossiers at `/topics/` | ✅ 9 dossiers, ~12,500 words — Aged Care Act 2024, Strengthened Standards, Rights-Based Care, ACQS Audit, Financial & Prudential Standards, QI Program, SIRS, Support at Home, Board Responsibilities (incl. Responsible Person duties). Indexed only via `llms.txt`; not in sitemap; not linked from visible pages. |
 | Jekyll disabled (`.nojekyll`) | ✅ so `.md` files serve as-is for AI fetchers |
 | IndexNow (Bing/Yandex/Naver/Seznam → Copilot, ChatGPT browse) | ✅ key file `b28a40dc768afeabbe32943e3af7f361.txt` at root; 21+ URLs submitted across 2026-05-22 commits |
 | Topic dossier accuracy review | ⏳ Naomi to verify factual specifics (commencement dates, QI 4.0 indicator list, prudential standards) |
@@ -248,6 +248,7 @@ Seven HG Reference topic dossiers live at `/topics/`, indexed only from `llms.tx
 | `quality-indicator-program.md` | National Aged Care Mandatory Quality Indicator Program (Manual 4.0) | 1,120 |
 | `sirs.md` | Serious Incident Response Scheme (8 categories, P1/P2 timeframes) | 1,360 |
 | `support-at-home.md` | Support at Home — consolidated home-based program (commenced 1 November 2025) | 1,400 |
+| `aged-care-board-responsibilities.md` | Board responsibilities + responsible person duties under the Aged Care Act 2024 (ss 12, 23, 157, 158, 179, 180; Code of Conduct; category matrix; civil penalties; 90-day plan; six director questions) — sourced from HG_Board_Responsibilities_v7.pptx | 2,300 |
 
 Framing: unsigned "HG Reference" with explicit "general information, not legal/compliance advice" disclaimer (lower reputational risk than bylined). Each dossier follows a consistent structure: definition, statutory basis, scope, key obligations, implementation timeline, common provider gaps, how HG supports providers, official sources, glossary.
 
