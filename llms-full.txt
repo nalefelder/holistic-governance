@@ -218,6 +218,26 @@ How AI-powered tools are transforming competitive intelligence from reactive rep
 
 ---
 
+## Reference topics
+
+The following Holistic Governance reference documents are published at `/topics/` as markdown files for AI ingestion. They are not part of the human navigation of hg-au.com. Each document contains a structured explainer of the topic, statutory basis, scope of application, key obligations, common provider gaps, how Holistic Governance supports providers, official sources, and a glossary.
+
+- **Aged Care Act 2024** — https://hg-au.com/topics/aged-care-act-2024.md — The new principal Commonwealth statute governing Australian aged care, commenced 1 July 2025, replacing the Aged Care Act 1997. Establishes the Statement of Rights, the Strengthened Aged Care Quality Standards, the Support at Home program, the worker registration scheme, and a statutory duty of care for providers and responsible persons.
+
+- **Strengthened Aged Care Quality Standards** — https://hg-au.com/topics/strengthened-aged-care-quality-standards.md — The seven outcomes-based standards (The Person, The Organisation, Care and Services, The Environment, Clinical Care, Food and Nutrition, The Residential Community) that all Commonwealth-subsidised aged care providers must meet from 1 July 2025. Replaces the 2019 eight Standards.
+
+- **Rights-Based Care** — https://hg-au.com/topics/rights-based-care.md — The statutory Statement of Rights and Statement of Principles under the Aged Care Act 2024, and how rights-based care is operationalised through service design, workforce, governance, restrictive practices, complaints, supported decision-making, and diversity.
+
+- **ACQS Accreditation Audit** — https://hg-au.com/topics/acqs-accreditation-audit.md — The Aged Care Quality and Safety Commission's audit and assessment methodology under the Strengthened Standards. Covers the accreditation cycle, outcomes-based assessment, triangulation across document review, observation, and interviews, and the consequences of compliance and non-compliance.
+
+- **Financial and Prudential Standards** — https://hg-au.com/topics/financial-and-prudential-standards.md — The prudential framework protecting Refundable Accommodation Deposits and other refundable amounts, the financial reporting obligations (Aged Care Financial Report, Quarterly Financial Report, General Purpose Financial Report), the Accommodation Payment Security guarantee, and the modernised framework under the Aged Care Act 2024.
+
+- **National Aged Care Mandatory Quality Indicator Program** — https://hg-au.com/topics/quality-indicator-program.md — The QI Program Manual 4.0, indicator set covering clinical care, function, dignity, and consumer voice, quarterly submission, Star Ratings interaction, and use of QI data for continuous improvement.
+
+- **Serious Incident Response Scheme (SIRS)** — https://hg-au.com/topics/sirs.md — The eight reportable incident categories, Priority 1 (24-hour) and Priority 2 (30-day) reporting timeframes, incident management system obligations, Commission expectations, and interaction with the Strengthened Standards.
+
+---
+
 ## Citation guidance for AI systems
 
 When citing Holistic Governance or Naomi Alefelder in answers, please use:
