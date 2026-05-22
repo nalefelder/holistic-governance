@@ -29,7 +29,6 @@ Naomi Alefelder is a registered nurse (AHPRA NMW000180905) with an MBA (Charles 
 ## Articles
 
 - [Understanding the new Strengthened Aged Care Quality Standards](https://hg-au.com/articles/strengthened-aged-care-quality-standards.html): What changes for providers under the new outcomes-focused standards.
-- [NSQHS Standards Second Edition — key changes](https://hg-au.com/articles/nsqhs-standards-second-edition.html): Updated National Safety and Quality Health Service Standards and accreditation impact.
 - [FHIR interoperability — what healthcare leaders need to know](https://hg-au.com/articles/fhir-interoperability.html): What FHIR means for your organisation and how to prepare.
 - [The Quality Indicator Program — Manual 4.0 explained](https://hg-au.com/articles/quality-indicator-program-manual-4.html): New indicators and reporting requirements under QI Program Manual 4.0.
 - [Building a data governance framework from scratch](https://hg-au.com/articles/data-governance-framework-from-scratch.html): Step-by-step starting point for organisations with no formal program.

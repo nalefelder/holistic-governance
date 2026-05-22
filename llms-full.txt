@@ -191,11 +191,6 @@ You work directly with a senior consultant — not a junior associate. Deep clin
 
 The Aged Care Quality and Safety Commission has introduced strengthened quality standards that represent a significant shift in how aged care providers are assessed and held accountable. The strengthened standards place greater emphasis on outcomes for older people, moving away from process-driven compliance towards evidence of genuine quality care delivery. Key focus areas include person-centred care, clinical governance, workforce capability, and food and nutrition. Providers should conduct a gap analysis against the new standards, update governance frameworks and quality management systems, invest in staff training, review clinical governance structures, and ensure robust consumer feedback mechanisms.
 
-### NSQHS Standards Second Edition — Key Changes
-*Published 2025-01-10. URL: https://hg-au.com/articles/nsqhs-standards-second-edition.html*
-
-A practical guide to understanding the updated National Safety and Quality Health Service Standards (Second Edition) and what hospitals and day procedure services need to do to maintain accreditation. Covers the changes to clinical governance, partnering with consumers, preventing and controlling healthcare-associated infection, medication safety, comprehensive care, communicating for safety, blood management, and recognising and responding to acute deterioration.
-
 ### FHIR Interoperability — What Healthcare Leaders Need to Know
 *Published 2024-12-18. URL: https://hg-au.com/articles/fhir-interoperability.html*
 

@@ -22,17 +22,6 @@
     "ogImage": "og-image-v3.png"
   },
   {
-    "slug": "nsqhs-standards-second-edition",
-    "title": "NSQHS Standards Second Edition: Key Changes for 2025",
-    "date": "2025-01-10",
-    "dateModified": "2025-01-10",
-    "author": "Naomi Alefelder",
-    "category": "Compliance",
-    "featured": false,
-    "summary": "A practical guide to understanding the updated National Safety and Quality Health Service Standards and what your organisation needs to do to maintain accreditation.",
-    "ogImage": "og-image-v3.png"
-  },
-  {
     "slug": "fhir-interoperability",
     "title": "FHIR Interoperability: What Healthcare Leaders Need to Know",
     "date": "2024-12-18",
