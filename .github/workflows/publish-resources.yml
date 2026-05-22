@@ -1,0 +1,40 @@
+name: Publish resources to website
+
+on:
+  repository_dispatch:
+    types: [resources_published]
+  schedule:
+    # Safety net: re-sync every 6 hours in case a dispatch event was missed
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: publish-resources
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build resources HTML + JSON-LD
+        run: node build-resources.js
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain resources.html)" ]; then
+            git add resources.html
+            git commit -m "Auto-publish resources from dashboard"
+            git push
+          else
+            echo "No changes to publish."
+          fi
