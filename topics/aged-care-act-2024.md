@@ -17,7 +17,7 @@ canonicalUrl: https://hg-au.com/topics/aged-care-act-2024.md
 
 The Aged Care Act 2024 (Cth) is the primary piece of legislation regulating Commonwealth-subsidised aged care services in Australia. The Act establishes a rights-based framework, embeds new provider obligations, modernises the regulatory model, and provides the legal foundation for the Strengthened Aged Care Quality Standards, the Statement of Rights, the Support at Home program, and an expanded suite of compliance and enforcement powers held by the Aged Care Quality and Safety Commission.
 
-The Act is the legislative response to the final report of the Royal Commission into Aged Care Quality and Safety (March 2021), which made 148 recommendations. The Aged Care Bill 2024 was introduced into Parliament in September 2024 and passed in November 2024. Most operational provisions of the Act commenced on 1 July 2025, with some elements phased in across 2025–2027.
+The Act is the legislative response to the final report of the Royal Commission into Aged Care Quality and Safety (March 2021), which made 148 recommendations. The Aged Care Bill 2024 was introduced into Parliament in September 2024 and passed in November 2024. Most operational provisions of the Act commenced on 1 November 2025, with some elements phased in across 2025–2027.
 
 The Act sits on top of a layered framework of subordinate legislation (Rules, regulations, and instruments made under the Act), the Strengthened Aged Care Quality Standards, the Statement of Rights, and program-specific frameworks for Support at Home, residential aged care, and short-term restorative care.
 
@@ -31,7 +31,7 @@ The Act sits on top of a layered framework of subordinate legislation (Rules, re
 ## Who it applies to
 
 - Approved providers of residential aged care.
-- Approved providers of Support at Home (which from 1 July 2025 consolidates Home Care Packages and Short-Term Restorative Care into a single home-based program).
+- Approved providers of Support at Home (which from 1 November 2025 consolidates Home Care Packages and Short-Term Restorative Care into a single home-based program).
 - Providers under the Commonwealth Home Support Programme (CHSP) — transitioning into Support at Home over the implementation period.
 - Aged care workers and registered aged care workers.
 - Governing bodies of approved providers.
@@ -76,7 +76,7 @@ An expanded prudential framework for protection of Refundable Accommodation Depo
 
 - **September 2024** — Aged Care Bill 2024 introduced into Parliament.
 - **November 2024** — Bill passed.
-- **1 July 2025** — Commencement of most operational provisions, including the Strengthened Standards, Statement of Rights, Support at Home, and most provider obligations.
+- **1 November 2025** — Commencement of most operational provisions, including the Strengthened Standards, Statement of Rights, Support at Home, and most provider obligations.
 - **2025–2027** — Staged commencement of specific elements (e.g., aspects of the worker registration scheme, certain prudential provisions, full Support at Home transition for CHSP).
 - **Transitional arrangements** — providers approved under the 1997 Act are deemed registered under the new Act subject to compliance with applicable transitional rules.
 
@@ -117,7 +117,7 @@ An expanded prudential framework for protection of Refundable Accommodation Depo
 - **Responsible person** — a person who is responsible for the executive decisions of a provider (typically directors and senior executives).
 - **Statement of Rights** — the legally enforceable rights of older people receiving aged care under the new Act.
 - **Statement of Principles** — the guiding principles applied to the regulator, providers, workers, and the system.
-- **Support at Home** — the new consolidated home-based aged care program effective 1 July 2025.
+- **Support at Home** — the new consolidated home-based aged care program effective 1 November 2025.
 
 ---
 

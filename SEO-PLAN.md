@@ -18,8 +18,9 @@ Reference doc for the SEO work on the Holistic Governance website. Written 2026-
 
 ---
 
-## Status snapshot (as of 2026-04-28)
+## Status snapshot (as of 2026-05-22)
 
+### Traditional SEO foundation
 | Area | State |
 |---|---|
 | Domain mismatch | ✅ Resolved — site published at `hg-au.com`, all canonicals/OG/sitemap consistent |
@@ -31,11 +32,30 @@ Reference doc for the SEO work on the Holistic Governance website. Written 2026-
 | BreadcrumbList schema on About / Solutions / Resources / Privacy | ✅ |
 | Google Business Profile claimed + 1 review | ✅ |
 | Search Console verified | ✅ |
-| 10 URLs Request Indexing | ⏳ Manual — see todo |
+| 10 URLs Request Indexing | ⏳ Manual — click-through links provided 2026-05-22, not yet confirmed clicked |
 | GBP → service-area mode + complete profile | ⏳ Manual — see guide below |
 | 3+ Google reviews | ⏳ Manual — see guide |
 | Backlinks (current ≈ 0) | ⏳ Ongoing — Tier 1 first |
-| Content cadence (1 article every 2 weeks) | ⏳ Calendar drafted |
+| Content cadence (1 article every 2 weeks) | ⏳ Calendar drafted; first publish (12 May 2026) slipped |
+
+### AI search discoverability layer (added 2026-05-22)
+| Area | State |
+|---|---|
+| `llms.txt` (llmstxt.org curated index) | ✅ live at `/llms.txt` |
+| `llms-full.txt` (full content map for AI ingestion) | ✅ live at `/llms-full.txt` |
+| Explicit AI crawler allow-list in `robots.txt` | ✅ 16 bots (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Google-Extended, Applebot-Extended, CCBot, Meta, Amazonbot, +7) |
+| Extended Person schema (about.html) | ✅ `hasCredential` (×6), `alumniOf`, `hasOccupation`, `memberOf`, `nationality`, AHPRA registration |
+| `Speakable` schema on key pages | ✅ home, about, healthcare, every article |
+| `WebPage` / `AboutPage` entities | ✅ across home, about, healthcare, articles |
+| `FAQPage` schema aligned to visible content | ✅ about.html (visible + schema added); healthcare.html (visible + schema). Home FAQ removed by request (visible + schema both gone). |
+| Article build pipeline upgrade | ✅ per-article OG image, distinct `dateModified`, auto-extracted Key Takeaways block, visible author bio at foot, WebPage entity with Speakable |
+| Server admin-save routed through unified pipeline | ✅ dashboard writes won't bypass new schema |
+| Incorrect "NSQHS Standards Second Edition: Key Changes for 2025" article deleted | ✅ 2026-05-22 (factual errors per author); removed from sitemap, llms files, resources.html |
+| Backend HG Reference topic dossiers at `/topics/` | ✅ 8 dossiers, ~10,200 words — Aged Care Act 2024, Strengthened Standards, Rights-Based Care, ACQS Audit, Financial & Prudential Standards, QI Program, SIRS, Support at Home. Indexed only via `llms.txt`; not in sitemap; not linked from visible pages. |
+| Jekyll disabled (`.nojekyll`) | ✅ so `.md` files serve as-is for AI fetchers |
+| IndexNow (Bing/Yandex/Naver/Seznam → Copilot, ChatGPT browse) | ✅ key file `b28a40dc768afeabbe32943e3af7f361.txt` at root; 21+ URLs submitted across 2026-05-22 commits |
+| Topic dossier accuracy review | ⏳ Naomi to verify factual specifics (commencement dates, QI 4.0 indicator list, prudential standards) |
+| Article-specific OG images | ⏳ pipeline supports per-article OG; no per-article images created yet |
 
 ---
 
@@ -43,25 +63,31 @@ Reference doc for the SEO work on the Holistic Governance website. Written 2026-
 
 ### Critical — this week
 
-- [ ] Open Google Search Console → URL Inspection → "Request Indexing" for each of these 10 URLs:
-  - `/about.html`, `/healthcare.html`, `/resources.html`, `/proposal-enquiry.html`
-  - All 6 article pages currently in "Discovered – currently not indexed"
+- [ ] Open Google Search Console → submit `sitemap.xml`. Direct link: https://search.google.com/search-console/sitemaps?resource_id=https%3A%2F%2Fhg-au.com%2F
+- [ ] Google Search Console → URL Inspection → "Request Indexing" for each of these 12 URLs (click-through links provided in session 2026-05-22):
+  - `/`, `/about.html`, `/healthcare.html`, `/resources.html`, `/proposal-enquiry.html`
+  - 6 remaining article pages (1 deleted 2026-05-22 — NSQHS Second Edition)
+  - Note: rate-limited to ~10–12 requests/day per property
+- [ ] Skim 7 backend topic dossiers at `/topics/*.md` for factual accuracy — particularly commencement dates of Aged Care Act 2024 components, QI Program 4.0 indicator list specifics, current prudential standards thresholds
 - [ ] Flip GBP to service-area mode (hide street, add service areas)
 - [ ] Complete GBP profile: categories, description, services, photos, hours, Q&A
 - [ ] Ask 2–3 past clients for Google reviews
 
 ### High priority — next 4 weeks
 
-- [ ] Tier 1 backlinks (AICD, alumni, association memberships, Crunchbase / Apollo / ZoomInfo)
+- [ ] Tier 1 backlinks (AICD, alumni, association memberships, Crunchbase / Apollo / ZoomInfo) — biggest remaining AI-discoverability gap; AI engines weight citation graph heavily
 - [ ] Optimise LinkedIn personal profile (headline, About, contact info)
 - [ ] Optimise LinkedIn company page (location, tagline with keywords)
-- [ ] Publish first article from the calendar (12 May 2026)
+- [ ] Publish first article from the calendar (originally 12 May 2026 — slipped; reschedule)
+- [ ] Decide on reshaped article strategy for the 6 remaining existing articles: expand the 3 non-overlapping (Strengthened ACQS, Data Governance Framework, Data Quality Foundation of AI), retire/redirect the 3 overlapping with the 2026 content calendar (FHIR, QI Program 4.0, Competitor Intelligence), and treat planned 2026 pieces as their successors
+- [ ] Spot-check AI engines in 2–4 weeks: ask Perplexity / ChatGPT / Claude "what does Holistic Governance do" and "who is Naomi Alefelder" to see if HG content surfaces
 
 ### Ongoing
 
 - [ ] One article every 2 weeks per the content calendar
 - [ ] Tier 2 backlinks (guest posts, podcast appearances)
 - [ ] Quarterly: review backlink count + branded search visibility
+- [ ] Keep `/topics/*.md` dossiers current — refresh `lastReviewed` and content as regulations evolve. They are the canonical AI-citable position on each topic.
 
 ---
 
@@ -208,9 +234,43 @@ Open profile in regular Google search → "Ask a question" → post + answer 3:
 
 ---
 
+## Backend AI content layer — `/topics/`
+
+Seven HG Reference topic dossiers live at `/topics/`, indexed only from `llms.txt` and `llms-full.txt`. They are not in `sitemap.xml` and are not linked from any visible page. Purpose: give AI search and assistant systems (Claude, ChatGPT, Perplexity, Copilot via Bing) accurate, structured, Naomi-curated context when answering provider, board, or sector questions about each topic.
+
+| Slug | Topic | Approx. words |
+|---|---|---|
+| `aged-care-act-2024.md` | Aged Care Act 2024 — principal Commonwealth statute | 1,330 |
+| `strengthened-aged-care-quality-standards.md` | Strengthened Aged Care Quality Standards (7 outcomes-based standards) | 1,235 |
+| `rights-based-care.md` | Rights-Based Care — Statement of Rights and Principles | 1,350 |
+| `acqs-accreditation-audit.md` | ACQS Accreditation Audit methodology | 1,140 |
+| `financial-and-prudential-standards.md` | Financial and Prudential Standards (RADs, ACFR, QFR, GPFR) | 1,295 |
+| `quality-indicator-program.md` | National Aged Care Mandatory Quality Indicator Program (Manual 4.0) | 1,120 |
+| `sirs.md` | Serious Incident Response Scheme (8 categories, P1/P2 timeframes) | 1,360 |
+| `support-at-home.md` | Support at Home — consolidated home-based program (commenced 1 November 2025) | 1,400 |
+
+Framing: unsigned "HG Reference" with explicit "general information, not legal/compliance advice" disclaimer (lower reputational risk than bylined). Each dossier follows a consistent structure: definition, statutory basis, scope, key obligations, implementation timeline, common provider gaps, how HG supports providers, official sources, glossary.
+
+When regulations change, update the relevant dossier's body content AND the `lastReviewed` frontmatter date — that signals freshness to AI fetchers.
+
+## IndexNow setup
+
+- Key: `b28a40dc768afeabbe32943e3af7f361` (file: `/b28a40dc768afeabbe32943e3af7f361.txt` at site root — must not be deleted)
+- Endpoint: `https://api.indexnow.org/IndexNow`
+- Submits to: Bing (powers Copilot + ChatGPT web browse), Yandex, Naver, Seznam
+- Submission template (re-run after major content changes):
+
+```bash
+curl.exe -s --ssl-no-revoke -X POST "https://api.indexnow.org/IndexNow" \
+  -H "Content-Type: application/json; charset=utf-8" \
+  -d '{"host":"hg-au.com","key":"b28a40dc768afeabbe32943e3af7f361","keyLocation":"https://hg-au.com/b28a40dc768afeabbe32943e3af7f361.txt","urlList":["https://hg-au.com/<page>"]}'
+```
+
+Submission accepted = HTTP 200 or 202.
+
 ## Scheduled check-in
 
-A one-time agent is scheduled to fire on **2026-05-05 09:00 AEST** to check indexing progress and confirm next steps. Manage at https://claude.ai/code/routines/trig_01KeRhAzLfJ1MoB6zJfSLUEw
+The 2026-05-05 09:00 AEST one-time check-in routine has elapsed (trig_01KeRhAzLfJ1MoB6zJfSLUEw). No new check-in scheduled; ad-hoc as needed.
 
 ---
 
@@ -220,4 +280,10 @@ A one-time agent is scheduled to fire on **2026-05-05 09:00 AEST** to check inde
 |---|---|
 | `7036f79` | Person schema @id + sameAs, Organization sameAs to /company/hg-au/, Article author = Person, dashboard generates HTML on save |
 | `007c181` | Heidelberg footer address site-wide + addressLocality in JSON-LD |
-| *(this commit)* | BreadcrumbList schema on About / Solutions / Resources / Privacy + this plan doc |
+| *(2026-04-28)* | BreadcrumbList schema on About / Solutions / Resources / Privacy + initial plan doc |
+| `879c2da` | Server-render build for resources page (AI-search discoverability) |
+| `87d43d4` | **2026-05-22** — AI search discoverability layer: robots.txt AI bot allow-list (16 bots), llms.txt + llms-full.txt, extended Person schema (hasCredential ×6, alumniOf, hasOccupation, memberOf), visible FAQs on home + healthcare matching schema, AboutPage + FAQPage + Speakable on about, WebPage + Speakable on home + healthcare, article build pipeline upgrade (per-article OG, dateModified, Key Takeaways block, visible author bio, WebPage entity), server.js routes admin saves through unified pipeline, all 7 article HTML regenerated. 16 files, +1,251/−42. |
+| `1add26a` | IndexNow key file at site root (Bing/Yandex/Naver/Seznam) |
+| `e870dfb` | Delete incorrect "NSQHS Standards Second Edition: Key Changes for 2025" article (factual errors per author); removed from sitemap, llms files, resources.html, articles.json |
+| `5744ae9` | 7 backend HG Reference topic dossiers at `/topics/` for AI ingestion (Aged Care Act 2024, Strengthened Standards, Rights-Based Care, ACQS Audit, Financial & Prudential, QI Program, SIRS). Indexed only via llms.txt + llms-full.txt; not in sitemap; not in visible nav. ~8,800 words total. |
+| `4302198` | `.nojekyll` (so `.md` files serve as-is, not converted to .html by Jekyll); remove visible FAQ from homepage per request + remove corresponding FAQPage schema to keep schema aligned with visible content |
