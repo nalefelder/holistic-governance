@@ -4,7 +4,7 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');
-const { renderArticlePage } = require('./build-articles');
+const { renderArticlePage, buildAll, extractTakeaways } = require('./build-articles');
 
 const app = express();
 const PORT = 3000;
@@ -72,15 +72,23 @@ function sanitiseFrontmatterValue(value) {
   return (value || '').replace(/[\n\r]/g, ' ').trim();
 }
 
-// ── Build articles.json from .md frontmatter ──
+// ── Build articles.json (and, for holistic-governance, the article HTML pages) ──
 function buildArticles(siteKey) {
   const site = SITES[siteKey];
   if (!site) return;
   const dir = site.articlesDir;
-  const jsonPath = path.join(dir, 'articles.json');
-
   if (!fs.existsSync(dir)) return;
 
+  // For holistic-governance, delegate to the rich pipeline in build-articles.js
+  // so articles.json + article HTML stay in sync with the full schema (dateModified,
+  // ogImage, takeaways, author bio, Speakable, WebPage entity, etc).
+  if (siteKey === 'holistic-governance') {
+    const articles = buildAll(dir);
+    console.log(`[${siteKey}] Rebuilt articles.json + ${articles.length} HTML pages`);
+    return;
+  }
+
+  // Other sites: simple JSON-only build from frontmatter.
   const files = fs.readdirSync(dir).filter(f => f.endsWith('.md'));
   const articles = [];
 
@@ -101,6 +109,7 @@ function buildArticles(siteKey) {
       slug: path.basename(file, '.md'),
       title: fm.title,
       date: fm.date,
+      dateModified: fm.dateModified || fm.date,
       author: fm.author || 'Naomi Alefelder',
       category: fm.category || 'General',
       featured: fm.featured === 'true',
@@ -109,7 +118,7 @@ function buildArticles(siteKey) {
   }
 
   articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-  fs.writeFileSync(jsonPath, JSON.stringify(articles, null, 2) + '\n');
+  fs.writeFileSync(path.join(dir, 'articles.json'), JSON.stringify(articles, null, 2) + '\n');
   console.log(`[${siteKey}] Rebuilt articles.json — ${articles.length} articles`);
 }
 
@@ -197,7 +206,7 @@ app.get('/api/:site/articles/:slug', validateSite, (req, res) => {
 
 // ── Create/update article (auth required) ──
 app.post('/api/:site/articles', requireSession, validateSite, (req, res) => {
-  const { slug, title, date, author, category, featured, summary, body } = req.body;
+  const { slug, title, date, dateModified, og_image, author, category, featured, summary, body } = req.body;
   if (!slug || !title || !date) return res.status(400).json({ error: 'slug, title, date required' });
 
   const safeName = sanitiseSlug(slug);
@@ -205,31 +214,38 @@ app.post('/api/:site/articles', requireSession, validateSite, (req, res) => {
     slug: safeName,
     title: sanitiseFrontmatterValue(title),
     date: sanitiseFrontmatterValue(date),
+    dateModified: sanitiseFrontmatterValue(dateModified) || sanitiseFrontmatterValue(date),
+    ogImage: sanitiseFrontmatterValue(og_image),
     author: sanitiseFrontmatterValue(author) || 'Naomi Alefelder',
     category: sanitiseFrontmatterValue(category) || 'General',
     featured: !!featured,
     summary: sanitiseFrontmatterValue(summary)
   };
 
-  const frontmatter = [
+  const frontmatterLines = [
     '---',
     `title: ${meta.title}`,
-    `date: ${meta.date}`,
+    `date: ${meta.date}`
+  ];
+  if (meta.dateModified && meta.dateModified !== meta.date) {
+    frontmatterLines.push(`dateModified: ${meta.dateModified}`);
+  }
+  if (meta.ogImage) {
+    frontmatterLines.push(`og_image: ${meta.ogImage}`);
+  }
+  frontmatterLines.push(
     `author: ${meta.author}`,
     `category: ${meta.category}`,
     `featured: ${meta.featured ? 'true' : 'false'}`,
     `summary: ${meta.summary}`,
     '---'
-  ].join('\n');
+  );
+  const frontmatter = frontmatterLines.join('\n');
 
   const fileContent = frontmatter + '\n\n' + (body || '');
   fs.writeFileSync(path.join(req.site.articlesDir, safeName + '.md'), fileContent);
 
-  if (req.params.site === 'holistic-governance') {
-    const html = renderArticlePage(meta, body || '');
-    fs.writeFileSync(path.join(req.site.articlesDir, safeName + '.html'), html);
-  }
-
+  // Delegate HTML + articles.json generation to the unified pipeline.
   buildArticles(req.params.site);
   res.json({ ok: true, slug: safeName });
 });

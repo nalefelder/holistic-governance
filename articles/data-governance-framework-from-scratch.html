@@ -18,7 +18,9 @@
   <meta property="og:image:width" content="2400" />
   <meta property="og:image:height" content="1260" />
   <meta property="article:published_time" content="2024-12-05" />
+  <meta property="article:modified_time" content="2024-12-05" />
   <meta property="article:section" content="Data Governance" />
+  <meta property="article:author" content="Naomi Alefelder" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Building a Data Governance Framework From Scratch | Holistic Governance" />
   <meta name="twitter:description" content="Where do you start when your organisation has never had a formal data governance program? Our step-by-step guide to building foundations that actually work." />
@@ -43,12 +45,25 @@
     .article-body li { margin-bottom: 0.5rem; }
     .article-body strong { color: var(--white); }
     .article-body a { color: var(--sky); text-decoration: underline; }
+    .key-takeaways { margin: 0 0 2.5rem; padding: 1.5rem 1.75rem; background: rgba(56,189,248,0.06); border: 1px solid rgba(56,189,248,0.25); border-left: 3px solid var(--sky); border-radius: 4px; }
+    .key-takeaways h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--white); margin: 0 0 0.75rem; letter-spacing: 0.02em; }
+    .key-takeaways ul { list-style: none; padding: 0; margin: 0; }
+    .key-takeaways li { color: #ffffff; font-size: 0.95rem; line-height: 1.6; padding: 0.4rem 0 0.4rem 1.5rem; position: relative; }
+    .key-takeaways li::before { content: '→'; position: absolute; left: 0; top: 0.4rem; color: var(--sky); font-weight: 600; }
     .related-solutions { margin-top: 3.5rem; padding: 1.75rem; background: rgba(56,189,248,0.04); border: 1px solid var(--border); border-radius: 4px; }
     .related-solutions h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--white); margin: 0 0 0.9rem; }
     .related-solutions ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
     .related-solutions li { margin: 0; }
     .related-solutions a { display: inline-block; color: var(--sky); font-size: 0.9rem; text-decoration: none; border: 1px solid rgba(56,189,248,0.3); padding: 0.5rem 1rem; border-radius: 2px; transition: all 0.2s; }
     .related-solutions a:hover { background: rgba(56,189,248,0.12); border-color: var(--sky); }
+    .author-bio { margin-top: 2.5rem; padding: 1.75rem; background: var(--navy-mid); border: 1px solid var(--border); border-radius: 4px; }
+    .author-bio-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1rem; }
+    .author-bio-header img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); flex-shrink: 0; }
+    .author-bio-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--white); margin: 0 0 0.2rem; }
+    .author-bio-role { font-size: 0.82rem; color: var(--sky); margin: 0; letter-spacing: 0.04em; }
+    .author-bio p { font-size: 0.92rem; color: #ffffff; line-height: 1.7; margin: 0 0 0.8rem; }
+    .author-bio-links a { color: var(--sky); text-decoration: none; border-bottom: 1px solid rgba(56,189,248,0.4); }
+    .author-bio-links a:hover { border-bottom-color: var(--sky); }
     .article-footer-nav { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; gap: 1rem; flex-wrap: wrap; }
     .article-footer-nav a { color: var(--sky); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--border); padding: 0.8rem 1.6rem; border-radius: 2px; transition: all 0.3s; }
     .article-footer-nav a:hover { background: var(--sky); color: var(--navy); }
@@ -60,6 +75,7 @@
   "@type": "Article",
   "headline": "Building a Data Governance Framework From Scratch",
   "description": "Where do you start when your organisation has never had a formal data governance program? Our step-by-step guide to building foundations that actually work.",
+  "image": "https://hg-au.com/og-image-v3.png",
   "author": {
     "@type": "Person",
     "@id": "https://hg-au.com/about.html#naomi",
@@ -80,7 +96,32 @@
   "mainEntityOfPage": "https://hg-au.com/articles/data-governance-framework-from-scratch.html",
   "articleSection": "Data Governance",
   "inLanguage": "en-AU",
-  "url": "https://hg-au.com/articles/data-governance-framework-from-scratch.html"
+  "url": "https://hg-au.com/articles/data-governance-framework-from-scratch.html",
+  "isPartOf": {
+    "@id": "https://hg-au.com/#website"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://hg-au.com/articles/data-governance-framework-from-scratch.html#webpage",
+  "url": "https://hg-au.com/articles/data-governance-framework-from-scratch.html",
+  "name": "Building a Data Governance Framework From Scratch | Holistic Governance",
+  "description": "Where do you start when your organisation has never had a formal data governance program? Our step-by-step guide to building foundations that actually work.",
+  "isPartOf": {
+    "@id": "https://hg-au.com/#website"
+  },
+  "primaryImageOfPage": "https://hg-au.com/og-image-v3.png",
+  "inLanguage": "en-AU",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".article-page h1",
+      ".article-meta"
+    ]
+  }
 }
   </script>
   <script type="application/ld+json">
@@ -143,6 +184,7 @@
   <div class="article-tag">Data Governance</div>
   <h1>Building a Data Governance Framework From Scratch</h1>
   <div class="article-meta"><span>5 December 2024</span> &middot; Naomi Alefelder</div>
+
   <div class="article-body">
 <p>Where do you start when your organisation has never had a formal data governance program? Our step-by-step guide to building foundations that actually work.</p>
 <h2>Start with Why</h2>
@@ -161,6 +203,17 @@
 <h2>Common Pitfalls</h2>
 <ul><li>Making governance too complex too early</li><li>Failing to secure executive sponsorship</li><li>Treating governance as an IT project rather than a business initiative</li><li>Not investing in change management and communication</li></ul>
   </div>
+  <aside class="author-bio" aria-label="About the author">
+    <div class="author-bio-header">
+      <img src="../headshotimage.png" alt="Naomi Alefelder" width="96" height="96" />
+      <div>
+        <h2>About the author</h2>
+        <p class="author-bio-role">Naomi Alefelder &middot; Founding Director, Holistic Governance</p>
+      </div>
+    </div>
+    <p>Registered nurse and governance specialist with over a decade of senior leadership across aged care, hospital, day surgery, disability and community health. MBA (Charles Sturt University), AICD Foundations of Directorship, Lead Auditor (Exemplar Global). Board Director, Caladenia Dementia Care.</p>
+    <p class="author-bio-links"><a href="../about.html">More about Naomi</a> &middot; <a href="https://www.linkedin.com/in/naomi-alefelder" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="../proposal-enquiry.html">Request a proposal</a></p>
+  </aside>
   <aside class="related-solutions" aria-label="Related solutions">
     <h2>Related Solutions</h2>
     <ul>

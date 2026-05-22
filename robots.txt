@@ -1,7 +1,136 @@
+# Holistic Governance — robots.txt
+# https://hg-au.com
+
+# ── Default policy ─────────────────────────────────────────────
 User-agent: *
 Allow: /
 Disallow: /admin.html
 Disallow: /login.html
 Disallow: /enquiries/
 
+# ── Explicit allow-list for AI search & training crawlers ──────
+# Listed individually so policy can be tightened per-bot later
+# without affecting the default rules above.
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+# Google AI surfaces (Bard / Gemini / AI Overviews training)
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+# Common Crawl (foundation model training corpus)
+User-agent: CCBot
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+# Amazon (Alexa+ / Rufus)
+User-agent: Amazonbot
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+# DuckDuckGo AI Assist
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+# Mistral
+User-agent: MistralAI-User
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+# You.com
+User-agent: YouBot
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /enquiries/
+
+# ── Sitemap & AI content map ───────────────────────────────────
 Sitemap: https://hg-au.com/sitemap.xml

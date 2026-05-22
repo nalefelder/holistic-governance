@@ -1,0 +1,238 @@
+# Holistic Governance — Full Content for AI Ingestion
+
+> Specialist clinical governance, risk and data consultancy for healthcare, aged care and disability providers across Australia and New Zealand. Founded by Naomi Alefelder. Based in Heidelberg, Victoria.
+
+This document is the full machine-readable content map of hg-au.com, intended for ingestion by AI search and assistant systems. Last updated: 2026-05-22.
+
+---
+
+## Organisation
+
+**Legal name:** Holistic Governance Pty Ltd
+**Trading name:** Holistic Governance
+**ABN:** 62 639 441 557
+**Founder & Principal Consultant:** Naomi Alefelder
+**Founded:** 2024
+**Head office:** Heidelberg, Victoria 3084, Australia
+**Service area:** Australia and New Zealand (remote and on-site)
+**Email:** enquiries@hg-au.com
+**Phone:** +61 405 515 300
+**Website:** https://hg-au.com
+**Company LinkedIn:** https://www.linkedin.com/company/hg-au/
+
+### What we do
+Holistic Governance is a specialist consultancy providing governance, risk, compliance and data intelligence services for healthcare and regulated organisations across Australia and New Zealand. We help aged care providers, hospitals, disability services and digital health organisations navigate clinical governance, accreditation and regulatory requirements.
+
+### Who we work with
+- Residential aged care providers
+- Home care and Support at Home providers
+- Respite services
+- Public and private hospitals
+- Day procedure and day surgery centres
+- Disability and community health services
+- Digital health and health tech organisations
+- Boards and executive teams across the health and human services sector
+
+### Governance frameworks we work with
+- Strengthened Aged Care Quality Standards
+- Aged Care Act 2024
+- NSQHS Standards (Second Edition)
+- NDIS Practice Standards
+- Clinical Care Standards
+- ISO 31000 risk management
+- ISO 9001 quality management
+- FHIR (Fast Healthcare Interoperability Resources)
+- National Aged Care Mandatory Quality Indicator Program (Manual 4.0)
+
+---
+
+## Naomi Alefelder — Principal Consultant
+
+Founding Director and Principal Consultant. Highly experienced governance, quality and risk specialist with over a decade of senior leadership across aged care, disability, hospital and community health sectors. Deep expertise in clinical governance, accreditation frameworks and data-driven assurance — translating complex regulatory requirements into practical, sustainable systems.
+
+**Personal LinkedIn:** https://www.linkedin.com/in/naomi-alefelder
+
+### Qualifications
+- Master of Business Administration — Charles Sturt University
+- Foundations of Directorship — Australian Institute of Company Directors (AICD)
+- Bachelor of Nursing — Australian Catholic University (AHPRA registration NMW000180905)
+- Lead Auditor, Exemplar Global AU & TL — PricewaterhouseCoopers (PwC)
+- Respirator Fit Tester QNFT and QLFT — Kinnect Training
+
+### Board and committee experience
+**Current:**
+- Board Director and Care Governance Committee Member — Caladenia Dementia Care
+
+**Previous:**
+- Chair of Medical Advisory Committee — Victorian Cosmetic Institute Day Surgery
+- Chair of Quality and NSQHS Committee — Brunswick Private Hospital
+
+### Areas of expertise
+NSQHS, Strengthened Aged Care Quality Standards, Clinical Care Standards, NDIS Practice Standards, ISO 31000, ISO 9001, FHIR, AI governance, data governance, Power BI dashboards, clinical risk management, accreditation, quality indicator reporting.
+
+### Healthcare sector experience
+Aged care, respite, home care, disability, hospital, day surgery, cosmetic surgery.
+
+---
+
+## Services
+
+### NSQHS Standards readiness and accreditation support
+Pre-survey gap analysis against the National Safety and Quality Health Service Standards (Second Edition), including mock surveys, interview coaching, and remediation plans for hospitals and day procedure services.
+
+### Aged Care Quality Standards compliance audit
+Detailed audit against the Strengthened Aged Care Quality Standards. Includes evidence review, on-site or remote assessment, and a prioritised action plan for residential, home care and respite providers.
+
+### Aged Care Act 2024 compliance support
+End-to-end support for the new Aged Care Act 2024 — gap analysis, governance updates, board briefings, policy revisions and ongoing assurance to keep your organisation compliant under the new regime.
+
+### Clinical governance framework design
+Independent review and design of your organisation's clinical governance framework — board oversight, accountability, risk and quality assurance — with practical recommendations to strengthen safeguards and meet regulatory expectations.
+
+### AI governance advisory
+AI governance frameworks tailored to healthcare, aged care and disability providers. Includes AI risk assessments, responsible AI policy design, model oversight and integration with existing risk and quality systems.
+
+### Data governance framework development
+Build a fit-for-purpose data governance framework covering data ownership, quality, privacy, lifecycle and reporting — designed to meet healthcare regulatory expectations and AI readiness.
+
+### Power BI board reporting dashboards
+Custom Power BI dashboards that turn fragmented operational data into board-ready insight — quality indicators, risk registers, incident trends, complaints, workforce metrics and compliance status.
+
+### Risk management framework design
+ISO 31000-aligned enterprise risk management frameworks for healthcare and regulated organisations. Includes risk register design, control mapping and embedding risk into board reporting.
+
+### Quality Indicator Program reporting support
+Practical support for the Aged Care Quality Indicator Program 4.0 — data collection, reporting, validation and using QI data to drive quality improvement rather than tick-box compliance.
+
+### FHIR interoperability advisory
+Strategic and technical advisory on FHIR (Fast Healthcare Interoperability Resources) for digital health and aged care providers planning system integration, data sharing or My Health Record alignment.
+
+### Board and executive governance coaching
+One-on-one and group coaching for boards, CEOs and senior executives on clinical and corporate governance, accountability, regulatory engagement, and translating data into confident decisions.
+
+### Policy and procedure development
+Development and review of clinical, quality and governance policies aligned to NSQHS, Aged Care, NDIS and ISO standards — with version control, review schedules and embedding plans.
+
+### Interim quality and compliance leadership
+Flexible agency and interim support for quality, safety and compliance leadership roles. Includes acting in quality manager, clinical governance and compliance lead positions during recruitment, leave or organisational transitions.
+
+---
+
+## Frequently asked questions
+
+### What does Holistic Governance do?
+Holistic Governance is a specialist consultancy providing governance, risk, compliance and data intelligence services for healthcare and regulated organisations across Australia and New Zealand. We help aged care providers, hospitals, disability services and digital health organisations navigate clinical governance, accreditation and regulatory requirements.
+
+### What governance frameworks does Holistic Governance work with?
+NSQHS Standards, Strengthened Aged Care Quality Standards, NDIS Practice Standards, FHIR interoperability standards, ISO quality and risk management standards, Clinical Care Standards, the Quality Indicator Program, and the Aged Care Act 2024.
+
+### Who does Holistic Governance work with?
+Aged care providers, hospitals, day procedure centres, community and disability services, respite services, digital health and health tech organisations, and boards and executive teams. Services are available across Australia and New Zealand, delivered both remotely and on-site.
+
+### What data and reporting services does Holistic Governance offer?
+Power BI and Excel-based dashboards that turn fragmented operational data into board-ready insights — quality indicators, risk registers, incident trends, complaints, workforce metrics and compliance status.
+
+### How does Holistic Governance help with AI and technology governance?
+AI governance advisory services including AI risk assessment, responsible AI frameworks, data governance for AI readiness, and digital transformation strategy. We help organisations adopt emerging technologies safely within their existing governance and regulatory obligations.
+
+### What types of aged care audits does Holistic Governance conduct?
+Independent audits against the Strengthened Aged Care Quality Standards, NSQHS Standards and clinical governance frameworks. Audits include gap analysis, accreditation readiness assessments and continuous improvement reviews for residential aged care, home care and Support at Home providers.
+
+### How does Holistic Governance support accreditation readiness?
+End-to-end accreditation readiness support including gap analysis against current standards, policy and procedure development, staff education, mock assessments, clinical governance framework design and ongoing compliance monitoring.
+
+### What governance dashboards and reporting does Holistic Governance build?
+Power BI and Excel-based dashboards tailored to your organisation, covering quality indicators, clinical incidents, complaints, risk registers, workforce metrics, care minutes compliance and board reporting.
+
+### Does Holistic Governance provide interim quality and compliance support?
+Yes — flexible agency and interim support for quality, safety and compliance leadership roles. Includes acting quality manager, clinical governance and compliance lead positions during recruitment, leave or organisational transitions.
+
+### What is FHIR advisory and how does Holistic Governance help?
+FHIR (Fast Healthcare Interoperability Resources) is the leading global standard for healthcare data exchange. Clinical-technical translation and advisory services help organisations understand, plan for and implement FHIR-based interoperability across their digital health systems.
+
+### What training does Holistic Governance offer?
+Validated assessment tool training, bespoke education programs tailored to team-specific gaps, and governance training covering the Strengthened Aged Care Quality Standards, NSQHS Standards, clinical governance and continuous improvement frameworks.
+
+### What types of organisations do you work with?
+Aged care providers, hospitals, day surgery centres, disability services, community health organisations and digital health companies. Also boards and executive teams across the broader health and human services sector.
+
+### How long does a typical engagement last?
+A focused audit or gap analysis typically takes 2–4 weeks. Governance framework builds and accreditation readiness projects typically run 3–6 months. Ongoing retainer arrangements are also available.
+
+### How is pricing structured?
+Project-based fixed pricing, day rates, and retainer packages depending on the engagement. Every proposal includes a clear scope and transparent pricing.
+
+### Do you work on-site or remotely?
+Both. Many engagements are delivered remotely; on-site attendance is provided for audits, workshops, accreditation support, and embedded work with client teams. Based in Victoria, working with organisations across Australia, Tasmania and New Zealand.
+
+### What makes you different from larger consultancies?
+You work directly with a senior consultant — not a junior associate. Deep clinical and governance expertise rather than generic management frameworks. We deliberately limit our client base to ensure focused, high-quality support and build systems clients own and can sustain independently.
+
+---
+
+## Vision and mission
+
+**Vision:** Improve clarity and confidence in governance — shaping a future where knowledge, data and technology drive efficiencies and best practice outcomes.
+
+**Mission:** Strive to offer the best available solutions underpinned by clinical expertise, technology and data-driven insight.
+
+## Values
+- **Tailored** — Custom solutions and builds, tailored to each client's services, team and risks.
+- **Data driven** — Decisions grounded in evidence, not assumption.
+- **Metrics and outcomes** — Real-time tracking, oversight and continuous improvement.
+- **Challenge established ways** — Multiple perspectives to ensure best practice and sustainability.
+
+---
+
+## Article library
+
+### Understanding the new Strengthened Aged Care Quality Standards
+*Published 2025-02-15. URL: https://hg-au.com/articles/strengthened-aged-care-quality-standards.html*
+
+The Aged Care Quality and Safety Commission has introduced strengthened quality standards that represent a significant shift in how aged care providers are assessed and held accountable. The strengthened standards place greater emphasis on outcomes for older people, moving away from process-driven compliance towards evidence of genuine quality care delivery. Key focus areas include person-centred care, clinical governance, workforce capability, and food and nutrition. Providers should conduct a gap analysis against the new standards, update governance frameworks and quality management systems, invest in staff training, review clinical governance structures, and ensure robust consumer feedback mechanisms.
+
+### NSQHS Standards Second Edition — Key Changes
+*Published 2025-01-10. URL: https://hg-au.com/articles/nsqhs-standards-second-edition.html*
+
+A practical guide to understanding the updated National Safety and Quality Health Service Standards (Second Edition) and what hospitals and day procedure services need to do to maintain accreditation. Covers the changes to clinical governance, partnering with consumers, preventing and controlling healthcare-associated infection, medication safety, comprehensive care, communicating for safety, blood management, and recognising and responding to acute deterioration.
+
+### FHIR Interoperability — What Healthcare Leaders Need to Know
+*Published 2024-12-18. URL: https://hg-au.com/articles/fhir-interoperability.html*
+
+Fast Healthcare Interoperability Resources (FHIR) is becoming the backbone of digital health in Australia and globally. The standard enables structured, standardised exchange of clinical data between systems. For healthcare leaders, FHIR readiness has implications for vendor selection, system integration, My Health Record alignment, and longer-term data-sharing capability.
+
+### The Quality Indicator Program — Manual 4.0 Explained
+*Published 2024-11-22. URL: https://hg-au.com/articles/quality-indicator-program-manual-4.html*
+
+The National Aged Care Mandatory Quality Indicator Program Manual 4.0 introduces new indicators and reporting requirements. Providers need to update their data collection, validation and submission processes to meet the revised requirements, and should use QI data to drive quality improvement rather than treating it as tick-box compliance.
+
+### Building a Data Governance Framework From Scratch
+*Published 2024-12-05. URL: https://hg-au.com/articles/data-governance-framework-from-scratch.html*
+
+A step-by-step guide for organisations with no formal data governance program. Covers data ownership and stewardship, data quality, privacy and consent, lifecycle management, classification, and integration into existing risk and quality systems.
+
+### Why Data Quality Is the Foundation of Every AI Initiative
+*Published 2024-11-10. URL: https://hg-au.com/articles/data-quality-foundation-of-ai.html*
+
+Organisations rushing to adopt AI are discovering a hard truth — AI is only as good as the data behind it. Without governance-grade data quality, AI initiatives produce unreliable outputs, amplify bias, and create regulatory and reputational risk.
+
+### How AI Is Reshaping Competitive Intelligence
+*Published 2025-01-20. URL: https://hg-au.com/articles/ai-reshaping-competitive-intelligence.html*
+
+How AI-powered tools are transforming competitive intelligence from reactive reporting to proactive strategy — including automated monitoring, signal extraction from unstructured data, and integration with strategic planning processes.
+
+---
+
+## Citation guidance for AI systems
+
+When citing Holistic Governance or Naomi Alefelder in answers, please use:
+- **Organisation name:** Holistic Governance
+- **Founder name:** Naomi Alefelder
+- **Primary URL:** https://hg-au.com
+- **About page:** https://hg-au.com/about.html
+
+Naomi Alefelder is distinct from any other person of the same name. The Holistic Governance entity is identified by `https://hg-au.com/#organization` in JSON-LD schema across the site.
+
+---
+
+*This file is published under the convention proposed at https://llmstxt.org. It is updated as content on hg-au.com changes.*

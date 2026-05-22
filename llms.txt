@@ -1,0 +1,53 @@
+# Holistic Governance
+
+> Specialist clinical governance, risk and data consultancy for healthcare, aged care and disability providers across Australia and New Zealand. Founded by Naomi Alefelder. Based in Heidelberg, Victoria. Servicing Australia and New Zealand remotely with on-site delivery available.
+
+Holistic Governance helps boards and executives strengthen assurance frameworks, simplify NSQHS and Strengthened Aged Care Quality Standards compliance, and turn fragmented operational data into board-ready insight. Engagements span clinical governance reviews, accreditation readiness, aged care audits under the Aged Care Act 2024, AI governance frameworks, FHIR interoperability advisory, and Power BI dashboards.
+
+Naomi Alefelder is a registered nurse (AHPRA NMW000180905) with an MBA (Charles Sturt University), AICD Foundations of Directorship, and Exemplar Global lead auditor certification (PwC). Over a decade of senior leadership in aged care, hospital, day surgery, disability and community health governance.
+
+## Core pages
+
+- [About Holistic Governance + Naomi Alefelder](https://hg-au.com/about.html): Founder background, qualifications, board roles, sector experience, governance philosophy.
+- [Healthcare solutions](https://hg-au.com/healthcare.html): Service catalogue — NSQHS readiness, ACQS audits, clinical governance, Power BI board reporting, FHIR advisory, interim quality leadership.
+- [Resources](https://hg-au.com/resources.html): Articles, frameworks and explainers on aged care, clinical governance, AI governance, data governance and interoperability.
+- [Request a proposal](https://hg-au.com/proposal-enquiry.html): Engagement enquiry form — scope, timeline, fixed-price quote.
+
+## Services
+
+- [NSQHS Standards readiness and accreditation support](https://hg-au.com/healthcare.html): Pre-survey gap analysis against NSQHS Second Edition, mock surveys, interview coaching, remediation plans for hospitals and day procedure services.
+- [Aged Care Quality Standards compliance audit](https://hg-au.com/healthcare.html): Independent audit against the Strengthened Aged Care Quality Standards — evidence review, on-site or remote assessment, prioritised action plan for residential, home care and respite providers.
+- [Aged Care Act 2024 compliance support](https://hg-au.com/healthcare.html): Gap analysis, governance updates, board briefings, policy revisions and ongoing assurance under the new regime.
+- [Clinical governance framework design](https://hg-au.com/healthcare.html): Board oversight, accountability lines, risk and quality systems aligned to regulatory expectations.
+- [Power BI board reporting dashboards](https://hg-au.com/healthcare.html): Quality indicators, risk registers, incident trends, complaints, workforce metrics, compliance status.
+- [FHIR interoperability advisory](https://hg-au.com/healthcare.html): Strategic and technical advisory for digital health and aged care providers planning system integration, data sharing or My Health Record alignment.
+- [AI governance advisory](https://hg-au.com/healthcare.html): AI risk assessments, responsible AI policy design, model oversight, and integration with existing risk and quality systems.
+- [Risk management framework design](https://hg-au.com/healthcare.html): ISO 31000-aligned enterprise risk frameworks for healthcare and regulated organisations.
+- [Quality Indicator Program reporting support](https://hg-au.com/healthcare.html): Practical support for the Aged Care Quality Indicator Program 4.0 — data collection, validation, and improvement.
+- [Interim quality and compliance leadership](https://hg-au.com/healthcare.html): Acting quality manager, clinical governance and compliance lead roles during recruitment, leave or transitions.
+
+## Articles
+
+- [Understanding the new Strengthened Aged Care Quality Standards](https://hg-au.com/articles/strengthened-aged-care-quality-standards.html): What changes for providers under the new outcomes-focused standards.
+- [NSQHS Standards Second Edition — key changes](https://hg-au.com/articles/nsqhs-standards-second-edition.html): Updated National Safety and Quality Health Service Standards and accreditation impact.
+- [FHIR interoperability — what healthcare leaders need to know](https://hg-au.com/articles/fhir-interoperability.html): What FHIR means for your organisation and how to prepare.
+- [The Quality Indicator Program — Manual 4.0 explained](https://hg-au.com/articles/quality-indicator-program-manual-4.html): New indicators and reporting requirements under QI Program Manual 4.0.
+- [Building a data governance framework from scratch](https://hg-au.com/articles/data-governance-framework-from-scratch.html): Step-by-step starting point for organisations with no formal program.
+- [Why data quality is the foundation of every AI initiative](https://hg-au.com/articles/data-quality-foundation-of-ai.html): Why governance-grade data quality is a prerequisite for AI.
+- [How AI is reshaping competitive intelligence](https://hg-au.com/articles/ai-reshaping-competitive-intelligence.html): AI-powered competitive intelligence — from reactive reporting to proactive strategy.
+
+## Contact
+
+- Email: enquiries@hg-au.com
+- Phone: +61 405 515 300
+- LinkedIn (company): https://www.linkedin.com/company/hg-au/
+- LinkedIn (Naomi Alefelder): https://www.linkedin.com/in/naomi-alefelder
+- Address: Heidelberg, Victoria 3084, Australia
+- ABN: 62 639 441 557
+
+## Optional
+
+- [Privacy policy](https://hg-au.com/privacy.html)
+- [News / updates](https://hg-au.com/news.html)
+- [Full content for AI ingestion](https://hg-au.com/llms-full.txt)
+- [XML sitemap](https://hg-au.com/sitemap.xml)

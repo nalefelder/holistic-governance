@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SITE_URL = 'https://hg-au.com';
+const DEFAULT_OG_IMAGE = 'og-image-v3.png';
 
 // AI & App Development pages are archived — all categories point to healthcare only.
 const SOLUTIONS_BY_CATEGORY = {
@@ -29,6 +30,72 @@ function renderRelatedSolutions(category) {
 ${items}
     </ul>
   </aside>`;
+}
+
+function renderAuthorBio() {
+  return `  <aside class="author-bio" aria-label="About the author">
+    <div class="author-bio-header">
+      <img src="../headshotimage.png" alt="Naomi Alefelder" width="96" height="96" />
+      <div>
+        <h2>About the author</h2>
+        <p class="author-bio-role">Naomi Alefelder &middot; Founding Director, Holistic Governance</p>
+      </div>
+    </div>
+    <p>Registered nurse and governance specialist with over a decade of senior leadership across aged care, hospital, day surgery, disability and community health. MBA (Charles Sturt University), AICD Foundations of Directorship, Lead Auditor (Exemplar Global). Board Director, Caladenia Dementia Care.</p>
+    <p class="author-bio-links"><a href="../about.html">More about Naomi</a> &middot; <a href="https://www.linkedin.com/in/naomi-alefelder" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="../proposal-enquiry.html">Request a proposal</a></p>
+  </aside>`;
+}
+
+function renderTakeaways(takeaways) {
+  if (!takeaways || takeaways.length === 0) return '';
+  const items = takeaways.map(t => `      <li>${inlineEscape(t)}</li>`).join('\n');
+  return `  <aside class="key-takeaways" id="key-takeaways" aria-label="Key takeaways">
+    <h2>Key takeaways</h2>
+    <ul>
+${items}
+    </ul>
+  </aside>`;
+}
+
+function inlineEscape(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+// Pull the first `## Key takeaways` section out of the body and return both
+// the takeaway strings and the remaining body (with that section removed).
+function extractTakeaways(body) {
+  const lines = body.replace(/\r\n/g, '\n').split('\n');
+  let startIdx = -1;
+  let endIdx = -1;
+
+  for (let i = 0; i < lines.length; i++) {
+    if (/^##\s+key\s+takeaways?\s*$/i.test(lines[i])) {
+      startIdx = i;
+      for (let j = i + 1; j < lines.length; j++) {
+        if (/^#{1,2}\s+/.test(lines[j])) {
+          endIdx = j;
+          break;
+        }
+      }
+      if (endIdx === -1) endIdx = lines.length;
+      break;
+    }
+  }
+
+  if (startIdx === -1) return { takeaways: [], remainingBody: body };
+
+  const sectionLines = lines.slice(startIdx + 1, endIdx);
+  const takeaways = [];
+  for (const line of sectionLines) {
+    const m = line.match(/^\s*[-*]\s+(.*)$/);
+    if (m) takeaways.push(m[1].trim());
+  }
+
+  const remainingBodyLines = [...lines.slice(0, startIdx), ...lines.slice(endIdx)];
+  return { takeaways, remainingBody: remainingBodyLines.join('\n') };
 }
 
 function buildAll(articlesDir) {
@@ -63,16 +130,19 @@ function buildAll(articlesDir) {
       slug,
       title: frontmatter.title,
       date: frontmatter.date,
+      dateModified: frontmatter.dateModified || frontmatter.date,
       author: frontmatter.author || 'Naomi Alefelder',
       category: frontmatter.category || 'General',
       featured: frontmatter.featured === 'true',
-      summary: frontmatter.summary || ''
+      summary: frontmatter.summary || '',
+      ogImage: frontmatter.og_image || frontmatter.ogImage || DEFAULT_OG_IMAGE
     };
 
     articles.push(meta);
 
     const body = match[2] || '';
-    const html = renderArticlePage(meta, body);
+    const { takeaways, remainingBody } = extractTakeaways(body);
+    const html = renderArticlePage(meta, remainingBody, takeaways);
     fs.writeFileSync(path.join(articlesDir, `${slug}.html`), html);
   }
 
@@ -87,7 +157,7 @@ if (require.main === module) {
   console.log(`Built articles.json — ${articles.length} articles; generated ${articles.length} HTML pages`);
 }
 
-module.exports = { renderArticlePage, mdToHtml, escapeAttr, formatDate, buildAll, SITE_URL };
+module.exports = { renderArticlePage, mdToHtml, escapeAttr, formatDate, buildAll, extractTakeaways, SITE_URL };
 
 // ── Minimal markdown → HTML renderer (covers the subset used in articles) ──
 function mdToHtml(md) {
@@ -157,17 +227,26 @@ function formatDate(dateStr) {
   return d.toLocaleDateString('en-AU', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-function renderArticlePage(meta, body) {
+function renderArticlePage(meta, body, takeaways = []) {
   const bodyHtml = mdToHtml(body);
   const canonical = `${SITE_URL}/articles/${meta.slug}.html`;
   const ogTitle = `${meta.title} | Holistic Governance`;
   const description = meta.summary || meta.title;
+  const ogImageUrl = meta.ogImage.startsWith('http')
+    ? meta.ogImage
+    : `${SITE_URL}/${meta.ogImage.replace(/^\/+/, '')}`;
+  const dateModified = meta.dateModified || meta.date;
+  const takeawaysHtml = renderTakeaways(takeaways);
+
+  const speakableSelectors = ['.article-page h1', '.article-meta'];
+  if (takeaways.length > 0) speakableSelectors.push('#key-takeaways');
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: meta.title,
     description,
+    image: ogImageUrl,
     author: {
       '@type': 'Person',
       '@id': `${SITE_URL}/about.html#naomi`,
@@ -181,11 +260,28 @@ function renderArticlePage(meta, body) {
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo-hg-trimmed.png` }
     },
     datePublished: meta.date,
-    dateModified: meta.date,
+    dateModified,
     mainEntityOfPage: canonical,
     articleSection: meta.category,
     inLanguage: 'en-AU',
-    url: canonical
+    url: canonical,
+    isPartOf: { '@id': `${SITE_URL}/#website` }
+  };
+
+  const webPage = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${canonical}#webpage`,
+    url: canonical,
+    name: ogTitle,
+    description,
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    primaryImageOfPage: ogImageUrl,
+    inLanguage: 'en-AU',
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: speakableSelectors
+    }
   };
 
   const breadcrumb = {
@@ -214,15 +310,17 @@ function renderArticlePage(meta, body) {
   <meta property="og:url" content="${canonical}" />
   <meta property="og:title" content="${escapeAttr(ogTitle)}" />
   <meta property="og:description" content="${escapeAttr(description)}" />
-  <meta property="og:image" content="${SITE_URL}/og-image-v3.png" />
+  <meta property="og:image" content="${ogImageUrl}" />
   <meta property="og:image:width" content="2400" />
   <meta property="og:image:height" content="1260" />
   <meta property="article:published_time" content="${meta.date}" />
+  <meta property="article:modified_time" content="${dateModified}" />
   <meta property="article:section" content="${escapeAttr(meta.category)}" />
+  <meta property="article:author" content="${escapeAttr(meta.author)}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeAttr(ogTitle)}" />
   <meta name="twitter:description" content="${escapeAttr(description)}" />
-  <meta name="twitter:image" content="${SITE_URL}/og-image-v3.png" />
+  <meta name="twitter:image" content="${ogImageUrl}" />
   <link rel="icon" type="image/png" href="../favicon.png" />
   <link rel="preload" as="image" href="../logo-hg-trimmed.png" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -243,12 +341,25 @@ function renderArticlePage(meta, body) {
     .article-body li { margin-bottom: 0.5rem; }
     .article-body strong { color: var(--white); }
     .article-body a { color: var(--sky); text-decoration: underline; }
+    .key-takeaways { margin: 0 0 2.5rem; padding: 1.5rem 1.75rem; background: rgba(56,189,248,0.06); border: 1px solid rgba(56,189,248,0.25); border-left: 3px solid var(--sky); border-radius: 4px; }
+    .key-takeaways h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 500; color: var(--white); margin: 0 0 0.75rem; letter-spacing: 0.02em; }
+    .key-takeaways ul { list-style: none; padding: 0; margin: 0; }
+    .key-takeaways li { color: #ffffff; font-size: 0.95rem; line-height: 1.6; padding: 0.4rem 0 0.4rem 1.5rem; position: relative; }
+    .key-takeaways li::before { content: '→'; position: absolute; left: 0; top: 0.4rem; color: var(--sky); font-weight: 600; }
     .related-solutions { margin-top: 3.5rem; padding: 1.75rem; background: rgba(56,189,248,0.04); border: 1px solid var(--border); border-radius: 4px; }
     .related-solutions h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--white); margin: 0 0 0.9rem; }
     .related-solutions ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
     .related-solutions li { margin: 0; }
     .related-solutions a { display: inline-block; color: var(--sky); font-size: 0.9rem; text-decoration: none; border: 1px solid rgba(56,189,248,0.3); padding: 0.5rem 1rem; border-radius: 2px; transition: all 0.2s; }
     .related-solutions a:hover { background: rgba(56,189,248,0.12); border-color: var(--sky); }
+    .author-bio { margin-top: 2.5rem; padding: 1.75rem; background: var(--navy-mid); border: 1px solid var(--border); border-radius: 4px; }
+    .author-bio-header { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1rem; }
+    .author-bio-header img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border); flex-shrink: 0; }
+    .author-bio-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--white); margin: 0 0 0.2rem; }
+    .author-bio-role { font-size: 0.82rem; color: var(--sky); margin: 0; letter-spacing: 0.04em; }
+    .author-bio p { font-size: 0.92rem; color: #ffffff; line-height: 1.7; margin: 0 0 0.8rem; }
+    .author-bio-links a { color: var(--sky); text-decoration: none; border-bottom: 1px solid rgba(56,189,248,0.4); }
+    .author-bio-links a:hover { border-bottom-color: var(--sky); }
     .article-footer-nav { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; gap: 1rem; flex-wrap: wrap; }
     .article-footer-nav a { color: var(--sky); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid var(--border); padding: 0.8rem 1.6rem; border-radius: 2px; transition: all 0.3s; }
     .article-footer-nav a:hover { background: var(--sky); color: var(--navy); }
@@ -256,6 +367,9 @@ function renderArticlePage(meta, body) {
   </style>
   <script type="application/ld+json">
 ${JSON.stringify(jsonLd, null, 2)}
+  </script>
+  <script type="application/ld+json">
+${JSON.stringify(webPage, null, 2)}
   </script>
   <script type="application/ld+json">
 ${JSON.stringify(breadcrumb, null, 2)}
@@ -293,10 +407,12 @@ ${JSON.stringify(breadcrumb, null, 2)}
   <div class="breadcrumb"><a href="../index.html">Home</a> / <a href="../resources.html">Resources</a> / ${escapeAttr(meta.title)}</div>
   <div class="article-tag">${escapeAttr(meta.category)}</div>
   <h1>${escapeAttr(meta.title)}</h1>
-  <div class="article-meta"><span>${formatDate(meta.date)}</span> &middot; ${escapeAttr(meta.author)}</div>
+  <div class="article-meta"><span>${formatDate(meta.date)}</span>${dateModified !== meta.date ? ` &middot; Updated ${formatDate(dateModified)}` : ''} &middot; ${escapeAttr(meta.author)}</div>
+${takeawaysHtml}
   <div class="article-body">
 ${bodyHtml}
   </div>
+${renderAuthorBio()}
 ${renderRelatedSolutions(meta.category)}
   <nav class="article-footer-nav" aria-label="Article navigation">
     <a href="../resources.html">&larr; All articles</a>
