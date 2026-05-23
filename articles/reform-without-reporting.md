@@ -1,5 +1,5 @@
 ---
-title: Reform Without Reporting — The Visibility Gap Six Months Into the New Aged Care Act
+title: Reform Without Reporting — The Visibility Gap Six Months into the New Aged Care Act
 date: 2026-05-23
 author: Naomi Alefelder
 category: Industry News
