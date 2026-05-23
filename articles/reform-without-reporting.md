@@ -78,7 +78,7 @@ Five live counters, refreshed monthly, with no trends, are not a public-reportin
 - Phoebe Loomes, ["Pressure mounts on the Prime Minister as aged care complaints double"](https://www.thesenior.com.au/story/9251386/government-accused-of-rationing-home-care-as-complaints-double/), The Senior (syndicated across ACM mastheads), 22 May 2026.
 - OPAN, [NACAP Presenting Issues Half-yearly Report](https://opan.org.au/2026/04/22/presenting-issues-half-yearly-report/), released 22 April 2026.
 - Productivity Commission, [Report on Government Services 2026, Chapter 14 (Aged care services)](https://www.pc.gov.au/ongoing/report-on-government-services/community-services/aged-care-services/), released February 2026.
-- Department of Health, Disability and Ageing, [Treasure Jennings Appointed New Aged Care Complaints Commissioner](https://www.health.gov.au/ministers/the-hon-sam-rae-mp/media/treasure-jennings-appointed-new-aged-care-complaints-commissioner), 9 October 2025.
+- Department of Health, Disability and Ageing, [Treasurer Jennings Appointed New Aged Care Complaints Commissioner](https://www.health.gov.au/ministers/the-hon-sam-rae-mp/media/treasure-jennings-appointed-new-aged-care-complaints-commissioner), 9 October 2025.
 - Aged Care Act 2024 (Cth), commenced 1 November 2025; Aged Care Rules 2025.
 
 This article is published by Holistic Governance for sector information purposes only. It does not constitute legal, regulatory or financial advice. © Holistic Governance 2026.
