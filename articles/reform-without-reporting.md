@@ -18,7 +18,7 @@ Six months into the most significant aged care reform in a generation, the Aged 
 
 ## 1. What the ACQSC is publishing
 
-**Five metrics, refreshed monthly.** The ACQSC homepage, as at the snapshot taken in May 2026 (showing April 2026 data), displays the following — and nothing more:
+**Five metrics, refreshed monthly.** The ACQSC, as at the snapshot taken in May 2026 (showing April 2026 data), displays the following — and nothing more:
 
 - **New complaints received last month:** 1,261
 - **Open complaints being worked on:** 3,551
@@ -28,7 +28,7 @@ Six months into the most significant aged care reform in a generation, the Aged 
 
 The metrics refresh monthly. The previous month's figures are not retained in any public-facing archive on the ACQSC website. There is no time-series chart, no breakdown by program (residential / Support at Home / Commonwealth Home Support Programme), no breakdown by complaint type, and no comparison to prior periods.
 
-Source: ACQSC homepage, [agedcarequality.gov.au](https://www.agedcarequality.gov.au/), with values refreshed monthly.
+Source: ACQSC, [agedcarequality.gov.au](https://www.agedcarequality.gov.au/#block-govcms8-uikit-acq-complaintsaboutagedcareserviceslastmonth), with values refreshed monthly.
 
 ## 2. What is not being published
 
