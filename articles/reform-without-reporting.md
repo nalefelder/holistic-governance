@@ -22,7 +22,7 @@ Six months into the most significant aged care reform in a generation, the Aged 
 
 - **New complaints received last month:** 1,261
 - **Open complaints being worked on:** 3,551
-- **Complaints closed last month:** 1,310 (some complaints closed may have been received in previous months)
+- **Complaints closed last month:** 1,310 *some complaints closed may have been received in previous months
 - **Enquiries finalised within 7 days:** 98%
 - **Complaints finalised within 60 days:** 41%
 
