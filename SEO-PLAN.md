@@ -67,7 +67,7 @@ Reference doc for the SEO work on the Holistic Governance website. Written 2026-
 - [ ] Google Search Console → URL Inspection → "Request Indexing" for each of these URLs (click-through links provided in session 2026-05-22):
   - `/`, `/about.html`, `/healthcare.html`, `/resources.html`, `/proposal-enquiry.html`
   - 6 pre-existing article pages (1 deleted 2026-05-22 — NSQHS Second Edition)
-  - **New 2026-05-23**: `/articles/reform-without-reporting.html`
+  - **New 2026-05-23**: `/articles/reform-without-reporting.html` ✅ Request Indexing submitted 2026-05-23
   - Note: rate-limited to ~10–12 requests/day per property
 - [ ] Skim 7 backend topic dossiers at `/topics/*.md` for factual accuracy — particularly commencement dates of Aged Care Act 2024 components, QI Program 4.0 indicator list specifics, current prudential standards thresholds
 - [ ] Flip GBP to service-area mode (hide street, add service areas)
