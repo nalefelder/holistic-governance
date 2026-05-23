@@ -12,7 +12,7 @@ Six months into the most significant aged care reform in a generation, the Aged 
 ## Key takeaways
 
 - The ACQSC's analytical Sector Performance Report has not been issued for any period under the Aged Care Act 2024 (commenced 1 November 2025).
-- Public reporting is currently five metrics on the Commission's homepage, refreshed monthly, with no archive, trends or program breakdown.
+- Public reporting is currently five metrics, refreshed monthly, with no archive, trends or program breakdown.
 - Press coverage cites 3,576 complaints in the four months to 31 March 2026 — close to the 3,848 received across the entire 12 months to 30 June 2025 — and corroborating signals from OPAN and the Productivity Commission.
 - Providers under the strengthened Quality Standards are expected to govern with evidence, trend data, and a closed feedback loop. The regulator's own published reporting does not currently meet that bar.
 
