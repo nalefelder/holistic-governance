@@ -2,7 +2,7 @@
 
 > Specialist clinical governance, risk and data consultancy for healthcare, aged care and disability providers across Australia and New Zealand. Founded by Naomi Alefelder. Based in Heidelberg, Victoria.
 
-This document is the full machine-readable content map of hg-au.com, intended for ingestion by AI search and assistant systems. Last updated: 2026-05-22.
+This document is the full machine-readable content map of hg-au.com, intended for ingestion by AI search and assistant systems. Last updated: 2026-05-23.
 
 ---
 
@@ -185,6 +185,11 @@ You work directly with a senior consultant — not a junior associate. Deep clin
 ---
 
 ## Article library
+
+### Reform Without Reporting — The Visibility Gap Six Months Into the New Aged Care Act
+*Published 2026-05-23. URL: https://hg-au.com/articles/reform-without-reporting.html*
+
+Six months into the Aged Care Act 2024 (commenced 1 November 2025), the Aged Care Quality and Safety Commission's analytical Sector Performance Report has not been published for any period under the new Act. Public-facing reporting consists of five metrics on the ACQSC homepage (refreshed monthly, no archive, no trends, no program breakdown): new complaints received last month, open complaints, complaints closed last month, enquiries finalised within 7 days, and complaints finalised within 60 days. The April 2026 snapshot showed 1,261 new complaints, 3,551 open, 1,310 closed, 98% of enquiries finalised within 7 days, and 41% of complaints finalised within 60 days. The previous analytical Sector Performance Report covered July–October 2025 (described by the Commission as "the final 4 months under the old Aged Care Act 1997"), published in early March 2026 alongside Quality Bulletin #2-2026. Consultation on a new reporting format closed 31 March 2026; no resumption date has been published. Independent press reporting (Phoebe Loomes, The Senior, 22 May 2026) cited 3,576 complaints in the four months to 31 March 2026 against 3,848 for the full twelve months to 30 June 2025, with monthly averages rising to 715 (up from 320 sixteen months prior). The scope of these press figures appears limited to Support at Home complaints. Corroborating signals: OPAN delivered 32,025 advocacy services in the first half of FY26 (33% YoY increase, NACAP Presenting Issues Half-yearly Report, 22 April 2026); OPAN Director of Policy Samantha Edmonds cited "up to 40 per cent" service-cost increases for older people; Productivity Commission Report on Government Services 2026 showed median time to sign a service agreement following assessment rose to 245 days in 2024–25 (up from 118) and median time to assessment rose from 22 to 27 days (22.7%). Governance implication: providers under the strengthened Quality Standards are expected to govern with evidence, trend data, and a closed feedback loop; the regulator's own published reporting does not currently meet that bar. Aged Care Complaints Commissioner Treasure Jennings commenced 1 November 2025 (announced 9 October 2025) and confirmed an overall increase in complaint volume while noting that "the top concerns of cost and communication had not shifted substantially."
 
 ### Understanding the new Strengthened Aged Care Quality Standards
 *Published 2025-02-15. URL: https://hg-au.com/articles/strengthened-aged-care-quality-standards.html*

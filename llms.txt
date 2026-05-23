@@ -28,6 +28,7 @@ Naomi Alefelder is a registered nurse (AHPRA NMW000180905) with an MBA (Charles 
 
 ## Articles
 
+- [Reform Without Reporting — The Visibility Gap Six Months Into the New Aged Care Act](https://hg-au.com/articles/reform-without-reporting.html): Sector insight piece (May 2026) on the absence of analytical Sector Performance Reports under the new Aged Care Act 2024, contrasted with five live ACQSC homepage metrics, recent press reporting (3,576 complaints in four months to 31 March 2026), and corroborating data from OPAN and the Productivity Commission.
 - [Understanding the new Strengthened Aged Care Quality Standards](https://hg-au.com/articles/strengthened-aged-care-quality-standards.html): What changes for providers under the new outcomes-focused standards.
 - [FHIR interoperability — what healthcare leaders need to know](https://hg-au.com/articles/fhir-interoperability.html): What FHIR means for your organisation and how to prepare.
 - [The Quality Indicator Program — Manual 4.0 explained](https://hg-au.com/articles/quality-indicator-program-manual-4.html): New indicators and reporting requirements under QI Program Manual 4.0.
