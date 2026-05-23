@@ -7,12 +7,12 @@ featured: true
 summary: Six months into the most significant aged care reform in a generation, the Aged Care Quality and Safety Commission's analytical Sector Performance Report has not been published for any period under the new Aged Care Act 2024. Five live counters on the homepage are not a public-reporting system — they are a status panel.
 ---
 
-Six months into the most significant aged care reform in a generation, the Aged Care Quality and Safety Commission's analytical Sector Performance Report has not been published for any period under the new Aged Care Act 2024. The Commission's homepage shows five live metrics on sector complaints, refreshed monthly, with no archive, no chart, no breakdown by program, and no comparison to prior months.
+Six months into the most significant aged care reform in a generation, the Aged Care Quality and Safety Commission's analytical Sector Performance Report has not been published for any period under the new Aged Care Act 2024. The Commission's homepage shows five live metrics on sector complaints, refreshed monthly, with no archive, no breakdown by program, no trends and no comparison to prior months.
 
 ## Key takeaways
 
 - The ACQSC's analytical Sector Performance Report has not been issued for any period under the Aged Care Act 2024 (commenced 1 November 2025).
-- Public reporting is currently five live counters on the Commission's homepage, refreshed monthly, with no archive, charts, program breakdown, or time-series comparison.
+- Public reporting is currently five metrics on the Commission's homepage, refreshed monthly, with no archive, trends or program breakdown.
 - Press coverage cites 3,576 complaints in the four months to 31 March 2026 — close to the 3,848 received across the entire 12 months to 30 June 2025 — and corroborating signals from OPAN and the Productivity Commission.
 - Providers under the strengthened Quality Standards are expected to govern with evidence, trend data, and a closed feedback loop. The regulator's own published reporting does not currently meet that bar.
 
@@ -22,7 +22,7 @@ Six months into the most significant aged care reform in a generation, the Aged 
 
 - **New complaints received last month:** 1,261
 - **Open complaints being worked on:** 3,551
-- **Complaints closed last month:** 1,310
+- **Complaints closed last month:** 1,310 (some complaints closed may have been received in previous months)
 - **Enquiries finalised within 7 days:** 98%
 - **Complaints finalised within 60 days:** 41%
 
@@ -32,7 +32,7 @@ Source: ACQSC homepage, [agedcarequality.gov.au](https://www.agedcarequality.gov
 
 ## 2. What is not being published
 
-**The analytical report is paused.** The analytical Sector Performance Report — the quarterly publication the Commission has used since 2021 to provide narrative interpretation, charts, and trend analysis — has not been issued for any period under the new Act.
+**The analytical report is paused.** The analytical Sector Performance Report — the quarterly publication the Commission has used since 2018 to provide narrative interpretation, charts, and trend analysis — has not been issued for any period under the new Act.
 
 The most recent report covers July to October 2025, described by the Commission as "the final 4 months under the old Aged Care Act 1997." It was published in early March 2026, alongside Quality Bulletin #2-2026. The Aged Care Act 2024 commenced 1 November 2025.
 
@@ -42,7 +42,7 @@ Sources: ACQSC [Sector Performance page](https://www.agedcarequality.gov.au/news
 
 ## 3. What the press has reported
 
-**The numbers visible to the public.** On 22 May 2026, journalist Phoebe Loomes reported in The Senior (syndicated across ACM mastheads including the Newcastle Herald and Daily Advertiser) that 3,576 complaints were made to the ACQSC in the four months to 31 March 2026, against 3,848 for the full twelve months to 30 June 2025. The article frames these figures as evidence that complaints about the Support at Home program have doubled; the same paragraph notes that "the data includes complaints lodged for transition care and culturally sensitive care provided to Aboriginal and Torres Strait Islander people." The article does not state whether the figures cover all ACQSC complaints or are scoped to a particular program — readers of the original piece should interpret the framing as the journalist presented it.
+**The numbers visible to the public.** On 22 May 2026, journalist Phoebe Loomes reported in The Senior (syndicated across ACM mastheads including the Newcastle Herald and Daily Advertiser) that 3,576 complaints were made to the ACQSC in the four months to 31 March 2026, against 3,848 for the full twelve months to 30 June 2025. The article frames these figures as evidence that complaints about the Support at Home program have doubled; the same paragraph notes that "the data includes complaints lodged for transition care and culturally sensitive care provided to Aboriginal and Torres Strait Islander people." The scope of the figures appears to be limited to the Support at Home program.
 
 The article reports that "on average, the commission is now seeing double the amount of complaints each month than it did 16 months prior." An accompanying ACM graphic puts the average monthly complaints figure at 715, up from 320. The article frames these monthly averages in the context of Support at Home complaints; the per-month figures appear to use a different methodology than a straight division of the four-month total, and readers should interpret each figure within the scope and methodology the journalist presents.
 
@@ -55,7 +55,7 @@ Source: Phoebe Loomes, ["Pressure mounts on the Prime Minister as aged care comp
 **Three corroborating data points.**
 
 - **OPAN advocacy demand.** OPAN delivered 32,025 advocacy services in the first half of FY26 — a 33% increase on the same period last year. ([Older Persons Advocacy Network, NACAP Presenting Issues Half-yearly Report, released 22 April 2026](https://opan.org.au/2026/04/22/presenting-issues-half-yearly-report/).)
-- **Cost pressure on consumers.** OPAN Director of Policy Samantha Edmonds told The Senior older people were struggling with "up to 40 per cent increases in the costs of their services." (Loomes, 22 May 2026.)
+- **Cost pressure on consumers.** OPAN Director of Policy Samantha Edmonds told The Senior older people were struggling with "up to 40 per cent increases in the costs of their services." ([Loomes, The Senior, 22 May 2026](https://www.thesenior.com.au/story/9251386/government-accused-of-rationing-home-care-as-complaints-double/).)
 - **Productivity Commission wait-time data.** The Productivity Commission's 2026 Report on Government Services recorded that the median time to sign a service agreement following a successful assessment was 245 days in 2024–25, up from 118 days in 2023–24. The median time to receive an aged care assessment increased from 22 days to 27 days over the same period (a 22.7% increase). The data precedes the commencement of the new Act. ([Productivity Commission, Report on Government Services 2026, released February 2026](https://www.pc.gov.au/ongoing/report-on-government-services/community-services/aged-care-services/).)
 
 ## The governance point
@@ -63,6 +63,8 @@ Source: Phoebe Loomes, ["Pressure mounts on the Prime Minister as aged care comp
 The current public snapshot — 1,261 new complaints in April 2026, 3,551 open, 41% closed within 60 days — is a sobering one whether you compare it to anything or not. But because the Commission has paused its analytical reporting, no provider board, executive team, quality lead, registered manager, journalist, member of the public, or member of Parliament can see whether this snapshot is improving, stable, or deteriorating. The visibility gap is itself a governance issue, before the underlying numbers are even considered.
 
 ## In closing
+
+Six months into the new Act, the absence of analytical sector performance data — and the corresponding loss of public transparency — is deeply concerning for providers, boards, consumers, advocates, and the wider public. At this point in the reform, it is unacceptable.
 
 Providers under the new strengthened Quality Standards are expected to govern with evidence, trend data, and a closed feedback loop. The Commission's own published reporting does not currently meet that bar.
 
