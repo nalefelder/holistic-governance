@@ -64,7 +64,7 @@ The current public snapshot — 1,261 new complaints in April 2026, 3,551 open, 
 
 ## In closing
 
-Six months into the new Act, the absence of analytical sector performance data — and the corresponding loss of public transparency — is deeply concerning for providers, boards, consumers, advocates, and the wider public. At this point in the reform, it is unacceptable.
+Six months into the new Act, the absence of analytical sector performance data — and the corresponding loss of public transparency — is concerning for providers, boards, consumers, advocates, and the wider public. At this point in the reform, it falls short of what the sector and the public should reasonably expect.
 
 Providers under the new strengthened Quality Standards are expected to govern with evidence, trend data, and a closed feedback loop. The Commission's own published reporting does not currently meet that bar.
 
