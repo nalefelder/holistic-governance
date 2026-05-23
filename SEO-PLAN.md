@@ -18,7 +18,7 @@ Reference doc for the SEO work on the Holistic Governance website. Written 2026-
 
 ---
 
-## Status snapshot (as of 2026-05-22)
+## Status snapshot (as of 2026-05-23)
 
 ### Traditional SEO foundation
 | Area | State |
@@ -36,7 +36,7 @@ Reference doc for the SEO work on the Holistic Governance website. Written 2026-
 | GBP → service-area mode + complete profile | ⏳ Manual — see guide below |
 | 3+ Google reviews | ⏳ Manual — see guide |
 | Backlinks (current ≈ 0) | ⏳ Ongoing — Tier 1 first |
-| Content cadence (1 article every 2 weeks) | ⏳ Calendar drafted; first publish (12 May 2026) slipped |
+| Content cadence (1 article every 2 weeks) | ⏳ Calendar drafted; calendar #1 (12 May 2026) slipped. Ad-hoc sector insight "Reform Without Reporting" published 2026-05-23 outside the calendar. |
 
 ### AI search discoverability layer (added 2026-05-22)
 | Area | State |
@@ -53,7 +53,7 @@ Reference doc for the SEO work on the Holistic Governance website. Written 2026-
 | Incorrect "NSQHS Standards Second Edition: Key Changes for 2025" article deleted | ✅ 2026-05-22 (factual errors per author); removed from sitemap, llms files, resources.html |
 | Backend HG Reference topic dossiers at `/topics/` | ✅ 9 dossiers, ~12,500 words — Aged Care Act 2024, Strengthened Standards, Rights-Based Care, ACQS Audit, Financial & Prudential Standards, QI Program, SIRS, Support at Home, Board Responsibilities (incl. Responsible Person duties). Indexed only via `llms.txt`; not in sitemap; not linked from visible pages. |
 | Jekyll disabled (`.nojekyll`) | ✅ so `.md` files serve as-is for AI fetchers |
-| IndexNow (Bing/Yandex/Naver/Seznam → Copilot, ChatGPT browse) | ✅ key file `b28a40dc768afeabbe32943e3af7f361.txt` at root; 21+ URLs submitted across 2026-05-22 commits |
+| IndexNow (Bing/Yandex/Naver/Seznam → Copilot, ChatGPT browse) | ✅ key file `b28a40dc768afeabbe32943e3af7f361.txt` at root; 21+ URLs submitted across 2026-05-22 commits; 5 URLs (new article + resources + sitemap + llms.txt + llms-full.txt) re-submitted 2026-05-23 — HTTP 200 |
 | Topic dossier accuracy review | ⏳ Naomi to verify factual specifics (commencement dates, QI 4.0 indicator list, prudential standards) |
 | Article-specific OG images | ⏳ pipeline supports per-article OG; no per-article images created yet |
 
@@ -64,9 +64,10 @@ Reference doc for the SEO work on the Holistic Governance website. Written 2026-
 ### Critical — this week
 
 - [ ] Open Google Search Console → submit `sitemap.xml`. Direct link: https://search.google.com/search-console/sitemaps?resource_id=https%3A%2F%2Fhg-au.com%2F
-- [ ] Google Search Console → URL Inspection → "Request Indexing" for each of these 12 URLs (click-through links provided in session 2026-05-22):
+- [ ] Google Search Console → URL Inspection → "Request Indexing" for each of these URLs (click-through links provided in session 2026-05-22):
   - `/`, `/about.html`, `/healthcare.html`, `/resources.html`, `/proposal-enquiry.html`
-  - 6 remaining article pages (1 deleted 2026-05-22 — NSQHS Second Edition)
+  - 6 pre-existing article pages (1 deleted 2026-05-22 — NSQHS Second Edition)
+  - **New 2026-05-23**: `/articles/reform-without-reporting.html`
   - Note: rate-limited to ~10–12 requests/day per property
 - [ ] Skim 7 backend topic dossiers at `/topics/*.md` for factual accuracy — particularly commencement dates of Aged Care Act 2024 components, QI Program 4.0 indicator list specifics, current prudential standards thresholds
 - [ ] Flip GBP to service-area mode (hide street, add service areas)
@@ -78,7 +79,7 @@ Reference doc for the SEO work on the Holistic Governance website. Written 2026-
 - [ ] Tier 1 backlinks (AICD, alumni, association memberships, Crunchbase / Apollo / ZoomInfo) — biggest remaining AI-discoverability gap; AI engines weight citation graph heavily
 - [ ] Optimise LinkedIn personal profile (headline, About, contact info)
 - [ ] Optimise LinkedIn company page (location, tagline with keywords)
-- [ ] Publish first article from the calendar (originally 12 May 2026 — slipped; reschedule)
+- [ ] Publish first article from the calendar (originally 12 May 2026 — slipped; reschedule). Note: an ad-hoc sector insight ("Reform Without Reporting") was published 2026-05-23 outside the calendar — it does not replace the calendar #1 piece.
 - [ ] Decide on reshaped article strategy for the 6 remaining existing articles: expand the 3 non-overlapping (Strengthened ACQS, Data Governance Framework, Data Quality Foundation of AI), retire/redirect the 3 overlapping with the 2026 content calendar (FHIR, QI Program 4.0, Competitor Intelligence), and treat planned 2026 pieces as their successors
 - [ ] Spot-check AI engines in 2–4 weeks: ask Perplexity / ChatGPT / Claude "what does Holistic Governance do" and "who is Naomi Alefelder" to see if HG content surfaces
 
@@ -288,3 +289,5 @@ The 2026-05-05 09:00 AEST one-time check-in routine has elapsed (trig_01KeRhAzLf
 | `e870dfb` | Delete incorrect "NSQHS Standards Second Edition: Key Changes for 2025" article (factual errors per author); removed from sitemap, llms files, resources.html, articles.json |
 | `5744ae9` | 7 backend HG Reference topic dossiers at `/topics/` for AI ingestion (Aged Care Act 2024, Strengthened Standards, Rights-Based Care, ACQS Audit, Financial & Prudential, QI Program, SIRS). Indexed only via llms.txt + llms-full.txt; not in sitemap; not in visible nav. ~8,800 words total. |
 | `4302198` | `.nojekyll` (so `.md` files serve as-is, not converted to .html by Jekyll); remove visible FAQ from homepage per request + remove corresponding FAQPage schema to keep schema aligned with visible content |
+| `18dc068` → `8b758ff` | **2026-05-23** — Publish "Reform Without Reporting" sector insight article + 4 author-edit refinements (Sector Performance Report runs since 2018 not 2021, tightened lead/Key Takeaways wording, sharpened Support at Home scope, hyperlinked Edmonds citation, closing paragraph naming the transparency gap, softened tone). Added to articles.json, resources.html tile, sitemap.xml. |
+| `9d20738` | **2026-05-23** — Register "Reform Without Reporting" in AI ingestion layer: llms.txt (curated index) + llms-full.txt (full content map). Bumped llms-full.txt Last updated to 2026-05-23. IndexNow ping for 5 URLs returned HTTP 200. |
