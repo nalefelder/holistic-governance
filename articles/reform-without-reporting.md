@@ -68,7 +68,7 @@ Six months into the new Act, the absence of analytical sector performance data â
 
 Providers under the new strengthened Quality Standards are expected to govern with evidence, trend data, and a closed feedback loop. The Commission's own published reporting does not currently meet that bar.
 
-Five live counters, refreshed monthly, with no archive behind them, are not a public-reporting system. They are a status panel.
+Five live counters, refreshed monthly, with no trends, are not a public-reporting system. They are a status panel.
 
 ## Sources
 
