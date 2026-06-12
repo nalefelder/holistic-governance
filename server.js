@@ -53,10 +53,14 @@ function rebuildArticles() {
 }
 
 if (fs.existsSync(articlesDir)) {
+  // OneDrive sync can fire bursts of events on the articles dir; coalesce
+  // so a burst produces one rebuild rather than one per event.
+  let pendingRebuild = null;
   fs.watch(articlesDir, (event, filename) => {
     if (filename && filename.endsWith('.md')) {
       console.log(`Detected change: ${filename}`);
-      setTimeout(rebuildArticles, 200);
+      clearTimeout(pendingRebuild);
+      pendingRebuild = setTimeout(rebuildArticles, 200);
     }
   });
 }
@@ -162,7 +166,9 @@ app.post('/api/articles', requireSession, (req, res) => {
   const frontmatter = frontmatterLines.join('\n');
 
   const fileContent = frontmatter + '\n\n' + (body || '');
-  fs.writeFileSync(path.join(articlesDir, safeName + '.md'), fileContent);
+  const filePath = path.join(articlesDir, safeName + '.md');
+  if (!filePath.startsWith(path.resolve(articlesDir))) return res.status(400).json({ error: 'Invalid slug' });
+  fs.writeFileSync(filePath, fileContent);
 
   rebuildArticles();
   res.json({ ok: true, slug: safeName });
