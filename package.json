@@ -1,5 +1,5 @@
 {
-  "name": "true-north-assurance",
+  "name": "holistic-governance",
   "version": "1.0.0",
   "description": "",
   "main": "build-articles.js",
@@ -9,16 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nalefelder/true-north-assurance.git"
+    "url": "git+https://github.com/nalefelder/holistic-governance.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/nalefelder/true-north-assurance/issues"
+    "url": "https://github.com/nalefelder/holistic-governance/issues"
   },
-  "homepage": "https://github.com/nalefelder/true-north-assurance#readme",
+  "homepage": "https://github.com/nalefelder/holistic-governance#readme",
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "dotenv": "^17.4.0",
