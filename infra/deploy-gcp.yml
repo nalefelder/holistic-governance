@@ -1,0 +1,72 @@
+name: Deploy static site to GCP
+
+# Builds the static site and syncs it to a Cloud Storage bucket in
+# australia-southeast1 (Sydney), then invalidates the Cloud CDN cache.
+#
+# Auth uses Workload Identity Federation (keyless) — no service-account JSON
+# key is stored in GitHub. Configure these repo-level *Variables* (Settings →
+# Secrets and variables → Actions → Variables):
+#   GCP_PROJECT_ID    e.g. hg-au-prod
+#   GCS_BUCKET        e.g. hg-au-site
+#   GCP_URL_MAP       e.g. hg-site-urlmap
+#   WIF_PROVIDER      projects/<num>/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+#   GCP_DEPLOYER_SA   site-deployer@<project>.iam.gserviceaccount.com
+#
+# All of these are emitted as Terraform outputs by infra/terraform.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-gcp
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write   # required for Workload Identity Federation
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site (articles, resources, OG images)
+        run: |
+          node build-articles.js
+          node build-resources.js
+          node build-og-image.js
+
+      - name: Authenticate to GCP (keyless / WIF)
+        uses: google-github-actions/auth@v2
+        with:
+          project_id: ${{ vars.GCP_PROJECT_ID }}
+          workload_identity_provider: ${{ vars.WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOYER_SA }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Sync to Cloud Storage
+        # -r recurse, -d mirror (delete removed files), -x exclude regex.
+        # The exclude list keeps source/tooling/admin files out of the public
+        # bucket. Excluded paths are skipped for BOTH copy and delete.
+        run: |
+          gsutil -m rsync -r -d \
+            -x '^\.git/|^\.github/|^node_modules/|^infra/|^docs/|^enquiries/|^server\.js$|^admin\.html$|^login\.html$|^build-articles\.js$|^build-resources\.js$|^build-og-image\.js$|^generate-mfa\.js$|^manage-users\.js$|^package\.json$|^package-lock\.json$|^\.env|^admin-users\.json$|^admin-audit\.log$|^SEO-PLAN\.md$|^\.gitignore$|^\.gitattributes$|^CNAME$' \
+            . gs://${{ vars.GCS_BUCKET }}
+
+      - name: Invalidate Cloud CDN cache
+        run: |
+          gcloud compute url-maps invalidate-cdn-cache "${{ vars.GCP_URL_MAP }}" \
+            --path "/*" --global --async
