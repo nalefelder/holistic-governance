@@ -99,7 +99,7 @@
     .testimonial-quote { position: relative; margin: 0; padding: 2.5rem 0 2rem; }
     .testimonial-quote::before, .testimonial-quote::after {
       position: absolute; font-family: 'Cormorant Garamond', serif; font-size: 5.5rem;
-      line-height: 1; color: var(--sky); opacity: 0.16; pointer-events: none;
+      line-height: 1; color: var(--sky); opacity: 1; pointer-events: none;
     }
     .testimonial-quote::before { content: '\201C'; top: 0; left: -0.5rem; }
     .testimonial-quote::after { content: '\201D'; bottom: 0; right: 0; }
@@ -114,8 +114,10 @@
     .testimonial-cite-text { display: block; flex: 1 1 auto; min-width: 0; }
     .testimonial-name { display: block; font-family: 'DM Sans', sans-serif; font-size: 1rem; color: var(--white); font-weight: 500; letter-spacing: 0.02em; }
     .testimonial-role { display: block; font-size: 0.85rem; color: var(--sky); margin-top: 0.2rem; }
-    .testimonial-service { position: relative; z-index: 1; display: block; font-size: 0.8rem; letter-spacing: 0.06em; color: var(--white); margin: 0 0 1.5rem; line-height: 1.5; }
-    .testimonial-service::before { content: 'Service: '; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--sky); }
+    .testimonial-service { position: relative; z-index: 1; display: block; font-size: 0.9rem; letter-spacing: 0.06em; color: var(--white); margin: 0 0 1.5rem; line-height: 1.5; }
+    .testimonial-service::before { content: 'Service: '; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: var(--sky); }
+    .testimonial-service-list { margin: 0.5rem 0 0; padding-left: 1.3rem; list-style: disc; }
+    .testimonial-service-list li { margin: 0.2rem 0; }
     .testimonial-controls { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 2rem; }
     .testimonial-arrow {
       width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 50%;
@@ -592,7 +594,12 @@
 
         <div class="testimonial-slide" role="group" aria-roledescription="slide">
           <figure class="testimonial-card">
-            <span class="testimonial-service">Pre-ACQSC Audit, Gap Analysis, Remediation Plan &amp; Custom Microsoft Power BI Data Visualisation Build</span>
+            <div class="testimonial-service">
+              <ul class="testimonial-service-list">
+                <li>Pre ACQSC Gap Analysis Audit and Remediation Plan</li>
+                <li>Custom Power BI Data Visualisation Build</li>
+              </ul>
+            </div>
             <blockquote class="testimonial-quote">
               <p>Naomi had a great understanding of the size and nature of our organisation and the audit and corrective actions were scaled accordingly. Naomi is a pleasure to work with, and her professionalism was apparent alongside her warm and engaging manner.</p>
               <p>We would absolutely recommend Naomi and Holistic Governance to others — such a positive experience. The thought of doing this work ourselves was overwhelming, but Naomi completed the project on time, and with great communication throughout.</p>
