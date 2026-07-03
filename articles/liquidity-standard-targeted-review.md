@@ -89,10 +89,10 @@ Alongside the review, the Commission has updated several of its Financial and Pr
 
 The following resources have been updated:
 
-- **Financial and Prudential Standards: Guidance for providers**
-- **Fact sheets** for each standard
-- **Evaluated minimum liquidity amount (MLA) notification form**
-- a **poster** about the new Financial and Prudential Standards.
+- [**Financial and Prudential Standards: Guidance for providers**](https://www.agedcarequality.gov.au/resource-library/financial-and-prudential-standards-guidance-providers)
+- [**Fact sheets**](https://www.agedcarequality.gov.au/resource-library?resources%5B0%5D=topics%3A8937&resources%5B1%5D=type%3A251&resources%5B2%5D=year%3A8909) for each standard
+- [**Evaluated minimum liquidity amount (MLA) notification form**](https://www.agedcarequality.gov.au/resource-library/evaluated-mla-notification-form)
+- a [**poster**](https://www.agedcarequality.gov.au/resource-library/new-financial-and-prudential-standards-poster) about the new Financial and Prudential Standards.
 
 ## What providers should do now
 
