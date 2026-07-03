@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f172a; --navy-mid:#1e293b; --white:#f1f5f9;
+    --text-mid:#94a3b8; --text-light:#64748b;
+    --sky:#38bdf8; --sky-light:#7dd3fc;
+    --border:rgba(56,189,248,0.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1080px;height:1350px;overflow:hidden;}
+  body{
+    font-family:'DM Sans',sans-serif;
+    background:
+      radial-gradient(1100px 700px at 88% -6%, rgba(56,189,248,0.16), transparent 60%),
+      radial-gradient(900px 600px at -10% 108%, rgba(56,189,248,0.08), transparent 55%),
+      var(--navy);
+    color:var(--white);
+    position:relative;
+  }
+  .frame{display:none;}
+  .wrap{position:absolute;inset:0;padding:100px 92px 90px;display:flex;flex-direction:column;}
+
+  /* header */
+  .brand{display:flex;align-items:center;gap:22px;}
+  .brand img{height:72px;width:auto;display:block;}
+  .brand .name{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:500;letter-spacing:.04em;color:var(--white);line-height:1;}
+  .brand .name span{color:var(--sky);}
+
+  .chip{display:inline-block;margin-top:58px;padding:10px 20px;border:1px solid var(--border);
+    border-radius:3px;color:var(--sky);font-size:19px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;align-self:flex-start;background:rgba(56,189,248,0.06);}
+
+  h1{font-family:'Cormorant Garamond',serif;font-weight:300;color:var(--white);
+    font-size:98px;line-height:1.06;letter-spacing:.005em;margin-top:44px;}
+  h1 b{font-weight:600;color:var(--sky-light);}
+  .sub{font-size:30px;line-height:1.5;color:#cbd5e1;margin-top:26px;font-weight:300;max-width:860px;}
+
+  .divider{height:1px;background:linear-gradient(90deg,var(--sky),rgba(56,189,248,0));margin:46px 0 42px;}
+
+  .callout{border-left:3px solid var(--sky);padding-left:38px;}
+  .callout p{font-family:'DM Sans',sans-serif;font-size:46px;line-height:1.44;color:var(--white);font-weight:300;max-width:920px;}
+  .callout b{color:var(--sky-light);font-weight:500;}
+
+  ul{list-style:none;margin-top:50px;display:flex;flex-direction:column;gap:34px;}
+  li{position:relative;padding-left:52px;font-size:31px;line-height:1.42;color:#cbd5e1;font-weight:300;max-width:910px;}
+  li b{color:var(--white);font-weight:500;}
+  li::before{content:'';position:absolute;left:0;top:13px;width:21px;height:21px;
+    border-right:2px solid var(--sky);border-top:2px solid var(--sky);transform:rotate(45deg);}
+
+  .spacer{flex:1;}
+
+  .source{font-size:21px;color:var(--text-light);font-weight:400;letter-spacing:.01em;margin-top:30px;}
+  .source b{color:var(--text-mid);font-weight:500;}
+  .cta{display:flex;align-items:center;justify-content:space-between;}
+  .cta .read{font-size:24px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-mid);font-weight:500;}
+  .cta .url{display:flex;align-items:center;gap:16px;font-family:'DM Sans',sans-serif;
+    font-size:34px;letter-spacing:.14em;text-transform:uppercase;color:var(--sky);font-weight:700;}
+  .cta .url .arrow{font-size:30px;color:var(--sky);font-weight:500;}
+</style>
+</head>
+<body>
+  <div class="frame"></div>
+  <div class="wrap">
+    <div class="brand">
+      <img src="../logo-hg-trimmed.png" alt="Holistic Governance" />
+      <div class="name">Holistic <span>Governance</span></div>
+    </div>
+
+    <div class="chip">Regulatory Watch · Aged Care Governance</div>
+
+    <h1>Targeted Review on the New <b>Liquidity Standard</b></h1>
+
+    <div class="divider"></div>
+
+    <div class="callout">
+      <p>From <b>July&nbsp;2026</b>, the ACQSC will begin a targeted review of the Liquidity Standard — for <b>Category&nbsp;6</b> residential aged care providers.</p>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="cta">
+      <div class="read">Read the full article</div>
+      <div class="url"><span class="arrow">→</span>HG-AU.COM</div>
+    </div>
+    <div class="source">Source: ACQSC <b>Aged Care Quality Bulletin #6-2026</b></div>
+  </div>
+</body>
+</html>
