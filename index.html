@@ -279,7 +279,7 @@
 
 <nav>
   <a href="index.html" class="logo"><img src="logo-hg-trimmed.png" alt="Holistic Governance" width="351" height="524"><span class="logo-name">Holistic <span>Governance</span></span></a>
-  <button class="hamburger" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
+  <button class="hamburger" aria-label="Menu" onclick="this.nextElementSibling.classList.toggle('open')">&#9776;</button>
   <ul>
     <li><a href="about.html">About</a></li>
     <li><a href="healthcare.html">Solutions</a></li>
@@ -498,7 +498,7 @@
   </div>
 </footer>
 
-<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+<button class="back-to-top" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
 </button>
 
@@ -526,3 +526,5 @@ window.addEventListener('scroll', function() {
   document.querySelector('.back-to-top').classList.toggle('visible', window.scrollY > 400);
 });
 </script>
+</body>
+</html>
