@@ -15,7 +15,7 @@ This document is the full machine-readable content map of hg-au.com, intended fo
 **Founded:** 2024
 **Head office:** Heidelberg, Victoria 3084, Australia
 **Service area:** Australia and New Zealand (remote and on-site)
-**Email:** enquiries@hg-au.com
+**Email:** info@hg-au.com
 **Phone:** +61 405 515 300
 **Website:** https://hg-au.com
 **Company LinkedIn:** https://www.linkedin.com/company/hg-au/
