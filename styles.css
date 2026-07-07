@@ -115,6 +115,11 @@ h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3re
 .contact-popup a { display: flex; align-items: center; gap: 0.75rem; padding: 0.7rem 1rem; background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.2); border-radius: 4px; color: #f1f5f9; text-decoration: none; font-size: 0.88rem; font-family: 'DM Sans', sans-serif; transition: background 0.2s, border-color 0.2s; }
 .contact-popup a:hover { background: rgba(56,189,248,0.15); border-color: var(--sky); }
 .contact-popup svg { width: 18px; height: 18px; color: var(--sky); flex-shrink: 0; }
+.collab-intro { color: var(--text-mid); max-width: 620px; margin-bottom: 2rem; font-size: 1rem; line-height: 1.7; }
+.collab-socials { display: flex; gap: 1rem; margin-bottom: 2.2rem; }
+.collab-socials a { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border: 1px solid var(--border-mid); border-radius: 50%; color: var(--sky); transition: background .2s, border-color .2s, transform .2s; }
+.collab-socials a:hover { background: rgba(56,189,248,0.12); border-color: var(--sky); transform: translateY(-2px); }
+.collab-socials svg { width: 20px; height: 20px; }
 
 /* ── FOOTER ── */
 footer {
